@@ -26,7 +26,7 @@ class ForfaitVoixPage extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) {
                   final item = Constantes.forfaitsAppel[index];
                   return Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                    padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 30),
                     child: SizedBox(
                       height: 65,
                       child: ElevatedButton(
