@@ -37,46 +37,46 @@ class HomePage extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 10),
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              CustomButton(label: 'Solde credit'),
-              SizedBox(width: 15),
-              CustomButton(label: 'Solde money'),
-            ],
+
+          const Padding(
+            padding: EdgeInsets.only(right: 20, left: 20, top: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                CustomButton(label: 'Solde credit'),
+                CustomButton(label: 'Solde money'),
+              ],
+            ),
           ),
-          const SizedBox(height: 10),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text(
-                "Forfait Internet",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
+
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 18),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                  "Forfait Internet",
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-              const SizedBox(
-                width: 30,
-              ),
-              Container(
-                width: 220,
-                height: 10,
-                decoration: const BoxDecoration(
-                  border: Border(
-                    bottom: BorderSide(
-                      color: Colors.black,
-                      width: 1.0,
+                Container(
+                  width: 260,
+                  height: 10,
+                  decoration: const BoxDecoration(
+                    border: Border(
+                      bottom: BorderSide(
+                        color: Colors.black,
+                        width: 0.8,
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-          const SizedBox(height: 10),
           SizedBox(
-            height: 100,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: Constantes.forfaitsInternet.length,
@@ -90,37 +90,34 @@ class HomePage extends StatelessWidget {
                   prix: item.prix);
               } ),
           ),
-          const SizedBox(height: 10),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text(
-                "Forfait Appel",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 18),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                  "Forfait Appel",
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-              const SizedBox(
-                width: 30,
-              ),
-              Container(
-                width: 220,
-                height: 10,
-                decoration: const BoxDecoration(
-                  border: Border(
-                    bottom: BorderSide(
-                      color: Colors.black,
-                      width: 1.0,
+                Container(
+                  width: 270,
+                  height: 10,
+                  decoration: const BoxDecoration(
+                    border: Border(
+                      bottom: BorderSide(
+                        color: Colors.black,
+                        width: 0.8,
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-          const SizedBox(height: 10),
           SizedBox(
-            height: 100,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: Constantes.forfaitsAppel.length,
@@ -135,36 +132,38 @@ class HomePage extends StatelessWidget {
                   prix: item.prix);
               } ),
           ),
-          const SizedBox(height: 10),
-           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text(
-                    'Historique',
-                    style: TextStyle(
-                        fontWeight: FontWeight.w900,
-                        fontSize: 18,
-                        color: Colors.black),
-                  ),
-                  const SizedBox(width: 190,),
-                  TextButton(
-                      onPressed: () {},
-                      child: const Row(
-                        children: [
-                          Text(
-                            'Voir Plus',
-                            style:
-                                TextStyle(color: ColorConstants.colorCustomButton),
-                          ),
-                          Icon(
-                            Icons.arrow_forward_ios_sharp,
-                            size: 18,
-                            color: ColorConstants.colorCustomButton,
-                          ),
-                        ],
-                      ))
-                ],
-              ),
+           Padding(
+             padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 18),
+             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      'Historique',
+                      style: TextStyle(
+                          fontWeight: FontWeight.w900,
+                          fontSize: 18,
+                          color: Colors.black),
+                    ),
+                    const SizedBox(width: 190,),
+                    TextButton(
+                        onPressed: () {},
+                        child: const Row(
+                          children: [
+                            Text(
+                              'Voir Plus',
+                              style:
+                                  TextStyle(color: ColorConstants.colorCustomButton),
+                            ),
+                            Icon(
+                              Icons.arrow_forward_ios_sharp,
+                              size: 18,
+                              color: ColorConstants.colorCustomButton,
+                            ),
+                          ],
+                        ))
+                  ],
+                ),
+           ),
         ],
       ),
     );

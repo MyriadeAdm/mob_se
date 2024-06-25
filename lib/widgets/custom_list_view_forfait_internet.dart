@@ -17,7 +17,7 @@ class CustomListViewForfaitInternet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: 10),
+      padding: const EdgeInsets.only(right: 8),
       child: Container(
         decoration: BoxDecoration(
           border: Border.all(
@@ -27,8 +27,9 @@ class CustomListViewForfaitInternet extends StatelessWidget {
           borderRadius: const BorderRadius.all(Radius.circular(15)),
         ),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+          padding: const EdgeInsets.only(top: 10, left: 10,right: 10),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
                 children: [
@@ -43,7 +44,7 @@ class CustomListViewForfaitInternet extends StatelessWidget {
                 ],
               ),
               Text(
-                'Validite $validite',
+                'Validité $validite',
                 style: const TextStyle(
                   fontSize: 14,
                 ),
