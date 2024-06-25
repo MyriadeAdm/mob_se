@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mob_se/constants/color_constants.dart';
+import 'package:mob_se/pages/forfait_voix_page.dart';
 
 class ForfaitPage extends StatelessWidget {
   const ForfaitPage({super.key});
@@ -30,7 +31,9 @@ class ForfaitPage extends StatelessWidget {
               SizedBox(
                 width: 150,
                 height: 150,
-                child: ElevatedButton(onPressed: () {}, 
+                child: ElevatedButton(onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => const ForfaitVoixPage()));
+                }, 
                 style: ElevatedButton.styleFrom(
                   backgroundColor: ColorConstants.colorCustomButton,
                   shape: RoundedRectangleBorder(
