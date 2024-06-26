@@ -27,7 +27,7 @@ class ForfaitMixtePage extends StatelessWidget {
             children: [
               returnBack(context),
               const Text(
-                "  Forfaits Mixtes",
+                "  Forfaits mixtes",
                 style: TextStyle(
                   fontSize: 25,
                   fontWeight: FontWeight.w800,
@@ -56,50 +56,61 @@ class ForfaitMixtePage extends StatelessWidget {
                   itemBuilder: (BuildContext context, int index) {
                     final item = Constantes.forfaitsMixte[index];
                     return Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
+                      padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 30),
                       child: SizedBox(
                         height: 65,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             backgroundColor: ColorConstants.colorCustomButton,
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
+                              borderRadius: BorderRadius.circular(13),
                             ),
                           ),
                           onPressed: () {},
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
-                                item.credit,
-                                style: const TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: ColorConstants.colorCustom2,
-                                ),
-                              ),
-                              Text(
-                                item.mega,
-                                style: const TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: ColorConstants.colorCustom2,
-                                ),
-                              ),
-                              Text(
-                                'valide ${item.validite} + ${item.msg} sms',
-                                style:
-                                    const TextStyle(
-                                      fontWeight: FontWeight.normal,
-                                      color: ColorConstants.colorCustom2,
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        item.credit,
+                                        style: const TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          color: ColorConstants.colorCustom2,
+                                        ),
                                       ),
+                                      const SizedBox(width: 20),
+                                      Text(
+                                        item.mega,
+                                        style: const TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          color: ColorConstants.colorCustom2,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Text(
+                                    'validité de ${item.validite} + ${item.msg} sms',
+                                    style:
+                                        const TextStyle(
+                                          fontWeight: FontWeight.normal,
+                                          color: ColorConstants.colorCustom2,
+                                          ),
+                                  ),
+                                ],
                               ),
-                              const SizedBox(width: 20),
-                              Text(
-                                '${item.prix} XOF',
-                                style: const TextStyle(fontWeight: FontWeight.bold,
-                                fontSize: 18,
-                                color: ColorConstants.colorCustom2,
-                                ),
-                              )
+                               Text(
+                                    '${item.prix} XOF',
+                                    style: const TextStyle(fontWeight: FontWeight.bold,
+                                    fontSize: 18,
+                                    color: ColorConstants.colorCustom2,
+                                    ),
+                                  )
                             ],
                           ),
                         ),
