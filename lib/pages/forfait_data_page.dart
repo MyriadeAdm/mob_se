@@ -27,7 +27,7 @@ class ForfaitDataPage extends StatelessWidget {
             children: [
               returnBack(context),
               const Text(
-                "  forfaits Internet",
+                "  Forfaits Internet",
                 style: TextStyle(
                   fontSize: 25,
                   fontWeight: FontWeight.w800,
@@ -52,9 +52,9 @@ class ForfaitDataPage extends StatelessWidget {
               child: SizedBox(
                 height: 700,
                 child: ListView.builder(
-                  itemCount: Constantes.forfaitsInternet.length,
+                  itemCount: Constantes.forfaitsMixte.length,
                   itemBuilder: (BuildContext context, int index) {
-                    final item = Constantes.forfaitsInternet[index];
+                    final item = Constantes.forfaitsMixte[index];
                     return Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 30),
                       child: SizedBox(

@@ -1,3 +1,5 @@
+import 'package:mob_se/objets/forfait_mixte.dart';
+
 import '../objets/forfait_appel.dart';
 import '../objets/forfait_internet.dart';
 import '../objets/historique.dart';
@@ -15,6 +17,15 @@ class Constantes {
     ForfaitInternet('20 Go', '30 j', '10000'),
     ForfaitInternet('60 Go', '30 j', '15000'),
     ForfaitInternet('110 Go', '30 j', '25000'),
+  ];
+
+  static final List<ForfaitMixte> forfaitsMixte = [
+    ForfaitMixte('700 TR', '20 Mo', '25', '1 j', '200'),
+    ForfaitMixte('1500 TR', '35 Mo', '25', '1 j', '300'),
+    ForfaitMixte('2200 TR', '70 Mo', '25', '2 j', '500'),
+    ForfaitMixte('5400 TR', '120 Mo', '50', '7 j', '1000'),
+    ForfaitMixte('13500 TR', '350 Mo', '50', '7 j', '2500'),
+    ForfaitMixte('42000 TR', '2 Go', '100', '30 j', '7500'),
   ];
 
   static final List<ForfaitAppel> forfaitsAppel = [
