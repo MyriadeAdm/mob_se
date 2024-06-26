@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mob_se/constants/color_constants.dart';
 import 'package:mob_se/constants/constantes.dart';
 
-class ForfaitVoixPage extends StatelessWidget {
-  const ForfaitVoixPage({super.key});
+class ForfaitMixtePage extends StatelessWidget {
+  const ForfaitMixtePage({super.key});
 
   IconButton returnBack(BuildContext context) {
     return IconButton(
@@ -27,7 +27,7 @@ class ForfaitVoixPage extends StatelessWidget {
             children: [
               returnBack(context),
               const Text(
-                "  Achat de forfaits",
+                "  Forfaits Mixtes",
                 style: TextStyle(
                   fontSize: 25,
                   fontWeight: FontWeight.w800,
@@ -52,9 +52,9 @@ class ForfaitVoixPage extends StatelessWidget {
               child: SizedBox(
                 height: 700,
                 child: ListView.builder(
-                  itemCount: Constantes.forfaitsAppel.length,
+                  itemCount: Constantes.forfaitsMixte.length,
                   itemBuilder: (BuildContext context, int index) {
-                    final item = Constantes.forfaitsAppel[index];
+                    final item = Constantes.forfaitsMixte[index];
                     return Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
                       child: SizedBox(
@@ -70,12 +70,15 @@ class ForfaitVoixPage extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              const Icon(
-                                Icons.call,
-                                color: ColorConstants.colorCustom2,
-                              ),
                               Text(
                                 item.credit,
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: ColorConstants.colorCustom2,
+                                ),
+                              ),
+                              Text(
+                                item.mega,
                                 style: const TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: ColorConstants.colorCustom2,
@@ -89,7 +92,7 @@ class ForfaitVoixPage extends StatelessWidget {
                                       color: ColorConstants.colorCustom2,
                                       ),
                               ),
-                              const SizedBox(width: 10),
+                              const SizedBox(width: 20),
                               Text(
                                 '${item.prix} XOF',
                                 style: const TextStyle(fontWeight: FontWeight.bold,
