@@ -25,7 +25,7 @@ class HomePage extends StatelessWidget {
                     icon: const Icon(
                       Icons.sim_card,
                       color: Colors.white,
-                      size: 25,
+                      size: 20,
                     )),
               ),
               const SizedBox(
@@ -39,9 +39,9 @@ class HomePage extends StatelessWidget {
           ),
 
           const Padding(
-            padding: EdgeInsets.only(right: 20, left: 20, top: 10),
+            padding: EdgeInsets.only(right: 20, left: 20, top: 30, bottom: 5),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 CustomButton(label: 'Solde credit'),
                 CustomButton(label: 'Solde money'),
@@ -50,12 +50,54 @@ class HomePage extends StatelessWidget {
           ),
 
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 18),
+            padding: const EdgeInsets.only(right: 15, left:15, top: 40, bottom: 18),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Text(
                   "Forfait Internet",
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Container(
+                  width: 250,
+                  height: 10,
+                  decoration: const BoxDecoration(
+                    border: Border(
+                      bottom: BorderSide(
+                        color: Colors.black,
+                        width: 0.8,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 90,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: Constantes.forfaitsInternet.length,
+              itemBuilder: (BuildContext context, int index) {
+                final item = Constantes.forfaitsInternet[index];
+            
+                return CustomListViewForfaitInternet(
+                  icon: const Icon(Icons.public), 
+                  mega: item.mega, 
+                  validite: item.validite, 
+                  prix: item.prix);
+              } ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(right: 15, left:15, top: 40, bottom: 18),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                  "Forfait Appel",
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -77,47 +119,7 @@ class HomePage extends StatelessWidget {
             ),
           ),
           SizedBox(
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: Constantes.forfaitsInternet.length,
-              itemBuilder: (BuildContext context, int index) {
-                final item = Constantes.forfaitsInternet[index];
-            
-                return CustomListViewForfaitInternet(
-                  icon: const Icon(Icons.public), 
-                  mega: item.mega, 
-                  validite: item.validite, 
-                  prix: item.prix);
-              } ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 18),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text(
-                  "Forfait Appel",
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Container(
-                  width: 270,
-                  height: 10,
-                  decoration: const BoxDecoration(
-                    border: Border(
-                      bottom: BorderSide(
-                        color: Colors.black,
-                        width: 0.8,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(
+            height: 95,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: Constantes.forfaitsAppel.length,

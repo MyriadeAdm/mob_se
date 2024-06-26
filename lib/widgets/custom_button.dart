@@ -9,7 +9,7 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  SizedBox(
-      height: 50,
+      height: 55,
       width: 180,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
@@ -23,7 +23,7 @@ class CustomButton extends StatelessWidget {
           style: const TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.w900,
-            color: Colors.black,
+            color: ColorConstants.colorCustom2,
           ),
         ),
       ),

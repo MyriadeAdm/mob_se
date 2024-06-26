@@ -8,36 +8,47 @@ class ForfaitPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Center(
-      child: Column(
-        children: [
-          const Text(
-            "Achat de forfaits",
+    return  Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Padding(
+          padding: EdgeInsets.only(left: 20),
+          child: Text(
+            "  Achat de forfaits",
             style: TextStyle(
               fontSize: 25,
               fontWeight: FontWeight.w800,
             ),
           ),
-          const SizedBox(
-            height: 20,
-          ),
-          const Divider(),
-          const SizedBox(
-            height: 20,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(
+        ),
+
+
+
+        const Divider(
+          height: 80,
+          indent: 50,
+          endIndent: 50,
+          color: Colors.black,
+          thickness: 1,
+        ),
+
+
+
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(18.0),
+              child: SizedBox(
                 width: 150,
-                height: 150,
+                height: 130,
                 child: ElevatedButton(onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => const ForfaitVoixPage()));
                 }, 
                 style: ElevatedButton.styleFrom(
                   backgroundColor: ColorConstants.colorCustomButton,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10)),
+                    borderRadius: BorderRadius.circular(15)),
                 ),
                 child: const Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -55,15 +66,20 @@ class ForfaitPage extends StatelessWidget {
                   ],
                 )),
               ),
-              const SizedBox(width: 25,),
-              SizedBox(
+            ),
+
+
+
+            Padding(
+              padding: const EdgeInsets.all(18.0),
+              child: SizedBox(
                 width: 150,
-                height: 150,
+                height: 130,
                 child: ElevatedButton(onPressed: () {}, 
                 style: ElevatedButton.styleFrom(
                   backgroundColor: ColorConstants.colorCustomButton,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10)),
+                    borderRadius: BorderRadius.circular(15)),
                 ),
                 child: const Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -80,21 +96,26 @@ class ForfaitPage extends StatelessWidget {
                     ),
                   ],
                 )),
-              ),  
-            ],
-          ),
-          const SizedBox(height: 40,),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(
+              ),
+            ),  
+          ],
+        ),
+
+
+
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(18.0),
+              child: SizedBox(
                 width: 150,
-                height: 150,
+                height: 130,
                 child: ElevatedButton(onPressed: () {}, 
                 style: ElevatedButton.styleFrom(
                   backgroundColor: ColorConstants.colorCustomButton,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10)),
+                    borderRadius: BorderRadius.circular(15)),
                 ),
                 child: const Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -112,15 +133,19 @@ class ForfaitPage extends StatelessWidget {
                   ],
                 )),
               ),
-              const SizedBox(width: 25,),
-              SizedBox(
+            ),
+
+
+            Padding(
+              padding: const EdgeInsets.all(18.0),
+              child: SizedBox(
                 width: 150,
-                height: 150,
+                height: 130,
                 child: ElevatedButton(onPressed: () {}, 
                 style: ElevatedButton.styleFrom(
                   backgroundColor: ColorConstants.colorCustomButton,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10)),
+                    borderRadius: BorderRadius.circular(15)),
                 ),
                 child: const Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -137,11 +162,13 @@ class ForfaitPage extends StatelessWidget {
                     ),
                   ],
                 )),
-              ),  
-            ],
-          ),
-        ],
-      ),
+              ),
+            ),  
+
+
+          ],
+        ),
+      ],
     );
   }
 }
