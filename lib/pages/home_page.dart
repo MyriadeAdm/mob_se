@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mob_se/constants/color_constants.dart';
 import 'package:mob_se/constants/constantes.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:mob_se/widgets/custom_button.dart';
 import 'package:mob_se/widgets/custom_list_view_forfait_appel.dart';
 import 'package:mob_se/widgets/custom_list_view_forfait_internet.dart';
@@ -52,17 +53,17 @@ class HomePage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(right: 15, left:15, top: 40, bottom: 18),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                const Text(
+                Text(
                   "Forfait Internet",
                   style: TextStyle(
                     fontSize: 16,
-                    fontWeight: FontWeight.bold,
+                    fontFamily: GoogleFonts.encodeSansExpanded(fontWeight: FontWeight.w900).fontFamily, // text en gras
                   ),
                 ),
                 Container(
-                  width: 250,
+                  width: 230,
                   height: 10,
                   decoration: const BoxDecoration(
                     border: Border(
