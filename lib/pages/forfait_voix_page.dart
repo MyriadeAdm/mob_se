@@ -5,21 +5,35 @@ import 'package:mob_se/constants/constantes.dart';
 class ForfaitVoixPage extends StatelessWidget {
   const ForfaitVoixPage({super.key});
 
+  IconButton returnBack(BuildContext context) {
+    return IconButton(
+        onPressed: () {
+          Navigator.pop(context);
+        },
+        icon: const Icon(Icons.arrow_back));
+  }
+
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: Center(
         child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Padding(
-          padding: EdgeInsets.only(left: 20),
-          child: Text(
-            "  Achat de forfaits",
-            style: TextStyle(
-              fontSize: 25,
-              fontWeight: FontWeight.w800,
-            ),
+         Padding(
+          padding: const EdgeInsets.only(left: 20),
+          child: Row(
+            children: [
+              returnBack(context),
+              const Text(
+                "  Achat de forfaits",
+                style: TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.w800,
+                ),
+              ),
+            ],
           ),
         ),
 
@@ -97,4 +111,5 @@ class ForfaitVoixPage extends StatelessWidget {
       ),
     );
   }
+
 }
