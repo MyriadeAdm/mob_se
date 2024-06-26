@@ -20,18 +20,21 @@ class HomePage extends StatelessWidget {
                 onVerticalDragDown: (details) {
                   //print('botn draged');
                 },
-                child: Ink(
-                  height: 50,
-                  width: 35,
-                  decoration: const ShapeDecoration(
-                    shape: CircleBorder(),
-                    color: ColorConstants.colorCustom3,
-                  ),
-                  child: const Icon(
-                        Icons.sim_card,
-                        color: Colors.white,
-                        size: 20,
-                      )),
+                child: Padding(
+                  padding: const EdgeInsets.only(left:15),
+                  child: Ink(
+                    height: 50,
+                    width: 35,
+                    decoration: const ShapeDecoration(
+                      shape: CircleBorder(),
+                      color: ColorConstants.colorCustom3,
+                    ),
+                    child: const Icon(
+                          Icons.sim_card,
+                          color: Colors.white,
+                          size: 20,
+                        )),
+                ),
               ),
               const SizedBox(
                 width: 15,
