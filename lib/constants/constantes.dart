@@ -4,11 +4,17 @@ import '../objets/historique.dart';
 
 class Constantes {
   static final List<ForfaitInternet> forfaitsInternet = [
-    ForfaitInternet('45 Mo', '1 jour', '100'),
-    ForfaitInternet('100 Mo', '1 jour', '200'),
-    ForfaitInternet('180 Mo', '1 jour', '350'),
-    ForfaitInternet('180 Mo', '1 jour', '350'),
-    ForfaitInternet('180 Mo', '1 jour', '350'),
+    ForfaitInternet('45 Mo', '1 j', '100'),
+    ForfaitInternet('100 Mo', '1 j', '200'),
+    ForfaitInternet('180 Mo', '3 j', '350'),
+    ForfaitInternet('400 Mo', '3 j', '600'),
+    ForfaitInternet('1 Go', '7 j', '1000'),
+    ForfaitInternet('1,6 Go', '7 j', '1500'),
+    ForfaitInternet('3 Go', '30 j', '3000'),
+    ForfaitInternet('6 Go', '30 j', '5000'),
+    ForfaitInternet('20 Go', '30 j', '10000'),
+    ForfaitInternet('60 Go', '30 j', '15000'),
+    ForfaitInternet('110 Go', '30 j', '25000'),
   ];
 
   static final List<ForfaitAppel> forfaitsAppel = [

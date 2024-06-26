@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mob_se/constants/color_constants.dart';
 import 'package:mob_se/constants/constantes.dart';
 
-class ForfaitVoixPage extends StatelessWidget {
-  const ForfaitVoixPage({super.key});
+class ForfaitDataPage extends StatelessWidget {
+  const ForfaitDataPage({super.key});
 
   IconButton returnBack(BuildContext context) {
     return IconButton(
@@ -27,7 +27,7 @@ class ForfaitVoixPage extends StatelessWidget {
             children: [
               returnBack(context),
               const Text(
-                "  Achat de forfaits",
+                "  forfaits Internet",
                 style: TextStyle(
                   fontSize: 25,
                   fontWeight: FontWeight.w800,
@@ -52,9 +52,9 @@ class ForfaitVoixPage extends StatelessWidget {
               child: SizedBox(
                 height: 700,
                 child: ListView.builder(
-                  itemCount: Constantes.forfaitsAppel.length,
+                  itemCount: Constantes.forfaitsInternet.length,
                   itemBuilder: (BuildContext context, int index) {
-                    final item = Constantes.forfaitsAppel[index];
+                    final item = Constantes.forfaitsInternet[index];
                     return Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 30),
                       child: SizedBox(
@@ -71,11 +71,11 @@ class ForfaitVoixPage extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               const Icon(
-                                Icons.call,
+                                Icons.language,
                                 color: ColorConstants.colorCustom2,
                               ),
                               Text(
-                                item.credit,
+                                item.mega,
                                 style: const TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: ColorConstants.colorCustom2,
