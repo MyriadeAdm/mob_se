@@ -16,31 +16,58 @@ class HomePage extends StatelessWidget {
         children: [
           Row(
             children: [
-              Ink(
-                decoration: const ShapeDecoration(
-                  shape: CircleBorder(),
-                  color: ColorConstants.colorCustom3,
-                ),
-                child: IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.sim_card,
-                      color: Colors.white,
-                      size: 20,
-                    )),
+              GestureDetector(
+                onVerticalDragDown: (details) {
+                  //print('botn draged');
+                },
+                child: Ink(
+                  height: 50,
+                  width: 35,
+                  decoration: const ShapeDecoration(
+                    shape: CircleBorder(),
+                    color: ColorConstants.colorCustom3,
+                  ),
+                  child: const Icon(
+                        Icons.sim_card,
+                        color: Colors.white,
+                        size: 20,
+                      )),
               ),
               const SizedBox(
                 width: 15,
               ),
-              const Text(
-                'Togocom',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              GestureDetector(
+                onTap: () {
+                  //print('button tapped');
+                  showDialog(context: context, builder: (context)=>const AlertDialog(
+                    title: Text('Selectionner votre reseaux',
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),),
+                    content:
+                    SizedBox(
+                      height: 150,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          CustomButton(label:'Togocom'),
+                          CustomButton(label: 'Moov'),
+                        ],
+                      ),
+                    ),
+                  )
+                  );
+                },
+                child: const Text(
+                  'Togocom',
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
               ),
             ],
           ),
 
           const Padding(
-            padding: EdgeInsets.only(right: 20, left: 20, top: 30, bottom: 5),
+            padding: EdgeInsets.only(right: 20, left: 20, top: 5),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -51,9 +78,9 @@ class HomePage extends StatelessWidget {
           ),
 
           Padding(
-            padding: const EdgeInsets.only(right: 15, left:15, top: 40, bottom: 18),
+            padding: const EdgeInsets.only(right: 15, left:15, top: 30, bottom: 18),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                   "Forfait Internet",
@@ -93,7 +120,7 @@ class HomePage extends StatelessWidget {
               } ),
           ),
           Padding(
-            padding: const EdgeInsets.only(right: 15, left:15, top: 40, bottom: 18),
+            padding: const EdgeInsets.only(right: 15, left:15, top: 30, bottom: 18),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
