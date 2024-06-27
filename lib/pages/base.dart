@@ -18,6 +18,7 @@ class _BaseState extends State<Base> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('USSD APP'),
+        backgroundColor: Colors.white,
       ),
       body: PersistentTabView(
         tabs: [
