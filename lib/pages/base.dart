@@ -36,7 +36,7 @@ class _BaseState extends State<Base> {
             ),
           ),
         ],
-        navBarBuilder: (navBarConfig) => Style2BottomNavBar(
+        navBarBuilder: (navBarConfig) => Style4BottomNavBar(
           navBarConfig: navBarConfig,
         ),
       ),
