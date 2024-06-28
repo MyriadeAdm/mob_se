@@ -15,39 +15,34 @@ class ForfaitMixtePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Center(
         child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-         Padding(
-          padding: const EdgeInsets.only(left: 20),
-          child: Row(
-            children: [
-              returnBack(context),
-              const Text(
-                "  Forfaits mixtes",
-                style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.w800,
-                ),
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 20),
+              child: Row(
+                children: [
+                  returnBack(context),
+                  const Text(
+                    "  Forfaits mixtes",
+                    style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.w800,
+                    ),
+                  ),
+                ],
               ),
-            ],
-          ),
-        ),
-
-
-
-        const Divider(
-          height: 50,
-          indent: 50,
-          endIndent: 50,
-          color: Colors.black,
-          thickness: 1,
-        ),
-
-
+            ),
+            const Divider(
+              height: 50,
+              indent: 50,
+              endIndent: 50,
+              color: Colors.black,
+              thickness: 1,
+            ),
             Expanded(
               child: SizedBox(
                 height: 700,
@@ -56,7 +51,8 @@ class ForfaitMixtePage extends StatelessWidget {
                   itemBuilder: (BuildContext context, int index) {
                     final item = Constantes.forfaitsMixte[index];
                     return Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 30),
+                      padding:
+                          const EdgeInsets.symmetric(vertical: 6, horizontal: 30),
                       child: SizedBox(
                         height: 65,
                         child: ElevatedButton(
@@ -96,21 +92,21 @@ class ForfaitMixtePage extends StatelessWidget {
                                   ),
                                   Text(
                                     'validité de ${item.validite} + ${item.msg} sms',
-                                    style:
-                                        const TextStyle(
-                                          fontWeight: FontWeight.normal,
-                                          color: ColorConstants.colorCustom2,
-                                          ),
+                                    style: const TextStyle(
+                                      fontWeight: FontWeight.normal,
+                                      color: ColorConstants.colorCustom2,
+                                    ),
                                   ),
                                 ],
                               ),
-                               Text(
-                                    '${item.prix} XOF',
-                                    style: const TextStyle(fontWeight: FontWeight.bold,
-                                    fontSize: 18,
-                                    color: ColorConstants.colorCustom2,
-                                    ),
-                                  )
+                              Text(
+                                '${item.prix} XOF',
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                  color: ColorConstants.colorCustom2,
+                                ),
+                              )
                             ],
                           ),
                         ),
@@ -125,5 +121,4 @@ class ForfaitMixtePage extends StatelessWidget {
       ),
     );
   }
-
 }

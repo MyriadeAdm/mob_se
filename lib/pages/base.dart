@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mob_se/widgets/custom_app_bar.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent_bottom_nav_bar_v2.dart';
 import './home_page.dart';
 import './forfait_page.dart';
@@ -16,10 +17,7 @@ class _BaseState extends State<Base> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('USSD APP'),
-        backgroundColor: Colors.white,
-      ),
+      appBar: const CustomAppBar(),
       body: PersistentTabView(
         tabs: [
           PersistentTabConfig(

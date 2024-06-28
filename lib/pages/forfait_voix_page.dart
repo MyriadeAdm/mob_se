@@ -17,6 +17,7 @@ class ForfaitVoixPage extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Center(
         child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,

@@ -9,7 +9,6 @@ import 'package:mob_se/widgets/custum_bottom_sheet.dart';
 class ForfaitPage extends StatelessWidget {
   const ForfaitPage({super.key});
 
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -163,14 +162,15 @@ class ForfaitPage extends StatelessWidget {
                     )),
               ),
             ),
-             Padding(
+            Padding(
               padding: const EdgeInsets.all(18.0),
               child: SizedBox(
                 width: 150,
                 height: 130,
                 child: ElevatedButton(
                     onPressed: () {
-                      callButtomSheet(context);  // Ici nous faisons appel au bottomsheet en tant que action futur
+                      callButtomSheet(
+                          context); // Ici nous faisons appel au bottomsheet en tant que action futur
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: ColorConstants.colorCustomButton,

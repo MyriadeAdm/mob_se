@@ -15,39 +15,34 @@ class ForfaitDataPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Center(
         child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-         Padding(
-          padding: const EdgeInsets.only(left: 20),
-          child: Row(
-            children: [
-              returnBack(context),
-              const Text(
-                "  Forfaits internet",
-                style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.w800,
-                ),
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 20),
+              child: Row(
+                children: [
+                  returnBack(context),
+                  const Text(
+                    "  Forfaits internet",
+                    style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.w800,
+                    ),
+                  ),
+                ],
               ),
-            ],
-          ),
-        ),
-
-
-
-        const Divider(
-          height: 50,
-          indent: 50,
-          endIndent: 50,
-          color: Colors.black,
-          thickness: 1,
-        ),
-
-
+            ),
+            const Divider(
+              height: 50,
+              indent: 50,
+              endIndent: 50,
+              color: Colors.black,
+              thickness: 1,
+            ),
             Expanded(
               child: SizedBox(
                 height: 700,
@@ -56,7 +51,8 @@ class ForfaitDataPage extends StatelessWidget {
                   itemBuilder: (BuildContext context, int index) {
                     final item = Constantes.forfaitsMixte[index];
                     return Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 30),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 6, horizontal: 30),
                       child: SizedBox(
                         height: 65,
                         child: ElevatedButton(
@@ -76,7 +72,8 @@ class ForfaitDataPage extends StatelessWidget {
                                 children: [
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
                                     children: [
                                       const Icon(
                                         Icons.language,
@@ -90,26 +87,25 @@ class ForfaitDataPage extends StatelessWidget {
                                           color: ColorConstants.colorCustom2,
                                         ),
                                       ),
-                                    
                                     ],
                                   ),
                                   Text(
-                                        'validité de ${item.validite}',
-                                        style:
-                                            const TextStyle(
-                                              fontWeight: FontWeight.normal,
-                                              color: ColorConstants.colorCustom2,
-                                              ),
-                                      ),
+                                    'validité de ${item.validite}',
+                                    style: const TextStyle(
+                                      fontWeight: FontWeight.normal,
+                                      color: ColorConstants.colorCustom2,
+                                    ),
+                                  ),
                                 ],
                               ),
-                                 Text(
-                                    '${item.prix} XOF',
-                                    style: const TextStyle(fontWeight: FontWeight.bold,
-                                    fontSize: 18,
-                                    color: ColorConstants.colorCustom2,
-                                    ),
-                                  )
+                              Text(
+                                '${item.prix} XOF',
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                  color: ColorConstants.colorCustom2,
+                                ),
+                              )
                             ],
                           ),
                         ),
@@ -124,5 +120,4 @@ class ForfaitDataPage extends StatelessWidget {
       ),
     );
   }
-
 }
