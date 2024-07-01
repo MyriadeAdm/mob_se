@@ -70,6 +70,7 @@ class CustumBottomSheet extends StatelessWidget {
 
 Future<void> callButtomSheet(BuildContext context) async {
   await showModalBottomSheet<dynamic>(
+    useRootNavigator: true,
     isScrollControlled: true,
     context: context,
     shape: const RoundedRectangleBorder(
