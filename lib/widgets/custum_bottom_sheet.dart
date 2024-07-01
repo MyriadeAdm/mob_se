@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mob_se/constants/color_constants.dart';
 
 //=============================================[DEBUT} !!!besoin pour faire marcher le bottom Sheet
 
@@ -28,6 +29,7 @@ class LabeledCheckbox extends StatelessWidget {
           children: <Widget>[
             Expanded(child: Text(label)),
             Checkbox(
+              activeColor: ColorConstants.colorCustomButton,
               value: value,
               onChanged: (bool? newValue) {
                 onChanged(newValue!);
@@ -40,22 +42,26 @@ class LabeledCheckbox extends StatelessWidget {
   }
 }
 
-List<String> options = ['Crédit', 'Tmoney'];
+List<String> options = ['Crédit', 'mobilemoney'];
 
 bool? isChecked = false;
 final _textController = TextEditingController();
 int click = 0;
 bool _isSelected = false;
 String currentOption = options[0];
+bool codeVisible = false;
+bool numVisible = false;
+//=============================================[FIN] !!!besoin pour faire marcher le bottom Sheet
 
-//=============================================[FIN} !!!besoin pour faire marcher le bottom Sheet
 
 class CustumBottomSheet extends StatelessWidget {
   const CustumBottomSheet({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      color: Colors.white,
+    );
   }
 }
 
@@ -75,7 +81,7 @@ Future<void> callButtomSheet(BuildContext context) async {
           builder: (BuildContext context, StateSetter setState) {
             return Padding(
               padding: const EdgeInsets.only(
-                  right: 50, left: 50, top: 30, bottom: 80),
+                  right: 30, left: 30, top: 30, bottom: 80),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisSize: MainAxisSize.min,
@@ -135,47 +141,51 @@ Future<void> callButtomSheet(BuildContext context) async {
                       onChanged: (bool newValue) {
                         setState(() {
                           _isSelected = newValue;
+                          numVisible = !numVisible;
                         });
                       },
                     ),
                   ),
 
-                  Row(
-                    children: [
-                      Expanded(
-                        child: TextField(
-                          controller: _textController,
-                          decoration: InputDecoration(
-                            hintText: 'Nom ou numéro de téléphone',
-                            filled: true,
-                            fillColor: const Color.fromRGBO(230, 227, 227, 1),
-                            border: OutlineInputBorder(
-                              borderSide: BorderSide.none,
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            suffixIcon: IconButton(
-                              onPressed: () {
-                                _textController.clear();
-                              },
-                              icon: const Icon(
-                                Icons.clear,
-                                size: 20,
-                                color: Colors.grey,
+                  Visibility(
+                    visible: numVisible,
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: TextField(
+                            controller: _textController,
+                            decoration: InputDecoration(
+                              hintText: 'Nom ou numéro de téléphone',
+                              filled: true,
+                              fillColor: const Color.fromRGBO(230, 227, 227, 1),
+                              border: OutlineInputBorder(
+                                borderSide: BorderSide.none,
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              suffixIcon: IconButton(
+                                onPressed: () {
+                                  _textController.clear();
+                                },
+                                icon: const Icon(
+                                  Icons.clear,
+                                  size: 20,
+                                  color: Colors.grey,
+                                ),
                               ),
                             ),
                           ),
                         ),
-                      ),
-                      IconButton(
-                        icon: const Icon(Icons.contacts_rounded,
-                            color: Colors.grey, size: 40.0),
-                        onPressed: () {
-                          setState(() {
-                            click += 1;
-                          });
-                        },
-                      ),
-                    ],
+                        IconButton(
+                          icon: const Icon(Icons.contacts_rounded,
+                              color: Colors.grey, size: 40.0),
+                          onPressed: () {
+                            setState(() {
+                              click += 1;
+                            });
+                          },
+                        ),
+                      ],
+                    ),
                   ),
                   //const SizedBox(height: 20),
                   Row(
@@ -190,6 +200,7 @@ Future<void> callButtomSheet(BuildContext context) async {
                                 onChanged: (value) {
                                   setState(() {
                                     currentOption = value.toString();
+                                    codeVisible = !codeVisible;
                                   });
                                 },
                                 activeColor: Colors.amber,
@@ -203,6 +214,7 @@ Future<void> callButtomSheet(BuildContext context) async {
                                 onChanged: (value) {
                                   setState(() {
                                     currentOption = value.toString();
+                                    codeVisible = !codeVisible;
                                   });
                                 },
                                 activeColor: Colors.amber,
@@ -210,48 +222,51 @@ Future<void> callButtomSheet(BuildContext context) async {
                     ],
                   ),
                   //const SizedBox(height: 20),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      const Text(
-                        'Code',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 18,
-                        ),
-                      ),
-                      SizedBox(
-                        width: 200,
-                        height: 35,
-                        child: TextField(
-                          keyboardType: TextInputType.number,
-                          obscureText: true,
-                          //onChanged: (){},
-                          obscuringCharacter: "*",
-                          controller: TextEditingController(),
-                          decoration: InputDecoration(
-                            filled: true,
-                            //hintText: '',
-                            fillColor: const Color.fromRGBO(230, 227, 227, 1),
-                            border: OutlineInputBorder(
-                              borderSide: BorderSide.none,
-                              borderRadius: BorderRadius.circular(13),
-                            ),
-                            // suffixIcon: IconButton(
-                            //   onPressed: () {
-                            //     _textController.clear();
-                            //   },
-                            //   icon: const Icon(
-                            //     Icons.clear,
-                            //     size: 15,
-                            //     color: Colors.grey,
-                            //   ),
-                            // ),
+                  Visibility(
+                    visible: codeVisible,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        const Text(
+                          'Code',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w500,
+                            fontSize: 18,
                           ),
                         ),
-                      ),
-                    ],
+                        SizedBox(
+                          width: 200,
+                          height: 35,
+                          child: TextField(
+                            keyboardType: TextInputType.number,
+                            obscureText: true,
+                            //onChanged: (){},
+                            obscuringCharacter: "*",
+                            controller: TextEditingController(),
+                            decoration: InputDecoration(
+                              filled: true,
+                              //hintText: '',
+                              fillColor: const Color.fromRGBO(230, 227, 227, 1),
+                              border: OutlineInputBorder(
+                                borderSide: BorderSide.none,
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              // suffixIcon: IconButton(
+                              //   onPressed: () {
+                              //     _textController.clear();
+                              //   },
+                              //   icon: const Icon(
+                              //     Icons.clear,
+                              //     size: 15,
+                              //     color: Colors.grey,
+                              //   ),
+                              // ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                   const SizedBox(height: 30),
                   SizedBox(

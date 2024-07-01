@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mob_se/constants/color_constants.dart';
 import 'package:mob_se/constants/constantes.dart';
+import 'package:mob_se/widgets/custum_bottom_sheet.dart';
 
 class ForfaitDataPage extends StatelessWidget {
   const ForfaitDataPage({super.key});
@@ -62,7 +63,10 @@ class ForfaitDataPage extends StatelessWidget {
                               borderRadius: BorderRadius.circular(13),
                             ),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            callButtomSheet(
+                                context); // Ici nous faisons appel au bottomsheet en tant que action futur
+                          },
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mob_se/constants/color_constants.dart';
 import 'package:mob_se/constants/constantes.dart';
+import 'package:mob_se/widgets/custum_bottom_sheet.dart';
 
 class ForfaitVoixPage extends StatelessWidget {
   const ForfaitVoixPage({super.key});
@@ -15,40 +16,34 @@ class ForfaitVoixPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
         child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-         Padding(
-          padding: const EdgeInsets.only(left: 20),
-          child: Row(
-            children: [
-              returnBack(context),
-              const Text(
-                "  Forfaits voix",
-                style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.w800,
-                ),
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 20),
+              child: Row(
+                children: [
+                  returnBack(context),
+                  const Text(
+                    "  Forfaits voix",
+                    style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.w800,
+                    ),
+                  ),
+                ],
               ),
-            ],
-          ),
-        ),
-
-
-
-        const Divider(
-          height: 50,
-          indent: 50,
-          endIndent: 50,
-          color: Colors.black,
-          thickness: 1,
-        ),
-
-
+            ),
+            const Divider(
+              height: 50,
+              indent: 50,
+              endIndent: 50,
+              color: Colors.black,
+              thickness: 1,
+            ),
             Expanded(
               child: SizedBox(
                 height: 700,
@@ -57,7 +52,8 @@ class ForfaitVoixPage extends StatelessWidget {
                   itemBuilder: (BuildContext context, int index) {
                     final item = Constantes.forfaitsAppel[index];
                     return Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 30),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 6, horizontal: 30),
                       child: SizedBox(
                         height: 70,
                         child: ElevatedButton(
@@ -67,7 +63,10 @@ class ForfaitVoixPage extends StatelessWidget {
                               borderRadius: BorderRadius.circular(13),
                             ),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            callButtomSheet(
+                                context); // Ici nous faisons appel au bottomsheet en tant que action futur
+                          },
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -77,7 +76,8 @@ class ForfaitVoixPage extends StatelessWidget {
                                 children: [
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
                                     children: [
                                       const Icon(
                                         Icons.call,
@@ -95,21 +95,21 @@ class ForfaitVoixPage extends StatelessWidget {
                                   ),
                                   Text(
                                     'validité de ${item.validite} + ${item.msg} sms',
-                                    style:
-                                        const TextStyle(
-                                          fontWeight: FontWeight.normal,
-                                          color: ColorConstants.colorCustom2,
-                                          ),
+                                    style: const TextStyle(
+                                      fontWeight: FontWeight.normal,
+                                      color: ColorConstants.colorCustom2,
+                                    ),
                                   ),
                                 ],
                               ),
                               Text(
-                                    '${item.prix} XOF',
-                                    style: const TextStyle(fontWeight: FontWeight.bold,
-                                    fontSize: 18,
-                                    color: ColorConstants.colorCustom2,
-                                    ),
-                                  )
+                                '${item.prix} XOF',
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                  color: ColorConstants.colorCustom2,
+                                ),
+                              )
                             ],
                           ),
                         ),
@@ -124,5 +124,4 @@ class ForfaitVoixPage extends StatelessWidget {
       ),
     );
   }
-
 }
