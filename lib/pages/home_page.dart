@@ -177,7 +177,7 @@ class HomePage extends StatelessWidget {
                           fontSize: 18,
                           color: Colors.black),
                     ),
-                    const SizedBox(width: 190,),
+                    const SizedBox(width: 180,),
                     TextButton(
                         onPressed: () {},
                         child: const Row(
