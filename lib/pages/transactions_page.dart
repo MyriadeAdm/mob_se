@@ -48,7 +48,7 @@ class TransactionsPage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(
-                          Icons.money,
+                          Icons.send,
                           size: 40,
                           color: Colors.black,
                         ),
@@ -56,7 +56,7 @@ class TransactionsPage extends StatelessWidget {
                           height: 15,
                         ),
                         Text(
-                          'Transfert d\'argent',
+                          'Envoi',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 17,
@@ -86,7 +86,7 @@ class TransactionsPage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(
-                          Icons.money,
+                          Icons.arrow_circle_down,
                           size: 40,
                           color: Colors.black,
                         ),
@@ -94,7 +94,7 @@ class TransactionsPage extends StatelessWidget {
                           height: 15,
                         ),
                         Text(
-                          'Achat de crédit',
+                          'Retrait',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 17,
