@@ -1,4 +1,5 @@
 import 'package:mob_se/objets/forfait_mixte.dart';
+import 'package:mob_se/objets/forfait_nuit.dart';
 
 import '../objets/forfait_appel.dart';
 import '../objets/forfait_internet.dart';
@@ -37,6 +38,10 @@ class Constantes {
     ForfaitAppel('12000 TR', '100', '7 j', '2000'),
     ForfaitAppel('17100 TR', '100', '7 j', '3000'),
     ForfaitAppel('60000 TR', '200', '30 j', '9000'),
+  ];
+
+  static final List<ForfaitNuit> forfaitsNuit = [
+    ForfaitNuit('3 Go', '1j (22h-06h)', '500'),
   ];
 
   static final List<Historique> historique = [

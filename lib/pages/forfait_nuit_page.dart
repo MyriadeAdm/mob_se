@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:mob_se/constants/color_constants.dart';
-import 'package:mob_se/constants/constantes.dart';
 
+import '../constants/color_constants.dart';
+import '../constants/constantes.dart';
 import '../widgets/custum_bottom_sheet.dart';
 
-class ForfaitDataPage extends StatelessWidget {
-  const ForfaitDataPage({super.key});
+class ForfaitNuitPage extends StatelessWidget {
+  const ForfaitNuitPage({super.key});
 
   IconButton returnBack(BuildContext context) {
     return IconButton(
@@ -29,7 +29,7 @@ class ForfaitDataPage extends StatelessWidget {
                 children: [
                   returnBack(context),
                   const Text(
-                    "  Forfaits internet",
+                    "  Forfaits Nuit",
                     style: TextStyle(
                       fontSize: 25,
                       fontWeight: FontWeight.w800,
@@ -45,13 +45,14 @@ class ForfaitDataPage extends StatelessWidget {
               color: Colors.black,
               thickness: 1,
             ),
+
             Expanded(
               child: SizedBox(
                 height: 700,
                 child: ListView.builder(
-                  itemCount: Constantes.forfaitsMixte.length,
+                  itemCount: Constantes.forfaitsNuit.length,
                   itemBuilder: (BuildContext context, int index) {
-                    final item = Constantes.forfaitsMixte[index];
+                    final item = Constantes.forfaitsNuit[index];
                     return Padding(
                       padding: const EdgeInsets.symmetric(
                           vertical: 6, horizontal: 30),
@@ -65,7 +66,7 @@ class ForfaitDataPage extends StatelessWidget {
                             ),
                           ),
                           onPressed: () {
-                             callButtomSheet(
+                            callButtomSheet(
                                 context); 
                           },
                           child: Row(
@@ -121,8 +122,7 @@ class ForfaitDataPage extends StatelessWidget {
               ),
             ),
           ],
-        ),
-      ),
+        ),),
     );
   }
 }

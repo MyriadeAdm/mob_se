@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mob_se/pages/transactions_page.dart';
 import 'package:mob_se/widgets/custom_app_bar.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent_bottom_nav_bar_v2.dart';
 import './home_page.dart';
@@ -32,6 +33,13 @@ class _BaseState extends State<Base> {
             item: ItemConfig(
               icon: const Icon(Icons.sync_alt),
               title: "Forfaits",
+            ),
+          ),
+          PersistentTabConfig(
+            screen: const TransactionsPage(),
+            item: ItemConfig(
+              icon: const Icon(Icons.attach_money),
+              title: "Transactions",
             ),
           ),
         ],

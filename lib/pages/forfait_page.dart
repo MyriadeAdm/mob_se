@@ -3,8 +3,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mob_se/constants/color_constants.dart';
 import 'package:mob_se/pages/forfait_data_page.dart';
 import 'package:mob_se/pages/forfait_mixte_page.dart';
+import 'package:mob_se/pages/forfait_nuit_page.dart';
 import 'package:mob_se/pages/forfait_voix_page.dart';
-import 'package:mob_se/widgets/custum_bottom_sheet.dart';
 
 class ForfaitPage extends StatelessWidget {
   const ForfaitPage({super.key});
@@ -169,8 +169,11 @@ class ForfaitPage extends StatelessWidget {
                 height: 130,
                 child: ElevatedButton(
                     onPressed: () {
-                      callButtomSheet(
-                          context); // Ici nous faisons appel au bottomsheet en tant que action futur
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (BuildContext context) =>
+                                  const ForfaitNuitPage()));
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: ColorConstants.colorCustomButton,
