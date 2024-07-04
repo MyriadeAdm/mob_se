@@ -26,18 +26,21 @@ class ForfaitDataPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 20),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  returnBack(context),
-                  const Text(
-                    "  Forfaits internet",
-                    style: TextStyle(
-                      fontSize: 25,
-                      fontWeight: FontWeight.w800,
-                    ),
+                  Row(
+                    children: [
+                      returnBack(context),
+                      const Text(
+                        "  Forfaits internet",
+                        style: TextStyle(
+                          fontSize: 25,
+                          fontWeight: FontWeight.w800,
+                        ),
+                      ),
+                    ],
                   ),
-                  const SizedBox(
-                    width: 80,
-                  ),
+                  
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: ColorConstants.colorCustomButton,
