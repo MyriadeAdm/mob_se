@@ -37,7 +37,7 @@ class TransactionsPage extends StatelessWidget {
                 height: 130,
                 child: ElevatedButton(
                     onPressed: () {
-                     // TODO Ecrire la fonction d'appel à un simpleDialog pour choisir si c'est un envoie ou un retrait
+                     // TODO appel au bottomSheet d'envoi d'argent
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: ColorConstants.colorCustomButton,
