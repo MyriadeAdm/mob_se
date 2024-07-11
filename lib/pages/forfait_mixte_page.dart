@@ -23,17 +23,17 @@ class ForfaitMixtePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.only(left: 20),
+              padding: const EdgeInsets.only(left: 20,right: 20),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Row(
                     children: [
                       returnBack(context),
                       const Text(
-                        "  Forfaits Mixte",
+                        "Forfaits Mixte",
                         style: TextStyle(
-                          fontSize: 25,
+                          fontSize: 23,
                           fontWeight: FontWeight.w800,
                         ),
                       ),
@@ -72,8 +72,7 @@ class ForfaitMixtePage extends StatelessWidget {
                   itemBuilder: (BuildContext context, int index) {
                     final item = Constantes.forfaitsMixte[index];
                     return Padding(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 6, horizontal: 30),
+                      padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 28),
                       child: SizedBox(
                         height: 65,
                         child: ElevatedButton(
@@ -119,6 +118,7 @@ class ForfaitMixtePage extends StatelessWidget {
                                     style: const TextStyle(
                                       fontWeight: FontWeight.normal,
                                       color: ColorConstants.colorCustom2,
+                                      fontSize: 13,
                                     ),
                                   ),
                                 ],

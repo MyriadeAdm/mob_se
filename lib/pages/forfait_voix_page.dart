@@ -23,17 +23,17 @@ class ForfaitVoixPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.only(left: 20),
+              padding: const EdgeInsets.only(left: 20, right: 20),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Row(
                     children: [
                       returnBack(context),
                       const Text(
-                        "  Forfaits Voix",
+                        "Forfaits Voix",
                         style: TextStyle(
-                          fontSize: 25,
+                          fontSize: 23,
                           fontWeight: FontWeight.w800,
                         ),
                       ),
@@ -57,6 +57,7 @@ class ForfaitVoixPage extends StatelessWidget {
                 ],
               ),
             ),
+
             const Divider(
               height: 50,
               indent: 50,
@@ -64,6 +65,7 @@ class ForfaitVoixPage extends StatelessWidget {
               color: Colors.black,
               thickness: 1,
             ),
+
             Expanded(
               child: SizedBox(
                 height: 700,
@@ -72,8 +74,7 @@ class ForfaitVoixPage extends StatelessWidget {
                   itemBuilder: (BuildContext context, int index) {
                     final item = Constantes.forfaitsAppel[index];
                     return Padding(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 6, horizontal: 30),
+                      padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 28),
                       child: SizedBox(
                         height: 70,
                         child: ElevatedButton(
@@ -102,8 +103,9 @@ class ForfaitVoixPage extends StatelessWidget {
                                       const Icon(
                                         Icons.call,
                                         color: ColorConstants.colorCustom2,
+                                        size: 18,
                                       ),
-                                      const SizedBox(width: 10),
+                                      const SizedBox(width: 5),
                                       Text(
                                         item.credit,
                                         style: const TextStyle(
@@ -118,6 +120,7 @@ class ForfaitVoixPage extends StatelessWidget {
                                     style: const TextStyle(
                                       fontWeight: FontWeight.normal,
                                       color: ColorConstants.colorCustom2,
+                                      fontSize: 13,
                                     ),
                                   ),
                                 ],

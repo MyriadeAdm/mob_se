@@ -27,17 +27,19 @@ class CustomListViewForfaitInternet extends StatelessWidget {
           borderRadius: const BorderRadius.all(Radius.circular(15)),
         ),
         child: Padding(
-          padding: const EdgeInsets.only(top: 10, left: 10,right: 30),
+          padding: const EdgeInsets.only(left: 10,right: 22),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Row(
                 children: [
                   icon,
+                  const SizedBox(width: 5),
                   Text(
                     mega,
                     style: const TextStyle(
-                      fontSize: 17,
+                      fontSize: 15,
                       fontWeight: FontWeight.bold,
                     ),
                   )
@@ -46,13 +48,13 @@ class CustomListViewForfaitInternet extends StatelessWidget {
               Text(
                 'Validité $validite',
                 style: const TextStyle(
-                  fontSize: 14,
+                  fontSize: 12,
                 ),
               ),
               Text(
                 '$prix XOF',
                 style: const TextStyle(
-                  fontSize: 19,
+                  fontSize: 17,
                   fontWeight: FontWeight.bold,
                 ),
               ),

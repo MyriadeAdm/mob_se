@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mob_se/constants/color_constants.dart';
 import 'package:mob_se/constants/constantes.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:mob_se/widgets/custom_button.dart';
 import 'package:mob_se/widgets/custom_list_view_forfait_appel.dart';
 import 'package:mob_se/widgets/custom_list_view_forfait_internet.dart';
@@ -72,7 +71,7 @@ class HomePage extends StatelessWidget {
           const Padding(
             padding: EdgeInsets.only(right: 20, left: 20, top: 5),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 CustomButton(label: 'Solde credit'),
                 CustomButton(label: 'Solde money'),
@@ -85,15 +84,15 @@ class HomePage extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
+                const Text(
                   "Forfait Internet",
                   style: TextStyle(
                     fontSize: 16,
-                    fontFamily: GoogleFonts.encodeSansExpanded(fontWeight: FontWeight.w900).fontFamily, // text en gras
+                    fontWeight: FontWeight.w900,
                   ),
                 ),
                 Container(
-                  width: 230,
+                  width: 200,
                   height: 10,
                   decoration: const BoxDecoration(
                     border: Border(
@@ -107,6 +106,7 @@ class HomePage extends StatelessWidget {
               ],
             ),
           ),
+
           SizedBox(
             height: 90,
             child: ListView.builder(
@@ -116,12 +116,13 @@ class HomePage extends StatelessWidget {
                 final item = Constantes.forfaitsInternet[index];
             
                 return CustomListViewForfaitInternet(
-                  icon: const Icon(Icons.public), 
+                  icon: const Icon(Icons.public, size: 20,), 
                   mega: item.mega, 
                   validite: item.validite, 
                   prix: item.prix);
               } ),
           ),
+
           Padding(
             padding: const EdgeInsets.only(right: 15, left:15, top: 30, bottom: 18),
             child: Row(
@@ -135,7 +136,7 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  width: 260,
+                  width: 200,
                   height: 10,
                   decoration: const BoxDecoration(
                     border: Border(
@@ -149,6 +150,7 @@ class HomePage extends StatelessWidget {
               ],
             ),
           ),
+
           SizedBox(
             height: 95,
             child: ListView.builder(
@@ -158,13 +160,14 @@ class HomePage extends StatelessWidget {
                 final item = Constantes.forfaitsAppel[index];
             
                 return CustomListViewForfaitAppel(
-                  icon: const Icon(Icons.call_end_outlined), 
+                  icon: const Icon(Icons.call_end_outlined, size: 20,), 
                   credit: item.credit, 
                   validite: item.validite, 
                   msg: item.msg,
                   prix: item.prix);
               } ),
           ),
+
            Padding(
              padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 18),
              child: Row(
@@ -177,7 +180,7 @@ class HomePage extends StatelessWidget {
                           fontSize: 18,
                           color: Colors.black),
                     ),
-                    const SizedBox(width: 180,),
+
                     TextButton(
                         onPressed: () {},
                         child: const Row(
@@ -197,6 +200,7 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
            ),
+
         ],
       ),
     );

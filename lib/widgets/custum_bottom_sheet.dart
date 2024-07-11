@@ -26,8 +26,9 @@ class LabeledCheckbox extends StatelessWidget {
       child: Padding(
         padding: padding,
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
-            Expanded(child: Text(label)),
+            Text(label),
             Checkbox(
               activeColor: ColorConstants.colorCustomButton,
               value: value,
@@ -153,6 +154,7 @@ Future<void> callButtomSheet(BuildContext context) async {
                     Visibility(
                       visible: numVisible,
                       child: Row(
+                        //mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Expanded(
                             child: TextField(
@@ -196,6 +198,7 @@ Future<void> callButtomSheet(BuildContext context) async {
                       children: [
                         Expanded(
                             child: ListTile(
+                              horizontalTitleGap: 0,
                                 title: const Text('Credit'),
                                 leading: Radio(
                                   value: options[0],
@@ -210,6 +213,7 @@ Future<void> callButtomSheet(BuildContext context) async {
                                 ))),
                         Expanded(
                             child: ListTile(
+                              horizontalTitleGap: 0,
                                 title: const Text('T-money'),
                                 leading: Radio(
                                   value: options[1],

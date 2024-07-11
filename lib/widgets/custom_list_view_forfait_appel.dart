@@ -29,17 +29,19 @@ class CustomListViewForfaitAppel extends StatelessWidget {
           borderRadius: const BorderRadius.all(Radius.circular(15)),
         ),
         child: Padding(
-          padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
+          padding: const EdgeInsets.only(left: 10, right: 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Row(
                 children: [
                   icon,
+                  const SizedBox(width: 5),
                   Text(
                     credit,
                     style: const TextStyle(
-                      fontSize: 17,
+                      fontSize: 15,
                       fontWeight: FontWeight.bold,
                     ),
                   )
@@ -48,13 +50,13 @@ class CustomListViewForfaitAppel extends StatelessWidget {
               Text(
                 'Validite $validite + $msg SMS',
                 style: const TextStyle(
-                  fontSize: 14,
+                  fontSize: 12,
                 ),
               ),
               Text(
                 '$prix XOF',
                 style: const TextStyle(
-                  fontSize: 19,
+                  fontSize: 17,
                   fontWeight: FontWeight.bold,
                 ),
               ),

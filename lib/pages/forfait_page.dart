@@ -17,7 +17,7 @@ class ForfaitPage extends StatelessWidget {
         const Padding(
           padding: EdgeInsets.only(left: 20, top: 20),
           child: Text(
-            "  Achat de forfaits",
+            "Achat de forfaits",
             style: TextStyle(
               fontSize: 25,
               fontWeight: FontWeight.w800,
@@ -25,183 +25,176 @@ class ForfaitPage extends StatelessWidget {
           ),
         ),
         const Divider(
-          height: 40,
+          height: 60,
           indent: 80,
           endIndent: 80,
           color: Colors.black,
           thickness: 1.5,
         ),
+
         Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Padding(
-              padding: const EdgeInsets.all(18.0),
-              child: SizedBox(
-                width: 150,
-                height: 130,
-                child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (BuildContext context) =>
-                                  const ForfaitVoixPage()));
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: ColorConstants.colorCustomButton,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15)),
-                    ),
-                    child: const Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.call,
-                          size: 40,
+            SizedBox(
+              width: 150,
+              height: 130,
+              child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (BuildContext context) =>
+                                const ForfaitVoixPage()));
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: ColorConstants.colorCustomButton,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15)),
+                  ),
+                  child: const Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.call,
+                        size: 40,
+                        color: Colors.black,
+                      ),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Text(
+                        'Forfait voix',
+                        style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w900,
                           color: Colors.black,
                         ),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        Text(
-                          'Forfait voix',
-                          style: TextStyle(
-                            fontSize: 17,
-                            fontWeight: FontWeight.w900,
-                            color: Colors.black,
-                          ),
-                        ),
-                      ],
-                    )),
-              ),
+                      ),
+                    ],
+                  )),
             ),
-            Padding(
-              padding: const EdgeInsets.all(18.0),
-              child: SizedBox(
-                width: 150,
-                height: 130,
-                child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (BuildContext context) =>
-                                  const ForfaitDataPage()));
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: ColorConstants.colorCustomButton,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15)),
-                    ),
-                    child: const Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          FontAwesomeIcons.earthAfrica,
-                          size: 40,
+
+            SizedBox(
+              width: 150,
+              height: 130,
+              child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (BuildContext context) =>
+                                const ForfaitDataPage()));
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: ColorConstants.colorCustomButton,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15)),
+                  ),
+                  child: const Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        FontAwesomeIcons.earthAfrica,
+                        size: 40,
+                        color: Colors.black,
+                      ),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Text(
+                        'Forfait data',
+                        style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w900,
                           color: Colors.black,
                         ),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        Text(
-                          'Forfait data',
-                          style: TextStyle(
-                            fontSize: 17,
-                            fontWeight: FontWeight.w900,
-                            color: Colors.black,
-                          ),
-                        ),
-                      ],
-                    )),
-              ),
+                      ),
+                    ],
+                  )),
             ),
           ],
         ),
+
+                    const SizedBox(height: 20),
+
         Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Padding(
-              padding: const EdgeInsets.all(18.0),
-              child: SizedBox(
-                width: 150,
-                height: 130,
-                child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (BuildContext context) =>
-                                  const ForfaitMixtePage()));
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: ColorConstants.colorCustomButton,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15)),
-                    ),
-                    child: const Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          FontAwesomeIcons.mixer,
-                          size: 40,
+            SizedBox(
+              width: 150,
+              height: 130,
+              child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (BuildContext context) =>
+                                const ForfaitMixtePage()));
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: ColorConstants.colorCustomButton,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15)),
+                  ),
+                  child: const Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        FontAwesomeIcons.mixer,
+                        size: 40,
+                        color: Colors.black,
+                      ),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Text(
+                        'Forfait mixte',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w900,
                           color: Colors.black,
                         ),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        Text(
-                          'Forfait mixte',
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w900,
-                            color: Colors.black,
-                          ),
-                        ),
-                      ],
-                    )),
-              ),
+                      ),
+                    ],
+                  )),
             ),
-            Padding(
-              padding: const EdgeInsets.all(18.0),
-              child: SizedBox(
-                width: 150,
-                height: 130,
-                child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (BuildContext context) =>
-                                  const ForfaitNuitPage()));
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: ColorConstants.colorCustomButton,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15)),
-                    ),
-                    child: const Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          FontAwesomeIcons.solidMoon,
-                          size: 40,
+            SizedBox(
+              width: 150,
+              height: 130,
+              child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (BuildContext context) =>
+                                const ForfaitNuitPage()));
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: ColorConstants.colorCustomButton,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15)),
+                  ),
+                  child: const Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        FontAwesomeIcons.solidMoon,
+                        size: 40,
+                        color: Colors.black,
+                      ),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Text(
+                        'Forfait nuit',
+                        style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w900,
                           color: Colors.black,
                         ),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        Text(
-                          'Forfait nuit',
-                          style: TextStyle(
-                            fontSize: 17,
-                            fontWeight: FontWeight.w900,
-                            color: Colors.black,
-                          ),
-                        ),
-                      ],
-                    )),
-              ),
+                      ),
+                    ],
+                  )),
             ),
           ],
         ),

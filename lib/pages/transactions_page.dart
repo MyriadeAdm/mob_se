@@ -13,13 +13,14 @@ class TransactionsPage extends StatelessWidget {
         const Padding(
           padding: EdgeInsets.only(left: 20, top: 20),
           child: Text(
-            "  Transactions",
+            "Transactions",
             style: TextStyle(
               fontSize: 25,
               fontWeight: FontWeight.w800,
             ),
           ),
         ),
+
         const Divider(
           height: 40,
           indent: 80,
@@ -27,9 +28,11 @@ class TransactionsPage extends StatelessWidget {
           color: Colors.black,
           thickness: 1.5,
         ),
+
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            
             Padding(
               padding: const EdgeInsets.all(18.0),
               child: SizedBox(
@@ -68,6 +71,7 @@ class TransactionsPage extends StatelessWidget {
                     )),
               ),
             ),
+
             Padding(
               padding: const EdgeInsets.all(18.0),
               child: SizedBox(
