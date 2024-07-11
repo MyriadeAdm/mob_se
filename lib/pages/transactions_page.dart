@@ -37,7 +37,7 @@ class TransactionsPage extends StatelessWidget {
                 height: 130,
                 child: ElevatedButton(
                     onPressed: () {
-                     // TODO appel au bottomSheet d'envoi d'argent
+                     // TO DO appel au bottomSheet d'envoi d'argent
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: ColorConstants.colorCustomButton,
@@ -75,7 +75,7 @@ class TransactionsPage extends StatelessWidget {
                 height: 130,
                 child: ElevatedButton(
                     onPressed: () {
-                     // TODO Ecrire la fonction d'appel au simpleDialog pour l'achat du forfait
+                     // TO DO Ecrire la fonction d'appel au simpleDialog pour l'achat du forfait
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: ColorConstants.colorCustomButton,
