@@ -114,7 +114,7 @@ class ForfaitMixtePage extends StatelessWidget {
                                     ],
                                   ),
                                   Text(
-                                    'validité de ${item.validite} + ${item.msg} sms',
+                                    '${item.validite} + ${item.msg}',
                                     style: const TextStyle(
                                       fontWeight: FontWeight.normal,
                                       color: ColorConstants.colorCustom2,
@@ -124,7 +124,7 @@ class ForfaitMixtePage extends StatelessWidget {
                                 ],
                               ),
                               Text(
-                                '${item.prix} XOF',
+                                item.prix,
                                 style: const TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 18,

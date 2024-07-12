@@ -46,13 +46,13 @@ class CustomListViewForfaitInternet extends StatelessWidget {
                 ],
               ),
               Text(
-                'Validité $validite',
+                validite,
                 style: const TextStyle(
                   fontSize: 12,
                 ),
               ),
               Text(
-                '$prix XOF',
+                prix,
                 style: const TextStyle(
                   fontSize: 17,
                   fontWeight: FontWeight.bold,

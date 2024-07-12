@@ -29,7 +29,7 @@ class ForfaitNuitPage extends StatelessWidget {
                 children: [
                   returnBack(context),
                   const Text(
-                    "  Forfaits Nuit",
+                    "Forfaits Nuit",
                     style: TextStyle(
                       fontSize: 25,
                       fontWeight: FontWeight.w800,
@@ -96,7 +96,7 @@ class ForfaitNuitPage extends StatelessWidget {
                                     ],
                                   ),
                                   Text(
-                                    'validité de ${item.validite}',
+                                    item.validite,
                                     style: const TextStyle(
                                       fontWeight: FontWeight.normal,
                                       color: ColorConstants.colorCustom2,
@@ -105,7 +105,7 @@ class ForfaitNuitPage extends StatelessWidget {
                                 ],
                               ),
                               Text(
-                                '${item.prix} XOF',
+                                item.prix,
                                 style: const TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 18,

@@ -48,13 +48,13 @@ class CustomListViewForfaitAppel extends StatelessWidget {
                 ],
               ),
               Text(
-                'Validite $validite + $msg SMS',
+                '$validite + $msg' ,
                 style: const TextStyle(
                   fontSize: 12,
                 ),
               ),
               Text(
-                '$prix XOF',
+                prix,
                 style: const TextStyle(
                   fontSize: 17,
                   fontWeight: FontWeight.bold,

@@ -116,7 +116,7 @@ class ForfaitDataPage extends StatelessWidget {
                                     ],
                                   ),
                                   Text(
-                                    'validité de ${item.validite}',
+                                    item.validite,
                                     style: const TextStyle(
                                       fontWeight: FontWeight.normal,
                                       color: ColorConstants.colorCustom2,
@@ -126,7 +126,7 @@ class ForfaitDataPage extends StatelessWidget {
                                 ],
                               ),
                               Text(
-                                '${item.prix} XOF',
+                                item.prix,
                                 style: const TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 18,
