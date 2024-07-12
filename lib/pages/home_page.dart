@@ -73,8 +73,14 @@ class HomePage extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                CustomButton(label: 'Solde credit'),
-                CustomButton(label: 'Solde money'),
+                Padding(
+                  padding: EdgeInsets.all(5.0),
+                  child: Expanded(child: CustomButton(label: 'Solde credit')),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(5.0),
+                  child: Expanded(child: CustomButton(label: 'Solde money')),
+                ),
               ],
             ),
           ),
