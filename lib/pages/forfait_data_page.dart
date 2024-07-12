@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mob_se/constants/color_constants.dart';
 import 'package:mob_se/constants/constantes.dart';
+import 'package:mob_se/widgets/custum_bottom_sheet.dart';
 
 class ForfaitDataPage extends StatelessWidget {
   const ForfaitDataPage({super.key});
@@ -59,7 +60,7 @@ class ForfaitDataPage extends StatelessWidget {
               ),
             ),
             const Divider(
-              height: 50,
+              height: 30,
               indent: 50,
               endIndent: 50,
               color: Colors.black,
@@ -84,8 +85,8 @@ class ForfaitDataPage extends StatelessWidget {
                             ),
                           ),
                           onPressed: () {
-                             /* callButtomSheet(
-                                context, item.mega, ' ', item.validite, item.prix, ); */ 
+                             callButtomSheet(
+                                context, item.mega, ' ', item.validite, item.prix, item.codeNormal);
                           },
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,

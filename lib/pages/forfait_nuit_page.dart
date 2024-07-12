@@ -38,7 +38,7 @@ class ForfaitNuitPage extends StatelessWidget {
               ),
             ),
             const Divider(
-              height: 50,
+              height: 30,
               indent: 50,
               endIndent: 50,
               color: Colors.black,

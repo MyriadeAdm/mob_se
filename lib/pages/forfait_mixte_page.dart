@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mob_se/constants/color_constants.dart';
 import 'package:mob_se/constants/constantes.dart';
+//import 'package:mob_se/widgets/custum_bottom_sheet.dart';
+
 
 class ForfaitMixtePage extends StatelessWidget {
   const ForfaitMixtePage({super.key});
@@ -57,7 +59,7 @@ class ForfaitMixtePage extends StatelessWidget {
               ),
             ),
             const Divider(
-              height: 50,
+              height: 30,
               indent: 50,
               endIndent: 50,
               color: Colors.black,
@@ -82,8 +84,8 @@ class ForfaitMixtePage extends StatelessWidget {
                             ),
                           ),
                           onPressed: () {
-                            /* callButtomSheet(
-                                context, item.credit); */ // Ici nous faisons appel au bottomsheet en tant que action futur
+                            // callButtomSheet(
+                            //     context, item.credit, item.msg, item.mega, item.validite, item.prix, item.codeNormal);// Ici nous faisons appel au bottomsheet en tant que action futur
                           },
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,

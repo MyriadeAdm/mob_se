@@ -100,16 +100,16 @@ Future<void> callButtomSheet(BuildContext context, String a, String b, String c,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          $aa, 
+                          $aa, // credit
                           style: const TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-                        Text($bb,
+                        Text($bb, //messages
                             style: const TextStyle(
                                 fontSize: 15, fontWeight: FontWeight.w500)),
-                        Text($cc,
+                        Text($cc, //validite
                             style: const TextStyle(
                                 fontSize: 13.5, fontWeight: FontWeight.w400)),
                         const SizedBox(height: 20),
@@ -125,7 +125,7 @@ Future<void> callButtomSheet(BuildContext context, String a, String b, String c,
                               ),
                             ),
                             Text(
-                              $dd,
+                              $dd, //prix
                               style: const TextStyle(
                                 fontSize: 25,
                                 fontWeight: FontWeight.w500,

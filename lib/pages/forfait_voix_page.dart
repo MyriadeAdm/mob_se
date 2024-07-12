@@ -26,6 +26,7 @@ class ForfaitVoixPage extends StatelessWidget {
               padding: const EdgeInsets.only(left: 20, right: 20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Row(
                     children: [
@@ -59,7 +60,7 @@ class ForfaitVoixPage extends StatelessWidget {
             ),
 
             const Divider(
-              height: 50,
+              height: 30,
               indent: 50,
               endIndent: 50,
               color: Colors.black,
