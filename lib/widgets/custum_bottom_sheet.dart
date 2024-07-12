@@ -16,6 +16,7 @@ class LabeledCheckbox extends StatelessWidget {
   final EdgeInsets padding;
   final bool value;
   final ValueChanged<bool> onChanged;
+  
 
   @override
   Widget build(BuildContext context) {
