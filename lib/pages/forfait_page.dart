@@ -15,7 +15,7 @@ class ForfaitPage extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Padding(
-          padding: EdgeInsets.only(left: 20, top: 20),
+          padding: EdgeInsets.only(left: 20),
           child: Text(
             "Achat de forfaits",
             style: TextStyle(

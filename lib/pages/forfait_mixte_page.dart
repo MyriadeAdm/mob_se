@@ -83,8 +83,8 @@ class ForfaitMixtePage extends StatelessWidget {
                             ),
                           ),
                           onPressed: () {
-                            callButtomSheet(
-                                context, item.credit); // Ici nous faisons appel au bottomsheet en tant que action futur
+                            /* callButtomSheet(
+                                context, item.credit); */ // Ici nous faisons appel au bottomsheet en tant que action futur
                           },
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,

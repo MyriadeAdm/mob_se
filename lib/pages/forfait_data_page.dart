@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:mob_se/constants/color_constants.dart';
 import 'package:mob_se/constants/constantes.dart';
 
-import '../widgets/custum_bottom_sheet.dart';
-
 class ForfaitDataPage extends StatelessWidget {
   const ForfaitDataPage({super.key});
 
@@ -71,9 +69,9 @@ class ForfaitDataPage extends StatelessWidget {
               child: SizedBox(
                 height: 700,
                 child: ListView.builder(
-                  itemCount: Constantes.forfaitsMixte.length,
+                  itemCount: Constantes.forfaitsInternet.length,
                   itemBuilder: (BuildContext context, int index) {
-                    final item = Constantes.forfaitsMixte[index];
+                    final item = Constantes.forfaitsInternet[index];
                     return Padding(
                       padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 28),
                       child: SizedBox(
@@ -86,8 +84,8 @@ class ForfaitDataPage extends StatelessWidget {
                             ),
                           ),
                           onPressed: () {
-                             callButtomSheet(
-                                context, item.credit); 
+                             /* callButtomSheet(
+                                context, item.mega, ' ', item.validite, item.prix, ); */ 
                           },
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -70,7 +70,7 @@ class CustumBottomSheet extends StatelessWidget {
 
 // =================== CI dessous le code à modifier pour designer le BottomSheet ===============
 
-Future<void> callButtomSheet(BuildContext context, String a) async {
+Future<void> callButtomSheet(BuildContext context, String a, String b, String c, String d, String e) async {
   await showModalBottomSheet<dynamic>(
     useRootNavigator: true,
     isScrollControlled: true,
@@ -85,6 +85,10 @@ Future<void> callButtomSheet(BuildContext context, String a) async {
           child: StatefulBuilder(
             builder: (BuildContext context, StateSetter setState) {
               String $aa= a;
+              String $bb= b;
+              String $cc= c;
+              String $dd= d;
+              String $ee= e;
               return Padding(
                 padding: const EdgeInsets.only(
                     right: 30, left: 30, top: 30, bottom: 30),
@@ -102,17 +106,23 @@ Future<void> callButtomSheet(BuildContext context, String a) async {
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-                        const Text('SMS',
-                            style: TextStyle(
+                        Text($bb,
+                            style: const TextStyle(
                                 fontSize: 15, fontWeight: FontWeight.w500)),
-                        const Text('Validite ',
-                            style: TextStyle(
-                                fontSize: 13.5, fontWeight: FontWeight.w400)),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            const Text('Validité de '),
+                            Text($cc,
+                                style: const TextStyle(
+                                    fontSize: 13.5, fontWeight: FontWeight.w400)),
+                          ],
+                        ),
                         const SizedBox(height: 20),
-                        const Row(
+                        Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
+                            const Text(
                               'Montant',
                               style: TextStyle(
                                 fontSize: 20,
@@ -120,8 +130,8 @@ Future<void> callButtomSheet(BuildContext context, String a) async {
                               ),
                             ),
                             Text(
-                              'prix',
-                              style: TextStyle(
+                              $dd,
+                              style: const TextStyle(
                                 fontSize: 30,
                                 fontWeight: FontWeight.w500,
                                 //color: Colors.orange,
