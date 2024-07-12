@@ -34,7 +34,7 @@ class ForfaitVoixPage extends StatelessWidget {
                         "Forfaits Voix",
                         style: TextStyle(
                           fontSize: 23,
-                          fontWeight: FontWeight.w800,
+                          fontWeight: FontWeight.w900,
                         ),
                       ),
                     ],

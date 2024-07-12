@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../constants/color_constants.dart';
 import '../constants/constantes.dart';
-import '../widgets/custum_bottom_sheet.dart';
 
 class ForfaitNuitPage extends StatelessWidget {
   const ForfaitNuitPage({super.key});
@@ -84,6 +83,7 @@ class ForfaitNuitPage extends StatelessWidget {
                                       const Icon(
                                         Icons.language,
                                         color: ColorConstants.colorCustom2,
+                                        size: 18,
                                       ),
                                       const SizedBox(width: 10),
                                       Text(

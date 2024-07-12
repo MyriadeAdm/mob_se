@@ -109,18 +109,13 @@ Future<void> callButtomSheet(BuildContext context, String a, String b, String c,
                         Text($bb,
                             style: const TextStyle(
                                 fontSize: 15, fontWeight: FontWeight.w500)),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            const Text('Validité de '),
-                            Text($cc,
-                                style: const TextStyle(
-                                    fontSize: 13.5, fontWeight: FontWeight.w400)),
-                          ],
-                        ),
+                        Text($cc,
+                            style: const TextStyle(
+                                fontSize: 13.5, fontWeight: FontWeight.w400)),
                         const SizedBox(height: 20),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             const Text(
                               'Montant',
@@ -132,7 +127,7 @@ Future<void> callButtomSheet(BuildContext context, String a, String b, String c,
                             Text(
                               $dd,
                               style: const TextStyle(
-                                fontSize: 30,
+                                fontSize: 25,
                                 fontWeight: FontWeight.w500,
                                 //color: Colors.orange,
                               ),

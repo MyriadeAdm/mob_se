@@ -193,7 +193,7 @@ class _HomePageState extends State<HomePage> {
 
                   return CustomListViewForfaitAppel(
                       icon: const Icon(
-                        Icons.call_end_outlined,
+                        Icons.call,
                         size: 20,
                       ),
                       credit: item.credit,

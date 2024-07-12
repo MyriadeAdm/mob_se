@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mob_se/constants/color_constants.dart';
 import 'package:mob_se/constants/constantes.dart';
-import 'package:mob_se/widgets/custum_bottom_sheet.dart';
 
 class ForfaitMixtePage extends StatelessWidget {
   const ForfaitMixtePage({super.key});
@@ -96,6 +95,11 @@ class ForfaitMixtePage extends StatelessWidget {
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
+                                      const Icon(
+                                        Icons.language,
+                                        color: ColorConstants.colorCustom2,
+                                        size: 18,
+                                      ),
                                       Text(
                                         item.credit,
                                         style: const TextStyle(
@@ -103,7 +107,14 @@ class ForfaitMixtePage extends StatelessWidget {
                                           color: ColorConstants.colorCustom2,
                                         ),
                                       ),
+
                                       const SizedBox(width: 20),
+
+                                      const Icon(
+                                        Icons.call,
+                                        color: ColorConstants.colorCustom2,
+                                        size: 18,
+                                      ),
                                       Text(
                                         item.mega,
                                         style: const TextStyle(
