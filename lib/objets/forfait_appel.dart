@@ -3,6 +3,7 @@ class ForfaitAppel {
   String msg;
   String validite;
   String prix;
+  String codeNormal;
 
-  ForfaitAppel(this.credit, this.msg, this.validite, this.prix);
+  ForfaitAppel(this.credit, this.msg, this.validite, this.prix, this.codeNormal);
 }

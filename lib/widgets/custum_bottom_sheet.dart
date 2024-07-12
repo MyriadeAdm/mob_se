@@ -70,7 +70,7 @@ class CustumBottomSheet extends StatelessWidget {
 
 // =================== CI dessous le code à modifier pour designer le BottomSheet ===============
 
-Future<void> callButtomSheet(BuildContext context) async {
+Future<void> callButtomSheet(BuildContext context, String a) async {
   await showModalBottomSheet<dynamic>(
     useRootNavigator: true,
     isScrollControlled: true,
@@ -84,6 +84,7 @@ Future<void> callButtomSheet(BuildContext context) async {
           padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
           child: StatefulBuilder(
             builder: (BuildContext context, StateSetter setState) {
+              String $aa= a;
               return Padding(
                 padding: const EdgeInsets.only(
                     right: 30, left: 30, top: 30, bottom: 30),
@@ -91,24 +92,24 @@ Future<void> callButtomSheet(BuildContext context) async {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    const Column(
+                    Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'credit',
-                          style: TextStyle(
+                          $aa, 
+                          style: const TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-                        Text('SMS',
+                        const Text('SMS',
                             style: TextStyle(
                                 fontSize: 15, fontWeight: FontWeight.w500)),
-                        Text('Validite ',
+                        const Text('Validite ',
                             style: TextStyle(
                                 fontSize: 13.5, fontWeight: FontWeight.w400)),
-                        SizedBox(height: 20),
-                        Row(
+                        const SizedBox(height: 20),
+                        const Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
@@ -287,7 +288,15 @@ Future<void> callButtomSheet(BuildContext context) async {
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
                             )),
-                        onPressed: () {},
+                        onPressed: () {
+                          if (_isSelected == false && currentOption == options[0]) {
+                // TODO code à completer lorsque l'utilisateur achête du crédit 
+                            // pour lui même avec son crédit
+
+                            /* Utiliser le code normal de l'objet forfait_appel pour
+                            lancer un call natif sur le terminal mobile */
+                          }
+                        },
                         child: const Text(
                           'CONFIRMER',
                           style: TextStyle(

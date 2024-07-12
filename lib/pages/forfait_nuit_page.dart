@@ -67,7 +67,7 @@ class ForfaitNuitPage extends StatelessWidget {
                           ),
                           onPressed: () {
                             callButtomSheet(
-                                context); 
+                                context, item.mega); 
                           },
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,

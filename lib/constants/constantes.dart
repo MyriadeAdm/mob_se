@@ -30,14 +30,14 @@ class Constantes {
   ];
 
   static final List<ForfaitAppel> forfaitsAppel = [
-    ForfaitAppel('1000 TR', '25', '1 j', '200'),
-    ForfaitAppel('1800 TR', '75', '2 j', '400'),
-    ForfaitAppel('2500 TR', '25', '3 j', '500'),
-    ForfaitAppel('3100 TR', '75', '3 j', '600'),
-    ForfaitAppel('5500 TR', '50', '7 j', '1000'),
-    ForfaitAppel('12000 TR', '100', '7 j', '2000'),
-    ForfaitAppel('17100 TR', '100', '7 j', '3000'),
-    ForfaitAppel('60000 TR', '200', '30 j', '9000'),
+    ForfaitAppel('1000 TR', '25', '1 j', '200', '*909*4*1*1*1#'),
+    ForfaitAppel('1800 TR', '75', '2 j', '400', '*909*4*1*3*1#'),
+    ForfaitAppel('2500 TR', '25', '3 j', '500', '*909*4*1*2*1#'),
+    ForfaitAppel('3100 TR', '75', '3 j', '600', '*909*4*1*4*1#'),
+    ForfaitAppel('5500 TR', '50', '7 j', '1000', '*909*4*2*1*1#'),
+    ForfaitAppel('12000 TR', '100', '7 j', '2000', '*909*4*2*2*1#'),
+    ForfaitAppel('17100 TR', '100', '7 j', '3000', '*909*4*2*3*1#'),
+    ForfaitAppel('60000 TR', '200', '30 j', '9000', '*909*4*3*1*1#'),
   ];
 
   static final List<ForfaitNuit> forfaitsNuit = [

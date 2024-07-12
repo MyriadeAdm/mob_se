@@ -86,7 +86,7 @@ class ForfaitVoixPage extends StatelessWidget {
                           ),
                           onPressed: () {
                             callButtomSheet(
-                                context); // Ici nous faisons appel au bottomsheet en tant que action futur
+                                context, item.credit); // Ici nous faisons appel au bottomsheet en tant que action futur
                           },
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,

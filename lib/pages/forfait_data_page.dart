@@ -87,7 +87,7 @@ class ForfaitDataPage extends StatelessWidget {
                           ),
                           onPressed: () {
                              callButtomSheet(
-                                context); 
+                                context, item.credit); 
                           },
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
