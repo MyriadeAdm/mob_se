@@ -3,7 +3,8 @@ class ForfaitInternet {
   String mega;
   String validite;
   String prix;
-  String codeNormal;
+  String codeMMCredit;
+  String codeAutruiCredit;
 
-  ForfaitInternet(this.mega, this.validite, this.prix, this.codeNormal);
+  ForfaitInternet(this.mega, this.validite, this.prix, this.codeMMCredit, this.codeAutruiCredit);
 }

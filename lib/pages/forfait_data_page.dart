@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:mob_se/constants/color_constants.dart';
 import 'package:mob_se/constants/constantes.dart';
 import 'package:mob_se/widgets/custum_bottom_sheet.dart';
@@ -46,7 +47,9 @@ class ForfaitDataPage extends StatelessWidget {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: ColorConstants.colorCustomButton,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      FlutterPhoneDirectCaller.callNumber(Constantes.solde[0].codeNormal);
+                    },
                     child: const Text(
                       "Solde",
                       style: TextStyle(
@@ -86,7 +89,7 @@ class ForfaitDataPage extends StatelessWidget {
                           ),
                           onPressed: () {
                              callButtomSheet(
-                                context, item.mega, ' ', item.validite, item.prix, item.codeNormal);
+                                context, item.mega, ' ', item.validite, item.prix, item.codeMMCredit, item.codeAutruiCredit);
                           },
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,

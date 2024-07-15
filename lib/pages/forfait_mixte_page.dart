@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:mob_se/constants/color_constants.dart';
 import 'package:mob_se/constants/constantes.dart';
+
+import '../widgets/custum_bottom_sheet.dart';
 //import 'package:mob_se/widgets/custum_bottom_sheet.dart';
 
 
@@ -45,7 +48,9 @@ class ForfaitMixtePage extends StatelessWidget {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: ColorConstants.colorCustomButton,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      FlutterPhoneDirectCaller.callNumber(Constantes.solde[2].codeNormal);
+                    },
                     child: const Text(
                       "Solde",
                       style: TextStyle(
@@ -84,8 +89,9 @@ class ForfaitMixtePage extends StatelessWidget {
                             ),
                           ),
                           onPressed: () {
-                            // callButtomSheet(
-                            //     context, item.credit, item.msg, item.mega, item.validite, item.prix, item.codeNormal);// Ici nous faisons appel au bottomsheet en tant que action futur
+                            callButtomSheet(
+                              context, item.credit, item.msg, item.validite, item.prix, item.codeNormal, item.mega);
+                            // Ici nous faisons appel au bottomsheet en tant que action futur
                           },
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -98,7 +104,7 @@ class ForfaitMixtePage extends StatelessWidget {
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       const Icon(
-                                        Icons.language,
+                                        Icons.call,
                                         color: ColorConstants.colorCustom2,
                                         size: 18,
                                       ),
@@ -113,7 +119,7 @@ class ForfaitMixtePage extends StatelessWidget {
                                       const SizedBox(width: 20),
 
                                       const Icon(
-                                        Icons.call,
+                                        Icons.language,
                                         color: ColorConstants.colorCustom2,
                                         size: 18,
                                       ),

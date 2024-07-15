@@ -18,7 +18,7 @@ packages:
     source: hosted
     version: "2.1.1"
   characters:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: characters
       sha256: "04a925763edad70e8443c99234dc3328f442e811f1d8fd1a72f1c8ad0f69a605"
@@ -78,6 +78,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.0.0"
+  flutter_native_contact_picker:
+    dependency: "direct main"
+    description:
+      name: flutter_native_contact_picker
+      sha256: b34aac5c3640904b513628c7bcb326c25f213ba36482a30b3013a4e69285f006
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.6"
   flutter_phone_direct_caller:
     dependency: "direct main"
     description:

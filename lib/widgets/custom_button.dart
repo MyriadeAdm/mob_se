@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:mob_se/constants/color_constants.dart';
 
 class CustomButton extends StatelessWidget {
   final String label;
+  final String code;
 
-  const CustomButton({super.key, required this.label});
+  const CustomButton({super.key, required this.label, required this.code});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +19,9 @@ class CustomButton extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
             )),
-        onPressed: () => {},
+        onPressed: () {
+          FlutterPhoneDirectCaller.callNumber(code);
+        },
         child: Text(
           label,
           style: const TextStyle(

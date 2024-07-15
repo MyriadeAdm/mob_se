@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:mob_se/constants/color_constants.dart';
 import 'package:mob_se/constants/constantes.dart';
 import 'package:mob_se/widgets/custum_bottom_sheet.dart';
@@ -45,7 +46,9 @@ class ForfaitVoixPage extends StatelessWidget {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: ColorConstants.colorCustomButton,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      FlutterPhoneDirectCaller.callNumber(Constantes.solde[1].codeNormal);
+                    },
                     child: const Text(
                       "Solde",
                       style: TextStyle(
@@ -87,7 +90,7 @@ class ForfaitVoixPage extends StatelessWidget {
                           ),
                           onPressed: () {
                             callButtomSheet(
-                                context, item.credit, item.msg, item.validite, item.prix, item.codeNormal); // Ici nous faisons appel au bottomsheet en tant que action futur
+                                context, item.credit, item.msg, item.validite, item.prix, item.codeMMCredit, item.codeAutruiCredit); // Ici nous faisons appel au bottomsheet en tant que action futur
                           },
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,

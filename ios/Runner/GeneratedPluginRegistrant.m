@@ -6,6 +6,12 @@
 
 #import "GeneratedPluginRegistrant.h"
 
+#if __has_include(<flutter_native_contact_picker/FlutterNativeContactPickerPlugin.h>)
+#import <flutter_native_contact_picker/FlutterNativeContactPickerPlugin.h>
+#else
+@import flutter_native_contact_picker;
+#endif
+
 #if __has_include(<flutter_phone_direct_caller/FlutterPhoneDirectCallerPlugin.h>)
 #import <flutter_phone_direct_caller/FlutterPhoneDirectCallerPlugin.h>
 #else
@@ -21,6 +27,7 @@
 @implementation GeneratedPluginRegistrant
 
 + (void)registerWithRegistry:(NSObject<FlutterPluginRegistry>*)registry {
+  [FlutterNativeContactPickerPlugin registerWithRegistrar:[registry registrarForPlugin:@"FlutterNativeContactPickerPlugin"]];
   [FlutterPhoneDirectCallerPlugin registerWithRegistrar:[registry registrarForPlugin:@"FlutterPhoneDirectCallerPlugin"]];
   [PathProviderPlugin registerWithRegistrar:[registry registrarForPlugin:@"PathProviderPlugin"]];
 }

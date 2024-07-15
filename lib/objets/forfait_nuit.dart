@@ -2,7 +2,8 @@ class ForfaitNuit {
   String mega;
   String validite;
   String prix;
-  String codeNormal;
+  String codeMMCredit;
+  String codeAutruiCredit;
 
-  ForfaitNuit(this.mega, this.validite, this.prix, this.codeNormal);
+  ForfaitNuit(this.mega, this.validite, this.prix, this.codeMMCredit, this.codeAutruiCredit);
 }

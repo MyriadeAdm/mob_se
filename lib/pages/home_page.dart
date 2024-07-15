@@ -12,7 +12,7 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-const List<Widget> carriername = <Widget>[Text('Togocom'), Text('Moov')];
+const List<String> carriername = ['Togocom', 'Moov'];
 
 class _HomePageState extends State<HomePage> {
   var cname = 'Togocom';
@@ -84,7 +84,10 @@ class _HomePageState extends State<HomePage> {
                                     minWidth: 80.0,
                                   ),
                                   isSelected: _selectedcarrier,
-                                  children: carriername,
+                                  children: [
+                                    Text(carriername[0]),
+                                    Text(carriername[1]),
+                                  ],
                                 ),
                               ),
                             ),
@@ -103,9 +106,9 @@ class _HomePageState extends State<HomePage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Expanded(child: CustomButton(label: 'Solde credit')),
+                Expanded(child: CustomButton(label: 'Solde credit', code: "*444#")),
                 SizedBox(width: 20),
-                Expanded(child: CustomButton(label: 'Solde money')),
+                Expanded(child: CustomButton(label: 'Solde money', code: " ")),
               ],
             ),
           ),

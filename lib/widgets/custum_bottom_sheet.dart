@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
+import 'package:flutter_native_contact_picker/flutter_native_contact_picker.dart';
 import 'package:mob_se/constants/color_constants.dart';
 
 //=============================================[DEBUT} !!!besoin pour faire marcher le bottom Sheet
@@ -16,7 +18,6 @@ class LabeledCheckbox extends StatelessWidget {
   final EdgeInsets padding;
   final bool value;
   final ValueChanged<bool> onChanged;
-  
 
   @override
   Widget build(BuildContext context) {
@@ -48,13 +49,16 @@ List<String> options = ['Crédit', 'mobilemoney'];
 
 bool? isChecked = false;
 final _textController = TextEditingController();
-int click = 0;
+// int click = 0;
 bool _isSelected = false;
 String currentOption = options[0];
 bool codeVisible = false;
 bool numVisible = false;
-//=============================================[FIN] !!!besoin pour faire marcher le bottom Sheet
 
+final FlutterContactPicker _contactPicker = FlutterContactPicker();
+Contact? _contact;
+String? selectedNumber;
+//=============================================[FIN] !!!besoin pour faire marcher le bottom Sheet
 
 class CustumBottomSheet extends StatelessWidget {
   const CustumBottomSheet({super.key});
@@ -67,10 +71,11 @@ class CustumBottomSheet extends StatelessWidget {
   }
 }
 
-
 // =================== CI dessous le code à modifier pour designer le BottomSheet ===============
 
-Future<void> callButtomSheet(BuildContext context, String a, String b, String c, String d, String e) async {
+Future<void> callButtomSheet(BuildContext context, String credit, String sms,
+    String validite, String prix, String codeMMCredit, String codeAutruiCredit,
+    [String mega = '']) async {
   await showModalBottomSheet<dynamic>(
     useRootNavigator: true,
     isScrollControlled: true,
@@ -81,14 +86,17 @@ Future<void> callButtomSheet(BuildContext context, String a, String b, String c,
     builder: ((context) {
       return Expanded(
         child: Padding(
-          padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+          padding:
+              EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
           child: StatefulBuilder(
             builder: (BuildContext context, StateSetter setState) {
-              String $aa= a;
-              String $bb= b;
-              String $cc= c;
-              String $dd= d;
-              String $ee= e;
+              String aa = credit;
+              String bb = sms;
+              String cc = validite;
+              String dd = prix;
+              String ee = codeMMCredit;
+              String ff = codeAutruiCredit;
+              String gg = mega;
               return Padding(
                 padding: const EdgeInsets.only(
                     right: 30, left: 30, top: 30, bottom: 30),
@@ -96,20 +104,20 @@ Future<void> callButtomSheet(BuildContext context, String a, String b, String c,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                     Column(
+                    Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          $aa, // credit
+                          (mega == '') ? aa : "$aa + $gg", // credit et mega
                           style: const TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-                        Text($bb, //messages
+                        Text(bb, //messages
                             style: const TextStyle(
                                 fontSize: 15, fontWeight: FontWeight.w500)),
-                        Text($cc, //validite
+                        Text(cc, //validite
                             style: const TextStyle(
                                 fontSize: 13.5, fontWeight: FontWeight.w400)),
                         const SizedBox(height: 20),
@@ -125,10 +133,10 @@ Future<void> callButtomSheet(BuildContext context, String a, String b, String c,
                               ),
                             ),
                             Text(
-                              $dd, //prix
+                              dd, //prix
                               style: const TextStyle(
                                 fontSize: 25,
-                                fontWeight: FontWeight.w500,
+                                fontWeight: FontWeight.w700,
                                 //color: Colors.orange,
                               ),
                             )
@@ -142,7 +150,7 @@ Future<void> callButtomSheet(BuildContext context, String a, String b, String c,
                       indent: 30,
                       endIndent: 30,
                     ),
-          
+
                     Directionality(
                       textDirection: TextDirection.rtl,
                       child: LabeledCheckbox(
@@ -157,7 +165,7 @@ Future<void> callButtomSheet(BuildContext context, String a, String b, String c,
                         },
                       ),
                     ),
-          
+
                     Visibility(
                       visible: numVisible,
                       child: Row(
@@ -169,7 +177,8 @@ Future<void> callButtomSheet(BuildContext context, String a, String b, String c,
                               decoration: InputDecoration(
                                 hintText: 'Nom ou numéro de téléphone',
                                 filled: true,
-                                fillColor: const Color.fromRGBO(230, 227, 227, 1),
+                                fillColor:
+                                    const Color.fromRGBO(230, 227, 227, 1),
                                 border: OutlineInputBorder(
                                   borderSide: BorderSide.none,
                                   borderRadius: BorderRadius.circular(10),
@@ -190,10 +199,24 @@ Future<void> callButtomSheet(BuildContext context, String a, String b, String c,
                           IconButton(
                             icon: const Icon(Icons.contacts_rounded,
                                 color: Colors.grey, size: 40.0),
-                            onPressed: () {
-                              setState(() {
-                                click += 1;
-                              });
+                            onPressed: () async {
+                              // setState(() {
+                              //   // click += 1;
+                              // });
+
+                              Contact? contact =
+                                  await _contactPicker.selectContact();
+
+                              if (contact != null) {
+                                setState(() {
+                                  _contact = contact;
+                                  List<String>? phoneNumbers =
+                                      contact.phoneNumbers;
+                                  selectedNumber =
+                                      phoneNumbers?[0] ?? 'Nothing selected';
+                                  _textController.text = selectedNumber!;
+                                });
+                              }
                             },
                           ),
                         ],
@@ -205,7 +228,7 @@ Future<void> callButtomSheet(BuildContext context, String a, String b, String c,
                       children: [
                         Expanded(
                             child: ListTile(
-                              horizontalTitleGap: 0,
+                                horizontalTitleGap: 0,
                                 title: const Text('Credit'),
                                 leading: Radio(
                                   value: options[0],
@@ -220,7 +243,7 @@ Future<void> callButtomSheet(BuildContext context, String a, String b, String c,
                                 ))),
                         Expanded(
                             child: ListTile(
-                              horizontalTitleGap: 0,
+                                horizontalTitleGap: 0,
                                 title: const Text('T-money'),
                                 leading: Radio(
                                   value: options[1],
@@ -261,12 +284,13 @@ Future<void> callButtomSheet(BuildContext context, String a, String b, String c,
                               decoration: InputDecoration(
                                 filled: true,
                                 //hintText: '',
-                                fillColor: const Color.fromRGBO(230, 227, 227, 1),
+                                fillColor:
+                                    const Color.fromRGBO(230, 227, 227, 1),
                                 border: OutlineInputBorder(
                                   borderSide: BorderSide.none,
                                   borderRadius: BorderRadius.circular(10),
                                 ),
-                                // suffixIcon: IconButton(
+                                // suggixIcon: IconButton(
                                 //   onPressed: () {
                                 //     _textController.clear();
                                 //   },
@@ -293,13 +317,18 @@ Future<void> callButtomSheet(BuildContext context, String a, String b, String c,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
                             )),
-                        onPressed: () {
-                          if (_isSelected == false && currentOption == options[0]) {
-                // TODO code à completer lorsque l'utilisateur achête du crédit 
-                            // pour lui même avec son crédit
-
-                            /* Utiliser le code normal de l'objet forfait_appel pour
-                            lancer un call natif sur le terminal mobile */
+                        onPressed: () async {
+                          if (_isSelected == false &&
+                              currentOption == options[0]) {
+                            /* option achat pour moi-même via credit */
+                            FlutterPhoneDirectCaller.callNumber(ee);
+                          } else if (_isSelected == true &&
+                              currentOption == options[0]) {
+                            var num = _textController.text.replaceAll(" ", "");
+                            /* option achat pour autrui via credit */
+                            // print("*909*7*$num$ff");
+                            FlutterPhoneDirectCaller.callNumber(
+                                "*909*7*$num$ff");
                           }
                         },
                         child: const Text(
