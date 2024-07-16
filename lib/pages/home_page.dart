@@ -101,14 +101,14 @@ class _HomePageState extends State<HomePage> {
               ),
             ],
           ),
-          const Padding(
-            padding: EdgeInsets.only(right: 20, left: 20, top: 5),
+           Padding(
+            padding: const EdgeInsets.only(right: 20, left: 20, top: 5),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Expanded(child: CustomButton(label: 'Solde credit', code: "*444#")),
-                SizedBox(width: 20),
-                Expanded(child: CustomButton(label: 'Solde money', code: " ")),
+                Expanded(child: CustomButton(label: 'Solde credit', code: (cname=='Togocom')?"*444#":"")),
+                const SizedBox(width: 20),
+                const Expanded(child: CustomButton(label: 'Solde money', code: " ")),
               ],
             ),
           ),
@@ -152,10 +152,13 @@ class _HomePageState extends State<HomePage> {
                       icon: const Icon(
                         Icons.public,
                         size: 20,
+                        color: Colors.black,
                       ),
                       mega: item.mega,
                       validite: item.validite,
-                      prix: item.prix);
+                      prix: item.prix,
+                      codeMMCredit: item.codeMMCredit,
+                      codeAutruiCredit: item.codeAutruiCredit,);
                 }),
           ),
           Padding(

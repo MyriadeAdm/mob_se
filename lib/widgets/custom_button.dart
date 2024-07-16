@@ -18,7 +18,8 @@ class CustomButton extends StatelessWidget {
             backgroundColor: ColorConstants.colorCustomButton,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
-            )),
+            )
+          ),
         onPressed: () {
           FlutterPhoneDirectCaller.callNumber(code);
         },
