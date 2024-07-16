@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 
 import '../constants/color_constants.dart';
 import '../constants/constantes.dart';
+import '../widgets/custum_bottom_sheet.dart';
 
 class ForfaitNuitPage extends StatelessWidget {
   const ForfaitNuitPage({super.key});
@@ -23,15 +25,39 @@ class ForfaitNuitPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.only(left: 20),
+              padding: const EdgeInsets.only(left: 5,right: 20),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  returnBack(context),
-                  const Text(
-                    "Forfaits Nuit",
-                    style: TextStyle(
-                      fontSize: 25,
-                      fontWeight: FontWeight.w800,
+                  Expanded(
+                    child: Row(
+                      children: [
+                        returnBack(context),
+                        const Text(
+                          "Forfaits Nuit",
+                          style: TextStyle(
+                            fontSize: 23,
+                            fontWeight: FontWeight.w800,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: ColorConstants.colorCustomButton,
+                    ),
+                    onPressed: () {
+                      FlutterPhoneDirectCaller.callNumber(Constantes.solde[0].codeNormal);
+                    },
+                    child: const Text(
+                      "Solde",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w800,
+                      ),
                     ),
                   ),
                 ],
@@ -65,8 +91,8 @@ class ForfaitNuitPage extends StatelessWidget {
                             ),
                           ),
                           onPressed: () {
-                            /* callButtomSheet(
-                                context, item.mega);  */
+                            callButtomSheet(
+                                context, item.mega, ' ', item.validite, item.prix, item.codeMMCredit, item.codeAutruiCredit);
                           },
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,

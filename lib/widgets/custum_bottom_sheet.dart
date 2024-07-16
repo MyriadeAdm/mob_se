@@ -333,6 +333,7 @@ Future<void> callButtomSheet(BuildContext context, String credit, String sms,
                               } else if (_isSelected == true &&
                                   currentOption == options[0]) {
                                 var num = _textController.text.replaceAll(" ", "");
+                                num = num.substring(num.length - 8);
                                 /* option achat pour autrui via credit */
                                 // print("*909*7*$num$ff");
                                 FlutterPhoneDirectCaller.callNumber(
@@ -363,6 +364,7 @@ Future<void> callButtomSheet(BuildContext context, String credit, String sms,
 }
 
 void reset() {
+  _textController.text = '';
   isChecked = false;
   _isSelected = false;
   currentOption = options[0];
