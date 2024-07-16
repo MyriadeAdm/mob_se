@@ -176,14 +176,17 @@ code_sign_if_enabled() {
 }
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/flutter_native_contact_picker/flutter_native_contact_picker.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/flutter_phone_direct_caller/flutter_phone_direct_caller.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/path_provider_foundation/path_provider_foundation.framework"
 fi
 if [[ "$CONFIGURATION" == "Profile" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/flutter_native_contact_picker/flutter_native_contact_picker.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/flutter_phone_direct_caller/flutter_phone_direct_caller.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/path_provider_foundation/path_provider_foundation.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/flutter_native_contact_picker/flutter_native_contact_picker.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/flutter_phone_direct_caller/flutter_phone_direct_caller.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/path_provider_foundation/path_provider_foundation.framework"
 fi
