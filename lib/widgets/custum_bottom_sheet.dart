@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:flutter_native_contact_picker/flutter_native_contact_picker.dart';
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:mob_se/constants/color_constants.dart';
+
 
 //=============================================[DEBUT} !!!besoin pour faire marcher le bottom Sheet
 
@@ -55,6 +56,7 @@ String currentOption = options[0];
 bool codeVisible = false;
 bool numVisible = false;
 
+
 final FlutterContactPicker _contactPicker = FlutterContactPicker();
 Contact? _contact;
 String? selectedNumber;
@@ -68,6 +70,8 @@ class CustumBottomSheet extends StatefulWidget {
 }
 
 class _CustumBottomSheetState extends State<CustumBottomSheet> {
+
+  
 
   @override
   Widget build(BuildContext context) {
@@ -361,6 +365,7 @@ Future<void> callButtomSheet(BuildContext context, String credit, String sms,
       );
     }),
   ).whenComplete(reset);
+
 }
 
 void reset() {
