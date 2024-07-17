@@ -5,6 +5,7 @@ class ForfaitMixte {
   String validite;
   String prix;
   String codeNormal;
+  String codeAutruiCredit;
 
-  ForfaitMixte(this.credit, this.mega, this.msg, this.validite, this.prix, this.codeNormal);
+  ForfaitMixte(this.credit, this.mega, this.msg, this.validite, this.prix, this.codeNormal, this.codeAutruiCredit);
 }

@@ -29,15 +29,15 @@ class Constantes {
   ];
 
   static final List<ForfaitMixte> forfaitsMixte = [
-    ForfaitMixte('700f v TR', '20 Mo', '25 SMS', 'Validité 1 j', '200 XOF','*909*3*1*1*1#'),
-    ForfaitMixte('1000f v TR', '35 Mo', '25 SMS', 'Validité 1 j', '250 XOF','*909*3*1*4*1#'),
-    ForfaitMixte('1500f v TR', '35 Mo', '25 SMS', 'Validité 1 j', '300 XOF','*909*3*1*2*1#'),
-    ForfaitMixte('2200f v TR', '70 Mo', '25 sms', 'Validité 2 j', '500 XOF','*909*3*1*3*1#'),
-    ForfaitMixte('5400f v TR', '120 Mo', '50 SMS', 'Validité 7 j', '1.000 XOF','*909*3*2*1*1#'),
-    ForfaitMixte('13500f v TR', '350 Mo', '50 SMS', 'Validité 7 j', '2.500 XOF','*909*3*2*2*1#'),
-    ForfaitMixte('20000f v TR', '1 Go', '100 SMS', 'Validité 30 j', '5.000 XOF','*909*3*3*2*1#'),
-    ForfaitMixte('42000f v TR', '2 Go', '100 SMS', 'Validité 30 j', '7.500 XOF','*909*3*3*1*1#'),
-    ForfaitMixte('400 min', '3 Go', '100 SMS', 'Validité 7 j', '10.000 XOF','*909*3*3*3*1#'),
+    ForfaitMixte('700f v TR', '20 Mo', '25 SMS', 'Validité 1 j', '200 XOF','*909*3*1*1*1#', ''),
+    ForfaitMixte('1000f v TR', '35 Mo', '25 SMS', 'Validité 1 j', '250 XOF','*909*3*1*4*1#', ''),
+    ForfaitMixte('1500f v TR', '35 Mo', '25 SMS', 'Validité 1 j', '300 XOF','*909*3*1*2*1#', ''),
+    ForfaitMixte('2200f v TR', '70 Mo', '25 sms', 'Validité 2 j', '500 XOF','*909*3*1*3*1#', ''),
+    ForfaitMixte('5400f v TR', '120 Mo', '50 SMS', 'Validité 7 j', '1.000 XOF','*909*3*2*1*1#', ''),
+    ForfaitMixte('13500f v TR', '350 Mo', '50 SMS', 'Validité 7 j', '2.500 XOF','*909*3*2*2*1#', ''),
+    ForfaitMixte('20000f v TR', '1 Go', '100 SMS', 'Validité 30 j', '5.000 XOF','*909*3*3*2*1#', ''),
+    ForfaitMixte('42000f v TR', '2 Go', '100 SMS', 'Validité 30 j', '7.500 XOF','*909*3*3*1*1#', ''),
+    ForfaitMixte('400 min', '3 Go', '100 SMS', 'Validité 7 j', '10.000 XOF','*909*3*3*3*1#', ''),
   ];
 
   static final List<ForfaitAppel> forfaitsAppel = [
