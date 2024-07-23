@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mob_se/pages/page_parametre.dart';
 import 'package:mob_se/pages/transactions_page.dart';
 import 'package:mob_se/widgets/custom_app_bar.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent_bottom_nav_bar_v2.dart';
@@ -13,10 +14,8 @@ class Base extends StatefulWidget {
 }
 
 class _BaseState extends State<Base> {
-
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: const CustomAppBar(),
       body: PersistentTabView(
@@ -40,6 +39,13 @@ class _BaseState extends State<Base> {
             item: ItemConfig(
               icon: const Icon(Icons.attach_money),
               title: "Transactions",
+            ),
+          ),
+          PersistentTabConfig(
+            screen: const PageParametre(),
+            item: ItemConfig(
+              icon: const Icon(Icons.settings),
+              title: "Parametre",
             ),
           ),
         ],
