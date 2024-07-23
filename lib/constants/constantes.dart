@@ -1,10 +1,10 @@
-import 'package:mob_se/objets/forfait_mixte.dart';
-import 'package:mob_se/objets/forfait_nuit.dart';
+import 'package:mob_se/models/forfait_mixte.dart';
+import 'package:mob_se/models/forfait_nuit.dart';
 
-import '../objets/forfait_appel.dart';
-import '../objets/forfait_internet.dart';
-import '../objets/solde.dart';
-import '../objets/historique.dart';
+import '../models/forfait_appel.dart';
+import '../models/forfait_internet.dart';
+import '../models/solde.dart';
+import '../models/historique.dart';
 
 class Constantes {
     static final List<Solde> solde = [
@@ -13,7 +13,8 @@ class Constantes {
     Solde('mixte', '*909*9*1*2*2#'),
   ];
 
-  static final List<ForfaitInternet> forfaitsInternet = [ //  ] Forfait moi-meme , Forfait autruit]
+  static final List<ForfaitInternet> forfaitsInternet = [ 
+    //   Forfait moi-meme , Forfait autruit]
     ForfaitInternet('45 Mo', 'Validité 1 j', '100 XOF','*909*2*1*2*1#', '*1*1*2*1#'),
     ForfaitInternet('100 Mo', 'Validité 1 j', '200 XOF','*909*2*1*3*1#', '*1*1*3*1#'),
     ForfaitInternet('250 Mo', 'Validité 1 j', '250 XOF','*909*2*1*1*1#', '*1*1*1*1#'),
