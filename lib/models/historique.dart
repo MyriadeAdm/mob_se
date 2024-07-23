@@ -1,8 +1,13 @@
+import 'package:isar/isar.dart';
+
+part 'historique.g.dart';
+
+@Collection()
 class Historique {
-  String typeForfait;
-  String detailsForfait;
-  String dateTime;
+  Id? id;
+  String? typeForfait;
+  String? detailsForfait;
+  DateTime dateTime = DateTime.now();
 
-  Historique(this.typeForfait, this.detailsForfait, this.dateTime);
-
+  Historique(this.typeForfait, this.detailsForfait);
 }

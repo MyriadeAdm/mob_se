@@ -57,10 +57,6 @@ class Constantes {
   ];
 
   static final List<Historique> historique = [
-    Historique('Forfait Appel', '350 mo', DateTime.now().toString().substring(0,10)),
-    Historique('Forfait Appel', '1000 xof', DateTime.now().toString().substring(0,10)),
-    Historique('Forfait Internet', '200 xof', DateTime.now().toString().substring(0,10)),
-    Historique('Forfait Appel', '200 xof', DateTime.now().toString().substring(0,10)),
-    Historique('Forfait Appel', '200 xof', DateTime.now().toString().substring(0,10)),
+    
   ];
 }
