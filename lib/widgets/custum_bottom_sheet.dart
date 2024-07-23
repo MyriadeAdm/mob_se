@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_native_contact_picker/flutter_native_contact_picker.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:mob_se/constants/color_constants.dart';
@@ -49,7 +50,9 @@ class LabeledCheckbox extends StatelessWidget {
 List<String> options = ['Crédit', 'mobilemoney'];
 
 bool? isChecked = false;
-final _textController = TextEditingController();
+final _numeroController = TextEditingController();
+final _codeController = TextEditingController();
+final FocusNode _codeControllerFocusNode = FocusNode();
 // int click = 0;
 bool _isSelected = false;
 String currentOption = options[0];
@@ -156,6 +159,7 @@ Future<void> callButtomSheet(BuildContext context, String credit, String sms,
                             )
                           ],
                         ),
+                        
                         const Divider(
                           height: 30,
                           thickness: 2,
@@ -173,6 +177,7 @@ Future<void> callButtomSheet(BuildContext context, String credit, String sms,
                               setState(() {
                                 _isSelected = newValue;
                                 numVisible = !numVisible;
+                                _numeroController.clear();
                               });
                             },
                           ),
@@ -185,7 +190,8 @@ Future<void> callButtomSheet(BuildContext context, String credit, String sms,
                             children: [
                               Expanded(
                                 child: TextField(
-                                  controller: _textController,
+                                  autofocus: true,
+                                  controller: _numeroController,
                                   decoration: InputDecoration(
                                     hintText: 'Nom ou numéro de téléphone',
                                     filled: true,
@@ -197,7 +203,7 @@ Future<void> callButtomSheet(BuildContext context, String credit, String sms,
                                     ),
                                     suffixIcon: IconButton(
                                       onPressed: () {
-                                        _textController.clear();
+                                        _numeroController.clear();
                                       },
                                       icon: const Icon(
                                         Icons.clear,
@@ -216,17 +222,13 @@ Future<void> callButtomSheet(BuildContext context, String credit, String sms,
                                   //   // click += 1;
                                   // });
           
-                                  Contact? contact =
-                                      await _contactPicker.selectContact();
-          
+                                  Contact? contact = await _contactPicker.selectContact();
                                   if (contact != null) {
                                     setState(() {
                                       _contact = contact;
-                                      List<String>? phoneNumbers =
-                                          contact.phoneNumbers;
-                                      selectedNumber =
-                                          phoneNumbers?[0] ?? 'Nothing selected';
-                                      _textController.text = selectedNumber!;
+                                      List<String>? phoneNumbers = contact.phoneNumbers;
+                                      selectedNumber = phoneNumbers?[0] ?? 'Nothing selected';
+                                      _numeroController.text = selectedNumber!;
                                     });
                                   }
                                 },
@@ -241,7 +243,7 @@ Future<void> callButtomSheet(BuildContext context, String credit, String sms,
                             Expanded(
                                 child: ListTile(
                                     horizontalTitleGap: 0,
-                                    title: const Text('Credit'),
+                                    title: const Text('Unité'),
                                     leading: Radio(
                                       value: options[0],
                                       groupValue: currentOption,
@@ -249,6 +251,8 @@ Future<void> callButtomSheet(BuildContext context, String credit, String sms,
                                         setState(() {
                                           currentOption = value.toString();
                                           codeVisible = !codeVisible;
+                                          _codeControllerFocusNode.unfocus();
+                                           _codeController.clear();
                                         });
                                       },
                                       activeColor: Colors.amber,
@@ -264,6 +268,7 @@ Future<void> callButtomSheet(BuildContext context, String credit, String sms,
                                         setState(() {
                                           currentOption = value.toString();
                                           codeVisible = !codeVisible;
+                                          _codeControllerFocusNode.requestFocus();
                                         });
                                       },
                                       activeColor: Colors.amber,
@@ -288,11 +293,16 @@ Future<void> callButtomSheet(BuildContext context, String credit, String sms,
                                 width: 200,
                                 height: 35,
                                 child: TextField(
+                                  autofocus: true,
+                                  inputFormatters: [
+                                    LengthLimitingTextInputFormatter(4),
+                                  ],
                                   keyboardType: TextInputType.number,
                                   obscureText: true,
                                   //onChanged: (){},
                                   obscuringCharacter: "*",
-                                  controller: TextEditingController(),
+                                  controller: _codeController,
+                                  focusNode: _codeControllerFocusNode,
                                   decoration: InputDecoration(
                                     filled: true,
                                     //hintText: '',
@@ -304,7 +314,7 @@ Future<void> callButtomSheet(BuildContext context, String credit, String sms,
                                     ),
                                     // suggixIcon: IconButton(
                                     //   onPressed: () {
-                                    //     _textController.clear();
+                                    //     _codeController.clear();
                                     //   },
                                     //   icon: const Icon(
                                     //     Icons.clear,
@@ -330,18 +340,19 @@ Future<void> callButtomSheet(BuildContext context, String credit, String sms,
                                   borderRadius: BorderRadius.circular(10),
                                 )),
                             onPressed: () async {
-                              if (_isSelected == false &&
-                                  currentOption == options[0]) {
                                 /* option achat pour moi-même via credit */
+                              if (_isSelected == false && currentOption == options[0]) {
                                 FlutterPhoneDirectCaller.callNumber(ee);
-                              } else if (_isSelected == true &&
-                                  currentOption == options[0]) {
-                                var num = _textController.text.replaceAll(" ", "");
+
+                                  /* option achat pour autrui via credit */
+                              } else if (_isSelected == true && currentOption == options[0]) {
+                                var num = _numeroController.text.replaceAll(" ", "");
                                 num = num.substring(num.length - 8);
-                                /* option achat pour autrui via credit */
                                 // print("*909*7*$num$ff");
-                                FlutterPhoneDirectCaller.callNumber(
-                                    "*909*7*$num$ff");
+                                FlutterPhoneDirectCaller.callNumber("*909*7*$num$ff");
+
+                                /* option achat pour moi meme via mobile money */
+                                /* option achat pour autrui via mobile money */
                               }
                             },
                             child: const Text(
@@ -369,10 +380,11 @@ Future<void> callButtomSheet(BuildContext context, String credit, String sms,
 }
 
 void reset() {
-  _textController.text = '';
+  _numeroController.clear();
   isChecked = false;
   _isSelected = false;
   currentOption = options[0];
   codeVisible = false;
   numVisible = false;
+  _codeController.clear();
 }

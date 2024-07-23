@@ -112,6 +112,44 @@ class TransactionsPage extends StatelessWidget {
             ),
           ],
         ),
+        Padding(
+              padding: const EdgeInsets.only(top:18.0,bottom: 18.0, right: 39, left: 39),
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width,
+                height: 130,
+                child: ElevatedButton(
+                    onPressed: () {
+                     // TO DO Ecrire la fonction d'appel au simpleDialog pour l'achat du forfait
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: ColorConstants.colorCustomButton,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15)),
+                    ),
+                    child: const Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.cancel,
+                          size: 40,
+                          color: Colors.black,
+                        ),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        Text(
+                          'Annulation',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 17,
+                            fontWeight: FontWeight.w900,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ],
+                    )),
+              ),
+            ),
       ],
     );
   }
