@@ -242,6 +242,17 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
+          SizedBox(
+            
+            height: 70,
+            child: ListView.builder(
+              scrollDirection: Axis.vertical,
+              itemCount: 7,
+              itemBuilder: (BuildContext context, int index) {
+
+                return SizedBox();
+              },),
+          ),
         ],
       ),
     );

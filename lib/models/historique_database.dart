@@ -30,7 +30,7 @@ class HistoriqueDatabase {
     // re-read from db
   }
 
-  // R E A D - notes from db
+  // R E A D - historique from db
   Future<void> fetchHistoriques() async {
     List<Historique> fetchedHistoriques = await isar.historiques.where().findAll();
     currentHistoriques.clear();
