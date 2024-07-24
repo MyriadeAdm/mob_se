@@ -7,9 +7,14 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: Colors.white,
-      title: Image.asset(
-        'assets/images/mosbelogo.png',
-        width: 130,
+      title: Padding(
+        padding: const EdgeInsets.only(top:10.0),
+        child: Center(
+          child: Image.asset(
+            'assets/images/mosbelogo.png',
+            width: 130,
+          ),
+        ),
       ),
       actions: const [
         

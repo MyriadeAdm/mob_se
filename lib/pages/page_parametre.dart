@@ -11,7 +11,7 @@ class PageParametre extends StatelessWidget {
         Padding(
           padding: EdgeInsets.only(left: 20),
           child: Text(
-            "Parametres",
+            "Paramètres",
             style: TextStyle(
               fontSize: 25,
               fontWeight: FontWeight.w800,

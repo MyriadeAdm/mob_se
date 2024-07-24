@@ -33,7 +33,10 @@ class CustomListViewForfaitAppel extends StatelessWidget {
           backgroundColor: Colors.white,
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(15)),
-            side: BorderSide(style: BorderStyle.solid, width: 3, color: Colors.amber),
+            side: BorderSide(
+              style: BorderStyle.solid,
+              width: 1.5,
+              color: Colors.amber),
           ),
         ),
         child: Column(

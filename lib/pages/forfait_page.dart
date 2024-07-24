@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mob_se/constants/color_constants.dart';
@@ -41,10 +42,7 @@ class ForfaitPage extends StatelessWidget {
               child: ElevatedButton(
                   onPressed: () {
                     Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (BuildContext context) =>
-                                const ForfaitVoixPage()));
+                        context, CupertinoPageRoute(builder: (BuildContext context) => const ForfaitVoixPage()));
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: ColorConstants.colorCustomButton,
@@ -53,6 +51,7 @@ class ForfaitPage extends StatelessWidget {
                   ),
                   child: const Column(
                     mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Icon(
                         Icons.call,
@@ -81,7 +80,7 @@ class ForfaitPage extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                         context,
-                        MaterialPageRoute(
+                        CupertinoPageRoute(
                             builder: (BuildContext context) =>
                                 const ForfaitDataPage()));
                   },
@@ -92,6 +91,7 @@ class ForfaitPage extends StatelessWidget {
                   ),
                   child: const Column(
                     mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Icon(
                         FontAwesomeIcons.earthAfrica,
@@ -115,7 +115,7 @@ class ForfaitPage extends StatelessWidget {
           ],
         ),
 
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 30),
 
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -127,7 +127,7 @@ class ForfaitPage extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                         context,
-                        MaterialPageRoute(
+                        CupertinoPageRoute(
                             builder: (BuildContext context) =>
                                 const ForfaitMixtePage()));
                   },
@@ -138,6 +138,7 @@ class ForfaitPage extends StatelessWidget {
                   ),
                   child: const Column(
                     mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Icon(
                         FontAwesomeIcons.mixer,
@@ -165,7 +166,7 @@ class ForfaitPage extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                         context,
-                        MaterialPageRoute(
+                        CupertinoPageRoute(
                             builder: (BuildContext context) =>
                                 const ForfaitNuitPage()));
                   },
@@ -176,6 +177,7 @@ class ForfaitPage extends StatelessWidget {
                   ),
                   child: const Column(
                     mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Icon(
                         FontAwesomeIcons.solidMoon,

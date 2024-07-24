@@ -22,7 +22,7 @@ class TransactionsPage extends StatelessWidget {
         ),
 
         const Divider(
-          height: 40,
+          height: 60,
           indent: 80,
           endIndent: 80,
           color: Colors.black,
@@ -30,90 +30,81 @@ class TransactionsPage extends StatelessWidget {
         ),
 
         Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            
-            Padding(
-              padding: const EdgeInsets.all(18.0),
-              child: SizedBox(
-                width: 150,
-                height: 130,
-                child: ElevatedButton(
-                    onPressed: () {
-                     // TO DO appel au bottomSheet d'envoi d'argent
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: ColorConstants.colorCustomButton,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15)),
-                    ),
-                    child: const Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.send,
-                          size: 40,
+            SizedBox(
+              width: 150,
+              height: 130,
+              child: ElevatedButton(
+                  onPressed: () { },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: ColorConstants.colorCustomButton,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15)),
+                  ),
+                  child: const Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    //crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Icon(
+                        Icons.login,
+                        size: 40,
+                        color: Colors.black,
+                      ),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Text(
+                        'Depot',
+                        style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w900,
                           color: Colors.black,
                         ),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        Text(
-                          'Envoi',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 17,
-                            fontWeight: FontWeight.w900,
-                            color: Colors.black,
-                          ),
-                        ),
-                      ],
-                    )),
-              ),
+                      ),
+                    ],
+                  )),
             ),
 
-            Padding(
-              padding: const EdgeInsets.all(18.0),
-              child: SizedBox(
-                width: 150,
-                height: 130,
-                child: ElevatedButton(
-                    onPressed: () {
-                     // TO DO Ecrire la fonction d'appel au simpleDialog pour l'achat du forfait
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: ColorConstants.colorCustomButton,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15)),
-                    ),
-                    child: const Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.arrow_circle_down,
-                          size: 40,
+            SizedBox(
+              width: 150,
+              height: 130,
+              child: ElevatedButton(
+                  onPressed: () { },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: ColorConstants.colorCustomButton,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15)),
+                  ),
+                  child: const Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    //crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Icon(
+                        Icons.logout,
+                        size: 40,
+                        color: Colors.black,
+                      ),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Text(
+                        'Retrait',
+                        style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w900,
                           color: Colors.black,
                         ),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        Text(
-                          'Retrait',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 17,
-                            fontWeight: FontWeight.w900,
-                            color: Colors.black,
-                          ),
-                        ),
-                      ],
-                    )),
-              ),
+                      ),
+                    ],
+                  )),
             ),
           ],
         ),
+
+        
         Padding(
-              padding: const EdgeInsets.only(top:18.0,bottom: 18.0, right: 39, left: 39),
+              padding: const EdgeInsets.only(top:25.0,bottom: 18.0, right: 39, left: 39),
               child: SizedBox(
                 width: MediaQuery.of(context).size.width,
                 height: 130,

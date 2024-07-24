@@ -250,7 +250,7 @@ class _HomePageState extends State<HomePage> {
               itemCount: 7,
               itemBuilder: (BuildContext context, int index) {
 
-                return SizedBox();
+                return const SizedBox();
               },),
           ),
         ],

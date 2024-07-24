@@ -10,28 +10,33 @@ class CustomListViewForfaitInternet extends StatelessWidget {
   final String codeMMCredit;
   final String codeAutruiCredit;
 
-  const CustomListViewForfaitInternet(
-      {super.key,
-      required this.icon,
-      required this.mega,
-      required this.validite,
-      required this.prix,
-      required this.codeMMCredit,
-      required this.codeAutruiCredit,});
+  const CustomListViewForfaitInternet({
+    super.key,
+    required this.icon,
+    required this.mega,
+    required this.validite,
+    required this.prix,
+    required this.codeMMCredit,
+    required this.codeAutruiCredit,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(right: 8),
       child: ElevatedButton(
-        onPressed: () { 
-          callButtomSheet(context, mega, ' ', validite, prix, codeMMCredit, codeAutruiCredit);
-         },
+        onPressed: () {
+          callButtomSheet(context, mega, ' ', validite, prix, codeMMCredit,
+              codeAutruiCredit);
+        },
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.white,
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(15)),
-            side: BorderSide(style: BorderStyle.solid, width: 3, color: Colors.amber),
+            side: BorderSide(
+                style: BorderStyle.solid,
+                width: 1.5,
+                color: Colors.amber),
           ),
         ),
         child: Column(
