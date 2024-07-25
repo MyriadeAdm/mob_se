@@ -49,7 +49,7 @@ class _BaseState extends State<Base> {
               // Sortie du showDialog
               Navigator.pop(context);
 
-              // Reinitialisation des textControllers
+              // Reinitialisation des textControllers apres enregistrement
               typeForfaitController.clear();
               detailsForfaitController.clear();
             },
