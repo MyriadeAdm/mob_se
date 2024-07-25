@@ -1,8 +1,9 @@
+import 'package:flutter/foundation.dart';
 import 'package:mob_se/models/historique.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:isar/isar.dart';
 
-class HistoriqueDatabase {
+class HistoriqueDatabase extends ChangeNotifier{
   
   static late Isar isar;
 
@@ -28,6 +29,7 @@ class HistoriqueDatabase {
     await isar.writeTxn(() => isar.historiques.put(newHistorique));
 
     // re-read from db
+    await fetchHistoriques();
   }
 
   // R E A D - historique from db
@@ -35,6 +37,7 @@ class HistoriqueDatabase {
     List<Historique> fetchedHistoriques = await isar.historiques.where().findAll();
     currentHistoriques.clear();
     currentHistoriques.addAll(fetchedHistoriques);
+    notifyListeners();
   }
 
 }

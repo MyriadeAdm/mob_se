@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mob_se/models/historique_database.dart';
+import 'package:provider/provider.dart';
 import './pages/base.dart';
 
 import 'package:permission_handler/permission_handler.dart';
 
+void main() async {
+  // initialize historique database
+  WidgetsFlutterBinding.ensureInitialized();
+  await HistoriqueDatabase.initialize();
 
-void main() {
-  runApp(const MainApp());
+  runApp(ChangeNotifierProvider(
+    create: (context) => HistoriqueDatabase(),
+    child: const MainApp(),
+  ));
 }
 
 class MainApp extends StatefulWidget {
@@ -33,12 +41,12 @@ class _MainAppState extends State<MainApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(     
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: GoogleFonts.poppins().fontFamily,
-      ), 
-      home:  const Base(),
+      ),
+      home: const Base(),
     );
   }
 }
