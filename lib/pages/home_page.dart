@@ -222,25 +222,26 @@ class _HomePageState extends State<HomePage> {
           SizedBox(
             height: 95,
             child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: Constantes.forfaitsAppel.length,
-                itemBuilder: (BuildContext context, int index) {
-                  final item = Constantes.forfaitsAppel[index];
+              scrollDirection: Axis.horizontal,
+              itemCount: Constantes.forfaitsAppel.length,
+              itemBuilder: (BuildContext context, int index) {
+                final item = Constantes.forfaitsAppel[index];
 
-                  return CustomListViewForfaitAppel(
-                    icon: const Icon(
-                      Icons.call,
-                      size: 20,
-                      color: Colors.black,
-                    ),
-                    credit: item.credit,
-                    validite: item.validite,
-                    msg: item.msg,
-                    prix: item.prix,
-                    codeMMCredit: item.codeMMCredit,
-                    codeAutruiCredit: item.codeAutruiCredit,
-                  );
-                }),
+                return CustomListViewForfaitAppel(
+                  icon: const Icon(
+                    Icons.call,
+                    size: 20,
+                    color: Colors.black,
+                  ),
+                  credit: item.credit,
+                  validite: item.validite,
+                  msg: item.msg,
+                  prix: item.prix,
+                  codeMMCredit: item.codeMMCredit,
+                  codeAutruiCredit: item.codeAutruiCredit,
+                );
+              },
+            ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 18),
@@ -255,21 +256,22 @@ class _HomePageState extends State<HomePage> {
                       color: Colors.black),
                 ),
                 TextButton(
-                    onPressed: () {},
-                    child: const Row(
-                      children: [
-                        Text(
-                          'Voir Plus',
-                          style: TextStyle(
-                              color: ColorConstants.colorCustomButton),
-                        ),
-                        Icon(
-                          Icons.arrow_forward_ios_sharp,
-                          size: 18,
-                          color: ColorConstants.colorCustomButton,
-                        ),
-                      ],
-                    ))
+                  onPressed: () {},
+                  child: const Row(
+                    children: [
+                      Text(
+                        'Voir Plus',
+                        style:
+                            TextStyle(color: ColorConstants.colorCustomButton),
+                      ),
+                      Icon(
+                        Icons.arrow_forward_ios_sharp,
+                        size: 18,
+                        color: ColorConstants.colorCustomButton,
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
