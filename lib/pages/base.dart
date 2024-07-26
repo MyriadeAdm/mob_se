@@ -101,10 +101,10 @@ class _BaseState extends State<Base> {
           navBarConfig: navBarConfig,
         ),
       ),
-      floatingActionButton: FloatingActionButton(
+      /* floatingActionButton: FloatingActionButton(
         onPressed: createHistorique,
         child: const Icon(Icons.add),
-      ),
+      ), */
     );
   }
 }

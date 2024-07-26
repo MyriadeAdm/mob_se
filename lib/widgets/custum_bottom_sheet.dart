@@ -3,6 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_native_contact_picker/flutter_native_contact_picker.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:mob_se/constants/color_constants.dart';
+import 'package:provider/provider.dart';
+
+import '../models/historique_database.dart';
 
 
 //=============================================[DEBUT} !!!besoin pour faire marcher le bottom Sheet
@@ -345,7 +348,11 @@ Future<void> callButtomSheet(BuildContext context, String credit, String sms,
                               if (_isSelected == false && currentOption == options[0]) {
                                 FlutterPhoneDirectCaller.callNumber(ee);
 
-                                  /* option achat pour autrui via credit */
+                                context.read<HistoriqueDatabase>().addHistorique(
+                                  (gg == '') ? "Forfait appel" : "Forfait internet", 
+                                  "$aa $bb, $cc - $dd");
+
+                                /* option achat pour autrui via credit */
                               } else if (_isSelected == true && currentOption == options[0]) {
                                 var num = _numeroController.text.replaceAll(" ", "");
                                 num = num.substring(num.length - 8);

@@ -282,9 +282,8 @@ class _HomePageState extends State<HomePage> {
               itemBuilder: (BuildContext context, int index) {
                 final historique = currentHistoriques[index];
                 return Padding(
-                  padding: const EdgeInsets.only(left: 20, right: 20),
+                  padding: const EdgeInsets.only(left: 12, right: 12),
                   child: ListTile(
-                    tileColor: Colors.grey[200],
                     title: Text(
                       historique.typeForfait as String,
                       style: const TextStyle(fontSize: 15),
@@ -299,7 +298,7 @@ class _HomePageState extends State<HomePage> {
                         Text(
                           DateFormat('yyyy-MM-dd HH:mm')
                               .format(historique.dateTime),
-                          style: const TextStyle(fontSize: 9),
+                          style: const TextStyle(fontSize: 10),
                         ),
                       ],
                     ),
