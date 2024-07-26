@@ -39,5 +39,4 @@ class HistoriqueDatabase extends ChangeNotifier{
     currentHistoriques.addAll(fetchedHistoriques);
     notifyListeners();
   }
-
 }
