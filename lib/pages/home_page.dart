@@ -20,6 +20,7 @@ const List<String> carriername = ['Togocom', 'Moov'];
 
 class _HomePageState extends State<HomePage> {
   var cname = 'Togocom';
+  var mb = 'Tmoney';
   final List<bool> _selectedcarrier = <bool>[true, false];
 
   // Fonction de recupération des historiques dans la base de donnée
@@ -72,7 +73,7 @@ class _HomePageState extends State<HomePage> {
                     context: context,
                     builder: (context) => AlertDialog(
                       title: const Text(
-                        'Selectionner votre reseaux',
+                        'Sélectionner votre reseaux',
                         style: TextStyle(
                           fontSize: 18,
                         ),
@@ -84,14 +85,12 @@ class _HomePageState extends State<HomePage> {
                             onPressed: (int index) {
                               setState(() {
                                 // The button that is tapped is set to true, and the others to false.
-                                for (int i = 0;
-                                    i < _selectedcarrier.length;
-                                    i++) {
-                                  _selectedcarrier[i] = i == index;
+                                for (int i = 0;i < _selectedcarrier.length;i++) 
+                                { _selectedcarrier[i] = i == index;
                                   if (index == 0) {
-                                    cname = 'Togocom';
+                                    cname = 'Togocom'; mb ='Tmoney';
                                   } else {
-                                    cname = 'Moov';
+                                    cname = 'Moov'; mb = 'Flooz';
                                   }
                                 }
                               });
@@ -134,10 +133,12 @@ class _HomePageState extends State<HomePage> {
                 Expanded(
                     child: CustomButton(
                         label: 'Solde credit',
-                        code: (cname == 'Togocom') ? "*444#" : "")),
+                        code: (cname == 'Togocom') ? "*444#" : "*101#")),
                 const SizedBox(width: 20),
-                const Expanded(
-                    child: CustomButton(label: 'Solde money', code: " ")),
+                Expanded(
+                    child: CustomButton(
+                      label: 'Solde $mb',
+                      code: (cname == 'Togocom') ? "*145#" : "")),
               ],
             ),
           ),

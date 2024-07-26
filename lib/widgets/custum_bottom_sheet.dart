@@ -61,6 +61,7 @@ bool numVisible = false;
 
 
 final FlutterContactPicker _contactPicker = FlutterContactPicker();
+// ignore: unused_element
 Contact? _contact;
 String? selectedNumber;
 //=============================================[FIN] !!!besoin pour faire marcher le bottom Sheet
