@@ -366,7 +366,7 @@ Future<void> callButtomSheet(BuildContext context, String credit, String sms,
                                     builder: (BuildContext context) {
                                       return const AlertDialog(
                                       title: Text("Pas de numéro"),
-                                      content: Text("Veuillez renseignr le numéro"));}
+                                      content: Text("Veuillez renseigner le numéro"));}
                                   );
 
                                     _numeroControllerFocusNode.requestFocus;
