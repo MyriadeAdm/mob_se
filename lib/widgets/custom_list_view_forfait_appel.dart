@@ -31,6 +31,7 @@ class CustomListViewForfaitAppel extends StatelessWidget {
         },
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.white,
+          padding: const EdgeInsets.all(13),
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(15)),
             side: BorderSide(
@@ -51,7 +52,7 @@ class CustomListViewForfaitAppel extends StatelessWidget {
                   credit,
                   style: const TextStyle(
                     color: Colors.black,
-                    fontSize: 15,
+                    fontSize: 14,
                     fontWeight: FontWeight.bold,
                   ),
                 )
@@ -68,7 +69,7 @@ class CustomListViewForfaitAppel extends StatelessWidget {
               prix,
               style: const TextStyle(
                 color: Colors.black,
-                fontSize: 17,
+                fontSize: 16,
                 fontWeight: FontWeight.bold,
               ),
             ),

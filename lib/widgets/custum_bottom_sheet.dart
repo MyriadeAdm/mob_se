@@ -54,6 +54,7 @@ List<String> options = ['Crédit', 'mobilemoney'];
 
 bool? isChecked = false;
 final _numeroController = TextEditingController();
+final FocusNode _numeroControllerFocusNode = FocusNode();
 final _codeController = TextEditingController();
 final FocusNode _codeControllerFocusNode = FocusNode();
 // int click = 0;
@@ -355,13 +356,24 @@ Future<void> callButtomSheet(BuildContext context, String credit, String sms,
                                 /* option achat pour autrui via credit */
                               } else if (_isSelected == true && currentOption == options[0]) {
                                 var num = _numeroController.text.replaceAll(" ", "");
-                                num = num.substring(num.length - 8);
                                 // print("*909*7*$num$ff");
+                                if (num != '') {
+                                num = num.substring(num.length - 8);
                                 FlutterPhoneDirectCaller.callNumber("*909*7*$num$ff");
+                                } else {
+                                  showDialog(
+                                    context: context, 
+                                    builder: (BuildContext context) {
+                                      return const AlertDialog(
+                                      title: Text("Pas de numéro"),
+                                      content: Text("Veuillez renseignr le numéro"));}
+                                  );
 
+                                    _numeroControllerFocusNode.requestFocus;
+                                  }
+                              }
                                 /* option achat pour moi meme via mobile money */
                                 /* option achat pour autrui via mobile money */
-                              }
                             },
                             child: const Text(
                               'CONFIRMER',

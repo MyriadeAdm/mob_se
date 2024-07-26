@@ -180,7 +180,7 @@ class ForfaitPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Icon(
-                        FontAwesomeIcons.solidMoon,
+                        Icons.nights_stay,
                         size: 40,
                         color: Colors.black,
                       ),
