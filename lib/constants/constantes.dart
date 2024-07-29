@@ -13,8 +13,7 @@ class Constantes {
     Solde('mixte', '*909*9*1*2*2#'),
   ];
 
-  static final List<ForfaitInternet> forfaitsInternet = [ 
-    //   Forfait moi-meme , Forfait autruit]
+  static final List<ForfaitInternet> forfaitsInternet = [  //  ] Forfait moi-meme , Forfait autruit]
     ForfaitInternet('45 Mo', 'Validité 1 j', '100 XOF','*909*2*1*2*1#', '*1*1*2*1#'),
     ForfaitInternet('100 Mo', 'Validité 1 j', '200 XOF','*909*2*1*3*1#', '*1*1*3*1#'),
     ForfaitInternet('250 Mo', 'Validité 1 j', '250 XOF','*909*2*1*1*1#', '*1*1*1*1#'),

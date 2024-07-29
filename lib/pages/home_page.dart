@@ -85,12 +85,16 @@ class _HomePageState extends State<HomePage> {
                             onPressed: (int index) {
                               setState(() {
                                 // The button that is tapped is set to true, and the others to false.
-                                for (int i = 0;i < _selectedcarrier.length;i++) 
-                                { _selectedcarrier[i] = i == index;
+                                for (int i = 0;
+                                    i < _selectedcarrier.length;
+                                    i++) {
+                                  _selectedcarrier[i] = i == index;
                                   if (index == 0) {
-                                    cname = 'Togocom'; mb ='Tmoney';
+                                    cname = 'Togocom';
+                                    mb = 'Tmoney';
                                   } else {
-                                    cname = 'Moov'; mb = 'Flooz';
+                                    cname = 'Moov';
+                                    mb = 'Flooz';
                                   }
                                 }
                               });
@@ -137,14 +141,14 @@ class _HomePageState extends State<HomePage> {
                 const SizedBox(width: 20),
                 Expanded(
                     child: CustomButton(
-                      label: 'Solde $mb',
-                      code: (cname == 'Togocom') ? "*145#" : "")),
+                        label: 'Solde $mb',
+                        code: (cname == 'Togocom') ? "*145#" : "")),
               ],
             ),
           ),
           Padding(
             padding:
-                const EdgeInsets.only(right: 15, left: 15, top: 30, bottom: 18),
+                const EdgeInsets.only(right: 15, left: 15, top: 20, bottom: 18),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -194,7 +198,7 @@ class _HomePageState extends State<HomePage> {
           ),
           Padding(
             padding:
-                const EdgeInsets.only(right: 15, left: 15, top: 30, bottom: 18),
+                const EdgeInsets.only(right: 15, left: 15, top: 20, bottom: 18),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -246,7 +250,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 18),
+            padding: const EdgeInsets.only(left: 15, right: 15, top: 15),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -259,6 +263,10 @@ class _HomePageState extends State<HomePage> {
                 ),
                 TextButton(
                   onPressed: () {},
+                  style: TextButton.styleFrom(
+                    minimumSize: Size.zero, // enleve le padding par defaut sur le boutton
+                    padding: EdgeInsets.zero, // ca aussi
+                  ),
                   child: const Row(
                     children: [
                       Text(
@@ -267,8 +275,8 @@ class _HomePageState extends State<HomePage> {
                             TextStyle(color: ColorConstants.colorCustomButton),
                       ),
                       Icon(
-                        Icons.arrow_forward_ios_sharp,
-                        size: 18,
+                        Icons.trending_flat,
+                        size: 20,
                         color: ColorConstants.colorCustomButton,
                       ),
                     ],
@@ -277,35 +285,60 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
-          Expanded(
-            child: ListView.builder(
-              itemCount: currentHistoriques.length,
-              itemBuilder: (BuildContext context, int index) {
-                final historique = currentHistoriques[index];
-                return Padding(
-                  padding: const EdgeInsets.only(left: 12, right: 12),
-                  child: ListTile(
-                    title: Text(
-                      historique.typeForfait as String,
-                      style: const TextStyle(fontSize: 15),
-                    ),
-                    subtitle: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          '${historique.detailsForfait}',
-                          style: const TextStyle(fontSize: 9),
-                        ),
-                        Text(
-                          DateFormat('yyyy-MM-dd HH:mm')
-                              .format(historique.dateTime),
-                          style: const TextStyle(fontSize: 10),
-                        ),
-                      ],
+          Padding(
+            padding: const EdgeInsets.only(right: 10, left: 10),
+            child: Container(
+              //height: MediaQuery.of(context).size.height/3.1,
+              height: 280,
+              decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(13)),
+                    color: Color.fromRGBO(250, 250, 245, 1),
+                  ),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: ListView.builder(
+                      itemCount: currentHistoriques.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        final historique = currentHistoriques[index];
+                        return Column(
+                          children: [
+                            SizedBox(
+                              height: 55,
+                              child: ListTile(
+                                title: Text(
+                                  historique.typeForfait as String,
+                                  style: const TextStyle(fontSize: 15),
+                                ),
+                                subtitle: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      '${historique.detailsForfait}',
+                                      style: const TextStyle(fontSize: 9),
+                                    ),
+                                    Text(
+                                      DateFormat('dd-MM-yyyy HH:mm')
+                                          .format(historique.dateTime),
+                                      style: const TextStyle(fontSize: 10),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            const SizedBox( height: 5),
+                            Container(
+                              color: Colors.black,
+                              height: 0.5,
+                              width: MediaQuery.of(context).size.width * 0.90,
+                            ),
+                          ],
+                        );
+                      },
                     ),
                   ),
-                );
-              },
+                ],
+              ),
             ),
           ),
         ],
