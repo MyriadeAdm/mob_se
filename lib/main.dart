@@ -29,7 +29,6 @@ class _MainAppState extends State<MainApp> {
     // Ask for permissions before requesting data
     await [
       Permission.phone,
-      Permission.sms,
     ].request();
   }
 
