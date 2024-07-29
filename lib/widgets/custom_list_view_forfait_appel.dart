@@ -10,9 +10,9 @@ class CustomListViewForfaitAppel extends StatelessWidget {
   final Icon icon;
   final String codeMMCredit;
   final String codeAutruiCredit;
-  var mega;
+  final dynamic mega;
 
-  CustomListViewForfaitAppel(
+  const CustomListViewForfaitAppel(
       {super.key,
       required this.icon,
       required this.credit,
