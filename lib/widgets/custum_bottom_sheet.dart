@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_native_contact_picker/flutter_native_contact_picker.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:mob_se/constants/color_constants.dart';
+import 'package:mob_se/models/type_forfait.dart';
 import 'package:provider/provider.dart';
 
 import '../models/historique_database.dart';
@@ -99,7 +100,7 @@ enum TypeForfait {
 
 Future<void> callButtomSheet(BuildContext context, String credit, String sms,
     String validite, String prix, String codeMMCredit, String codeAutruiCredit,
-    var mega) async {
+    var mega, Typeforfait typeforfait) async {
   await showModalBottomSheet<dynamic>(
     useRootNavigator: true,
     isScrollControlled: true,
@@ -134,7 +135,7 @@ Future<void> callButtomSheet(BuildContext context, String credit, String sms,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              (gg == null) ? aa : "$aa + $gg", // credit et mega
+                              appelInternetMixte(typeforfait.name, aa, gg), // credit et mega
                               style: const TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.w500,
@@ -356,8 +357,8 @@ Future<void> callButtomSheet(BuildContext context, String credit, String sms,
                                 FlutterPhoneDirectCaller.callNumber(ee);
 
                                 context.read<HistoriqueDatabase>().addHistorique(
-                                  (gg==null) ? "Forfait appel" : "Forfait internet", 
-                                  (gg==null) ? "$aa $bb, $cc - $dd" : "$gg, $cc - $dd");
+                                  typeForfait(typeforfait.name), 
+                                  typeForfaitDetails(typeforfait.name, aa, bb, cc, dd, gg));
 
                                 /* option achat pour autrui via credit */
                               } else if (_isSelected == true && currentOption == options[0]) {
@@ -412,4 +413,53 @@ void reset() {
   codeVisible = false;
   numVisible = false;
   _codeController.clear();
+}
+
+String appelInternetMixte(String typeForfait, dynamic aa, dynamic gg) {
+  switch (typeForfait) {
+    case "forfaitAppel":
+      return "$aa";
+
+    case "forfaitInternet":
+      return "$gg";
+
+    case "forfaitMixte":
+      return "$aa + $gg";
+
+    default:
+      return "error";
+  }
+
+}
+
+String typeForfait(String typeForfait) {
+  switch (typeForfait) {
+    case "forfaitAppel":
+      return "Forfait Appel";
+
+    case "forfaitInternet":
+      return "Forfait Internet";
+
+    case "forfaitMixte":
+      return "Forfait Mixte";
+
+    default:
+      return "error";
+  }
+}
+
+String typeForfaitDetails (String typeForfait, aa, bb, cc, dd, gg) {
+  switch (typeForfait) {
+    case "forfaitAppel":
+      return "$aa $bb, $cc - $dd";
+
+    case "forfaitInternet":
+      return "$gg, $cc - $dd";
+
+    case "forfaitMixte":
+      return "$aa + $gg, $bb, $cc - $dd";
+
+    default:
+      return "error";
+  }
 }

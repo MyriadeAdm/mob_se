@@ -193,6 +193,7 @@ class _HomePageState extends State<HomePage> {
                     prix: item.prix,
                     codeMMCredit: item.codeMMCredit,
                     codeAutruiCredit: item.codeAutruiCredit,
+                    typeforfait: item.typeforfait,
                   );
                 }),
           ),
@@ -245,6 +246,7 @@ class _HomePageState extends State<HomePage> {
                   codeMMCredit: item.codeMMCredit,
                   codeAutruiCredit: item.codeAutruiCredit,
                   mega: item.mega,
+                  typeforfait: item.typeforfait,
                 );
               },
             ),

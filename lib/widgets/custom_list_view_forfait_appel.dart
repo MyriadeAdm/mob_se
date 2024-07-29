@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mob_se/models/type_forfait.dart';
 
 import 'custum_bottom_sheet.dart';
 
@@ -11,6 +12,7 @@ class CustomListViewForfaitAppel extends StatelessWidget {
   final String codeMMCredit;
   final String codeAutruiCredit;
   final dynamic mega;
+  final Typeforfait typeforfait;
 
   const CustomListViewForfaitAppel(
       {super.key,
@@ -21,7 +23,8 @@ class CustomListViewForfaitAppel extends StatelessWidget {
       required this.prix,
       required this.codeMMCredit,
       required this.codeAutruiCredit,
-      required this.mega,});
+      required this.mega,
+      required this.typeforfait});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +32,7 @@ class CustomListViewForfaitAppel extends StatelessWidget {
       padding: const EdgeInsets.only(right: 8),
       child: ElevatedButton(
         onPressed: () {
-          callButtomSheet(context, credit, msg, validite, prix, codeMMCredit, codeAutruiCredit, mega);
+          callButtomSheet(context, credit, msg, validite, prix, codeMMCredit, codeAutruiCredit, mega, typeforfait);
         },
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.white,

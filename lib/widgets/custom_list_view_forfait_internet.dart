@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mob_se/models/type_forfait.dart';
 
 import 'custum_bottom_sheet.dart';
 
@@ -9,6 +10,7 @@ class CustomListViewForfaitInternet extends StatelessWidget {
   final Icon icon;
   final String codeMMCredit;
   final String codeAutruiCredit;
+  final Typeforfait typeforfait;
 
   const CustomListViewForfaitInternet({
     super.key,
@@ -18,6 +20,7 @@ class CustomListViewForfaitInternet extends StatelessWidget {
     required this.prix,
     required this.codeMMCredit,
     required this.codeAutruiCredit,
+    required this.typeforfait,
   });
 
   @override
@@ -27,7 +30,7 @@ class CustomListViewForfaitInternet extends StatelessWidget {
       child: ElevatedButton(
         onPressed: () {
           callButtomSheet(context, '', '', validite, prix, codeMMCredit,
-              codeAutruiCredit, mega);
+              codeAutruiCredit, mega, typeforfait);
         },
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.white,

@@ -91,7 +91,7 @@ class ForfaitNuitPage extends StatelessWidget {
                           ),
                           onPressed: () {
                             callButtomSheet(
-                                context, '', '', item.validite, item.prix, item.codeMMCredit, item.codeAutruiCredit, item.mega);
+                                context, '', '', item.validite, item.prix, item.codeMMCredit, item.codeAutruiCredit, item.mega, item.typeforfait);
                           },
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
