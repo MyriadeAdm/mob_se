@@ -356,8 +356,8 @@ Future<void> callButtomSheet(BuildContext context, String credit, String sms,
                                 FlutterPhoneDirectCaller.callNumber(ee);
 
                                 context.read<HistoriqueDatabase>().addHistorique(
-                                  (gg == '') ? "Forfait appel" : "Forfait internet", 
-                                  "$aa $bb, $cc - $dd");
+                                  (gg==null) ? "Forfait appel" : "Forfait internet", 
+                                  (gg==null) ? "$aa $bb, $cc - $dd" : "$gg, $cc - $dd");
 
                                 /* option achat pour autrui via credit */
                               } else if (_isSelected == true && currentOption == options[0]) {
