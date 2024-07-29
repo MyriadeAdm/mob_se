@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:mob_se/constants/color_constants.dart';
 import 'package:mob_se/constants/constantes.dart';
 import 'package:mob_se/widgets/custom_button.dart';
@@ -8,6 +9,7 @@ import 'package:provider/provider.dart';
 import '../models/historique.dart';
 import '../models/historique_database.dart';
 import 'package:intl/intl.dart';
+import 'package:mob_se/pages/page_historique.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -264,7 +266,12 @@ class _HomePageState extends State<HomePage> {
                       color: Colors.black),
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        CupertinoPageRoute(
+                            builder: (BuildContext context) => const PageHistorique()));
+                  },
                   style: TextButton.styleFrom(
                     minimumSize: Size.zero, // enleve le padding par defaut sur le boutton
                     padding: EdgeInsets.zero, // ca aussi
