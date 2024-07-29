@@ -10,8 +10,9 @@ class CustomListViewForfaitAppel extends StatelessWidget {
   final Icon icon;
   final String codeMMCredit;
   final String codeAutruiCredit;
+  var mega;
 
-  const CustomListViewForfaitAppel(
+  CustomListViewForfaitAppel(
       {super.key,
       required this.icon,
       required this.credit,
@@ -19,7 +20,8 @@ class CustomListViewForfaitAppel extends StatelessWidget {
       required this.validite,
       required this.prix,
       required this.codeMMCredit,
-      required this.codeAutruiCredit,});
+      required this.codeAutruiCredit,
+      required this.mega,});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +29,7 @@ class CustomListViewForfaitAppel extends StatelessWidget {
       padding: const EdgeInsets.only(right: 8),
       child: ElevatedButton(
         onPressed: () {
-          callButtomSheet(context, credit, msg, validite, prix, codeMMCredit, codeAutruiCredit);
+          callButtomSheet(context, credit, msg, validite, prix, codeMMCredit, codeAutruiCredit, mega);
         },
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.white,

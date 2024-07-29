@@ -42,14 +42,14 @@ class Constantes {
   ];
 
   static final List<ForfaitAppel> forfaitsAppel = [ //  ] Forfait moi-meme , Forfait autruit]
-    ForfaitAppel('1.000f v TR', '25 SMS', 'Validité 1 j', '200 XOF', '*909*4*1*1*1#', '*3*1*1*1#'),
-    ForfaitAppel('1.800f v TR', '75 SMS', 'Validité 2 j', '400 XOF', '*909*4*1*3*1#', '*3*1*3*1#'),
-    ForfaitAppel('2.500f v TR', '25 SMS', 'Validité 3 j', '500 XOF', '*909*4*1*2*1#', '*3*1*2*1#'),
-    ForfaitAppel('3.100f v TR', '75 SMS', 'Validité 3 j', '600 XOF', '*909*4*1*4*1#', '*3*1*4*1#'),
-    ForfaitAppel('5.500f v TR', '50 SMS', 'Validité 7 j', '1.000 XOF', '*909*4*2*1*1#', '*3*2*1*1#'),
-    ForfaitAppel('12.000f v TR', '100 SMS', 'Validité 7 j', '2.000 XOF', '*909*4*2*2*1#', '*3*2*2*1#'),
-    ForfaitAppel('17.100f v TR', '100 SMS', 'Validité 7 j', '3.000 XOF', '*909*4*2*3*1#', '*3*2*3*1#'),
-    ForfaitAppel('60.000f v TR', '200 SMS', 'Validité 30 j', '9.000 XOF', '*909*4*3*1*1#', '*3*3*1*1#'),
+    ForfaitAppel('1.000f v TR', '25 SMS', 'Validité 1 j', '200 XOF', '*909*4*1*1*1#', '*3*1*1*1#', null),
+    ForfaitAppel('1.800f v TR', '75 SMS', 'Validité 2 j', '400 XOF', '*909*4*1*3*1#', '*3*1*3*1#', null),
+    ForfaitAppel('2.500f v TR', '25 SMS', 'Validité 3 j', '500 XOF', '*909*4*1*2*1#', '*3*1*2*1#', null),
+    ForfaitAppel('3.100f v TR', '75 SMS', 'Validité 3 j', '600 XOF', '*909*4*1*4*1#', '*3*1*4*1#', null),
+    ForfaitAppel('5.500f v TR', '50 SMS', 'Validité 7 j', '1.000 XOF', '*909*4*2*1*1#', '*3*2*1*1#', null),
+    ForfaitAppel('12.000f v TR', '100 SMS', 'Validité 7 j', '2.000 XOF', '*909*4*2*2*1#', '*3*2*2*1#', null),
+    ForfaitAppel('17.100f v TR', '100 SMS', 'Validité 7 j', '3.000 XOF', '*909*4*2*3*1#', '*3*2*3*1#', null),
+    ForfaitAppel('60.000f v TR', '200 SMS', 'Validité 30 j', '9.000 XOF', '*909*4*3*1*1#', '*3*3*1*1#', null),
   ];
 
   static final List<ForfaitNuit> forfaitsNuit = [ //  ] Forfait moi-meme , Forfait autruit]

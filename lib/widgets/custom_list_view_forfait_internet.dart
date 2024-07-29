@@ -26,8 +26,8 @@ class CustomListViewForfaitInternet extends StatelessWidget {
       padding: const EdgeInsets.only(right: 8),
       child: ElevatedButton(
         onPressed: () {
-          callButtomSheet(context, mega, ' ', validite, prix, codeMMCredit,
-              codeAutruiCredit);
+          callButtomSheet(context, '', '', validite, prix, codeMMCredit,
+              codeAutruiCredit, mega);
         },
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.white,
@@ -35,9 +35,7 @@ class CustomListViewForfaitInternet extends StatelessWidget {
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(15)),
             side: BorderSide(
-                style: BorderStyle.solid,
-                width: 1.5,
-                color: Colors.amber),
+                style: BorderStyle.solid, width: 1.5, color: Colors.amber),
           ),
         ),
         child: Column(

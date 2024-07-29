@@ -240,6 +240,7 @@ class _HomePageState extends State<HomePage> {
                   prix: item.prix,
                   codeMMCredit: item.codeMMCredit,
                   codeAutruiCredit: item.codeAutruiCredit,
+                  mega: item.mega,
                 );
               },
             ),

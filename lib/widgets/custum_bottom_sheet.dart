@@ -89,11 +89,17 @@ class _CustumBottomSheetState extends State<CustumBottomSheet> {
   }
 }
 
+enum TypeForfait {
+  forfaitAppel,
+  forfaitInternet,
+  forfaitMixte
+}
+
 // =================== CI dessous le code à modifier pour designer le BottomSheet ===============
 
 Future<void> callButtomSheet(BuildContext context, String credit, String sms,
     String validite, String prix, String codeMMCredit, String codeAutruiCredit,
-    [String mega = '']) async {
+    var mega) async {
   await showModalBottomSheet<dynamic>(
     useRootNavigator: true,
     isScrollControlled: true,
@@ -116,7 +122,7 @@ Future<void> callButtomSheet(BuildContext context, String credit, String sms,
                   String dd = prix;
                   String ee = codeMMCredit;
                   String ff = codeAutruiCredit;
-                  String gg = mega;
+                  var gg = mega;
                   return Padding(
                     padding: const EdgeInsets.only(
                         right: 30, left: 30, top: 30, bottom: 30),
@@ -128,7 +134,7 @@ Future<void> callButtomSheet(BuildContext context, String credit, String sms,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              (mega == '') ? aa : "$aa + $gg", // credit et mega
+                              (gg == null) ? aa : "$aa + $gg", // credit et mega
                               style: const TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.w500,
@@ -350,7 +356,7 @@ Future<void> callButtomSheet(BuildContext context, String credit, String sms,
                                 FlutterPhoneDirectCaller.callNumber(ee);
 
                                 context.read<HistoriqueDatabase>().addHistorique(
-                                  (gg != ' ') ? "Forfait internet" : "Forfait appel", 
+                                  (gg == '') ? "Forfait appel" : "Forfait internet", 
                                   "$aa $bb, $cc - $dd");
 
                                 /* option achat pour autrui via credit */
