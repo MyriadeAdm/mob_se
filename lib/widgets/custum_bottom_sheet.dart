@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_native_contact_picker/flutter_native_contact_picker.dart';
@@ -364,7 +366,7 @@ Future<void> callButtomSheet(BuildContext context, String credit, String sms,
                               } else if (_isSelected == true && currentOption == options[0]) {
                                 var num = _numeroController.text.replaceAll(" ", "");
                                 // print("*909*7*$num$ff");
-                                if (num != '') {
+                                if (num != '' && num is Int) {
                                 num = num.substring(num.length - 8);
                                 FlutterPhoneDirectCaller.callNumber("*909*7*$num$ff");
                                 } else {

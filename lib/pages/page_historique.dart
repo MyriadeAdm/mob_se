@@ -73,7 +73,8 @@ class _PageHistoriqueState extends State<PageHistorique> {
               child: ListView.builder(
                 itemCount: currentHistoriques.length,
                 itemBuilder: (BuildContext context, int index) {
-                  final historique = currentHistoriques[index];
+                  final reversehistorique = currentHistoriques.reversed.toList();
+                  final historique = reversehistorique[index];
                   return ListTile(
                           title: Text(
                             historique.typeForfait as String,
@@ -87,7 +88,7 @@ class _PageHistoriqueState extends State<PageHistorique> {
                                 style: const TextStyle(fontSize: 9),
                               ),
                               Text(
-                                DateFormat('dd-MM-yyyy HH:mm')
+                                DateFormat('dd-MMM-yyyy HH:mm')
                                     .format(historique.dateTime),
                                 style: const TextStyle(fontSize: 10),
                               ),
