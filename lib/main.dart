@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mob_se/models/historique_database.dart';
 import 'package:provider/provider.dart';
-import './pages/base.dart';
+import 'pages/base.dart';
 
 import 'package:permission_handler/permission_handler.dart';
 
