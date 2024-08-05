@@ -280,7 +280,7 @@ class _HomePageState extends State<HomePage> {
                   child: const Row(
                     children: [
                       Text(
-                        'Voir Plus',
+                        'Tout afficher',
                         style:
                             TextStyle(color: ColorConstants.colorCustomButton),
                       ),
@@ -306,14 +306,14 @@ class _HomePageState extends State<HomePage> {
               height: 280,
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(13)),
-                color: Color.fromRGBO(190, 190, 190, 1),
+                color: Color.fromRGBO(214, 214, 214, 1),
               ),
-              child: Row(
+              child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Expanded(
                     child: ListView.builder(
-                      //shrinkWrap: true,
+                      shrinkWrap: true,
                       itemCount: currentHistoriques.length,
                       itemBuilder: (BuildContext context, int index) {
                         final reversehistorique = currentHistoriques.reversed.toList();
@@ -367,7 +367,7 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-// if ( DateFormat('dd-MMM-yyyy').format(historique.dateTime) == DateFormat('dd-MMM-yyyy').format(DateTime.now() )
+// if ( DateFormat('dd-MMM-yyyy').format(historique.dateTime) == DateFormat('dd-MMM-yyyy').format(DateTime.now())
 // ){
 //   historique.dateTime = 'Aujourd\'hui '
 // };

@@ -45,20 +45,17 @@ class _PageHistoriqueState extends State<PageHistorique> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 20, right: 20),
-              child: Row(
-                children: [
-                  returnBack(context),
-                  const Text(
-                    "Historique",
-                    style: TextStyle(
-                      fontSize: 23,
-                      fontWeight: FontWeight.w900,
-                    ),
+            Row(
+              children: [
+                returnBack(context),
+                const Text(
+                  "Historique",
+                  style: TextStyle(
+                    fontSize: 23,
+                    fontWeight: FontWeight.w900,
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
 
             const Divider(
