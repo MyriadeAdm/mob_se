@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../models/historique.dart';
-import '../models/historique_database.dart';
+import '../../models/historique.dart';
+import '../../models/historique_database.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 

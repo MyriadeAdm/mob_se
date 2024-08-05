@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
-import 'package:mob_se/constants/color_constants.dart';
-import 'package:mob_se/constants/constantes.dart';
+import '../../constants/color_constants.dart';
+import '../../constants/constantes.dart';
+import '../../widgets/custum_bottom_sheet.dart';
 
-import '../widgets/custum_bottom_sheet.dart';
-//import 'package:mob_se/widgets/custum_bottom_sheet.dart';
-
-
-class ForfaitMixtePage extends StatelessWidget {
-  const ForfaitMixtePage({super.key});
+class ForfaitNuitPage extends StatelessWidget {
+  const ForfaitNuitPage({super.key});
 
   IconButton returnBack(BuildContext context) {
     return IconButton(
@@ -27,21 +24,23 @@ class ForfaitMixtePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.only(left: 20,right: 20),
+              padding: const EdgeInsets.only(left: 5,right: 20),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Row(
-                    children: [
-                      returnBack(context),
-                      const Text(
-                        "Forfaits Mixte",
-                        style: TextStyle(
-                          fontSize: 23,
-                          fontWeight: FontWeight.w800,
+                  Expanded(
+                    child: Row(
+                      children: [
+                        returnBack(context),
+                        const Text(
+                          "Forfaits Nuit",
+                          style: TextStyle(
+                            fontSize: 23,
+                            fontWeight: FontWeight.w800,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                   
                   ElevatedButton(
@@ -49,7 +48,7 @@ class ForfaitMixtePage extends StatelessWidget {
                       backgroundColor: ColorConstants.colorCustomButton,
                     ),
                     onPressed: () {
-                      FlutterPhoneDirectCaller.callNumber(Constantes.solde[2].codeNormal);
+                      FlutterPhoneDirectCaller.callNumber(Constantes.solde[0].codeNormal);
                     },
                     child: const Text(
                       "Solde",
@@ -70,15 +69,17 @@ class ForfaitMixtePage extends StatelessWidget {
               color: Colors.black,
               thickness: 1,
             ),
+
             Expanded(
               child: SizedBox(
                 height: 700,
                 child: ListView.builder(
-                  itemCount: Constantes.forfaitsMixte.length,
+                  itemCount: Constantes.forfaitsNuit.length,
                   itemBuilder: (BuildContext context, int index) {
-                    final item = Constantes.forfaitsMixte[index];
+                    final item = Constantes.forfaitsNuit[index];
                     return Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 28),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 6, horizontal: 30),
                       child: SizedBox(
                         height: 65,
                         child: ElevatedButton(
@@ -90,8 +91,7 @@ class ForfaitMixtePage extends StatelessWidget {
                           ),
                           onPressed: () {
                             callButtomSheet(
-                              context, item.credit, item.msg, item.validite, item.prix, item.codeNormal, item.codeAutruiCredit, item.mega, item.typeforfait);
-                            // Ici nous faisons appel au bottomsheet en tant que action futur
+                                context, '', '', item.validite, item.prix, item.codeMMCredit, item.codeAutruiCredit, item.mega, item.typeforfait);
                           },
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -102,27 +102,15 @@ class ForfaitMixtePage extends StatelessWidget {
                                 children: [
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
                                     children: [
-                                      const Icon(
-                                        Icons.call,
-                                        color: ColorConstants.colorCustom2,
-                                        size: 18,
-                                      ),
-                                      Text(
-                                        item.credit,
-                                        style: const TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          color: ColorConstants.colorCustom2,
-                                        ),
-                                      ),
-
-                                      const SizedBox(width: 20),
-
                                       const Icon(
                                         Icons.language,
                                         color: ColorConstants.colorCustom2,
                                         size: 18,
                                       ),
+                                      const SizedBox(width: 10),
                                       Text(
                                         item.mega,
                                         style: const TextStyle(
@@ -133,11 +121,10 @@ class ForfaitMixtePage extends StatelessWidget {
                                     ],
                                   ),
                                   Text(
-                                    '${item.validite} + ${item.msg}',
+                                    item.validite,
                                     style: const TextStyle(
                                       fontWeight: FontWeight.normal,
                                       color: ColorConstants.colorCustom2,
-                                      fontSize: 13,
                                     ),
                                   ),
                                 ],
@@ -160,8 +147,7 @@ class ForfaitMixtePage extends StatelessWidget {
               ),
             ),
           ],
-        ),
-      ),
+        ),),
     );
   }
 }

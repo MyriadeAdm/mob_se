@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mob_se/constants/color_constants.dart';
-import 'package:mob_se/pages/page_forfait_data.dart';
-import 'package:mob_se/pages/page_forfait_mixte.dart';
-import 'package:mob_se/pages/page_forfait_nuit.dart';
-import 'package:mob_se/pages/page_forfait_voix.dart';
+import 'package:mob_se/pages/forfaits/page_forfait_data.dart';
+import 'package:mob_se/pages/forfaits/page_forfait_mixte.dart';
+import 'package:mob_se/pages/forfaits/page_forfait_nuit.dart';
+import 'package:mob_se/pages/forfaits/page_forfait_voix.dart';
 
 class ForfaitPage extends StatelessWidget {
   const ForfaitPage({super.key});

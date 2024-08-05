@@ -9,7 +9,7 @@ import 'package:provider/provider.dart';
 import '../models/historique.dart';
 import '../models/historique_database.dart';
 import 'package:intl/intl.dart';
-import 'package:mob_se/pages/page_historique.dart';
+import 'package:mob_se/pages/accueil/page_historique.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

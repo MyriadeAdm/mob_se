@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mob_se/pages/page_annulation.dart';
-import 'package:mob_se/pages/page_depot.dart';
-import 'package:mob_se/pages/page_retrait.dart';
+import 'package:mob_se/pages/transactions/page_annulation.dart';
+import 'package:mob_se/pages/transactions/page_depot.dart';
+import 'package:mob_se/pages/transactions/page_retrait.dart';
 
 import '../constants/color_constants.dart';
 
