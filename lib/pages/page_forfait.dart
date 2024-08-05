@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mob_se/constants/color_constants.dart';
-import 'package:mob_se/pages/forfait_data_page.dart';
-import 'package:mob_se/pages/forfait_mixte_page.dart';
-import 'package:mob_se/pages/forfait_nuit_page.dart';
-import 'package:mob_se/pages/forfait_voix_page.dart';
+import 'package:mob_se/pages/page_forfait_data.dart';
+import 'package:mob_se/pages/page_forfait_mixte.dart';
+import 'package:mob_se/pages/page_forfait_nuit.dart';
+import 'package:mob_se/pages/page_forfait_voix.dart';
 
 class ForfaitPage extends StatelessWidget {
   const ForfaitPage({super.key});
@@ -25,14 +25,14 @@ class ForfaitPage extends StatelessWidget {
             ),
           ),
         ),
-        const Divider(
-          height: 60,
-          indent: 80,
-          endIndent: 80,
-          color: Colors.black,
-          thickness: 1.5,
-        ),
-
+            const Divider(
+              height: 60,
+              indent: 50,
+              endIndent: 50,
+              color: Colors.black,
+              thickness: 1,
+            ),
+    
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -72,7 +72,7 @@ class ForfaitPage extends StatelessWidget {
                     ],
                   )),
             ),
-
+    
             SizedBox(
               width: 150,
               height: 130,
@@ -114,9 +114,9 @@ class ForfaitPage extends StatelessWidget {
             ),
           ],
         ),
-
+    
                     const SizedBox(height: 30),
-
+    
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [

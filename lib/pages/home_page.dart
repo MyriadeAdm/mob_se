@@ -87,9 +87,8 @@ class _HomePageState extends State<HomePage> {
                             onPressed: (int index) {
                               setState(() {
                                 // The button that is tapped is set to true, and the others to false.
-                                for (int i = 0;
-                                    i < _selectedcarrier.length;
-                                    i++) {
+                                for (int i = 0; i < _selectedcarrier.length; i++)
+                                {
                                   _selectedcarrier[i] = i == index;
                                   if (index == 0) {
                                     cname = 'Togocom';
@@ -150,7 +149,7 @@ class _HomePageState extends State<HomePage> {
           ),
           Padding(
             padding:
-                const EdgeInsets.only(right: 15, left: 15, top: 20, bottom: 18),
+                const EdgeInsets.only(right: 20, left: 20, top: 20, bottom: 18),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -254,7 +253,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 15, right: 15, top: 15),
+            padding: const EdgeInsets.only(left: 20, right: 20, top: 15),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -270,10 +269,12 @@ class _HomePageState extends State<HomePage> {
                     Navigator.push(
                         context,
                         CupertinoPageRoute(
-                            builder: (BuildContext context) => const PageHistorique()));
+                            builder: (BuildContext context) =>
+                                const PageHistorique()));
                   },
                   style: TextButton.styleFrom(
-                    minimumSize: Size.zero, // enleve le padding par defaut sur le boutton
+                    minimumSize: Size
+                        .zero, // enleve le padding par defaut sur le boutton
                     padding: EdgeInsets.zero, // ca aussi
                   ),
                   child: const Row(
@@ -298,15 +299,21 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.only(right: 10, left: 10),
             child: Container(
               //height: MediaQuery.of(context).size.height/3.1,
+              // constraints: const BoxConstraints(
+              //   minHeight: 20,
+              //   maxHeight: 280,
+              // ),
               height: 280,
               decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(13)),
-                    color: Color.fromRGBO(250, 250, 245, 1),
-                  ),
+                borderRadius: BorderRadius.all(Radius.circular(13)),
+                color: Color.fromRGBO(190, 190, 190, 1),
+              ),
               child: Row(
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   Expanded(
                     child: ListView.builder(
+                      //shrinkWrap: true,
                       itemCount: currentHistoriques.length,
                       itemBuilder: (BuildContext context, int index) {
                         final reversehistorique = currentHistoriques.reversed.toList();
@@ -315,28 +322,31 @@ class _HomePageState extends State<HomePage> {
                           children: [
                             SizedBox(
                               height: 55,
-                              child: ListTile(
-                                title: Text(
-                                  historique.typeForfait as String,
-                                  style: const TextStyle(fontSize: 15),
-                                ),
-                                subtitle: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      '${historique.detailsForfait}',
-                                      style: const TextStyle(fontSize: 9),
-                                    ),
-                                    Text(
-                                      DateFormat('dd-MMM-yyyy HH:mm')
-                                          .format(historique.dateTime),
-                                      style: const TextStyle(fontSize: 10),
-                                    ),
-                                  ],
+                              child: Expanded(
+                                child: ListTile(
+                                  title: Text(
+                                    historique.typeForfait as String,
+                                    style: const TextStyle(fontSize: 15),
+                                  ),
+                                  subtitle: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        '${historique.detailsForfait}',
+                                        style: const TextStyle(fontSize: 9),
+                                      ),
+                                      Text(
+                                        DateFormat('dd-MMM-yyyy HH:mm')
+                                            .format(historique.dateTime),
+                                        style: const TextStyle(fontSize: 10),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
-                            const SizedBox( height: 5),
+                            const SizedBox(height: 5),
                             Container(
                               color: Colors.black,
                               height: 0.5,
@@ -356,3 +366,11 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+
+// if ( DateFormat('dd-MMM-yyyy').format(historique.dateTime) == DateFormat('dd-MMM-yyyy').format(DateTime.now() )
+// ){
+//   historique.dateTime = 'Aujourd\'hui '
+// };
+// else if ( DateFormat('dd-MMM-yyyy').format(historique.dateTime) == DateFormat('dd-MMM-yyyy').format(DateTime.now() -1){
+//   historique.dateTime = 'Hier'
+// };

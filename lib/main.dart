@@ -43,6 +43,10 @@ class _MainAppState extends State<MainApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        //brightness: Brightness.light,
+        appBarTheme: const AppBarTheme(
+          color: Colors.white,
+        ),
         fontFamily: GoogleFonts.poppins().fontFamily,
       ),
       home: const Base(),

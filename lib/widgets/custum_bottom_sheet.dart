@@ -155,7 +155,7 @@ Future<void> callButtomSheet(BuildContext context, String credit, String sms,
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
                                 const Text(
-                                  'Montant',
+                                  'Montant :',
                                   style: TextStyle(
                                     fontSize: 20,
                                     fontWeight: FontWeight.w500,

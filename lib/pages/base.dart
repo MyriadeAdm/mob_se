@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:mob_se/models/historique_database.dart';
 import 'package:mob_se/pages/page_parametre.dart';
-import 'package:mob_se/pages/transactions_page.dart';
+import 'package:mob_se/pages/page_transactions.dart';
 import 'package:mob_se/widgets/custom_app_bar.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent_bottom_nav_bar_v2.dart';
 import 'package:provider/provider.dart';
 import './home_page.dart';
-import './forfait_page.dart';
+import 'page_forfait.dart';
 
 class Base extends StatefulWidget {
   const Base({super.key});
@@ -93,7 +93,7 @@ class _BaseState extends State<Base> {
             screen: const PageParametre(),
             item: ItemConfig(
               icon: const Icon(Icons.settings),
-              title: "Parametre",
+              title: "Paramètre",
             ),
           ),
         ],
