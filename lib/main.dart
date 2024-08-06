@@ -4,8 +4,6 @@ import 'package:mob_se/models/historique_database.dart';
 import 'package:provider/provider.dart';
 import 'pages/base.dart';
 
-import 'package:permission_handler/permission_handler.dart';
-
 void main() async {
   // initialize historique database
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,18 +23,6 @@ class MainApp extends StatefulWidget {
 }
 
 class _MainAppState extends State<MainApp> {
-  Future<void> initPlatformState() async {
-    // Ask for permissions before requesting data
-    await [
-      Permission.phone,
-    ].request();
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    initPlatformState();
-  }
 
   @override
   Widget build(BuildContext context) {
