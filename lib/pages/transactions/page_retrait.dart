@@ -101,7 +101,7 @@ class PageRetrait extends StatelessWidget {
                           ),
                           suffixIcon: IconButton(
                             onPressed: () {
-                              _numeroAgentController.clear();
+                              _codeController.clear();
                             },
                             icon: const Icon(
                               Icons.clear,
