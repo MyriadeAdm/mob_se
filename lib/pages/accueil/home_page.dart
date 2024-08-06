@@ -298,12 +298,7 @@ class _HomePageState extends State<HomePage> {
           Padding(
             padding: const EdgeInsets.only(right: 10, left: 10),
             child: Container(
-              //height: MediaQuery.of(context).size.height/3.1,
-              // constraints: const BoxConstraints(
-              //   minHeight: 20,
-              //   maxHeight: 280,
-              // ),
-              height: 280,
+              height: 258,
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(13)),
                 color: Color.fromRGBO(241, 240, 240, 1),
@@ -322,27 +317,25 @@ class _HomePageState extends State<HomePage> {
                           children: [
                             SizedBox(
                               height: 55,
-                              child: Expanded(
-                                child: ListTile(
-                                  title: Text(
-                                    historique.typeForfait as String,
-                                    style: const TextStyle(fontSize: 15),
-                                  ),
-                                  subtitle: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        '${historique.detailsForfait}',
-                                        style: const TextStyle(fontSize: 9),
-                                      ),
-                                      Text(
-                                        DateFormat('dd-MMM-yyyy HH:mm')
-                                            .format(historique.dateTime),
-                                        style: const TextStyle(fontSize: 10),
-                                      ),
-                                    ],
-                                  ),
+                              child: ListTile(
+                                title: Text(
+                                  historique.typeForfait as String,
+                                  style: const TextStyle(fontSize: 15),
+                                ),
+                                subtitle: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      '${historique.detailsForfait}',
+                                      style: const TextStyle(fontSize: 9),
+                                    ),
+                                    Text(
+                                      DateFormat('dd-MMM-yyyy HH:mm')
+                                          .format(historique.dateTime),
+                                      style: const TextStyle(fontSize: 10),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),
