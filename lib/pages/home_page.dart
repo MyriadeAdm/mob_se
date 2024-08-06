@@ -306,7 +306,7 @@ class _HomePageState extends State<HomePage> {
               height: 280,
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(13)),
-                color: Color.fromRGBO(214, 214, 214, 1),
+                color: Color.fromRGBO(241, 240, 240, 1),
               ),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
