@@ -5,7 +5,7 @@ import 'package:mob_se/pages/page_transactions.dart';
 import 'package:mob_se/widgets/custom_app_bar.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent_bottom_nav_bar_v2.dart';
 import 'package:provider/provider.dart';
-import 'home_page.dart';
+import 'accueil/home_page.dart';
 import 'page_forfait.dart';
 
 class Base extends StatefulWidget {

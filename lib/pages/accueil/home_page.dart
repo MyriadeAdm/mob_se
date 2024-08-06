@@ -6,8 +6,8 @@ import 'package:mob_se/widgets/custom_button.dart';
 import 'package:mob_se/widgets/custom_list_view_forfait_appel.dart';
 import 'package:mob_se/widgets/custom_list_view_forfait_internet.dart';
 import 'package:provider/provider.dart';
-import '../models/historique.dart';
-import '../models/historique_database.dart';
+import '../../models/historique.dart';
+import '../../models/historique_database.dart';
 import 'package:intl/intl.dart';
 import 'package:mob_se/pages/accueil/page_historique.dart';
 
