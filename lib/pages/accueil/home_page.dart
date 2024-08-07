@@ -159,14 +159,17 @@ class _HomePageState extends State<HomePage> {
                     fontWeight: FontWeight.w900,
                   ),
                 ),
-                Container(
-                  width: 200,
-                  height: 10,
-                  decoration: const BoxDecoration(
-                    border: Border(
-                      bottom: BorderSide(
-                        color: Colors.black,
-                        width: 0.8,
+                const SizedBox(width: 10),
+                Expanded(
+                  child: Container(
+                    // width: 200,
+                    height: 10,
+                    decoration: const BoxDecoration(
+                      border: Border(
+                        bottom: BorderSide(
+                          color: Colors.black,
+                          width: 0.8,
+                        ),
                       ),
                     ),
                   ),
@@ -209,14 +212,17 @@ class _HomePageState extends State<HomePage> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                Container(
-                  width: 200,
-                  height: 10,
-                  decoration: const BoxDecoration(
-                    border: Border(
-                      bottom: BorderSide(
-                        color: Colors.black,
-                        width: 0.8,
+                const SizedBox(width: 10),
+                Expanded(
+                  child: Container(
+                    //width: 200,
+                    height: 10,
+                    decoration: const BoxDecoration(
+                      border: Border(
+                        bottom: BorderSide(
+                          color: Colors.black,
+                          width: 0.8,
+                        ),
                       ),
                     ),
                   ),
@@ -280,12 +286,12 @@ class _HomePageState extends State<HomePage> {
                       Text(
                         'Tout afficher',
                         style:
-                            TextStyle(color: ColorConstants.colorCustomButton),
+                            TextStyle(color: ColorConstants.colorCustom3),
                       ),
                       Icon(
                         Icons.trending_flat,
                         size: 20,
-                        color: ColorConstants.colorCustomButton,
+                        color: ColorConstants.colorCustom3,
                       ),
                     ],
                   ),
