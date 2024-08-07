@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
     super.initState();
     readHistorque();
   }
-
+  
   @override
   Widget build(BuildContext context) {
     final historiqueDatabase = context.watch<HistoriqueDatabase>();
@@ -182,7 +182,6 @@ class _HomePageState extends State<HomePage> {
                 itemCount: Constantes.forfaitsInternet.length,
                 itemBuilder: (BuildContext context, int index) {
                   final item = Constantes.forfaitsInternet[index];
-
                   return CustomListViewForfaitInternet(
                     icon: const Icon(
                       Icons.public,
