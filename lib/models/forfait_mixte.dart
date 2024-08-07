@@ -8,7 +8,9 @@ class ForfaitMixte {
   String prix;
   String codeNormal;
   String codeAutruiCredit;
+  String codeMoneyMM;
+  String codeMoneyAutruit;
   Typeforfait typeforfait = Typeforfait.forfaitMixte;
 
-  ForfaitMixte(this.credit, this.mega, this.msg, this.validite, this.prix, this.codeNormal, this.codeAutruiCredit);
+  ForfaitMixte(this.credit, this.mega, this.msg, this.validite, this.prix, this.codeNormal, this.codeAutruiCredit, this.codeMoneyMM, this.codeMoneyAutruit);
 }
