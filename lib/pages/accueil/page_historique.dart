@@ -72,6 +72,23 @@ class _PageHistoriqueState extends State<PageHistorique> {
                 itemBuilder: (BuildContext context, int index) {
                   final reversehistorique = currentHistoriques.reversed.toList();
                   final historique = reversehistorique[index];
+                  String date = "";
+                        int dateNow = int.parse(DateFormat.d().format(DateTime.now()));
+                        
+                        int dateHistorique =  int.parse(DateFormat.d().format(historique.dateTime));
+
+
+                        if (DateFormat('dd-MMM-yyyy').format(historique.dateTime) == DateFormat('dd-MMM-yyyy').format(DateTime.now())) {
+                          date = "Aujourd'hui ${DateFormat.Hm().format(historique.dateTime)}";
+                        } else {
+                          if (DateFormat('dd-MMM-yyyy').format(historique.dateTime) != DateFormat('dd-MMM-yyyy').format(DateTime.now())) {
+                            if (dateNow - dateHistorique == 1 ) {
+                              date = "Hier ${DateFormat.Hm().format(historique.dateTime)}";
+                            } else {
+                              date = DateFormat("dd-MMM-yyyy HH:mm").format(historique.dateTime);
+                            }
+                          }
+                        }
                   return ListTile(
                           title: Text(
                             historique.typeForfait as String,
@@ -85,8 +102,7 @@ class _PageHistoriqueState extends State<PageHistorique> {
                                 style: const TextStyle(fontSize: 9),
                               ),
                               Text(
-                                DateFormat('dd-MMM-yyyy HH:mm')
-                                    .format(historique.dateTime),
+                                date,
                                 style: const TextStyle(fontSize: 10),
                               ),
                             ],

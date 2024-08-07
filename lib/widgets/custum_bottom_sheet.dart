@@ -95,7 +95,8 @@ class _CustumBottomSheetState extends State<CustumBottomSheet> {
 enum TypeForfait {
   forfaitAppel,
   forfaitInternet,
-  forfaitMixte
+  forfaitMixte,
+  forfaitNuit
 }
 
 // =================== CI dessous le code à modifier pour designer le BottomSheet ===============
@@ -137,7 +138,7 @@ Future<void> callButtomSheet(BuildContext context, String credit, String sms,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              appelInternetMixte(typeforfait.name, aa, gg), // credit et mega
+                              appelInternetMixteNuit(typeforfait.name, aa, gg), // credit et mega
                               style: const TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.w500,
@@ -417,7 +418,7 @@ void reset() {
   _codeController.clear();
 }
 
-String appelInternetMixte(String typeForfait, dynamic aa, dynamic gg) {
+String appelInternetMixteNuit(String typeForfait, dynamic aa, dynamic gg) {
   switch (typeForfait) {
     case "forfaitAppel":
       return "$aa";
@@ -427,6 +428,9 @@ String appelInternetMixte(String typeForfait, dynamic aa, dynamic gg) {
 
     case "forfaitMixte":
       return "$aa + $gg";
+
+    case "forfaitNuit":
+      return "$gg";
 
     default:
       return "error";
@@ -445,6 +449,9 @@ String typeForfait(String typeForfait) {
     case "forfaitMixte":
       return "Forfait Mixte";
 
+    case "forfaitNuit":
+      return "Forfait Nuit";
+
     default:
       return "error";
   }
@@ -460,6 +467,9 @@ String typeForfaitDetails (String typeForfait, aa, bb, cc, dd, gg) {
 
     case "forfaitMixte":
       return "$aa + $gg, $bb, $cc - $dd";
+
+    case "forfaitNuit":
+      return "$gg, $cc - $dd";
 
     default:
       return "error";
