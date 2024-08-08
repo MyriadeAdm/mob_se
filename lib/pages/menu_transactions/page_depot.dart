@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:mob_se/constants/color_constants.dart';
 import 'package:flutter_native_contact_picker/flutter_native_contact_picker.dart';
 
+import '../../widgets/custom_bottom_sheet_envoi.dart';
+
 bool? isChecked = false;
 final _numeroController = TextEditingController();
+final _montantController = TextEditingController();
 bool _isSelected = false;
 
 final FlutterContactPicker _contactPicker = FlutterContactPicker();
@@ -157,7 +160,7 @@ class PageDepot extends StatelessWidget {
                     Expanded(
                       child: TextField(
                         keyboardType: TextInputType.number,
-                        controller: TextEditingController(),
+                        controller: _montantController,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
@@ -197,7 +200,13 @@ class PageDepot extends StatelessWidget {
           ),
           Center(
             child: ElevatedButton(
-            onPressed: (){},
+            onPressed: () {
+              int fraisRetrait, fraisTransfert;
+              int montant = int.parse(_montantController.text.replaceAll(RegExp(r'\D'), ""));
+              (fraisTransfert, fraisRetrait) = quelFraisTransaction(montant); 
+              
+              callButtomSheetEnvoie(context, _numeroController.text, montant, fraisTransfert, fraisRetrait);
+              },
             style: ElevatedButton.styleFrom(
                                 backgroundColor: ColorConstants.colorCustomButton2,
                                 shape: RoundedRectangleBorder(
@@ -216,5 +225,38 @@ class PageDepot extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+(int tranfert, int retrait) quelFraisTransaction (int montant) {
+  var newMontant = montantTransfererPlusFrais(montant);
+  if (newMontant>0 && newMontant<=5000) {
+    return (10, 90);
+  } else if (newMontant>5000 && newMontant<=15000) {
+    return (30, 250);
+  } else if (newMontant>15000 && newMontant<=20000) {
+    return (30, 290);
+  } else if (newMontant>20000 && newMontant<=50000) {
+    return (50, 550);
+  } else if (newMontant>50000 && newMontant<=100000) {
+    return (100, 900);
+  } else {
+    return (0, 0);
+  }
+}
+
+int montantTransfererPlusFrais (int montantTransferer) {
+  if (montantTransferer>0 && montantTransferer<=5000) {
+    return montantTransferer + 90;
+  } else if (montantTransferer>5000 && montantTransferer<=15000) {
+    return montantTransferer + 250; 
+  } else if (montantTransferer>15000 && montantTransferer<=20000) {
+    return montantTransferer + 290; 
+  } else if (montantTransferer>20000 && montantTransferer<=50000) {
+    return montantTransferer + 550; 
+  } else if (montantTransferer>50000 && montantTransferer<=100000) {
+    return montantTransferer + 900; 
+  } else {
+    return 0;
   }
 }
