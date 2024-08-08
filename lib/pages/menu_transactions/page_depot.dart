@@ -203,8 +203,11 @@ class PageDepot extends StatelessWidget {
             onPressed: () {
               int fraisRetrait, fraisTransfert;
               int montant = int.parse(_montantController.text.replaceAll(RegExp(r'\D'), ""));
-              (fraisTransfert, fraisRetrait) = quelFraisTransaction(montant); 
-              
+              if (_isSelected = false) {
+                (fraisTransfert, fraisRetrait) = quelFraisTransaction(montant);
+              } else {
+                (fraisTransfert, fraisRetrait) = quelFraisTransactionEtRetrait(montant);
+              }
               callButtomSheetEnvoie(context, _numeroController.text, montant, fraisTransfert, fraisRetrait);
               },
             style: ElevatedButton.styleFrom(
@@ -228,7 +231,7 @@ class PageDepot extends StatelessWidget {
   }
 }
 
-(int tranfert, int retrait) quelFraisTransaction (int montant) {
+(int tranfert, int retrait) quelFraisTransactionEtRetrait (int montant) {
   var newMontant = montantTransfererPlusFrais(montant);
   if (newMontant>0 && newMontant<=5000) {
     return (10, 90);
@@ -239,6 +242,22 @@ class PageDepot extends StatelessWidget {
   } else if (newMontant>20000 && newMontant<=50000) {
     return (50, 550);
   } else if (newMontant>50000 && newMontant<=100000) {
+    return (100, 900);
+  } else {
+    return (0, 0);
+  }
+}
+
+(int tranfert, int retrait) quelFraisTransaction (int montant) {
+  if (montant>0 && montant<=5000) {
+    return (10, 90);
+  } else if (montant>5000 && montant<=15000) {
+    return (30, 250);
+  } else if (montant>15000 && montant<=20000) {
+    return (30, 290);
+  } else if (montant>20000 && montant<=50000) {
+    return (50, 550);
+  } else if (montant>50000 && montant<=100000) {
     return (100, 900);
   } else {
     return (0, 0);
