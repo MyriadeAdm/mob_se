@@ -10,6 +10,8 @@ class CustomListViewForfaitInternet extends StatelessWidget {
   final Icon icon;
   final String codeMMCredit;
   final String codeAutruiCredit;
+  final String codeMoneyMM;
+  final String codeMoneyAutruit;
   final Typeforfait typeforfait;
 
   const CustomListViewForfaitInternet({
@@ -20,6 +22,8 @@ class CustomListViewForfaitInternet extends StatelessWidget {
     required this.prix,
     required this.codeMMCredit,
     required this.codeAutruiCredit,
+    required this.codeMoneyMM,
+    required this.codeMoneyAutruit,
     required this.typeforfait,
   });
 
@@ -29,12 +33,22 @@ class CustomListViewForfaitInternet extends StatelessWidget {
       padding: const EdgeInsets.only(right: 8),
       child: ElevatedButton(
         onPressed: () {
-          callButtomSheet(context, '', '', validite, prix, codeMMCredit,
-              codeAutruiCredit, mega, typeforfait);
+          callButtomSheet(
+              context,
+              '',
+              '',
+              validite,
+              prix,
+              codeMMCredit,
+              codeAutruiCredit,
+              codeMoneyMM,
+              codeMoneyAutruit,
+              mega,
+              typeforfait);
         },
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.white,
-          padding: const EdgeInsets.only(left:18, right:18),
+          padding: const EdgeInsets.only(left: 18, right: 18),
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(15)),
             side: BorderSide(

@@ -10,7 +10,6 @@ import 'package:provider/provider.dart';
 
 import '../models/historique_database.dart';
 
-
 //=============================================[DEBUT} !!!besoin pour faire marcher le bottom Sheet
 
 class LabeledCheckbox extends StatelessWidget {
@@ -66,7 +65,6 @@ String currentOption = options[0];
 bool codeVisible = false;
 bool numVisible = false;
 
-
 final FlutterContactPicker _contactPicker = FlutterContactPicker();
 // ignore: unused_element
 Contact? _contact;
@@ -81,9 +79,6 @@ class CustumBottomSheet extends StatefulWidget {
 }
 
 class _CustumBottomSheetState extends State<CustumBottomSheet> {
-
-  
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -92,18 +87,22 @@ class _CustumBottomSheetState extends State<CustumBottomSheet> {
   }
 }
 
-enum TypeForfait {
-  forfaitAppel,
-  forfaitInternet,
-  forfaitMixte,
-  forfaitNuit
-}
+enum TypeForfait { forfaitAppel, forfaitInternet, forfaitMixte, forfaitNuit }
 
 // =================== CI dessous le code à modifier pour designer le BottomSheet ===============
 
-Future<void> callButtomSheet(BuildContext context, String credit, String sms,
-    String validite, String prix, String codeMMCredit, String codeAutruiCredit,
-    var mega, Typeforfait typeforfait) async {
+Future<void> callButtomSheet(
+    BuildContext context,
+    String credit,
+    String sms,
+    String validite,
+    String prix,
+    String codeMMCredit,
+    String codeAutruiCredit,
+    String codeMoneyMM,
+    String codeMoneyAutruit,
+    var mega,
+    Typeforfait typeforfait) async {
   await showModalBottomSheet<dynamic>(
     useRootNavigator: true,
     isScrollControlled: true,
@@ -116,8 +115,8 @@ Future<void> callButtomSheet(BuildContext context, String credit, String sms,
         children: [
           Expanded(
             child: Padding(
-              padding:
-                  EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+              padding: EdgeInsets.only(
+                  bottom: MediaQuery.of(context).viewInsets.bottom),
               child: StatefulBuilder(
                 builder: (BuildContext context, StateSetter setState) {
                   String aa = credit;
@@ -127,6 +126,8 @@ Future<void> callButtomSheet(BuildContext context, String credit, String sms,
                   String ee = codeMMCredit;
                   String ff = codeAutruiCredit;
                   var gg = mega;
+                  String codemoneyMM = codeMoneyMM;
+                  String codemoneyAutruit = codeMoneyAutruit;
                   return Padding(
                     padding: const EdgeInsets.only(
                         right: 30, left: 30, top: 30, bottom: 30),
@@ -138,7 +139,8 @@ Future<void> callButtomSheet(BuildContext context, String credit, String sms,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              appelInternetMixteNuit(typeforfait.name, aa, gg), // credit et mega
+                              appelInternetMixteNuit(
+                                  typeforfait.name, aa, gg), // credit et mega
                               style: const TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.w500,
@@ -149,7 +151,8 @@ Future<void> callButtomSheet(BuildContext context, String credit, String sms,
                                     fontSize: 15, fontWeight: FontWeight.w500)),
                             Text(cc, //validite
                                 style: const TextStyle(
-                                    fontSize: 13.5, fontWeight: FontWeight.w400)),
+                                    fontSize: 13.5,
+                                    fontWeight: FontWeight.w400)),
                             const SizedBox(height: 20),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -174,19 +177,20 @@ Future<void> callButtomSheet(BuildContext context, String credit, String sms,
                             )
                           ],
                         ),
-                        
+
                         const Divider(
                           height: 30,
                           thickness: 2,
                           indent: 30,
                           endIndent: 30,
                         ),
-          
+
                         Directionality(
                           textDirection: TextDirection.rtl,
                           child: LabeledCheckbox(
                             label: 'A une autre personne',
-                            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 20.0),
                             value: _isSelected,
                             onChanged: (bool newValue) {
                               setState(() {
@@ -197,7 +201,7 @@ Future<void> callButtomSheet(BuildContext context, String credit, String sms,
                             },
                           ),
                         ),
-          
+
                         Visibility(
                           visible: numVisible,
                           child: Row(
@@ -236,13 +240,16 @@ Future<void> callButtomSheet(BuildContext context, String credit, String sms,
                                   // setState(() {
                                   //   // click += 1;
                                   // });
-          
-                                  Contact? contact = await _contactPicker.selectContact();
+
+                                  Contact? contact =
+                                      await _contactPicker.selectContact();
                                   if (contact != null) {
                                     setState(() {
                                       _contact = contact;
-                                      List<String>? phoneNumbers = contact.phoneNumbers;
-                                      selectedNumber = phoneNumbers?[0] ?? 'Nothing selected';
+                                      List<String>? phoneNumbers =
+                                          contact.phoneNumbers;
+                                      selectedNumber = phoneNumbers?[0] ??
+                                          'Nothing selected';
                                       _numeroController.text = selectedNumber!;
                                     });
                                   }
@@ -267,7 +274,7 @@ Future<void> callButtomSheet(BuildContext context, String credit, String sms,
                                           currentOption = value.toString();
                                           codeVisible = !codeVisible;
                                           _codeControllerFocusNode.unfocus();
-                                           _codeController.clear();
+                                          _codeController.clear();
                                         });
                                       },
                                       activeColor: Colors.amber,
@@ -283,7 +290,8 @@ Future<void> callButtomSheet(BuildContext context, String credit, String sms,
                                         setState(() {
                                           currentOption = value.toString();
                                           codeVisible = !codeVisible;
-                                          _codeControllerFocusNode.requestFocus();
+                                          _codeControllerFocusNode
+                                              .requestFocus();
                                         });
                                       },
                                       activeColor: Colors.amber,
@@ -355,35 +363,82 @@ Future<void> callButtomSheet(BuildContext context, String credit, String sms,
                                   borderRadius: BorderRadius.circular(10),
                                 )),
                             onPressed: () async {
-                                /* option achat pour moi-même via credit */
-                              if (_isSelected == false && currentOption == options[0]) {
+                              /* option achat pour moi-même via credit */
+                              if (_isSelected == false &&
+                                  currentOption == options[0]) {
                                 FlutterPhoneDirectCaller.callNumber(ee);
 
-                                context.read<HistoriqueDatabase>().addHistorique(
-                                  typeForfait(typeforfait.name), 
-                                  typeForfaitDetails(typeforfait.name, aa, bb, cc, dd, gg));
+                                context
+                                    .read<HistoriqueDatabase>()
+                                    .addHistorique(
+                                        typeForfait(typeforfait.name),
+                                        typeForfaitDetails(typeforfait.name, aa,
+                                            bb, cc, dd, gg));
 
                                 /* option achat pour autrui via credit */
-                              } else if (_isSelected == true && currentOption == options[0]) {
+                              } else if (_isSelected == true &&
+                                  currentOption == options[0]) {
                                 var num = _numeroController.text.replaceAll(" ", "");
-                                // print("*909*7*$num$ff");
-                                if (num != '' && num is Int) {
-                                num = num.substring(num.length - 8);
-                                FlutterPhoneDirectCaller.callNumber("*909*7*$num$ff");
+
+                                if (num != '') {
+                                  num = num.substring(num.length - 8);
+                                  FlutterPhoneDirectCaller.callNumber(
+                                      "*909*7*$num$ff");
+
+                                  context
+                                      .read<HistoriqueDatabase>()
+                                      .addHistorique(
+                                        typeForfait(typeforfait.name),
+                                        typeForfaitDetailsNumero(
+                                            typeforfait.name,
+                                            aa,
+                                            bb,
+                                            cc,
+                                            dd,
+                                            gg,
+                                            num),
+                                      );
                                 } else {
                                   showDialog(
-                                    context: context, 
-                                    builder: (BuildContext context) {
-                                      return const AlertDialog(
-                                      title: Text("Pas de numéro"),
-                                      content: Text("Veuillez renseigner le numéro"));}
-                                  );
+                                      context: context,
+                                      builder: (BuildContext context) {
+                                        return const AlertDialog(
+                                            title: Text("Pas de numéro"),
+                                            content: Text(
+                                                "Veuillez renseigner le numéro"));
+                                      });
 
-                                    _numeroControllerFocusNode.requestFocus;
-                                  }
+                                  _numeroControllerFocusNode.requestFocus;
+                                }
                               }
-                                /* option achat pour moi meme via mobile money */
-                                /* option achat pour autrui via mobile money */
+                              /* option achat pour moi meme via mobile money */
+                              else if (_isSelected == false &&
+                                  currentOption == options[1]) {
+                                FlutterPhoneDirectCaller.callNumber(
+                                    "$codemoneyMM${_codeController.text}#");
+
+                                context
+                                    .read<HistoriqueDatabase>()
+                                    .addHistorique(
+                                        typeForfait(
+                                            "Mobile Money ${typeforfait.name}"),
+                                        typeForfaitDetails(typeforfait.name, aa,
+                                            bb, cc, dd, gg));
+                              }
+                              /* option achat pour autrui via mobile money */
+                              else if (_isSelected == true &&
+                                  currentOption == options[1]) {
+                                var num =
+                                    _numeroController.text.replaceAll(" ", "");
+
+                                if (num != '' && num is Int) {
+                                  num = num.substring(num.length - 8);
+
+                                  print(
+                                      "*909*7*$num$codemoneyAutruit${_codeController.text}#");
+                                  /* FlutterPhoneDirectCaller.callNumber("*909*7*$num$codemoneyAutruit${_codeController.text}#"); */
+                                }
+                              }
                             },
                             child: const Text(
                               'CONFIRMER',
@@ -435,7 +490,6 @@ String appelInternetMixteNuit(String typeForfait, dynamic aa, dynamic gg) {
     default:
       return "error";
   }
-
 }
 
 String typeForfait(String typeForfait) {
@@ -457,7 +511,7 @@ String typeForfait(String typeForfait) {
   }
 }
 
-String typeForfaitDetails (String typeForfait, aa, bb, cc, dd, gg) {
+String typeForfaitDetails(String typeForfait, aa, bb, cc, dd, gg) {
   switch (typeForfait) {
     case "forfaitAppel":
       return "$aa $bb, $cc - $dd";
@@ -470,6 +524,26 @@ String typeForfaitDetails (String typeForfait, aa, bb, cc, dd, gg) {
 
     case "forfaitNuit":
       return "$gg, $cc - $dd";
+
+    default:
+      return "error";
+  }
+}
+
+String typeForfaitDetailsNumero(
+    String typeForfait, aa, bb, cc, dd, gg, numero) {
+  switch (typeForfait) {
+    case "forfaitAppel":
+      return "$aa $bb à $numero, $cc - $dd";
+
+    case "forfaitInternet":
+      return "$gg à $numero, $cc - $dd";
+
+    case "forfaitMixte":
+      return "$aa + $gg à $numero, $bb, $cc - $dd";
+
+    case "forfaitNuit":
+      return "$gg à $numero, $cc - $dd";
 
     default:
       return "error";

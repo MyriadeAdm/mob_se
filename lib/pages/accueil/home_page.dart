@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
     super.initState();
     readHistorque();
   }
-  
+
   @override
   Widget build(BuildContext context) {
     final historiqueDatabase = context.watch<HistoriqueDatabase>();
@@ -86,8 +86,9 @@ class _HomePageState extends State<HomePage> {
                             onPressed: (int index) {
                               setState(() {
                                 // The button that is tapped is set to true, and the others to false.
-                                for (int i = 0; i < _selectedcarrier.length; i++)
-                                {
+                                for (int i = 0;
+                                    i < _selectedcarrier.length;
+                                    i++) {
                                   _selectedcarrier[i] = i == index;
                                   if (index == 0) {
                                     cname = 'Togocom';
@@ -195,6 +196,8 @@ class _HomePageState extends State<HomePage> {
                     prix: item.prix,
                     codeMMCredit: item.codeMMCredit,
                     codeAutruiCredit: item.codeAutruiCredit,
+                    codeMoneyMM: item.codeMoneyMM,
+                    codeMoneyAutruit: item.codeMoneyAutruit,
                     typeforfait: item.typeforfait,
                   );
                 }),
@@ -250,6 +253,8 @@ class _HomePageState extends State<HomePage> {
                   prix: item.prix,
                   codeMMCredit: item.codeMMCredit,
                   codeAutruiCredit: item.codeAutruiCredit,
+                  codeMoneyMM: item.codeMoneyMM,
+                  codeMoneyAutruit: item.codeMoneyAutruit,
                   mega: item.mega,
                   typeforfait: item.typeforfait,
                 );
@@ -285,8 +290,7 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       Text(
                         'Tout afficher',
-                        style:
-                            TextStyle(color: ColorConstants.colorCustom3),
+                        style: TextStyle(color: ColorConstants.colorCustom3),
                       ),
                       Icon(
                         Icons.trending_flat,
@@ -311,72 +315,87 @@ class _HomePageState extends State<HomePage> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Expanded(
-                    child: currentHistoriques.isEmpty?
-                    const Center(
-                      child: Text('Historique vide, veuillez lancer \nvotre première transaction ...',
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: ColorConstants.colorCustom3,
-                      ),),
-                    )
-                    : ListView.builder(
-                      shrinkWrap: true,
-                      itemCount: currentHistoriques.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        final reversehistorique = currentHistoriques.reversed.toList();
-                        final historique = reversehistorique[index];
-                        String date = "";
-                        int dateNow = int.parse(DateFormat.d().format(DateTime.now()));
-                        
-                        int dateHistorique =  int.parse(DateFormat.d().format(historique.dateTime));
-
-
-                        if (DateFormat('dd-MMM-yyyy').format(historique.dateTime) == DateFormat('dd-MMM-yyyy').format(DateTime.now())) {
-                          date = "Aujourd'hui ${DateFormat.Hm().format(historique.dateTime)}";
-                        } else {
-                          if (DateFormat('dd-MMM-yyyy').format(historique.dateTime) != DateFormat('dd-MMM-yyyy').format(DateTime.now())) {
-                            if (dateNow - dateHistorique == 1 ) {
-                              date = "Hier ${DateFormat.Hm().format(historique.dateTime)}";
-                            } else {
-                              date = DateFormat("dd-MMM-yyyy HH:mm").format(historique.dateTime);
-                            }
-                          }
-                        }
-                        return Column(
-                          children: [
-                            SizedBox(
-                              height: 55,
-                              child: ListTile(
-                                title: Text(
-                                  historique.typeForfait as String,
-                                  style: const TextStyle(fontSize: 15),
-                                ),
-                                subtitle: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      '${historique.detailsForfait}',
-                                      style: const TextStyle(fontSize: 9),
-                                    ),
-                                    
-                                    Text(date,
-                                      style: const TextStyle(fontSize: 10),
-                                    ),
-                                  ],
-                                ),
+                    child: currentHistoriques.isEmpty
+                        ? const Center(
+                            child: Text(
+                              'Historique vide, veuillez lancer \nvotre première transaction ...',
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: ColorConstants.colorCustom3,
                               ),
                             ),
-                            const SizedBox(height: 5),
-                            Container(
-                              color: Colors.black,
-                              height: 0.5,
-                              width: MediaQuery.of(context).size.width * 0.90,
-                            ),
-                          ],
-                        );
-                      },
-                    ),
+                          )
+                        : ListView.builder(
+                            shrinkWrap: true,
+                            itemCount: currentHistoriques.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              final reversehistorique =
+                                  currentHistoriques.reversed.toList();
+                              final historique = reversehistorique[index];
+                              String date = "";
+                              int dateNow = int.parse(
+                                  DateFormat.d().format(DateTime.now()));
+
+                              int dateHistorique = int.parse(
+                                  DateFormat.d().format(historique.dateTime));
+
+                              if (DateFormat('dd-MMM-yyyy')
+                                      .format(historique.dateTime) ==
+                                  DateFormat('dd-MMM-yyyy')
+                                      .format(DateTime.now())) {
+                                date =
+                                    "Aujourd'hui ${DateFormat.Hm().format(historique.dateTime)}";
+                              } else {
+                                if (DateFormat('dd-MMM-yyyy')
+                                        .format(historique.dateTime) !=
+                                    DateFormat('dd-MMM-yyyy')
+                                        .format(DateTime.now())) {
+                                  if (dateNow - dateHistorique == 1) {
+                                    date =
+                                        "Hier ${DateFormat.Hm().format(historique.dateTime)}";
+                                  } else {
+                                    date = DateFormat("dd-MMM-yyyy HH:mm")
+                                        .format(historique.dateTime);
+                                  }
+                                }
+                              }
+                              return Column(
+                                children: [
+                                  SizedBox(
+                                    height: 55,
+                                    child: ListTile(
+                                      title: Text(
+                                        historique.typeForfait as String,
+                                        style: const TextStyle(fontSize: 15),
+                                      ),
+                                      subtitle: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            '${historique.detailsForfait}',
+                                            style: const TextStyle(fontSize: 9),
+                                          ),
+                                          Text(
+                                            date,
+                                            style:
+                                                const TextStyle(fontSize: 10),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(height: 5),
+                                  Container(
+                                    color: Colors.black,
+                                    height: 0.5,
+                                    width: MediaQuery.of(context).size.width *
+                                        0.90,
+                                  ),
+                                ],
+                              );
+                            },
+                          ),
                   ),
                 ],
               ),

@@ -24,28 +24,28 @@
 		16741D3FE6AD388203F64B524E84501E /* isar_flutter_libs-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DD8588236125884C3C969A0CDA7E171E /* isar_flutter_libs-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1ADB485EDF30E18FC7EF22F4EA4E8A98 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		2401C748AE4FF4DEE2BCD2FE45495109 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		55B45DD4E2B55C38E431C81A474D5E9A /* FlutterNativeContactPickerPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C829AEAE1FB45103F8EC38E40E9AC93 /* FlutterNativeContactPickerPlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		567352A06BCE7849DC7E63658FE5AF74 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 14EA10BE912BD407577AC29540213E7F /* PrivacyInfo.xcprivacy */; };
 		693B562332CD5E06416960CC37E166B4 /* IsarFlutterLibsPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E87BF6DF2965F1E9D23F80B71FF3634 /* IsarFlutterLibsPlugin.m */; };
 		6B1E62EB116E7D7A6252B6F079890306 /* Pods-RunnerTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3DB54C128E3D88C0C9C7DDEA475ED7 /* Pods-RunnerTests-dummy.m */; };
-		6FC061C3942EB2DD0F5346B907D5CFCB /* FlutterNativeContactPickerPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 87A019226C7A690227B105A4D0333BA3 /* FlutterNativeContactPickerPlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7209757AF685BB3EA03AA993892BBE72 /* isar_flutter_libs-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DE07BA372C63CDE9B73F4F574CB47CA7 /* isar_flutter_libs-dummy.m */; };
 		7235D63ADB1172D169369ACA3B5441F3 /* Pods-Runner-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 499E3722E8DACDC2AAA6C15AD1796520 /* Pods-Runner-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		732B6C4F02B41F3238562798913C6C79 /* path_provider_foundation-path_provider_foundation_privacy in Resources */ = {isa = PBXBuildFile; fileRef = 3DBD4BADE27F8B91024E4B4B4DD75DB5 /* path_provider_foundation-path_provider_foundation_privacy */; };
 		7CD2AF90F213AAC2DF5D000A0EAF22AE /* flutter_phone_direct_caller-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 13E4BD7798BD0BC2CA94A7019983DB32 /* flutter_phone_direct_caller-dummy.m */; };
+		813B84D7E77CC75A3050D225540BCE17 /* FlutterNativeContactPickerPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 076210E287FF0D052AE513D0D98EB329 /* FlutterNativeContactPickerPlugin.m */; };
 		81951C81E0CAFD5D1C5A23542B6F7280 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		8901030E849141977FBB30DEB5C61FCB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		8D88585BBEB5B077CCC1342F915DD0F2 /* path_provider_foundation-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 33619618B703480C59299956B74D286B /* path_provider_foundation-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9080052244206FC35E9DB5228CF5C40F /* SwiftFlutterNativeContactPickerPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5E401312F8A16D54EF04487D9452BD /* SwiftFlutterNativeContactPickerPlugin.swift */; };
 		911468685CA032B6AFF0E0DDC98BD099 /* messages.g.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390F97BCCBA368975BCB8FFF1917AF85 /* messages.g.swift */; };
 		9DB9AEA4D53269DE9CAC220EC4F988CE /* FlutterPhoneDirectCallerPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = B3549187FEC4D03F9C85B60BDE9B05CA /* FlutterPhoneDirectCallerPlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B1DD2B585B5504BDCA8025130341EA3A /* flutter_native_contact_picker-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 051127834079E69808EC0E202019F577 /* flutter_native_contact_picker-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BDA26A127B7BA1A72501689DE38327BB /* SwiftFlutterNativeContactPickerPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC36BD71E6D7F5227A3E3FE4807D5088 /* SwiftFlutterNativeContactPickerPlugin.swift */; };
-		C1F63DC292393AFA3A9808FFF24E4998 /* flutter_native_contact_picker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 04792DC4EA5DAD589CAE65300C10C26E /* flutter_native_contact_picker-dummy.m */; };
+		B1DD2B585B5504BDCA8025130341EA3A /* flutter_native_contact_picker-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A619EA62F527811E16CE9FAE97301E7 /* flutter_native_contact_picker-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C1F63DC292393AFA3A9808FFF24E4998 /* flutter_native_contact_picker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EE3DAEB96749633D565494E64296B00B /* flutter_native_contact_picker-dummy.m */; };
 		CB9F2567E33B76DE70BA7B900B2DDB2D /* Pods-Runner-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E794494AB90477BA94C681E994ADF341 /* Pods-Runner-dummy.m */; };
 		D3BAC64448B07340A02918BDAE75B67B /* FlutterPhoneDirectCallerPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F219C51780475ED1A2961C444545D7 /* FlutterPhoneDirectCallerPlugin.m */; };
 		D7803EA59E0A4D691E72242DF68355E3 /* PathProviderPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E4835BDC0C38BC4CB336D239FF39CC /* PathProviderPlugin.swift */; };
 		D7FCD7AE2BF93F7D068144D3E32E28C9 /* binding.h in Headers */ = {isa = PBXBuildFile; fileRef = D8AEE0BE80DEBC081DBF798BD903628D /* binding.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E471D3EB2060CF0C2DC9A49A2AD56022 /* flutter_phone_direct_caller-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 33031EFB1E6BD474D12169A31A32668A /* flutter_phone_direct_caller-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E79BDA6CD0F58D8A325EF44E72B6A0D7 /* FlutterNativeContactPickerPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 084A5B83CA67467BC0E2FD77260609A4 /* FlutterNativeContactPickerPlugin.m */; };
 		EBDA0722EECDBCB486C9DBDC54F16582 /* path_provider_foundation-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CFC25B8139B12AC471CECA9E0097176D /* path_provider_foundation-dummy.m */; };
 		F41381D01D340B90E23F5E7007E1D50E /* IsarFlutterLibsPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 7319A55A9A28F8E1B7F461E379AF1EA9 /* IsarFlutterLibsPlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F4EF0BBD09B0542047606CE7E2A82C8F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
@@ -134,21 +134,22 @@
 
 /* Begin PBXFileReference section */
 		03E8AD2E8B75443E12D3D3BD12A9900E /* Pods-RunnerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RunnerTests.debug.xcconfig"; sourceTree = "<group>"; };
-		04792DC4EA5DAD589CAE65300C10C26E /* flutter_native_contact_picker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "flutter_native_contact_picker-dummy.m"; sourceTree = "<group>"; };
-		051127834079E69808EC0E202019F577 /* flutter_native_contact_picker-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "flutter_native_contact_picker-umbrella.h"; sourceTree = "<group>"; };
-		084A5B83CA67467BC0E2FD77260609A4 /* FlutterNativeContactPickerPlugin.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FlutterNativeContactPickerPlugin.m; path = "../../../../../../../../.pub-cache/hosted/pub.dev/flutter_native_contact_picker-0.0.6/ios/Classes/FlutterNativeContactPickerPlugin.m"; sourceTree = "<group>"; };
+		076210E287FF0D052AE513D0D98EB329 /* FlutterNativeContactPickerPlugin.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FlutterNativeContactPickerPlugin.m; path = "../../../../../../../../.pub-cache/hosted/pub.dev/flutter_native_contact_picker-0.0.7/ios/Classes/FlutterNativeContactPickerPlugin.m"; sourceTree = "<group>"; };
 		0AFB643DA4919253F749E2836A5AAFDC /* Pods-Runner-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Runner-Info.plist"; sourceTree = "<group>"; };
 		0B64F72FC64A8A72D8ABCE68850C8567 /* isar_flutter_libs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = isar_flutter_libs.release.xcconfig; sourceTree = "<group>"; };
+		0F73AE0EBBFEB0C22DEFE88068BF1968 /* flutter_native_contact_picker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = flutter_native_contact_picker.release.xcconfig; sourceTree = "<group>"; };
 		11AA7018F95317D959D9D2E76CBB2377 /* Pods-RunnerTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-RunnerTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		13E4BD7798BD0BC2CA94A7019983DB32 /* flutter_phone_direct_caller-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "flutter_phone_direct_caller-dummy.m"; sourceTree = "<group>"; };
 		14EA10BE912BD407577AC29540213E7F /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = "../../../../../../../../../../../.pub-cache/hosted/pub.dev/path_provider_foundation-2.4.0/darwin/path_provider_foundation/Sources/path_provider_foundation/Resources/PrivacyInfo.xcprivacy"; sourceTree = "<group>"; };
 		1B136F41D5B5FAE96EA576E768A5771D /* Pods-Runner-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Runner-acknowledgements.plist"; sourceTree = "<group>"; };
-		2E3251C60C48D8EB83B7BFB182572AD8 /* flutter_native_contact_picker-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "flutter_native_contact_picker-prefix.pch"; sourceTree = "<group>"; };
+		1D6ED60BFD65B743D275892F4A726F3B /* flutter_native_contact_picker-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "flutter_native_contact_picker-prefix.pch"; sourceTree = "<group>"; };
+		267411676D28E8DDBB9D6F297BAFDA22 /* flutter_native_contact_picker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = flutter_native_contact_picker.debug.xcconfig; sourceTree = "<group>"; };
+		2A619EA62F527811E16CE9FAE97301E7 /* flutter_native_contact_picker-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "flutter_native_contact_picker-umbrella.h"; sourceTree = "<group>"; };
 		308D3826FFE68C1B1D1FC1F57603A7ED /* SwiftIsarFlutterLibsPlugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftIsarFlutterLibsPlugin.swift; path = "../../../../../../../../.pub-cache/hosted/pub.dev/isar_flutter_libs-3.1.0+1/ios/Classes/SwiftIsarFlutterLibsPlugin.swift"; sourceTree = "<group>"; };
+		316F1EEEE5B5E5EC2188F0AC982465B5 /* flutter_native_contact_picker.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = flutter_native_contact_picker.modulemap; sourceTree = "<group>"; };
 		33031EFB1E6BD474D12169A31A32668A /* flutter_phone_direct_caller-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "flutter_phone_direct_caller-umbrella.h"; sourceTree = "<group>"; };
 		33619618B703480C59299956B74D286B /* path_provider_foundation-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "path_provider_foundation-umbrella.h"; sourceTree = "<group>"; };
 		33E12A8539ECBD5AFBF367B6A675CC84 /* isar_flutter_libs-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "isar_flutter_libs-prefix.pch"; sourceTree = "<group>"; };
-		34DA46FB5F89B0F7AB2AE9F08EB79B8C /* flutter_native_contact_picker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = flutter_native_contact_picker.release.xcconfig; sourceTree = "<group>"; };
 		362863487730CE41FA1C22679CCCAB74 /* Flutter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Flutter.release.xcconfig; sourceTree = "<group>"; };
 		390F97BCCBA368975BCB8FFF1917AF85 /* messages.g.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = messages.g.swift; path = "../../../../../../../../../../.pub-cache/hosted/pub.dev/path_provider_foundation-2.4.0/darwin/path_provider_foundation/Sources/path_provider_foundation/messages.g.swift"; sourceTree = "<group>"; };
 		39ACB0DCE4BD021606FF6F731A4DB89A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = "../../../../../../../.pub-cache/hosted/pub.dev/flutter_phone_direct_caller-2.1.1/LICENSE"; sourceTree = "<group>"; };
@@ -160,11 +161,11 @@
 		499E3722E8DACDC2AAA6C15AD1796520 /* Pods-Runner-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Runner-umbrella.h"; sourceTree = "<group>"; };
 		4D3DB54C128E3D88C0C9C7DDEA475ED7 /* Pods-RunnerTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-RunnerTests-dummy.m"; sourceTree = "<group>"; };
 		54F6162B68E104442E213A4CFB386697 /* Flutter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Flutter.debug.xcconfig; sourceTree = "<group>"; };
-		5670A563A1C9C6E956C1591DE4A30A96 /* flutter_native_contact_picker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = flutter_native_contact_picker.debug.xcconfig; sourceTree = "<group>"; };
 		5936D7739EDC54DEDFB3C550A6F4D140 /* isar_flutter_libs.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = isar_flutter_libs.podspec; path = "../../../../../../../.pub-cache/hosted/pub.dev/isar_flutter_libs-3.1.0+1/ios/isar_flutter_libs.podspec"; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		5B575993C5D8F57C29F38A2B9B903808 /* flutter_phone_direct_caller.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = flutter_phone_direct_caller.debug.xcconfig; sourceTree = "<group>"; };
 		669E8F25E1897672BDB80B7EB784DA24 /* Pods-Runner */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Runner"; path = Pods_Runner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C3345B1B3CAEDF5B03B1F731FDC492E /* Pods-RunnerTests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-RunnerTests"; path = Pods_RunnerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C829AEAE1FB45103F8EC38E40E9AC93 /* FlutterNativeContactPickerPlugin.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FlutterNativeContactPickerPlugin.h; path = "../../../../../../../../.pub-cache/hosted/pub.dev/flutter_native_contact_picker-0.0.7/ios/Classes/FlutterNativeContactPickerPlugin.h"; sourceTree = "<group>"; };
 		728A5ED1DD60BAC8C8F382A87B976F84 /* Pods-Runner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Runner.debug.xcconfig"; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		7319A55A9A28F8E1B7F461E379AF1EA9 /* IsarFlutterLibsPlugin.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IsarFlutterLibsPlugin.h; path = "../../../../../../../../.pub-cache/hosted/pub.dev/isar_flutter_libs-3.1.0+1/ios/Classes/IsarFlutterLibsPlugin.h"; sourceTree = "<group>"; };
@@ -173,8 +174,9 @@
 		79F83F4D505FA40C1CD18A8029181D59 /* Pods-RunnerTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RunnerTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		7E87BF6DF2965F1E9D23F80B71FF3634 /* IsarFlutterLibsPlugin.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IsarFlutterLibsPlugin.m; path = "../../../../../../../../.pub-cache/hosted/pub.dev/isar_flutter_libs-3.1.0+1/ios/Classes/IsarFlutterLibsPlugin.m"; sourceTree = "<group>"; };
 		81EB86F0736F452281393B8F49972A07 /* flutter_phone_direct_caller.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = flutter_phone_direct_caller.release.xcconfig; sourceTree = "<group>"; };
-		87A019226C7A690227B105A4D0333BA3 /* FlutterNativeContactPickerPlugin.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FlutterNativeContactPickerPlugin.h; path = "../../../../../../../../.pub-cache/hosted/pub.dev/flutter_native_contact_picker-0.0.6/ios/Classes/FlutterNativeContactPickerPlugin.h"; sourceTree = "<group>"; };
 		88B36E4F318740D499FBED6660F7BC1F /* ResourceBundle-path_provider_foundation_privacy-path_provider_foundation-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-path_provider_foundation_privacy-path_provider_foundation-Info.plist"; sourceTree = "<group>"; };
+		8DC9961D949E6F0637F0981AF532B32E /* flutter_native_contact_picker-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "flutter_native_contact_picker-Info.plist"; sourceTree = "<group>"; };
+		8E5E401312F8A16D54EF04487D9452BD /* SwiftFlutterNativeContactPickerPlugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftFlutterNativeContactPickerPlugin.swift; path = "../../../../../../../../.pub-cache/hosted/pub.dev/flutter_native_contact_picker-0.0.7/ios/Classes/SwiftFlutterNativeContactPickerPlugin.swift"; sourceTree = "<group>"; };
 		95CDECBE7AF1F62FF50D5D521BAB6527 /* path_provider_foundation-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "path_provider_foundation-Info.plist"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9E9B12BCE5540D02A80250C3EC16D399 /* Pods-RunnerTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-RunnerTests-umbrella.h"; sourceTree = "<group>"; };
@@ -192,25 +194,23 @@
 		BFD9DEDE4EC2BE53314E5113F9DB8B51 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = "../../../../../../../.pub-cache/hosted/pub.dev/isar_flutter_libs-3.1.0+1/LICENSE"; sourceTree = "<group>"; };
 		C24C1A035F22D24883C6F1876F274C6F /* Pods-Runner.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Runner.modulemap"; sourceTree = "<group>"; };
 		C4190131E0ABBC5D89F94BFC94AFA8D4 /* path_provider_foundation.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = path_provider_foundation.podspec; path = "../../../../../../../.pub-cache/hosted/pub.dev/path_provider_foundation-2.4.0/darwin/path_provider_foundation.podspec"; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		C4E038AC1993F6DAC20F0CB3F830B138 /* flutter_native_contact_picker-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "flutter_native_contact_picker-Info.plist"; sourceTree = "<group>"; };
 		C50FD10CD19FF6999637BA5ECAF1681B /* Pods-Runner.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Runner.profile.xcconfig"; sourceTree = "<group>"; };
+		C82E752A3070A0ED804531A55EB037BD /* flutter_native_contact_picker.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = flutter_native_contact_picker.podspec; path = "../../../../../../../.pub-cache/hosted/pub.dev/flutter_native_contact_picker-0.0.7/ios/flutter_native_contact_picker.podspec"; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		CFC25B8139B12AC471CECA9E0097176D /* path_provider_foundation-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "path_provider_foundation-dummy.m"; sourceTree = "<group>"; };
-		D4A23C12A0840E9DE0B0DD9F1681BC5F /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = "../../../../../../../.pub-cache/hosted/pub.dev/flutter_native_contact_picker-0.0.6/LICENSE"; sourceTree = "<group>"; };
 		D57B1254EC7F13AAF41CC8203FD47B9F /* flutter_native_contact_picker */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = flutter_native_contact_picker; path = flutter_native_contact_picker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5F219C51780475ED1A2961C444545D7 /* FlutterPhoneDirectCallerPlugin.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FlutterPhoneDirectCallerPlugin.m; path = "../../../../../../../../.pub-cache/hosted/pub.dev/flutter_phone_direct_caller-2.1.1/ios/Classes/FlutterPhoneDirectCallerPlugin.m"; sourceTree = "<group>"; };
+		D6EDF2548AB262E43D31D42C52504C9E /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = "../../../../../../../.pub-cache/hosted/pub.dev/flutter_native_contact_picker-0.0.7/LICENSE"; sourceTree = "<group>"; };
 		D8AEE0BE80DEBC081DBF798BD903628D /* binding.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = binding.h; path = "../../../../../../../../.pub-cache/hosted/pub.dev/isar_flutter_libs-3.1.0+1/ios/Classes/binding.h"; sourceTree = "<group>"; };
 		DCE248F9C6A3EFA10D00FE39BF788F12 /* isar.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = isar.xcframework; path = "../../../../../../../.pub-cache/hosted/pub.dev/isar_flutter_libs-3.1.0+1/ios/isar.xcframework"; sourceTree = "<group>"; };
 		DD8588236125884C3C969A0CDA7E171E /* isar_flutter_libs-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "isar_flutter_libs-umbrella.h"; sourceTree = "<group>"; };
 		DE07BA372C63CDE9B73F4F574CB47CA7 /* isar_flutter_libs-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "isar_flutter_libs-dummy.m"; sourceTree = "<group>"; };
 		E28B435708B685B8CE1ACE41C67DE22A /* path_provider_foundation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = path_provider_foundation.debug.xcconfig; sourceTree = "<group>"; };
-		E52583DD77E04C86D1BA4133D564D653 /* flutter_native_contact_picker.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = flutter_native_contact_picker.modulemap; sourceTree = "<group>"; };
 		E736E0C9C5B73D27B8865E363E2108AC /* Pods-RunnerTests.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RunnerTests.profile.xcconfig"; sourceTree = "<group>"; };
 		E794494AB90477BA94C681E994ADF341 /* Pods-Runner-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Runner-dummy.m"; sourceTree = "<group>"; };
 		E821C2D1E37463C3B92C49D568F3AF29 /* isar_flutter_libs */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = isar_flutter_libs; path = isar_flutter_libs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EC36BD71E6D7F5227A3E3FE4807D5088 /* SwiftFlutterNativeContactPickerPlugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftFlutterNativeContactPickerPlugin.swift; path = "../../../../../../../../.pub-cache/hosted/pub.dev/flutter_native_contact_picker-0.0.6/ios/Classes/SwiftFlutterNativeContactPickerPlugin.swift"; sourceTree = "<group>"; };
 		ECDF6AA713870989438BA93B395DC557 /* Pods-Runner-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Runner-acknowledgements.markdown"; sourceTree = "<group>"; };
+		EE3DAEB96749633D565494E64296B00B /* flutter_native_contact_picker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "flutter_native_contact_picker-dummy.m"; sourceTree = "<group>"; };
 		EFD73565537F402205A65210F90EC2DC /* Flutter.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = Flutter.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		F2F42D62E10F05BA4018968335A48529 /* flutter_native_contact_picker.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = flutter_native_contact_picker.podspec; path = "../../../../../../../.pub-cache/hosted/pub.dev/flutter_native_contact_picker-0.0.6/ios/flutter_native_contact_picker.podspec"; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		F423039D9D523BBB81B3D8AC58EAD7C5 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = "../../../../../../../.pub-cache/hosted/pub.dev/path_provider_foundation-2.4.0/LICENSE"; sourceTree = "<group>"; };
 		F61C169D8A652259EAF1F277A877F62A /* isar_flutter_libs.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = isar_flutter_libs.modulemap; sourceTree = "<group>"; };
 		F7E4835BDC0C38BC4CB336D239FF39CC /* PathProviderPlugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PathProviderPlugin.swift; path = "../../../../../../../../../../.pub-cache/hosted/pub.dev/path_provider_foundation-2.4.0/darwin/path_provider_foundation/Sources/path_provider_foundation/PathProviderPlugin.swift"; sourceTree = "<group>"; };
@@ -276,6 +276,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03CCB8F83674F0D9129BC2E0EE7BF19D /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				6C829AEAE1FB45103F8EC38E40E9AC93 /* FlutterNativeContactPickerPlugin.h */,
+				076210E287FF0D052AE513D0D98EB329 /* FlutterNativeContactPickerPlugin.m */,
+				8E5E401312F8A16D54EF04487D9452BD /* SwiftFlutterNativeContactPickerPlugin.swift */,
+			);
+			name = Classes;
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		0566979EF3FFCBE40A595F2088D8079C /* plugins */ = {
+			isa = PBXGroup;
+			children = (
+				413949EF67BF3E00E035CA4DACD19007 /* flutter_native_contact_picker */,
+			);
+			name = plugins;
+			path = plugins;
+			sourceTree = "<group>";
+		};
 		06658BC750443639684EB65167AAFC80 /* ios */ = {
 			isa = PBXGroup;
 			children = (
@@ -294,13 +314,13 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		0ABEE59D88815197EE81B59A76E3A2C8 /* .. */ = {
+		0E21169CC7D324A22C44A3DFC29BA916 /* .. */ = {
 			isa = PBXGroup;
 			children = (
-				CB4CEA6DF6D4F29DCDD16ED7861CBC5A /* .. */,
+				5670FD7701F8A877EBD8DF10A5FB5DCD /* .. */,
 			);
 			name = ..;
-			path = "../../../../../../../.pub-cache/hosted/pub.dev/flutter_native_contact_picker-0.0.6/ios";
+			path = "../../../../../../../.pub-cache/hosted/pub.dev/flutter_native_contact_picker-0.0.7/ios";
 			sourceTree = "<group>";
 		};
 		1ABBA16136335F08B17BD9A4E84C5509 /* .. */ = {
@@ -319,15 +339,6 @@
 			);
 			name = ..;
 			path = ..;
-			sourceTree = "<group>";
-		};
-		1FF25520C122851484AED28979B90511 /* Apps */ = {
-			isa = PBXGroup;
-			children = (
-				86A6338545106F37A2D5C269C6DD1FAD /* mob_se */,
-			);
-			name = Apps;
-			path = Apps;
 			sourceTree = "<group>";
 		};
 		228720A901432635CCFD8D83964337B1 /* path_provider_foundation */ = {
@@ -375,17 +386,6 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		2DE65CF7C1A2185EE13EC337E77B7D4A /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				87A019226C7A690227B105A4D0333BA3 /* FlutterNativeContactPickerPlugin.h */,
-				084A5B83CA67467BC0E2FD77260609A4 /* FlutterNativeContactPickerPlugin.m */,
-				EC36BD71E6D7F5227A3E3FE4807D5088 /* SwiftFlutterNativeContactPickerPlugin.swift */,
-			);
-			name = Classes;
-			path = Classes;
-			sourceTree = "<group>";
-		};
 		2EF859B9F9A0CCDED378C7777FE28206 /* path_provider_foundation */ = {
 			isa = PBXGroup;
 			children = (
@@ -422,6 +422,21 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
+		35A506E8D36C759638D389FC01E6FEAB /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				316F1EEEE5B5E5EC2188F0AC982465B5 /* flutter_native_contact_picker.modulemap */,
+				EE3DAEB96749633D565494E64296B00B /* flutter_native_contact_picker-dummy.m */,
+				8DC9961D949E6F0637F0981AF532B32E /* flutter_native_contact_picker-Info.plist */,
+				1D6ED60BFD65B743D275892F4A726F3B /* flutter_native_contact_picker-prefix.pch */,
+				2A619EA62F527811E16CE9FAE97301E7 /* flutter_native_contact_picker-umbrella.h */,
+				267411676D28E8DDBB9D6F297BAFDA22 /* flutter_native_contact_picker.debug.xcconfig */,
+				0F73AE0EBBFEB0C22DEFE88068BF1968 /* flutter_native_contact_picker.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../../../../Pods/Target Support Files/flutter_native_contact_picker";
+			sourceTree = "<group>";
+		};
 		35B08C4FD68E62FD908492B21FF7DAEE /* .symlinks */ = {
 			isa = PBXGroup;
 			children = (
@@ -448,13 +463,13 @@
 			name = Pod;
 			sourceTree = "<group>";
 		};
-		38601E683E2B9C61981379206E356B79 /* .symlinks */ = {
+		413949EF67BF3E00E035CA4DACD19007 /* flutter_native_contact_picker */ = {
 			isa = PBXGroup;
 			children = (
-				CE744BCAE14DBF4C80FADF91B8756668 /* plugins */,
+				9AFDFD4CB66AC62BEAAA4FD4026D3B5D /* ios */,
 			);
-			name = .symlinks;
-			path = .symlinks;
+			name = flutter_native_contact_picker;
+			path = flutter_native_contact_picker;
 			sourceTree = "<group>";
 		};
 		41DDD1430B27EE89C3CDC12F5E01BE2D /* path_provider_foundation */ = {
@@ -474,30 +489,6 @@
 				39ACB0DCE4BD021606FF6F731A4DB89A /* LICENSE */,
 			);
 			name = Pod;
-			sourceTree = "<group>";
-		};
-		4979B47BF3BE7737D36964730E125259 /* .. */ = {
-			isa = PBXGroup;
-			children = (
-				1FF25520C122851484AED28979B90511 /* Apps */,
-			);
-			name = ..;
-			path = ..;
-			sourceTree = "<group>";
-		};
-		49BEDC63CFBD385884F27C8268054531 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				E52583DD77E04C86D1BA4133D564D653 /* flutter_native_contact_picker.modulemap */,
-				04792DC4EA5DAD589CAE65300C10C26E /* flutter_native_contact_picker-dummy.m */,
-				C4E038AC1993F6DAC20F0CB3F830B138 /* flutter_native_contact_picker-Info.plist */,
-				2E3251C60C48D8EB83B7BFB182572AD8 /* flutter_native_contact_picker-prefix.pch */,
-				051127834079E69808EC0E202019F577 /* flutter_native_contact_picker-umbrella.h */,
-				5670A563A1C9C6E956C1591DE4A30A96 /* flutter_native_contact_picker.debug.xcconfig */,
-				34DA46FB5F89B0F7AB2AE9F08EB79B8C /* flutter_native_contact_picker.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../../../../Pods/Target Support Files/flutter_native_contact_picker";
 			sourceTree = "<group>";
 		};
 		4F1C7A969A0C2636DA245F037D56C9A9 /* .. */ = {
@@ -569,6 +560,15 @@
 			path = "Target Support Files/Pods-RunnerTests";
 			sourceTree = "<group>";
 		};
+		5670FD7701F8A877EBD8DF10A5FB5DCD /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				69AB40D09BE914087DC50C7B35E4D745 /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -586,13 +586,13 @@
 			path = ios;
 			sourceTree = "<group>";
 		};
-		5E82378E1506FA1A3CFC9FF52D85D084 /* Pod */ = {
+		5B170BCB836F8BAD1AD989BE4154A05B /* ios */ = {
 			isa = PBXGroup;
 			children = (
-				F2F42D62E10F05BA4018968335A48529 /* flutter_native_contact_picker.podspec */,
-				D4A23C12A0840E9DE0B0DD9F1681BC5F /* LICENSE */,
+				A5A339668CAB053A4FC3552A50723EF0 /* .symlinks */,
 			);
-			name = Pod;
+			name = ios;
+			path = ios;
 			sourceTree = "<group>";
 		};
 		5F2C9611FE2608BF3A2CD35AE7722469 /* .. */ = {
@@ -613,15 +613,31 @@
 			path = path_provider_foundation;
 			sourceTree = "<group>";
 		};
-		697A6BD04703E7C79E258B4B2E78EDEC /* flutter_native_contact_picker */ = {
+		69AB40D09BE914087DC50C7B35E4D745 /* .. */ = {
 			isa = PBXGroup;
 			children = (
-				0ABEE59D88815197EE81B59A76E3A2C8 /* .. */,
-				5E82378E1506FA1A3CFC9FF52D85D084 /* Pod */,
-				49BEDC63CFBD385884F27C8268054531 /* Support Files */,
+				69E6780CC6F736BB0F898CBBB02433C1 /* .. */,
 			);
-			name = flutter_native_contact_picker;
-			path = ../.symlinks/plugins/flutter_native_contact_picker/ios;
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		69E6780CC6F736BB0F898CBBB02433C1 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				6AC76B6CDFC9AF267F88293E02E79C42 /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		6AC76B6CDFC9AF267F88293E02E79C42 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				D141026BBAFE59D5ACFF90A2D63EF6D9 /* .. */,
+			);
+			name = ..;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		6DEFE40348AC1DDFF06DA9C6E58EF872 /* ios */ = {
@@ -690,20 +706,20 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		7F31CDC32D5C7290CEAE19D8A28171BD /* Apps */ = {
+			isa = PBXGroup;
+			children = (
+				D435D689A564AB7A4F5EA04D1D49C6DB /* mob_se */,
+			);
+			name = Apps;
+			path = Apps;
+			sourceTree = "<group>";
+		};
 		834455CDB90548C84E52339F86831957 /* .. */ = {
 			isa = PBXGroup;
 			children = (
 				C484762E00303CC19776D0E0608798ED /* .. */,
 				CD4DD957263ABC9DE08EAC5845E5BC6E /* Apps */,
-			);
-			name = ..;
-			path = ..;
-			sourceTree = "<group>";
-		};
-		83B625C4FF73C7296D7FA6B79B31A599 /* .. */ = {
-			isa = PBXGroup;
-			children = (
-				BEEFECA822B32F71F3950FA2BF7EC481 /* .. */,
 			);
 			name = ..;
 			path = ..;
@@ -716,15 +732,6 @@
 				C4190131E0ABBC5D89F94BFC94AFA8D4 /* path_provider_foundation.podspec */,
 			);
 			name = Pod;
-			sourceTree = "<group>";
-		};
-		86A6338545106F37A2D5C269C6DD1FAD /* mob_se */ = {
-			isa = PBXGroup;
-			children = (
-				A38AF1B5FD0E0AE07CEB775AAED01441 /* ios */,
-			);
-			name = mob_se;
-			path = mob_se;
 			sourceTree = "<group>";
 		};
 		86CD69BAD6E2443062850D2D1D7F9B71 /* Support Files */ = {
@@ -754,15 +761,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		95E20880475BECDB1776C5197F81DA20 /* ios */ = {
-			isa = PBXGroup;
-			children = (
-				2DE65CF7C1A2185EE13EC337E77B7D4A /* Classes */,
-			);
-			name = ios;
-			path = ios;
-			sourceTree = "<group>";
-		};
 		9698A37C23537A36D9CFA58D9ADFD8E0 /* .symlinks */ = {
 			isa = PBXGroup;
 			children = (
@@ -781,20 +779,20 @@
 			path = path_provider_foundation;
 			sourceTree = "<group>";
 		};
-		99082BC4FCA2684FCEC8D6788B4091A9 /* flutter_native_contact_picker */ = {
+		9AFDFD4CB66AC62BEAAA4FD4026D3B5D /* ios */ = {
 			isa = PBXGroup;
 			children = (
-				95E20880475BECDB1776C5197F81DA20 /* ios */,
+				03CCB8F83674F0D9129BC2E0EE7BF19D /* Classes */,
 			);
-			name = flutter_native_contact_picker;
-			path = flutter_native_contact_picker;
+			name = ios;
+			path = ios;
 			sourceTree = "<group>";
 		};
 		A1A1E8441671D5F6C9843FBAA6776D66 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
 				A6686D22400BFA86CF67323F43485ADC /* Flutter */,
-				697A6BD04703E7C79E258B4B2E78EDEC /* flutter_native_contact_picker */,
+				FAD6114BE8A969DAF2DD1152B93B4396 /* flutter_native_contact_picker */,
 				CBBA89D3B8715FFB4E4A8575E81FB676 /* flutter_phone_direct_caller */,
 				777D7EE25DA01F707457623EAFBFC185 /* isar_flutter_libs */,
 				508813407789951CE4CE838F0AADE862 /* path_provider_foundation */,
@@ -811,24 +809,6 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		A38AF1B5FD0E0AE07CEB775AAED01441 /* ios */ = {
-			isa = PBXGroup;
-			children = (
-				38601E683E2B9C61981379206E356B79 /* .symlinks */,
-			);
-			name = ios;
-			path = ios;
-			sourceTree = "<group>";
-		};
-		A3D4AE3E3414EF46E6B071A29938CC82 /* .. */ = {
-			isa = PBXGroup;
-			children = (
-				4979B47BF3BE7737D36964730E125259 /* .. */,
-			);
-			name = ..;
-			path = ..;
-			sourceTree = "<group>";
-		};
 		A5703A60430E1A5CFABF04FD69E28125 /* .. */ = {
 			isa = PBXGroup;
 			children = (
@@ -836,6 +816,15 @@
 			);
 			name = ..;
 			path = "../../../../../../../.pub-cache/hosted/pub.dev/path_provider_foundation-2.4.0/darwin/path_provider_foundation/Sources";
+			sourceTree = "<group>";
+		};
+		A5A339668CAB053A4FC3552A50723EF0 /* .symlinks */ = {
+			isa = PBXGroup;
+			children = (
+				0566979EF3FFCBE40A595F2088D8079C /* plugins */,
+			);
+			name = .symlinks;
+			path = .symlinks;
 			sourceTree = "<group>";
 		};
 		A652C802FDF226D06E3F1B9B3954E49E /* .. */ = {
@@ -925,15 +914,6 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		BEEFECA822B32F71F3950FA2BF7EC481 /* .. */ = {
-			isa = PBXGroup;
-			children = (
-				A3D4AE3E3414EF46E6B071A29938CC82 /* .. */,
-			);
-			name = ..;
-			path = ..;
-			sourceTree = "<group>";
-		};
 		C028E5C3F42CE78337B5EE9D527EAA9A /* Pod */ = {
 			isa = PBXGroup;
 			children = (
@@ -970,15 +950,6 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		CB4CEA6DF6D4F29DCDD16ED7861CBC5A /* .. */ = {
-			isa = PBXGroup;
-			children = (
-				83B625C4FF73C7296D7FA6B79B31A599 /* .. */,
-			);
-			name = ..;
-			path = ..;
-			sourceTree = "<group>";
-		};
 		CBAA6D4B9470954873D1A7EBF36436D8 /* ios */ = {
 			isa = PBXGroup;
 			children = (
@@ -1008,15 +979,6 @@
 			path = Apps;
 			sourceTree = "<group>";
 		};
-		CE744BCAE14DBF4C80FADF91B8756668 /* plugins */ = {
-			isa = PBXGroup;
-			children = (
-				99082BC4FCA2684FCEC8D6788B4091A9 /* flutter_native_contact_picker */,
-			);
-			name = plugins;
-			path = plugins;
-			sourceTree = "<group>";
-		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
@@ -1026,6 +988,15 @@
 				B3E811AD8F531071A6A175F53E1B4573 /* Products */,
 				2DB8426A477BA92773F00012EBA84D53 /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		D141026BBAFE59D5ACFF90A2D63EF6D9 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				7F31CDC32D5C7290CEAE19D8A28171BD /* Apps */,
+			);
+			name = ..;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
@@ -1051,6 +1022,15 @@
 			path = "../../../../Pods/Target Support Files/flutter_phone_direct_caller";
 			sourceTree = "<group>";
 		};
+		D435D689A564AB7A4F5EA04D1D49C6DB /* mob_se */ = {
+			isa = PBXGroup;
+			children = (
+				5B170BCB836F8BAD1AD989BE4154A05B /* ios */,
+			);
+			name = mob_se;
+			path = mob_se;
+			sourceTree = "<group>";
+		};
 		D4FE0101C5630190EF1712D52663EFBF /* .symlinks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1058,6 +1038,15 @@
 			);
 			name = .symlinks;
 			path = .symlinks;
+			sourceTree = "<group>";
+		};
+		D83758F4E70F7C795CF722CBF667D78A /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				C82E752A3070A0ED804531A55EB037BD /* flutter_native_contact_picker.podspec */,
+				D6EDF2548AB262E43D31D42C52504C9E /* LICENSE */,
+			);
+			name = Pod;
 			sourceTree = "<group>";
 		};
 		DE36C26F78D853DA11CFE3FF2A2E2574 /* plugins */ = {
@@ -1208,6 +1197,17 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		FAD6114BE8A969DAF2DD1152B93B4396 /* flutter_native_contact_picker */ = {
+			isa = PBXGroup;
+			children = (
+				0E21169CC7D324A22C44A3DFC29BA916 /* .. */,
+				D83758F4E70F7C795CF722CBF667D78A /* Pod */,
+				35A506E8D36C759638D389FC01E6FEAB /* Support Files */,
+			);
+			name = flutter_native_contact_picker;
+			path = ../.symlinks/plugins/flutter_native_contact_picker/ios;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -1241,7 +1241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1DD2B585B5504BDCA8025130341EA3A /* flutter_native_contact_picker-umbrella.h in Headers */,
-				6FC061C3942EB2DD0F5346B907D5CFCB /* FlutterNativeContactPickerPlugin.h in Headers */,
+				55B45DD4E2B55C38E431C81A474D5E9A /* FlutterNativeContactPickerPlugin.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1527,8 +1527,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1F63DC292393AFA3A9808FFF24E4998 /* flutter_native_contact_picker-dummy.m in Sources */,
-				E79BDA6CD0F58D8A325EF44E72B6A0D7 /* FlutterNativeContactPickerPlugin.m in Sources */,
-				BDA26A127B7BA1A72501689DE38327BB /* SwiftFlutterNativeContactPickerPlugin.swift in Sources */,
+				813B84D7E77CC75A3050D225540BCE17 /* FlutterNativeContactPickerPlugin.m in Sources */,
+				9080052244206FC35E9DB5228CF5C40F /* SwiftFlutterNativeContactPickerPlugin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2304,7 +2304,7 @@
 		};
 		65017051D177C0AB3F392A897BBAE3C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5670A563A1C9C6E956C1591DE4A30A96 /* flutter_native_contact_picker.debug.xcconfig */;
+			baseConfigurationReference = 267411676D28E8DDBB9D6F297BAFDA22 /* flutter_native_contact_picker.debug.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -2376,7 +2376,7 @@
 		};
 		81295511198F184792BDD28BA8AA6C75 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 34DA46FB5F89B0F7AB2AE9F08EB79B8C /* flutter_native_contact_picker.release.xcconfig */;
+			baseConfigurationReference = 0F73AE0EBBFEB0C22DEFE88068BF1968 /* flutter_native_contact_picker.release.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -2759,7 +2759,7 @@
 		};
 		F097EF6EE23FECFF0CF4AE33087F3DF9 /* Profile */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 34DA46FB5F89B0F7AB2AE9F08EB79B8C /* flutter_native_contact_picker.release.xcconfig */;
+			baseConfigurationReference = 0F73AE0EBBFEB0C22DEFE88068BF1968 /* flutter_native_contact_picker.release.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";

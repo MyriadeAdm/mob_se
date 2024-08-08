@@ -113,9 +113,11 @@ class _PageHistoriqueState extends State<PageHistorique> {
                           subtitle: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
-                                '${historique.detailsForfait}',
-                                style: const TextStyle(fontSize: 9),
+                              Expanded(
+                                child: Text(
+                                  '${historique.detailsForfait}',
+                                  style: const TextStyle(fontSize: 9),
+                                ),
                               ),
                               Text(
                                 date,
