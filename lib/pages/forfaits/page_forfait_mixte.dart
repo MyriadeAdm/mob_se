@@ -78,7 +78,7 @@ class ForfaitMixtePage extends StatelessWidget {
                   itemBuilder: (BuildContext context, int index) {
                     final item = Constantes.forfaitsMixte[index];
                     return Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 28),
+                      padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 25),
                       child: SizedBox(
                         height: 65,
                         child: ElevatedButton(
@@ -115,22 +115,26 @@ class ForfaitMixtePage extends StatelessWidget {
                                           color: ColorConstants.colorCustom2,
                                         ),
                                       ),
-
-                                      const SizedBox(width: 20),
-
-                                      const Icon(
-                                        Icons.language,
-                                        color: ColorConstants.colorCustom2,
-                                        size: 18,
-                                      ),
-                                      Text(
-                                        item.mega,
-                                        style: const TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          color: ColorConstants.colorCustom2,
-                                        ),
-                                      ),
                                     ],
+                                  ),
+                                const SizedBox(width: 20),
+                                  Expanded(
+                                    child: Row(
+                                      children: [
+                                        const Icon(
+                                          Icons.language,
+                                          color: ColorConstants.colorCustom2,
+                                          size: 18,
+                                        ),
+                                        Text(
+                                          item.mega,
+                                          style: const TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            color: ColorConstants.colorCustom2,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                   Text(
                                     '${item.validite} + ${item.msg}',
