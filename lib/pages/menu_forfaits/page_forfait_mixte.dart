@@ -101,6 +101,8 @@ class ForfaitMixtePage extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Row(
+                                    children: [
+                                      Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       const Icon(
@@ -117,24 +119,24 @@ class ForfaitMixtePage extends StatelessWidget {
                                       ),
                                     ],
                                   ),
-                                const SizedBox(width: 20),
-                                  Expanded(
-                                    child: Row(
-                                      children: [
-                                        const Icon(
-                                          Icons.language,
+                                const SizedBox(width: 10),
+                                  Row(
+                                    children: [
+                                      const Icon(
+                                        Icons.language,
+                                        color: ColorConstants.colorCustom2,
+                                        size: 18,
+                                      ),
+                                      Text(
+                                        item.mega,
+                                        style: const TextStyle(
+                                          fontWeight: FontWeight.bold,
                                           color: ColorConstants.colorCustom2,
-                                          size: 18,
                                         ),
-                                        Text(
-                                          item.mega,
-                                          style: const TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            color: ColorConstants.colorCustom2,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
+                                      ),
+                                    ],
+                                  ),
+                                    ],
                                   ),
                                   Text(
                                     '${item.validite} + ${item.msg}',
