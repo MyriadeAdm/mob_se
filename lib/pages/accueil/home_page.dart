@@ -137,7 +137,7 @@ class _HomePageState extends State<HomePage> {
                 Expanded(
                     child: CustomButton(
                         label: 'Solde credit',
-                        code: (cname == 'Togocom') ? "*444#" : "*101#")),
+                        code: (cname == 'Togocom') ? "*909*0#" : "*101#")),
                 const SizedBox(width: 20),
                 Expanded(
                     child: CustomButton(
@@ -311,7 +311,15 @@ class _HomePageState extends State<HomePage> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Expanded(
-                    child: ListView.builder(
+                    child: currentHistoriques.isEmpty?
+                    const Center(
+                      child: Text('Historique vide, veuillez lancer \nvotre première transaction ...',
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: ColorConstants.colorCustom3,
+                      ),),
+                    )
+                    : ListView.builder(
                       shrinkWrap: true,
                       itemCount: currentHistoriques.length,
                       itemBuilder: (BuildContext context, int index) {

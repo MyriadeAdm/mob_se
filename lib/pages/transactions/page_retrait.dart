@@ -47,74 +47,67 @@ class PageRetrait extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const SizedBox(
-                      height: 20,
-                    ),
-                    TextField(
-                      keyboardType: TextInputType.number,
-                      controller: _numeroAgentController,
-                      decoration: InputDecoration(
-                        hintText: "Numéro d'Agent",
-                        filled: true,
-                        fillColor: const Color.fromRGBO(230, 227, 227, 1),
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide.none,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        suffixIcon: IconButton(
-                          onPressed: () {
-                            _numeroAgentController.clear();
-                          },
-                          icon: const Icon(
-                            Icons.clear,
-                            size: 20,
-                            color: Colors.grey,
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    const Text(
-                      "Code",
-                      style: TextStyle(
-                        fontSize: 20,
-                      ),
-                    ),
-
-                    const SizedBox(height: 10,),
-
-                    Padding(
-                      padding: const EdgeInsets.only(left: 50, right: 50, bottom: 20),
+                  height: 20,
+                ),
+                const Text('Code Agent',
+                style: TextStyle(
+                  fontSize: 20,
+                ),),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Expanded(
                       child: TextField(
-                        controller: _codeController,
-                        obscureText: true,
-                        obscuringCharacter: "*",
                         keyboardType: TextInputType.number,
+                        controller: TextEditingController(),
                         decoration: InputDecoration(
-                          hintText: "Code secret",
-                          filled: true,
-                          fillColor: const Color.fromRGBO(230, 227, 227, 1),
                           border: OutlineInputBorder(
-                            borderSide: BorderSide.none,
                             borderRadius: BorderRadius.circular(10),
-                          ),
-                          suffixIcon: IconButton(
-                            onPressed: () {
-                              _codeController.clear();
-                            },
-                            icon: const Icon(
-                              Icons.clear,
-                              size: 20,
-                              color: Colors.grey,
-                            ),
                           ),
                         ),
                       ),
                     ),
                   ],
                 ),
+                    const SizedBox(
+                  height: 20,
+                ),
+                const Text('Montant',
+                style: TextStyle(
+                  fontSize: 20,
+                ),),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Expanded(
+                      child: TextField(
+                        keyboardType: TextInputType.number,
+                        controller: TextEditingController(),
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    const Text(
+                      'F CFA',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 35,
+                      ),
+                    )
+                  ],
+                ),
+                  ],
+                ),
               ),
+            ),
+            const SizedBox(
+              height: 20,
             ),
             Center(
             child: ElevatedButton(
@@ -128,7 +121,7 @@ class PageRetrait extends StatelessWidget {
                               'CONFIRMER',
                               style: TextStyle(
                                 fontSize: 18,
-                                fontWeight: FontWeight.w900,
+                                fontWeight: FontWeight.w700,
                                 color: Colors.black,
                               ),
                             ),
