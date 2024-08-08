@@ -65,14 +65,15 @@ class _PageHistoriqueState extends State<PageHistorique> {
             Expanded(
               child: currentHistoriques.isEmpty
                   ? const Center(
-                      child: Text(
-                        'Historique vide, veuillez lancer \nvotre première transaction ...',
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: ColorConstants.colorCustom3,
-                        ),
+                    child: Text(
+                      'Historique vide, veuillez lancer \nvotre première transaction',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: ColorConstants.colorCustom3,
                       ),
-                    )
+                    ),
+                  )
                   : ListView.builder(
                       itemCount: currentHistoriques.length,
                       itemBuilder: (BuildContext context, int index) {

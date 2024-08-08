@@ -73,7 +73,7 @@ class PageDepot extends StatelessWidget {
           Row(children: [
             returnBack(context),
             const Text(
-              "Dépot",
+              "Envoi",
               style: TextStyle(
                 fontSize: 23,
                 fontWeight: FontWeight.w900,
@@ -199,7 +199,7 @@ class PageDepot extends StatelessWidget {
             child: ElevatedButton(
             onPressed: (){},
             style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.amber,
+                                backgroundColor: ColorConstants.colorCustomButton2,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10),
                                 )),

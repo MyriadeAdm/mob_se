@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_native_contact_picker/flutter_native_contact_picker.dart';
@@ -378,7 +376,8 @@ Future<void> callButtomSheet(
                                 /* option achat pour autrui via credit */
                               } else if (_isSelected == true &&
                                   currentOption == options[0]) {
-                                var num = _numeroController.text.replaceAll(" ", "");
+                                var num = _numeroController.text
+                                    .replaceAll(RegExp(r'\D'), "");
 
                                 if (num != '') {
                                   num = num.substring(num.length - 8);
@@ -420,23 +419,34 @@ Future<void> callButtomSheet(
                                 context
                                     .read<HistoriqueDatabase>()
                                     .addHistorique(
-                                        typeForfait(
-                                            "Mobile Money ${typeforfait.name}"),
+                                        typeForfaitMobileMoney(typeforfait.name),
                                         typeForfaitDetails(typeforfait.name, aa,
                                             bb, cc, dd, gg));
                               }
                               /* option achat pour autrui via mobile money */
                               else if (_isSelected == true &&
                                   currentOption == options[1]) {
-                                var num =
-                                    _numeroController.text.replaceAll(" ", "");
+                                var num = _numeroController.text
+                                    .replaceAll(RegExp(r'\D'), "");
 
-                                if (num != '' && num is Int) {
+                                if (num != '') {
                                   num = num.substring(num.length - 8);
 
-                                  print(
+                                  FlutterPhoneDirectCaller.callNumber(
                                       "*909*7*$num$codemoneyAutruit${_codeController.text}#");
-                                  /* FlutterPhoneDirectCaller.callNumber("*909*7*$num$codemoneyAutruit${_codeController.text}#"); */
+                                  context
+                                      .read<HistoriqueDatabase>()
+                                      .addHistorique(
+                                        typeForfaitMobileMoney(typeforfait.name),
+                                        typeForfaitDetailsNumero(
+                                            typeforfait.name,
+                                            aa,
+                                            bb,
+                                            cc,
+                                            dd,
+                                            gg,
+                                            num),
+                                      );
                                 }
                               }
                             },
@@ -505,6 +515,24 @@ String typeForfait(String typeForfait) {
 
     case "forfaitNuit":
       return "Forfait Nuit";
+
+    default:
+      return "error";
+  }
+}
+String typeForfaitMobileMoney(String typeForfait) {
+  switch (typeForfait) {
+    case "forfaitAppel":
+      return "Forfait Appel : T-Money";
+
+    case "forfaitInternet":
+      return "Forfait Internet : T-Money";
+
+    case "forfaitMixte":
+      return "Forfait Mixte  : T-Money";
+
+    case "forfaitNuit":
+      return "Forfait Nuit : T-Money";
 
     default:
       return "error";
