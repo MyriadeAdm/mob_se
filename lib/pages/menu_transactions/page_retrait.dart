@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import '../../constants/color_constants.dart';
 
 final _numeroAgentController = TextEditingController();
@@ -57,18 +58,28 @@ class PageRetrait extends StatelessWidget {
                           ),
                         ),
                         Row(
-                          crossAxisAlignment: CrossAxisAlignment.end,
+                          //crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             Expanded(
                               child: TextField(
-                                keyboardType: TextInputType.number,
-                                controller: TextEditingController(),
-                                decoration: InputDecoration(
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
+                                  textAlign: TextAlign.center,
+                                  keyboardType: TextInputType.number,
+                                  inputFormatters: [
+                                    LengthLimitingTextInputFormatter(5),
+                                  ],
+                                  controller: TextEditingController(),
+                                  decoration: InputDecoration(
+                                    isDense: true,
+                                    // contentPadding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
                                   ),
-                                ),
-                              ),
+                                  style: const TextStyle(
+                                    fontSize: 25,
+                                    letterSpacing: 8.0,
+                                    fontWeight: FontWeight.w900,
+                                  )),
                             ),
                           ],
                         ),
@@ -82,18 +93,26 @@ class PageRetrait extends StatelessWidget {
                           ),
                         ),
                         Row(
-                          crossAxisAlignment: CrossAxisAlignment.end,
+                          //crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             Expanded(
                               child: TextField(
-                                keyboardType: TextInputType.number,
-                                controller: TextEditingController(),
-                                decoration: InputDecoration(
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
+                                  textAlign: TextAlign.right,
+                                  keyboardType: TextInputType.number,
+                                  inputFormatters: [
+                                    LengthLimitingTextInputFormatter(7),
+                                  ],
+                                  controller: TextEditingController(),
+                                  decoration: InputDecoration(
+                                    isDense: true,
+                                    // contentPadding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
                                   ),
-                                ),
-                              ),
+                                  style: const TextStyle(
+                                    fontSize: 25,
+                                  )),
                             ),
                             const SizedBox(
                               width: 10,
@@ -102,9 +121,60 @@ class PageRetrait extends StatelessWidget {
                               'F CFA',
                               style: TextStyle(
                                 fontWeight: FontWeight.w700,
+                                color: ColorConstants.colorCustom3,
                                 fontSize: 35,
                               ),
                             )
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        const Text(
+                          'Code',
+                          style: TextStyle(
+                            fontSize: 20,
+                          ),
+                        ),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: TextField(
+                                autofocus: true,
+                                inputFormatters: [
+                                  LengthLimitingTextInputFormatter(4),
+                                ],
+                                keyboardType: TextInputType.number,
+                                obscureText: true,
+                                //onChanged: (){},
+                                obscuringCharacter: "*",
+                                controller: _codeController,
+                                //focusNode: _codeControllerFocusNode,
+                                decoration: InputDecoration(
+                                  filled: true,
+                                  //hintText: '',
+                                  fillColor:
+                                      const Color.fromRGBO(230, 227, 227, 1),
+                                  border: OutlineInputBorder(
+                                    borderSide: BorderSide.none,
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  // suggixIcon: IconButton(
+                                  //   onPressed: () {
+                                  //     _codeController.clear();
+                                  //   },
+                                  //   icon: const Icon(
+                                  //     Icons.clear,
+                                  //     size: 15,
+                                  //     color: Colors.grey,
+                                  //   ),
+                                  // ),
+                                ),
+                                style: const TextStyle(
+                                  letterSpacing: 8.0,
+                                ),
+                              ),
+                            ),
                           ],
                         ),
                       ],
@@ -112,7 +182,7 @@ class PageRetrait extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(
-                  height: 20,
+                  height: 40,
                 ),
                 Center(
                   child: ElevatedButton(
