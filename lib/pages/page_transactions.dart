@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mob_se/pages/transactions/page_annulation.dart';
-import 'package:mob_se/pages/transactions/page_depot.dart';
-import 'package:mob_se/pages/transactions/page_retrait.dart';
+import 'package:mob_se/pages/menu_transactions/page_annulation.dart';
+import 'package:mob_se/pages/menu_transactions/page_depot.dart';
+import 'package:mob_se/pages/menu_transactions/page_retrait.dart';
 
 import '../constants/color_constants.dart';
 
@@ -65,7 +65,7 @@ class TransactionsPage extends StatelessWidget {
                             height: 15,
                           ),
                           Text(
-                            'Dépot',
+                            'Envoi',
                             style: TextStyle(
                               fontSize: 17,
                               fontWeight: FontWeight.w900,

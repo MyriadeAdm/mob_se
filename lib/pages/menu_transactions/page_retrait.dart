@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mob_se/constants/constantes.dart';
+
+import '../../constants/color_constants.dart';
 
 final _numeroAgentController = TextEditingController();
 final _codeController = TextEditingController();
@@ -113,7 +116,7 @@ class PageRetrait extends StatelessWidget {
             child: ElevatedButton(
             onPressed: (){},
             style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.amber,
+                                backgroundColor: ColorConstants.colorCustomButton2,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10),
                                 )),

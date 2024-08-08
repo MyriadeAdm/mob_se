@@ -9,7 +9,7 @@ import 'package:provider/provider.dart';
 import '../../models/historique.dart';
 import '../../models/historique_database.dart';
 import 'package:intl/intl.dart';
-import 'package:mob_se/pages/accueil/page_historique.dart';
+import 'package:mob_se/pages/menu_accueil/page_historique.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -318,7 +318,8 @@ class _HomePageState extends State<HomePage> {
                     child: currentHistoriques.isEmpty
                         ? const Center(
                             child: Text(
-                              'Historique vide, veuillez lancer \nvotre première transaction ...',
+                              'Historique vide, veuillez lancer \nvotre première transaction',
+                              textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontSize: 18,
                                 color: ColorConstants.colorCustom3,
