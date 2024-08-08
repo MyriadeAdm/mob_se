@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../../constants/color_constants.dart';
 
-// final _numeroAgentController = TextEditingController();
-// final _codeController = TextEditingController();
+final _numeroAgentController = TextEditingController();
+final _codeController = TextEditingController();
 
 class PageRetrait extends StatelessWidget {
   IconButton returnBack(BuildContext context) {
