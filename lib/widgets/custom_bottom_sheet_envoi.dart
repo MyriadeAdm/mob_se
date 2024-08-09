@@ -16,7 +16,7 @@ class MyWidget extends StatelessWidget {
 Future<void> callButtomSheetEnvoie(BuildContext context,
     String numero,
     int montantEnvoye, int fraisTransaction,
-    int fraisRetrait, bool fraisVisible ) async {
+    int fraisRetrait, bool fraisVisible) async {
   await showModalBottomSheet<dynamic>(
     useRootNavigator: true,
     //isScrollControlled: true,
