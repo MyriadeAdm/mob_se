@@ -219,7 +219,6 @@ class PageDepot extends StatelessWidget {
                         onChanged: (bool newValue) {
                           setState(() {
                             _isSelected = newValue;
-                            _numeroController.clear();
                           });
                         },
                       ),
@@ -249,35 +248,39 @@ class PageDepot extends StatelessWidget {
                                       textAlign: TextAlign.center,
                                     ));
                               });
-                              _numeroControllerFocusNode.requestFocus();
-                        }
-
-                        if (_montantController.text == '') {
-                          showDialog(
-                              context: context,
-                              builder: (BuildContext context) {
-                                return const AlertDialog(
-                                    title: Text("Pas de montant"),
-                                    content: Text(
-                                      "Veuillez renseigner le montant",
-                                      textAlign: TextAlign.center,
-                                    ));
-                              });
-                            _montantFocusNode.requestFocus();
-                        }
-
-                        int fraisRetrait, fraisTransfert;
-                        int montant = int.parse(_montantController.text
-                            .replaceAll(RegExp(r'\D'), ""));
-                        if (_isSelected = false) {
-                          (fraisTransfert, fraisRetrait) =
-                              quelFraisTransaction(montant);
+                          _numeroControllerFocusNode.requestFocus();
                         } else {
-                          (fraisTransfert, fraisRetrait) =
-                              quelFraisTransactionEtRetrait(montant);
+                          if (_montantController.text == '') {
+                            showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return const AlertDialog(
+                                      title: Text("Pas de montant"),
+                                      content: Text(
+                                        "Veuillez renseigner le montant",
+                                        textAlign: TextAlign.center,
+                                      ));
+                                });
+                            _montantFocusNode.requestFocus();
+                          } else {
+                            int fraisRetrait, fraisTransfert;
+                            int montant = int.parse(_montantController.text
+                                .replaceAll(RegExp(r'\D'), ""));
+                            if (_isSelected = false) {
+                              (fraisTransfert, fraisRetrait) =
+                                  quelFraisTransaction(montant);
+                            } else {
+                              (fraisTransfert, fraisRetrait) =
+                                  quelFraisTransactionEtRetrait(montant);
+                            }
+                            callButtomSheetEnvoie(
+                                context,
+                                _numeroController.text,
+                                montant,
+                                fraisTransfert,
+                                fraisRetrait);
+                          }
                         }
-                        callButtomSheetEnvoie(context, _numeroController.text,
-                            montant, fraisTransfert, fraisRetrait);
                       },
                       style: ElevatedButton.styleFrom(
                           backgroundColor: ColorConstants.colorCustomButton2,
