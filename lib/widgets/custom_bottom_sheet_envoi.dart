@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../constants/color_constants.dart';
 
 final _codeController = TextEditingController();
+bool fraisVisible = false;
 
 class MyWidget extends StatelessWidget {
   const MyWidget({super.key});
@@ -69,12 +70,15 @@ Future<void> callButtomSheetEnvoie(BuildContext context,
                         Text("$fraisTransaction F CFA"),
                       ],
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const Text("Frais de retrait :"),
-                        Text("$fraisRetrait F CFA"),
-                      ],
+                    Visibility(
+                      visible: fraisVisible,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const Text("Frais de retrait :"),
+                          Text("$fraisRetrait F CFA"),
+                        ],
+                      ),
                     ),
                     const SizedBox(height: 10),
                                   const Divider(
@@ -93,7 +97,7 @@ Future<void> callButtomSheetEnvoie(BuildContext context,
                           ),
                         ),
                         Text(
-                          "${montantEnvoye + fraisTransaction} F CFA",
+                          "${montantEnvoye + fraisTransaction + fraisRetrait} F CFA",
                           style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 15,

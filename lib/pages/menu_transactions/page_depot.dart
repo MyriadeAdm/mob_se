@@ -219,6 +219,7 @@ class PageDepot extends StatelessWidget {
                         onChanged: (bool newValue) {
                           setState(() {
                             _isSelected = newValue;
+                            fraisVisible = !fraisVisible;
                           });
                         },
                       ),
