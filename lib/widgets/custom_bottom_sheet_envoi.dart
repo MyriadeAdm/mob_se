@@ -13,7 +13,8 @@ class MyWidget extends StatelessWidget {
   }
 }
 
-Future<void> callButtomSheetEnvoie(BuildContext context, String numero,
+Future<void> callButtomSheetEnvoie(BuildContext context,
+    String numero,
     int montantEnvoye, int fraisTransaction,
     [int fraisRetrait = 0]) async {
   await showModalBottomSheet<dynamic>(
@@ -37,7 +38,7 @@ Future<void> callButtomSheetEnvoie(BuildContext context, String numero,
                 fontWeight: FontWeight.bold,
               ),),
               Text(
-                numero,
+                ("${numero[0]}${numero[1]} ${numero[2]}${numero[3]} ${numero[4]}${numero[5]} ${numero[6]}${numero[7]}"),
                 style: const TextStyle(
                   fontSize: 40,
                   fontWeight: FontWeight.bold,
@@ -73,7 +74,6 @@ Future<void> callButtomSheetEnvoie(BuildContext context, String numero,
                 thickness: 0.5,
                 color: ColorConstants.colorCustom2,
               ),
-
 
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
