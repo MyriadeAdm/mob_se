@@ -404,7 +404,8 @@ Future<void> callButtomSheet(
                                         return const AlertDialog(
                                             title: Text("Pas de numéro"),
                                             content: Text(
-                                                "Veuillez renseigner le numéro"));
+                                                "Veuillez renseigner le numéro",
+                                                textAlign: TextAlign.center,));
                                       });
 
                                   _numeroControllerFocusNode.requestFocus;
