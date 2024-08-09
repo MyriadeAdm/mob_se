@@ -11,6 +11,7 @@ final FocusNode _numeroControllerFocusNode = FocusNode();
 final _montantController = TextEditingController();
 final FocusNode _montantFocusNode = FocusNode();
 bool _isSelected = false;
+bool fraisVisible = false;
 
 final FlutterContactPicker _contactPicker = FlutterContactPicker();
 // ignore: unused_element
@@ -267,9 +268,9 @@ class PageDepot extends StatelessWidget {
                             int fraisRetrait, fraisTransfert;
                             int montant = int.parse(_montantController.text
                                 .replaceAll(RegExp(r'\D'), ""));
-                            if (_isSelected = false) {
-                              (fraisTransfert, fraisRetrait) =
-                                  quelFraisTransaction(montant);
+                            if (_isSelected == false) {
+                              fraisTransfert = quelFraisTransaction(montant);
+                              fraisRetrait=0;
                             } else {
                               (fraisTransfert, fraisRetrait) =
                                   quelFraisTransactionEtRetrait(montant);
@@ -279,7 +280,8 @@ class PageDepot extends StatelessWidget {
                                 _numeroController.text,
                                 montant,
                                 fraisTransfert,
-                                fraisRetrait);
+                                fraisRetrait,
+                                _isSelected);
                           }
                         }
                       },
@@ -325,19 +327,19 @@ class PageDepot extends StatelessWidget {
   }
 }
 
-(int tranfert, int retrait) quelFraisTransaction(int montant) {
+int  quelFraisTransaction(int montant) {
   if (montant > 0 && montant <= 5000) {
-    return (10, 90);
+    return 10;
   } else if (montant > 5000 && montant <= 15000) {
-    return (30, 250);
+    return 30;
   } else if (montant > 15000 && montant <= 20000) {
-    return (30, 290);
+    return 30;
   } else if (montant > 20000 && montant <= 50000) {
-    return (50, 550);
+    return 50;
   } else if (montant > 50000 && montant <= 100000) {
-    return (100, 900);
+    return 100;
   } else {
-    return (0, 0);
+    return 0;
   }
 }
 

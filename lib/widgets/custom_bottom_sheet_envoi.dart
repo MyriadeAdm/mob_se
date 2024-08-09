@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../constants/color_constants.dart';
 
 final _codeController = TextEditingController();
-bool fraisVisible = false;
 
 class MyWidget extends StatelessWidget {
   const MyWidget({super.key});
@@ -17,7 +16,7 @@ class MyWidget extends StatelessWidget {
 Future<void> callButtomSheetEnvoie(BuildContext context,
     String numero,
     int montantEnvoye, int fraisTransaction,
-    [int fraisRetrait = 0]) async {
+    int fraisRetrait, bool fraisVisible ) async {
   await showModalBottomSheet<dynamic>(
     useRootNavigator: true,
     //isScrollControlled: true,
