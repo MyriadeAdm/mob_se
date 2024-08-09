@@ -68,6 +68,13 @@ Future<void> callButtomSheetEnvoie(BuildContext context, String numero,
                         Text("$fraisTransaction F CFA"),
                       ],
                     ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text("Frais de retrait :"),
+                        Text("$fraisRetrait F CFA"),
+                      ],
+                    ),
                     const SizedBox(height: 10),
                                   const Divider(
                 thickness: 0.5,
