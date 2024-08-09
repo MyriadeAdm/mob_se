@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
+import 'package:provider/provider.dart';
 import '../../constants/color_constants.dart';
+import '../../models/historique_database.dart';
 
-final _numeroAgentController = TextEditingController();
+final _codeAgentController = TextEditingController();
+final _montantController = TextEditingController();
 final _codeController = TextEditingController();
 
 class PageRetrait extends StatelessWidget {
@@ -67,7 +71,7 @@ class PageRetrait extends StatelessWidget {
                                   inputFormatters: [
                                     LengthLimitingTextInputFormatter(5),
                                   ],
-                                  controller: TextEditingController(),
+                                  controller: _codeAgentController,
                                   decoration: InputDecoration(
                                     isDense: true,
                                     // contentPadding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
@@ -102,7 +106,7 @@ class PageRetrait extends StatelessWidget {
                                   inputFormatters: [
                                     LengthLimitingTextInputFormatter(7),
                                   ],
-                                  controller: TextEditingController(),
+                                  controller: _montantController,
                                   decoration: InputDecoration(
                                     isDense: true,
                                     // contentPadding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
@@ -186,7 +190,56 @@ class PageRetrait extends StatelessWidget {
                 ),
                 Center(
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      var codeAgent = _codeAgentController.text;
+                      var montant = _montantController.text;
+                      var codeSecret = _codeController.text;
+
+                      if (codeAgent == '') {
+                        showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return const AlertDialog(
+                                  title: Text("Code agent Incorrect"),
+                                  content: Text(
+                                      "Veuillez renseigner le code agent"));
+                            });
+                      } else {
+                        if (montant == '' || int.parse(montant) <= 0) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return const AlertDialog(
+                                    title: Text("Montant Insuffisant"),
+                                    content: Text(
+                                        "Veuillez renseigner un montant supérieur à 0 F CFA"));
+                              });
+                        } else {
+                          if (codeSecret == '') {
+                            showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return const AlertDialog(
+                                      title: Text(
+                                        "Code Non Renseigné",
+                                        textAlign: TextAlign.center,
+                                      ),
+                                      content: Text(
+                                        "Veuillez renseigner votre code secret",
+                                        textAlign: TextAlign.center,
+                                      ));
+                                });
+                          } else {
+                            FlutterPhoneDirectCaller.callNumber(
+                                "*145*2*$montant*$codeAgent*$codeSecret#");
+
+                            context.read<HistoriqueDatabase>()
+                                    .addHistorique("Retrait", "$montant F CFA retiré chez l'agent $codeAgent."
+                                        );
+                          }
+                        }
+                      }
+                    },
                     style: ElevatedButton.styleFrom(
                         backgroundColor: ColorConstants.colorCustomButton2,
                         shape: RoundedRectangleBorder(
