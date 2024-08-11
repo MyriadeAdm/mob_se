@@ -78,6 +78,12 @@ class PageRetrait extends StatelessWidget {
                                     border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(10),
                                     ),
+                                    focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                    borderSide: const BorderSide(
+                                      color: ColorConstants.colorCustomButton2,
+                                    ),
+                                  )
                                   ),
                                   style: const TextStyle(
                                     fontSize: 25,
@@ -113,6 +119,12 @@ class PageRetrait extends StatelessWidget {
                                     border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(10),
                                     ),
+                                    focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                    borderSide: const BorderSide(
+                                      color: ColorConstants.colorCustomButton2,
+                                    ),
+                                  )
                                   ),
                                   style: const TextStyle(
                                     fontSize: 25,
@@ -135,7 +147,7 @@ class PageRetrait extends StatelessWidget {
                           height: 20,
                         ),
                         const Text(
-                          'Code',
+                          'Code secret',
                           style: TextStyle(
                             fontSize: 20,
                           ),
@@ -144,7 +156,8 @@ class PageRetrait extends StatelessWidget {
                           children: [
                             Expanded(
                               child: TextField(
-                                autofocus: true,
+                                textAlign: TextAlign.center,
+                                //autofocus: true,
                                 inputFormatters: [
                                   LengthLimitingTextInputFormatter(4),
                                 ],
@@ -200,9 +213,11 @@ class PageRetrait extends StatelessWidget {
                             context: context,
                             builder: (BuildContext context) {
                               return const AlertDialog(
-                                  title: Text("Code agent Incorrect"),
+                                  title: Text("Code agent non saisie",
+                                  textAlign: TextAlign.center),
                                   content: Text(
-                                      "Veuillez renseigner le code agent"));
+                                      "Veuillez renseigner le code agent",
+                                      textAlign: TextAlign.center));
                             });
                       } else {
                         if (montant == '' || int.parse(montant) <= 0) {
@@ -210,9 +225,11 @@ class PageRetrait extends StatelessWidget {
                               context: context,
                               builder: (BuildContext context) {
                                 return const AlertDialog(
-                                    title: Text("Montant Insuffisant"),
+                                    title: Text("Montant Insuffisant",
+                                    textAlign: TextAlign.center),
                                     content: Text(
-                                        "Veuillez renseigner un montant supérieur à 0 F CFA"));
+                                        "Veuillez renseigner un montant supérieur à 0 F CFA",
+                                        textAlign: TextAlign.center));
                               });
                         } else {
                           if (codeSecret == '') {
@@ -245,12 +262,15 @@ class PageRetrait extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
                         )),
-                    child: const Text(
-                      'CONFIRMER',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w700,
-                        color: Colors.black,
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 15),
+                      child: Text(
+                        'CONFIRMER',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w700,
+                          color: Colors.black,
+                        ),
                       ),
                     ),
                   ),

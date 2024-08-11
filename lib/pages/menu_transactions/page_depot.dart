@@ -103,6 +103,12 @@ class PageDepot extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    const Text(
+                      'Numéro',
+                      style: TextStyle(
+                        fontSize: 20,
+                      ),
+                    ),
                     Row(
                       children: [
                         Expanded(
@@ -211,19 +217,27 @@ class PageDepot extends StatelessWidget {
                         )
                       ],
                     ),
-                    Directionality(
-                      textDirection: TextDirection.rtl,
-                      child: LabeledCheckbox(
-                        label: 'Ajouter les frais de retraits',
-                        padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                        value: _isSelected,
-                        onChanged: (bool newValue) {
-                          setState(() {
-                            _isSelected = newValue;
-                            fraisVisible = !fraisVisible;
-                          });
-                        },
-                      ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Directionality(
+                          textDirection: TextDirection.rtl,
+                          child: LabeledCheckbox(
+                            label: 'Ajouter les frais de retraits',
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 20.0),
+                            value: _isSelected,
+                            onChanged: (bool newValue) {
+                              setState(() {
+                                _isSelected = newValue;
+                                fraisVisible = !fraisVisible;
+                              });
+                            },
+                          ),
+                        ),
+                        const Text('')
+                        //TODO faire apparaitre le montant avant lancement
+                      ],
                     ),
                   ],
                 ),
@@ -235,71 +249,92 @@ class PageDepot extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 30, left: 30),
                 child: Center(
                   child: SizedBox(
-                    width: double.maxFinite,
-                    height: 52,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        if (_numeroController.text == '') {
-                          showDialog(
-                              context: context,
-                              builder: (BuildContext context) {
-                                return const AlertDialog(
-                                    title: Text("Pas de numéro"),
-                                    content: Text(
-                                      "Veuillez renseigner le numéro",
-                                      textAlign: TextAlign.center,
-                                    ));
-                              });
-                          _numeroControllerFocusNode.requestFocus();
-                        } else {
-                          if (_montantController.text == '') {
+                      width: double.maxFinite,
+                      height: 52,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          if (_numeroController.text == '') {
                             showDialog(
                                 context: context,
                                 builder: (BuildContext context) {
                                   return const AlertDialog(
-                                      title: Text("Pas de montant"),
+                                      title: Text("Pas de numéro"),
                                       content: Text(
-                                        "Veuillez renseigner le montant",
+                                        "Veuillez renseigner le numéro",
                                         textAlign: TextAlign.center,
                                       ));
                                 });
-                            _montantFocusNode.requestFocus();
+                            _numeroControllerFocusNode.requestFocus();
                           } else {
-                            int fraisRetrait, fraisTransfert;
-                            int montant = int.parse(_montantController.text
-                                .replaceAll(RegExp(r'\D'), ""));
-                            if (_isSelected == false) {
-                              fraisTransfert = quelFraisTransaction(montant);
-                              fraisRetrait=0;
+                            if (_montantController.text == '') {
+                              showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return const AlertDialog(
+                                        title: Text("Pas de montant"),
+                                        content: Text(
+                                          "Veuillez renseigner le montant",
+                                          textAlign: TextAlign.center,
+                                        ));
+                                  });
+                              _montantFocusNode.requestFocus();
                             } else {
-                              (fraisTransfert, fraisRetrait) =
-                                  quelFraisTransactionEtRetrait(montant);
+                              String num = _numeroController.text
+                                  .replaceAll(RegExp(r'\D'), "");
+                              num = num.substring(num.length - 8);
+
+                              ///print (num[0]);
+
+                              int fraisRetrait, fraisTransfert;
+                              int montant = int.parse(_montantController.text
+                                  .replaceAll(RegExp(r'\D'), ""));
+                              if (_isSelected == false) {
+                                fraisTransfert = quelFraisTransaction(montant);
+                                fraisRetrait = 0;
+                              } else {
+                                (fraisTransfert, fraisRetrait) =
+                                    quelFraisTransactionEtRetrait(montant);
+                              }
+
+                              if (num[0] == '9' || num[0] == '7') {
+                                callButtomSheetEnvoie(
+                                        context,
+                                        num,
+                                        montant,
+                                        fraisTransfert,
+                                        fraisRetrait,
+                                        _isSelected)
+                                    .whenComplete(reset);
+                              } else {
+                                showDialog(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return const AlertDialog(
+                                          title: Text("Numéro incorrect",
+                                          textAlign: TextAlign.center,),
+                                          content: Text(
+                                            "Renseigner un numéro du Togo",
+                                            textAlign: TextAlign.center,
+                                          ));
+                                    });
+                              }
                             }
-                            callButtomSheetEnvoie(
-                                context,
-                                _numeroController.text,
-                                montant,
-                                fraisTransfert,
-                                fraisRetrait,
-                                _isSelected);
                           }
-                        }
-                      },
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: ColorConstants.colorCustomButton2,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          )),
-                      child: const Text(
-                        "RECAP DE L'ENVOI",
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w900,
-                          color: Colors.black,
+                        },
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: ColorConstants.colorCustomButton2,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            )),
+                        child: const Text(
+                          "RECAP DE L'ENVOI",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w900,
+                            color: Colors.black,
+                          ),
                         ),
-                      ),
-                    ),
-                  ),
+                      )),
                 ),
               ),
             ],
@@ -327,7 +362,7 @@ class PageDepot extends StatelessWidget {
   }
 }
 
-int  quelFraisTransaction(int montant) {
+int quelFraisTransaction(int montant) {
   if (montant > 0 && montant <= 5000) {
     return 10;
   } else if (montant > 5000 && montant <= 15000) {
@@ -357,4 +392,10 @@ int montantTransfererPlusFrais(int montantTransferer) {
   } else {
     return 0;
   }
+}
+
+void reset() {
+  _numeroController.clear();
+  _montantController.clear();
+  //_isSelected ? false : _isSelected = false;
 }

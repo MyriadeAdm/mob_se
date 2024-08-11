@@ -402,7 +402,8 @@ Future<void> callButtomSheet(
                                       context: context,
                                       builder: (BuildContext context) {
                                         return const AlertDialog(
-                                            title: Text("Pas de numéro"),
+                                            title: Text("Pas de numéro",
+                                            textAlign: TextAlign.center,),
                                             content: Text(
                                                 "Veuillez renseigner le numéro",
                                                 textAlign: TextAlign.center,));
