@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mob_se/constants/reseaux.dart';
 import 'package:mob_se/models/historique_database.dart';
 import 'package:provider/provider.dart';
 import 'pages/base.dart';
@@ -9,8 +10,11 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await HistoriqueDatabase.initialize();
 
-  runApp(ChangeNotifierProvider(
-    create: (context) => HistoriqueDatabase(),
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create: (context) => HistoriqueDatabase()),
+      ChangeNotifierProvider(create: (_) => Reseaux()),
+    ],
     child: const MainApp(),
   ));
 }
@@ -23,7 +27,6 @@ class MainApp extends StatefulWidget {
 }
 
 class _MainAppState extends State<MainApp> {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
