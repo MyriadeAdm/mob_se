@@ -3,6 +3,9 @@ import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:mob_se/constants/color_constants.dart';
 import 'package:mob_se/constants/constantes.dart';
 import 'package:mob_se/widgets/custum_bottom_sheet.dart';
+import 'package:provider/provider.dart';
+
+import '../../constants/reseaux.dart';
 
 class ForfaitDataPage extends StatelessWidget {
   const ForfaitDataPage({super.key});
@@ -49,7 +52,9 @@ class ForfaitDataPage extends StatelessWidget {
                       backgroundColor: ColorConstants.colorCustomButton,
                     ),
                     onPressed: () {
-                      FlutterPhoneDirectCaller.callNumber(Constantes.soldeTogocom[0].codeNormal);
+                      (context.watch<Reseaux>().reseau=="Togocom") ?
+                      FlutterPhoneDirectCaller.callNumber(Constantes.soldeTogocom[0].codeNormal) :
+                      FlutterPhoneDirectCaller.callNumber(Constantes.soldeMoov[0].codeNormal);
                     },
                     child: const Text(
                       "Solde",
@@ -74,9 +79,11 @@ class ForfaitDataPage extends StatelessWidget {
               child: SizedBox(
                 height: 700,
                 child: ListView.builder(
-                  itemCount: Constantes.forfaitsInternetTogocom.length,
+                  itemCount: (context.watch<Reseaux>().reseau=="Togocom") ? Constantes.forfaitsInternetTogocom.length : 
+                    Constantes.forfaitsInternetMoov.length,
                   itemBuilder: (BuildContext context, int index) {
-                    final item = Constantes.forfaitsInternetTogocom[index];
+                    final item = (context.watch<Reseaux>().reseau=="Togocom") ? Constantes.forfaitsInternetTogocom[index] :
+                      Constantes.forfaitsInternetMoov[index];
                     return Padding(
                       padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 28),
                       child: SizedBox(
