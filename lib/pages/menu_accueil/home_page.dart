@@ -40,8 +40,8 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final historiqueDatabase = context.watch<HistoriqueDatabase>();
-    String cname = context.watch<Reseaux>().reseau;
-    String mb = context.watch<Reseaux>().money;
+    String cname = context.watch<Reseaux>().reseau!;
+    String mb = context.watch<Reseaux>().money!;
     List<Historique> currentHistoriques = historiqueDatabase.currentHistoriques;
 
     return Center(

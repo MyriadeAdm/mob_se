@@ -28,13 +28,23 @@ class MainApp extends StatefulWidget {
   State<MainApp> createState() => _MainAppState();
 }
 
-class _MainAppState extends State<MainApp> {
+class _MainAppState extends State<MainApp> {   
 
+  SharedPreferences? _prefs;
 
-  final Future<SharedPreferencesWithCache> _prefs = SharedPreferencesWithCache.create(cacheOptions: const SharedPreferencesWithCacheOptions(
-    allowList: <String>{'reseau', 'money'}));
+  void _initPrefs() async {
+    _prefs = await SharedPreferences.getInstance();
+    setPrefs();
+  }
 
-  late Future<String> _reseau;
+  void setPrefs() {
+    if (_prefs?.getString('reseau')=="Togocom") {
+      context.read<Reseaux>().switchToTogocom();
+    } else if (_prefs?.getString('reseau')=="Moov") {
+      context.read<Reseaux>().switchToMoov();
+    }
+  }
+
 
   Widget firstPage() {
     if (context.watch<Reseaux>().reseau=='') {
@@ -42,6 +52,12 @@ class _MainAppState extends State<MainApp> {
     } else {
       return const Base();
     }
+  }
+
+  @override
+  void initState() {
+    _initPrefs();
+    super.initState();
   }
 
   @override
@@ -59,3 +75,5 @@ class _MainAppState extends State<MainApp> {
     );
   }
 }
+
+
