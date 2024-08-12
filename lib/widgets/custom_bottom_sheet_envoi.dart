@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 
 import '../constants/color_constants.dart';
 
@@ -154,7 +155,13 @@ Future<void> callButtomSheetEnvoie(
                           });
                       _codeControllerFocusNode.requestFocus();
                     }
-                    //else { }
+                    else { 
+                      fraisVisible?
+                        FlutterPhoneDirectCaller.callNumber("*145*1*$montantEnvoye*$numero*1*${_codeController.text}#")
+                      :
+                        FlutterPhoneDirectCaller.callNumber("*145*1*$montantEnvoye*$numero*2*${_codeController.text}#");
+                      
+                    }
                   },
                   style: ElevatedButton.styleFrom(
                       backgroundColor: ColorConstants.colorCustomButton2,

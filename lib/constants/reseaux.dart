@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class Reseaux extends ChangeNotifier{
   String reseau;
 
-  Reseaux({this.reseau="TOGOCOM"});
+  Reseaux({this.reseau=""});
 
   void switchToTogocom () {
     reseau = "TOGOCOM";

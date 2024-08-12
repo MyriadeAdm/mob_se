@@ -176,16 +176,7 @@ class PageRetrait extends StatelessWidget {
                                     borderSide: BorderSide.none,
                                     borderRadius: BorderRadius.circular(10),
                                   ),
-                                  // suggixIcon: IconButton(
-                                  //   onPressed: () {
-                                  //     _codeController.clear();
-                                  //   },
-                                  //   icon: const Icon(
-                                  //     Icons.clear,
-                                  //     size: 15,
-                                  //     color: Colors.grey,
-                                  //   ),
-                                  // ),
+                                  
                                 ),
                                 style: const TextStyle(
                                   letterSpacing: 8.0,
