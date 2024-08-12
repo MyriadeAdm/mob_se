@@ -23,7 +23,6 @@ const List<String> carriername = ['TOGOCOM', 'MOOV'];
 
 class _HomePageState extends State<HomePage> {
 
-  var mb = 'Tmoney';
   final List<bool> _selectedcarrier = <bool>[true, false];
 
   // Fonction de recupération des historiques dans la base de donnée
@@ -180,13 +179,38 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
+            (context.watch<Reseaux>().reseau=='Togocom')?
             SizedBox(
               height: 90,
               child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: Constantes.forfaitsInternetTogocom.length,
+                  itemCount:  Constantes.forfaitsInternetTogocom.length,
                   itemBuilder: (BuildContext context, int index) {
                     final item = Constantes.forfaitsInternetTogocom[index];
+                    return CustomListViewForfaitInternet(
+                      icon: const Icon(
+                        Icons.public,
+                        size: 20,
+                        color: Colors.black,
+                      ),
+                      mega: item.mega,
+                      validite: item.validite,
+                      prix: item.prix,
+                      codeMMCredit: item.codeMMCredit,
+                      codeAutruiCredit: item.codeAutruiCredit,
+                      codeMoneyMM: item.codeMoneyMM,
+                      codeMoneyAutruit: item.codeMoneyAutruit,
+                      typeforfait: item.typeforfait,
+                    );
+                  }),
+            ) : 
+            SizedBox(
+              height: 90,
+              child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount:  Constantes.forfaitsInternetMoov.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    final item = Constantes.forfaitsInternetMoov[index];
                     return CustomListViewForfaitInternet(
                       icon: const Icon(
                         Icons.public,
@@ -235,6 +259,7 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
+            (context.watch<Reseaux>().reseau=='Togocom')?
             SizedBox(
               height: 95,
               child: ListView.builder(
@@ -242,6 +267,34 @@ class _HomePageState extends State<HomePage> {
                 itemCount: Constantes.forfaitsAppelTogocom.length,
                 itemBuilder: (BuildContext context, int index) {
                   final item = Constantes.forfaitsAppelTogocom[index];
+        
+                  return CustomListViewForfaitAppel(
+                    icon: const Icon(
+                      Icons.call,
+                      size: 20,
+                      color: Colors.black,
+                    ),
+                    credit: item.credit,
+                    validite: item.validite,
+                    msg: item.msg,
+                    prix: item.prix,
+                    codeMMCredit: item.codeMMCredit,
+                    codeAutruiCredit: item.codeAutruiCredit,
+                    codeMoneyMM: item.codeMoneyMM,
+                    codeMoneyAutruit: item.codeMoneyAutruit,
+                    mega: item.mega,
+                    typeforfait: item.typeforfait,
+                  );
+                },
+              ),
+            ) : 
+            SizedBox(
+              height: 95,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: Constantes.forfaitsAppelMoov.length,
+                itemBuilder: (BuildContext context, int index) {
+                  final item = Constantes.forfaitsAppelMoov[index];
         
                   return CustomListViewForfaitAppel(
                     icon: const Icon(
