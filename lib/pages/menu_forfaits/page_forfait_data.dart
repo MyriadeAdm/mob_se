@@ -49,7 +49,7 @@ class ForfaitDataPage extends StatelessWidget {
                       backgroundColor: ColorConstants.colorCustomButton,
                     ),
                     onPressed: () {
-                      FlutterPhoneDirectCaller.callNumber(Constantes.solde[0].codeNormal);
+                      FlutterPhoneDirectCaller.callNumber(Constantes.soldeTogocom[0].codeNormal);
                     },
                     child: const Text(
                       "Solde",
@@ -74,9 +74,9 @@ class ForfaitDataPage extends StatelessWidget {
               child: SizedBox(
                 height: 700,
                 child: ListView.builder(
-                  itemCount: Constantes.forfaitsInternet.length,
+                  itemCount: Constantes.forfaitsInternetTogocom.length,
                   itemBuilder: (BuildContext context, int index) {
-                    final item = Constantes.forfaitsInternet[index];
+                    final item = Constantes.forfaitsInternetTogocom[index];
                     return Padding(
                       padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 28),
                       child: SizedBox(
