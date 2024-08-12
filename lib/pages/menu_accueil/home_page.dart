@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:mob_se/constants/color_constants.dart';
 import 'package:mob_se/constants/constantes.dart';
+import 'package:mob_se/constants/reseaux.dart';
 import 'package:mob_se/widgets/custom_button.dart';
 import 'package:mob_se/widgets/custom_list_view_forfait_appel.dart';
 import 'package:mob_se/widgets/custom_list_view_forfait_internet.dart';
@@ -18,10 +19,10 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-const List<String> carriername = ['Togocom', 'Moov'];
+const List<String> carriername = ['TOGOCOM', 'MOOV'];
 
 class _HomePageState extends State<HomePage> {
-  var cname = 'Togocom';
+
   var mb = 'Tmoney';
   final List<bool> _selectedcarrier = <bool>[true, false];
 
@@ -39,6 +40,8 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final historiqueDatabase = context.watch<HistoriqueDatabase>();
+    String cname = context.watch<Reseaux>().reseau;
+    String mb = context.watch<Reseaux>().money;
     List<Historique> currentHistoriques = historiqueDatabase.currentHistoriques;
 
     return Center(
@@ -92,11 +95,9 @@ class _HomePageState extends State<HomePage> {
                                       i++) {
                                     _selectedcarrier[i] = i == index;
                                     if (index == 0) {
-                                      cname = 'Togocom';
-                                      mb = 'Tmoney';
+                                      context.read<Reseaux>().switchToTogocom();
                                     } else {
-                                      cname = 'Moov';
-                                      mb = 'Flooz';
+                                      context.read<Reseaux>().switchToMoov();
                                     }
                                   }
                                 });
@@ -139,12 +140,12 @@ class _HomePageState extends State<HomePage> {
                   Expanded(
                       child: CustomButton(
                           label: 'Solde credit',
-                          code: (cname == 'Togocom') ? "*909*0#" : "*101#")),
+                          code: (cname == 'TOGOCOM') ? "*909*0#" : "*101#")),
                   const SizedBox(width: 20),
                   Expanded(
                       child: CustomButton(
                           label: 'Solde $mb',
-                          code: (cname == 'Togocom') ? "*145*7*1#" : "")),
+                          code: (cname == 'TOGOCOM') ? "*145*7*1#" : "")),
                 ],
               ),
             ),
@@ -183,9 +184,9 @@ class _HomePageState extends State<HomePage> {
               height: 90,
               child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: Constantes.forfaitsInternet.length,
+                  itemCount: Constantes.forfaitsInternetTogocom.length,
                   itemBuilder: (BuildContext context, int index) {
-                    final item = Constantes.forfaitsInternet[index];
+                    final item = Constantes.forfaitsInternetTogocom[index];
                     return CustomListViewForfaitInternet(
                       icon: const Icon(
                         Icons.public,
@@ -238,9 +239,9 @@ class _HomePageState extends State<HomePage> {
               height: 95,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: Constantes.forfaitsAppel.length,
+                itemCount: Constantes.forfaitsAppelTogocom.length,
                 itemBuilder: (BuildContext context, int index) {
-                  final item = Constantes.forfaitsAppel[index];
+                  final item = Constantes.forfaitsAppelTogocom[index];
         
                   return CustomListViewForfaitAppel(
                     icon: const Icon(
