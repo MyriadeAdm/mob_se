@@ -3,3 +3,4 @@ ${BUILT_PRODUCTS_DIR}/flutter_native_contact_picker/flutter_native_contact_picke
 ${BUILT_PRODUCTS_DIR}/flutter_phone_direct_caller/flutter_phone_direct_caller.framework
 ${BUILT_PRODUCTS_DIR}/isar_flutter_libs/isar_flutter_libs.framework
 ${BUILT_PRODUCTS_DIR}/path_provider_foundation/path_provider_foundation.framework
+${BUILT_PRODUCTS_DIR}/shared_preferences_foundation/shared_preferences_foundation.framework

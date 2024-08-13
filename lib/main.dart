@@ -45,7 +45,6 @@ class _MainAppState extends State<MainApp> {
     }
   }
 
-
   Widget firstPage() {
     if (context.watch<Reseaux>().reseau=='') {
       return  const ConfigReseau();

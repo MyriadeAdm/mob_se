@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:mob_se/constants/color_constants.dart';
 import 'package:mob_se/constants/constantes.dart';
+import 'package:provider/provider.dart';
 
+import '../../constants/reseaux.dart';
 import '../../widgets/custum_bottom_sheet.dart';
 //import 'package:mob_se/widgets/custum_bottom_sheet.dart';
 
@@ -49,7 +51,9 @@ class ForfaitMixtePage extends StatelessWidget {
                       backgroundColor: ColorConstants.colorCustomButton,
                     ),
                     onPressed: () {
-                      FlutterPhoneDirectCaller.callNumber(Constantes.soldeTogocom[2].codeNormal);
+                      (context.watch<Reseaux>().reseau=="Togocom") ? 
+                      FlutterPhoneDirectCaller.callNumber(Constantes.soldeTogocom[2].codeNormal):
+                      FlutterPhoneDirectCaller.callNumber(Constantes.soldeMoov[2].codeNormal);
                     },
                     child: const Text(
                       "Solde",
@@ -74,9 +78,9 @@ class ForfaitMixtePage extends StatelessWidget {
               child: SizedBox(
                 height: 700,
                 child: ListView.builder(
-                  itemCount: Constantes.forfaitsMixteTogocom.length,
+                  itemCount: (context.watch<Reseaux>().reseau=="Togocom") ? Constantes.forfaitsMixteTogocom.length : Constantes.forfaitsMixteMoov.length,
                   itemBuilder: (BuildContext context, int index) {
-                    final item = Constantes.forfaitsMixteTogocom[index];
+                    final item = (context.watch<Reseaux>().reseau=="Togocom") ? Constantes.forfaitsMixteTogocom[index] : Constantes.forfaitsMixteMoov[index];
                     return Padding(
                       padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 25),
                       child: SizedBox(
