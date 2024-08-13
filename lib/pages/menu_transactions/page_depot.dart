@@ -12,6 +12,10 @@ final _montantController = TextEditingController();
 final FocusNode _montantFocusNode = FocusNode();
 bool _isSelected = false;
 bool fraisVisible = false;
+int frt = 0; 
+int mnt = 0;
+int ftrn = 0;
+
 
 final FlutterContactPicker _contactPicker = FlutterContactPicker();
 // ignore: unused_element
@@ -232,10 +236,31 @@ class PageDepot extends StatelessWidget {
                                 _isSelected = newValue;
                                 fraisVisible = !fraisVisible;
                               });
+                              if (_montantController.text ==''){ _montantController.text = '0';}
+                              else{
+                                int fraisRetrait, fraisTransfert;
+                              int montant = int.parse(_montantController.text
+                                  .replaceAll(RegExp(r'\D'), ""));
+                              if (_isSelected == false) {
+                                fraisTransfert = quelFraisTransaction(montant);
+                                fraisRetrait = 0;
+                              } else {
+                                setState((){
+                                  (fraisTransfert, fraisRetrait) =
+                                    quelFraisTransactionEtRetrait(montant);
+                                    frt = fraisRetrait;
+                                    ftrn = fraisTransfert;
+                                    mnt = montant;
+                                });
+                              }
+                              }
                             },
                           ),
                         ),
-                        const Text('')
+                        
+                        Visibility(
+                          visible: fraisVisible,
+                          child: Text('$frt'))
                         //TODO faire apparaitre le montant avant lancement
                       ],
                     ),
@@ -285,24 +310,24 @@ class PageDepot extends StatelessWidget {
 
                               ///print (num[0]);
 
-                              int fraisRetrait, fraisTransfert;
-                              int montant = int.parse(_montantController.text
-                                  .replaceAll(RegExp(r'\D'), ""));
-                              if (_isSelected == false) {
-                                fraisTransfert = quelFraisTransaction(montant);
-                                fraisRetrait = 0;
-                              } else {
-                                (fraisTransfert, fraisRetrait) =
-                                    quelFraisTransactionEtRetrait(montant);
-                              }
+                              // int fraisRetrait, fraisTransfert;
+                              // int montant = int.parse(_montantController.text
+                              //     .replaceAll(RegExp(r'\D'), ""));
+                              // if (_isSelected == false) {
+                              //   fraisTransfert = quelFraisTransaction(montant);
+                              //   fraisRetrait = 0;
+                              // } else {
+                              //   (fraisTransfert, fraisRetrait) =
+                              //       quelFraisTransactionEtRetrait(montant);
+                              // }
 
                               if (num[0] == '9' || num[0] == '7') {
                                 callButtomSheetEnvoie(
                                         context,
                                         num,
-                                        montant,
-                                        fraisTransfert,
-                                        fraisRetrait,
+                                        mnt,
+                                        ftrn,
+                                        frt,
                                         _isSelected)
                                     .whenComplete(reset);
                               } else {
@@ -397,5 +422,5 @@ int montantTransfererPlusFrais(int montantTransferer) {
 void reset() {
   _numeroController.clear();
   _montantController.clear();
-  //_isSelected ? false : _isSelected = false;
+  _isSelected = false;
 }
