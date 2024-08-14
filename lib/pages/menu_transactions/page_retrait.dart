@@ -49,145 +49,143 @@ class PageRetrait extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(right: 30, left: 30),
-                  child: SizedBox(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const SizedBox(
-                          height: 20,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      const Text(
+                        'Code Agent',
+                        style: TextStyle(
+                          fontSize: 20,
                         ),
-                        const Text(
-                          'Code Agent',
-                          style: TextStyle(
-                            fontSize: 20,
-                          ),
-                        ),
-                        Row(
-                          //crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            Expanded(
-                              child: TextField(
-                                  textAlign: TextAlign.center,
-                                  keyboardType: TextInputType.number,
-                                  inputFormatters: [
-                                    LengthLimitingTextInputFormatter(5),
-                                  ],
-                                  controller: _codeAgentController,
-                                  decoration: InputDecoration(
-                                    isDense: true,
-                                    // contentPadding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                    borderSide: const BorderSide(
-                                      color: ColorConstants.colorCustomButton2,
-                                    ),
-                                  )
-                                  ),
-                                  style: const TextStyle(
-                                    fontSize: 25,
-                                    letterSpacing: 8.0,
-                                    fontWeight: FontWeight.w900,
-                                  )),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        const Text(
-                          'Montant',
-                          style: TextStyle(
-                            fontSize: 20,
-                          ),
-                        ),
-                        Row(
-                          //crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            Expanded(
-                              child: TextField(
-                                  textAlign: TextAlign.right,
-                                  keyboardType: TextInputType.number,
-                                  inputFormatters: [
-                                    LengthLimitingTextInputFormatter(7),
-                                  ],
-                                  controller: _montantController,
-                                  decoration: InputDecoration(
-                                    isDense: true,
-                                    // contentPadding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                    borderSide: const BorderSide(
-                                      color: ColorConstants.colorCustomButton2,
-                                    ),
-                                  )
-                                  ),
-                                  style: const TextStyle(
-                                    fontSize: 25,
-                                  )),
-                            ),
-                            const SizedBox(
-                              width: 10,
-                            ),
-                            const Text(
-                              'F CFA',
-                              style: TextStyle(
-                                fontWeight: FontWeight.w700,
-                                color: ColorConstants.colorCustom3,
-                                fontSize: 35,
-                              ),
-                            )
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        const Text(
-                          'Code secret',
-                          style: TextStyle(
-                            fontSize: 20,
-                          ),
-                        ),
-                        Row(
-                          children: [
-                            Expanded(
-                              child: TextField(
+                      ),
+                      Row(
+                        //crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Expanded(
+                            child: TextField(
                                 textAlign: TextAlign.center,
-                                //autofocus: true,
-                                inputFormatters: [
-                                  LengthLimitingTextInputFormatter(4),
-                                ],
                                 keyboardType: TextInputType.number,
-                                obscureText: true,
-                                //onChanged: (){},
-                                obscuringCharacter: "*",
-                                controller: _codeController,
-                                //focusNode: _codeControllerFocusNode,
+                                inputFormatters: [
+                                  LengthLimitingTextInputFormatter(5),
+                                ],
+                                controller: _codeAgentController,
                                 decoration: InputDecoration(
-                                  filled: true,
-                                  //hintText: '',
-                                  fillColor:
-                                      const Color.fromRGBO(230, 227, 227, 1),
+                                  isDense: true,
+                                  // contentPadding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
                                   border: OutlineInputBorder(
-                                    borderSide: BorderSide.none,
                                     borderRadius: BorderRadius.circular(10),
                                   ),
-                                  
+                                  focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                  borderSide: const BorderSide(
+                                    color: ColorConstants.colorCustomButton2,
+                                  ),
+                                )
                                 ),
                                 style: const TextStyle(
+                                  fontSize: 25,
                                   letterSpacing: 8.0,
+                                  fontWeight: FontWeight.w900,
+                                )),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      const Text(
+                        'Montant',
+                        style: TextStyle(
+                          fontSize: 20,
+                        ),
+                      ),
+                      Row(
+                        //crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Expanded(
+                            child: TextField(
+                                textAlign: TextAlign.right,
+                                keyboardType: TextInputType.number,
+                                inputFormatters: [
+                                  LengthLimitingTextInputFormatter(7),
+                                ],
+                                controller: _montantController,
+                                decoration: InputDecoration(
+                                  isDense: true,
+                                  // contentPadding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                  borderSide: const BorderSide(
+                                    color: ColorConstants.colorCustomButton2,
+                                  ),
+                                )
                                 ),
+                                style: const TextStyle(
+                                  fontSize: 25,
+                                )),
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          const Text(
+                            'F CFA',
+                            style: TextStyle(
+                              fontWeight: FontWeight.w700,
+                              color: ColorConstants.colorCustom3,
+                              fontSize: 35,
+                            ),
+                          )
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      const Text(
+                        'Code secret',
+                        style: TextStyle(
+                          fontSize: 20,
+                        ),
+                      ),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: TextField(
+                              textAlign: TextAlign.center,
+                              //autofocus: true,
+                              inputFormatters: [
+                                LengthLimitingTextInputFormatter(4),
+                              ],
+                              keyboardType: TextInputType.number,
+                              obscureText: true,
+                              //onChanged: (){},
+                              obscuringCharacter: "*",
+                              controller: _codeController,
+                              //focusNode: _codeControllerFocusNode,
+                              decoration: InputDecoration(
+                                filled: true,
+                                //hintText: '',
+                                fillColor:
+                                    const Color.fromRGBO(230, 227, 227, 1),
+                                border: OutlineInputBorder(
+                                  borderSide: BorderSide.none,
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                
+                              ),
+                              style: const TextStyle(
+                                letterSpacing: 8.0,
                               ),
                             ),
-                          ],
-                        ),
-                      ],
-                    ),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
                 const SizedBox(
@@ -213,31 +211,14 @@ class PageRetrait extends StatelessWidget {
                             });
                       } else {
                         if (montant == '' || int.parse(montant) <= 0) {
-                          showDialog(
-                              context: context,
-                              builder: (BuildContext context) {
-                                return const AlertDialog(
-                                    title: Text("Montant Insuffisant",
-                                    textAlign: TextAlign.center),
-                                    content: Text(
-                                        "Veuillez renseigner un montant supérieur à 0 F CFA",
-                                        textAlign: TextAlign.center));
-                              });
+                          ScaffoldMessenger.of(context).showSnackBar(
+                       const SnackBar(content: Text('Veuillez renseigner un montant'))
+                            );
                         } else {
                           if (codeSecret == '') {
-                            showDialog(
-                                context: context,
-                                builder: (BuildContext context) {
-                                  return const AlertDialog(
-                                      title: Text(
-                                        "Code Non Renseigné",
-                                        textAlign: TextAlign.center,
-                                      ),
-                                      content: Text(
-                                        "Veuillez renseigner votre code secret",
-                                        textAlign: TextAlign.center,
-                                      ));
-                                });
+                            ScaffoldMessenger.of(context).showSnackBar(
+                       const SnackBar(content: Text('Veuillez renseigner votre code'))
+                            );
                           } else {
                             FlutterPhoneDirectCaller.callNumber(
                                 "*145*2*$montant*$codeAgent*$codeSecret#");
