@@ -139,12 +139,12 @@ class _HomePageState extends State<HomePage> {
                   Expanded(
                       child: CustomButton(
                           label: 'Solde credit',
-                          code: (cname == 'TOGOCOM') ? "*909*0#" : "*101#")),
+                          code: (cname == 'Togocom') ? "*909*0#" : "*101#")),
                   const SizedBox(width: 20),
                   Expanded(
                       child: CustomButton(
                           label: 'Solde $mb',
-                          code: (cname == 'TOGOCOM') ? "*145*7*1#" : "")),
+                          code: (cname == 'Togocom') ? "*145*7*1#" : "")),
                 ],
               ),
             ),
