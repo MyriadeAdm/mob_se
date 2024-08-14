@@ -6,6 +6,7 @@ import 'package:mob_se/constants/color_constants.dart';
 import 'package:mob_se/models/type_forfait.dart';
 import 'package:provider/provider.dart';
 
+import '../constants/reseaux.dart';
 import '../models/historique_database.dart';
 
 //=============================================[DEBUT} !!!besoin pour faire marcher le bottom Sheet
@@ -37,7 +38,7 @@ class LabeledCheckbox extends StatelessWidget {
           children: <Widget>[
             Text(label),
             Checkbox(
-              activeColor: ColorConstants.colorCustomButton,
+              activeColor: (context.watch<Reseaux>().reseau=="Togocom") ? ColorConstants.colorCustomButtonTg : ColorConstants.colorCustomButtonMv,
               value: value,
               onChanged: (bool? newValue) {
                 onChanged(newValue!);
@@ -275,7 +276,7 @@ Future<void> callButtomSheet(
                                           _codeController.clear();
                                         });
                                       },
-                                      activeColor: Colors.amber,
+                                      activeColor: (context.watch<Reseaux>().reseau=="Togocom") ? ColorConstants.colorCustomButton2 : ColorConstants.colorCustomButtonMv,
                                     ))),
                             Expanded(
                                 child: ListTile(
@@ -292,7 +293,7 @@ Future<void> callButtomSheet(
                                               .requestFocus();
                                         });
                                       },
-                                      activeColor: Colors.amber,
+                                      activeColor: (context.watch<Reseaux>().reseau=="Togocom") ? ColorConstants.colorCustomButton2 : ColorConstants.colorCustomButtonMv,
                                     ))),
                           ],
                         ),
@@ -356,7 +357,7 @@ Future<void> callButtomSheet(
                           //child: CustomButton(label: 'Confirmer'),
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.amber,
+                                backgroundColor: (context.watch<Reseaux>().reseau=="Togocom") ? ColorConstants.colorCustomButton2 : ColorConstants.colorCustomButtonMv,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10),
                                 )),
@@ -452,12 +453,12 @@ Future<void> callButtomSheet(
                                 }
                               }
                             },
-                            child: const Text(
+                            child: Text(
                               'CONFIRMER',
                               style: TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.w700,
-                                color: Colors.black,
+                                color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
                               ),
                             ),
                           ),

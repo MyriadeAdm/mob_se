@@ -6,6 +6,9 @@ import 'package:mob_se/pages/menu_forfaits/page_forfait_data.dart';
 import 'package:mob_se/pages/menu_forfaits/page_forfait_mixte.dart';
 import 'package:mob_se/pages/menu_forfaits/page_forfait_nuit.dart';
 import 'package:mob_se/pages/menu_forfaits/page_forfait_voix.dart';
+import 'package:provider/provider.dart';
+
+import '../constants/reseaux.dart';
 
 class ForfaitPage extends StatelessWidget {
   const ForfaitPage({super.key});
@@ -45,20 +48,20 @@ class ForfaitPage extends StatelessWidget {
                         context, CupertinoPageRoute(builder: (BuildContext context) => const ForfaitVoixPage()));
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: ColorConstants.colorCustomButton,
+                    backgroundColor: (context.watch<Reseaux>().reseau=="Togocom") ? ColorConstants.colorCustomButtonTg : ColorConstants.colorCustomButtonMv,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15)),
                   ),
-                  child: const Column(
+                  child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Icon(
                         Icons.call,
                         size: 40,
-                        color: Colors.black,
+                        color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 15,
                       ),
                       Text(
@@ -66,7 +69,7 @@ class ForfaitPage extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 17,
                           fontWeight: FontWeight.w900,
-                          color: Colors.black,
+                          color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
                         ),
                       ),
                     ],
@@ -85,20 +88,20 @@ class ForfaitPage extends StatelessWidget {
                                 const ForfaitDataPage()));
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: ColorConstants.colorCustomButton,
+                    backgroundColor: (context.watch<Reseaux>().reseau=="Togocom") ? ColorConstants.colorCustomButtonTg : ColorConstants.colorCustomButtonMv,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15)),
                   ),
-                  child: const Column(
+                  child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Icon(
                         FontAwesomeIcons.earthAfrica,
                         size: 40,
-                        color: Colors.black,
+                        color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 15,
                       ),
                       Text(
@@ -106,7 +109,7 @@ class ForfaitPage extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 17,
                           fontWeight: FontWeight.w900,
-                          color: Colors.black,
+                          color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
                         ),
                       ),
                     ],
@@ -132,20 +135,20 @@ class ForfaitPage extends StatelessWidget {
                                 const ForfaitMixtePage()));
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: ColorConstants.colorCustomButton,
+                    backgroundColor: (context.watch<Reseaux>().reseau=="Togocom") ? ColorConstants.colorCustomButtonTg : ColorConstants.colorCustomButtonMv,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15)),
                   ),
-                  child: const Column(
+                  child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Icon(
                         FontAwesomeIcons.mixer,
                         size: 40,
-                        color: Colors.black,
+                        color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 15,
                       ),
                       Text(
@@ -153,7 +156,7 @@ class ForfaitPage extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w900,
-                          color: Colors.black,
+                          color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
                         ),
                       ),
                     ],
@@ -171,20 +174,20 @@ class ForfaitPage extends StatelessWidget {
                                 const ForfaitNuitPage()));
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: ColorConstants.colorCustomButton,
+                    backgroundColor: (context.watch<Reseaux>().reseau=="Togocom") ? ColorConstants.colorCustomButtonTg : ColorConstants.colorCustomButtonMv,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15)),
                   ),
-                  child: const Column(
+                  child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Icon(
                         Icons.nights_stay,
                         size: 40,
-                        color: Colors.black,
+                        color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 15,
                       ),
                       Text(
@@ -192,7 +195,7 @@ class ForfaitPage extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 17,
                           fontWeight: FontWeight.w900,
-                          color: Colors.black,
+                          color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
                         ),
                       ),
                     ],

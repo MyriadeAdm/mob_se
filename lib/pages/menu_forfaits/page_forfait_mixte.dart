@@ -48,17 +48,17 @@ class ForfaitMixtePage extends StatelessWidget {
                   
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: ColorConstants.colorCustomButton,
+                      backgroundColor: (context.watch<Reseaux>().reseau=="Togocom") ? ColorConstants.colorCustomButtonTg : ColorConstants.colorCustomButtonMv,
                     ),
                     onPressed: () {
                       (context.watch<Reseaux>().reseau=="Togocom") ? 
                       FlutterPhoneDirectCaller.callNumber(Constantes.soldeTogocom[2].codeNormal):
                       FlutterPhoneDirectCaller.callNumber(Constantes.soldeMoov[2].codeNormal);
                     },
-                    child: const Text(
+                    child: Text(
                       "Solde",
                       style: TextStyle(
-                        color: Colors.black,
+                        color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
                         fontSize: 18,
                         fontWeight: FontWeight.w800,
                       ),
@@ -87,7 +87,7 @@ class ForfaitMixtePage extends StatelessWidget {
                         height: 65,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: ColorConstants.colorCustomButton,
+                            backgroundColor: (context.watch<Reseaux>().reseau=="Togocom") ? ColorConstants.colorCustomButtonTg : ColorConstants.colorCustomButtonMv,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(13),
                             ),
@@ -109,16 +109,16 @@ class ForfaitMixtePage extends StatelessWidget {
                                       Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
-                                      const Icon(
+                                      Icon(
                                         Icons.call,
-                                        color: ColorConstants.colorCustom2,
+                                        color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
                                         size: 18,
                                       ),
                                       Text(
                                         item.credit,
-                                        style: const TextStyle(
+                                        style: TextStyle(
                                           fontWeight: FontWeight.bold,
-                                          color: ColorConstants.colorCustom2,
+                                          color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
                                         ),
                                       ),
                                     ],
@@ -126,16 +126,16 @@ class ForfaitMixtePage extends StatelessWidget {
                                 const SizedBox(width: 10),
                                   Row(
                                     children: [
-                                      const Icon(
+                                      Icon(
                                         Icons.language,
-                                        color: ColorConstants.colorCustom2,
+                                        color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
                                         size: 18,
                                       ),
                                       Text(
                                         item.mega,
-                                        style: const TextStyle(
+                                        style: TextStyle(
                                           fontWeight: FontWeight.bold,
-                                          color: ColorConstants.colorCustom2,
+                                          color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
                                         ),
                                       ),
                                     ],
@@ -144,9 +144,9 @@ class ForfaitMixtePage extends StatelessWidget {
                                   ),
                                   Text(
                                     '${item.validite} + ${item.msg}',
-                                    style: const TextStyle(
+                                    style: TextStyle(
                                       fontWeight: FontWeight.normal,
-                                      color: ColorConstants.colorCustom2,
+                                      color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
                                       fontSize: 13,
                                     ),
                                   ),
@@ -154,10 +154,10 @@ class ForfaitMixtePage extends StatelessWidget {
                               ),
                               Text(
                                 item.prix,
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 18,
-                                  color: ColorConstants.colorCustom2,
+                                  color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
                                 ),
                               )
                             ],

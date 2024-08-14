@@ -46,16 +46,16 @@ class ForfaitVoixPage extends StatelessWidget {
                   
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: ColorConstants.colorCustomButton,
+                      backgroundColor: (context.watch<Reseaux>().reseau=="Togocom") ? ColorConstants.colorCustomButtonTg : ColorConstants.colorCustomButtonMv,
                     ),
                     onPressed: () {
                       (context.watch<Reseaux>().reseau=="Togocom") ? FlutterPhoneDirectCaller.callNumber(Constantes.soldeTogocom[1].codeNormal) 
                       : FlutterPhoneDirectCaller.callNumber(Constantes.soldeMoov[1].codeNormal);
                     },
-                    child: const Text(
+                    child: Text(
                       "Solde",
                       style: TextStyle(
-                        color: Colors.black,
+                        color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
                         fontSize: 18,
                         fontWeight: FontWeight.w800,
                       ),
@@ -88,7 +88,7 @@ class ForfaitVoixPage extends StatelessWidget {
                         height: 70,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: ColorConstants.colorCustomButton,
+                            backgroundColor: (context.watch<Reseaux>().reseau=="Togocom") ? ColorConstants.colorCustomButtonTg : ColorConstants.colorCustomButtonMv,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(13),
                             ),
@@ -109,26 +109,26 @@ class ForfaitVoixPage extends StatelessWidget {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,
                                     children: [
-                                      const Icon(
+                                     Icon(
                                         Icons.call,
-                                        color: ColorConstants.colorCustom2,
+                                        color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
                                         size: 18,
                                       ),
                                       const SizedBox(width: 5),
                                       Text(
                                         item.credit,
-                                        style: const TextStyle(
+                                        style: TextStyle(
                                           fontWeight: FontWeight.bold,
-                                          color: ColorConstants.colorCustom2,
+                                          color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
                                         ),
                                       ),
                                     ],
                                   ),
                                   Text(
                                     '${item.validite} + ${item.msg}',
-                                    style: const TextStyle(
+                                    style: TextStyle(
                                       fontWeight: FontWeight.normal,
-                                      color: ColorConstants.colorCustom2,
+                                      color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
                                       fontSize: 13,
                                     ),
                                   ),
@@ -136,10 +136,10 @@ class ForfaitVoixPage extends StatelessWidget {
                               ),
                               Text(
                                 item.prix,
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 18,
-                                  color: ColorConstants.colorCustom2,
+                                  color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
                                 ),
                               )
                             ],

@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mob_se/constants/color_constants.dart';
 import 'package:flutter_native_contact_picker/flutter_native_contact_picker.dart';
+import 'package:provider/provider.dart';
 
+import '../../constants/reseaux.dart';
 import '../../widgets/custom_bottom_sheet_envoi.dart';
 
 bool? isChecked = false;
@@ -47,7 +49,7 @@ class LabeledCheckbox extends StatelessWidget {
         children: <Widget>[
           Text(label),
           Checkbox(
-            activeColor: ColorConstants.colorCustomButton,
+            activeColor: (context.watch<Reseaux>().reseau=="Togocom") ? ColorConstants.colorCustomButtonTg : ColorConstants.colorCustomButtonMv,
             value: value,
             onChanged: (bool? newValue) {
               onChanged(newValue!);
@@ -141,8 +143,8 @@ class PageDepot extends StatelessWidget {
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
-                                  borderSide: const BorderSide(
-                                    color: ColorConstants.colorCustomButton2,
+                                  borderSide: BorderSide(
+                                    color: (context.watch<Reseaux>().reseau=="Togocom") ? ColorConstants.colorCustomButtonTg : ColorConstants.colorCustomButtonMv,
                                   ),
                                 )),
                           ),
@@ -200,8 +202,8 @@ class PageDepot extends StatelessWidget {
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(10),
-                                    borderSide: const BorderSide(
-                                      color: ColorConstants.colorCustomButton2,
+                                    borderSide: BorderSide(
+                                      color: (context.watch<Reseaux>().reseau=="Togocom") ? ColorConstants.colorCustomButton2 : ColorConstants.colorCustomButtonMv,
                                     ),
                                   )),
                               style: const TextStyle(
@@ -347,16 +349,16 @@ class PageDepot extends StatelessWidget {
                           }
                         },
                         style: ElevatedButton.styleFrom(
-                            backgroundColor: ColorConstants.colorCustomButton2,
+                            backgroundColor: (context.watch<Reseaux>().reseau=="Togocom") ? ColorConstants.colorCustomButton2 : ColorConstants.colorCustomButtonMv,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
                             )),
-                        child: const Text(
+                        child: Text(
                           "RECAP DE L'ENVOI",
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.w900,
-                            color: Colors.black,
+                            color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
                           ),
                         ),
                       )),

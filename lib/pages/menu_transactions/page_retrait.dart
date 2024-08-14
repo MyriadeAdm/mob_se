@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:provider/provider.dart';
 import '../../constants/color_constants.dart';
+import '../../constants/reseaux.dart';
 import '../../models/historique_database.dart';
 
 final _codeAgentController = TextEditingController();
@@ -249,18 +250,18 @@ class PageRetrait extends StatelessWidget {
                       }
                     },
                     style: ElevatedButton.styleFrom(
-                        backgroundColor: ColorConstants.colorCustomButton2,
+                        backgroundColor: (context.watch<Reseaux>().reseau=="Togocom") ? ColorConstants.colorCustomButton2 : ColorConstants.colorCustomButtonMv,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
                         )),
-                    child: const Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 15),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 15),
                       child: Text(
                         'CONFIRMER',
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w700,
-                          color: Colors.black,
+                          color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
                         ),
                       ),
                     ),

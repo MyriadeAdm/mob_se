@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:mob_se/pages/menu_transactions/page_annulation.dart';
 import 'package:mob_se/pages/menu_transactions/page_depot.dart';
 import 'package:mob_se/pages/menu_transactions/page_retrait.dart';
+import 'package:provider/provider.dart';
 
 import '../constants/color_constants.dart';
+import '../constants/reseaux.dart';
 
 class TransactionsPage extends StatelessWidget {
   const TransactionsPage({super.key});
@@ -48,20 +50,20 @@ class TransactionsPage extends StatelessWidget {
                                 const PageDepot()));
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: ColorConstants.colorCustomButton,
+                        backgroundColor: (context.watch<Reseaux>().reseau=="Togocom") ? ColorConstants.colorCustomButtonTg : ColorConstants.colorCustomButtonMv,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15)),
                       ),
-                      child: const Column(
+                      child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         //crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Icon(
                             Icons.install_mobile,
                             size: 40,
-                            color: Colors.black,
+                            color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 15,
                           ),
                           Text(
@@ -69,7 +71,7 @@ class TransactionsPage extends StatelessWidget {
                             style: TextStyle(
                               fontSize: 17,
                               fontWeight: FontWeight.w900,
-                              color: Colors.black,
+                              color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
                             ),
                           ),
                         ],
@@ -92,20 +94,20 @@ class TransactionsPage extends StatelessWidget {
                                 const PageRetrait()));
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: ColorConstants.colorCustomButton,
+                        backgroundColor: (context.watch<Reseaux>().reseau=="Togocom") ? ColorConstants.colorCustomButtonTg : ColorConstants.colorCustomButtonMv,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15)),
                       ),
-                      child: const Column(
+                      child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         //crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Icon(
                             Icons.send_to_mobile,
                             size: 40,
-                            color: Colors.black,
+                            color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 15,
                           ),
                           Text(
@@ -113,7 +115,7 @@ class TransactionsPage extends StatelessWidget {
                             style: TextStyle(
                               fontSize: 17,
                               fontWeight: FontWeight.w900,
-                              color: Colors.black,
+                              color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
                             ),
                           ),
                         ],
@@ -138,19 +140,19 @@ class TransactionsPage extends StatelessWidget {
                                 const PageAnnulation()));
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: ColorConstants.colorCustomButton,
+                        backgroundColor: (context.watch<Reseaux>().reseau=="Togocom") ? ColorConstants.colorCustomButtonTg : ColorConstants.colorCustomButtonMv,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15)),
                       ),
-                      child: const Column(
+                      child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Icon(
                             Icons.cancel,
                             size: 40,
-                            color: Colors.black,
+                            color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 15,
                           ),
                           Text(
@@ -159,7 +161,7 @@ class TransactionsPage extends StatelessWidget {
                             style: TextStyle(
                               fontSize: 17,
                               fontWeight: FontWeight.w900,
-                              color: Colors.black,
+                              color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
                             ),
                           ),
                         ],

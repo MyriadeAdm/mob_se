@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mob_se/models/type_forfait.dart';
+import 'package:provider/provider.dart';
 
+import '../constants/color_constants.dart';
+import '../constants/reseaux.dart';
 import 'custum_bottom_sheet.dart';
 
 class CustomListViewForfaitAppel extends StatelessWidget {
@@ -41,12 +44,12 @@ class CustomListViewForfaitAppel extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.white,
           padding: const EdgeInsets.all(13),
-          shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(15)),
+          shape: RoundedRectangleBorder(
+            borderRadius: const BorderRadius.all(Radius.circular(15)),
             side: BorderSide(
               style: BorderStyle.solid,
               width: 1.5,
-              color: Colors.amber),
+              color: (context.watch<Reseaux>().reseau=="Togocom") ? ColorConstants.colorCustomButton2 : ColorConstants.colorCustomButtonMv),
           ),
         ),
         child: Column(
