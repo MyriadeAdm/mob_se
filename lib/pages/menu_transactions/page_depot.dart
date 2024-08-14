@@ -192,6 +192,23 @@ class PageDepot extends StatelessWidget {
                               inputFormatters: [
                                 LengthLimitingTextInputFormatter(7),
                               ],
+                              onChanged :(text){
+                                if (text ==''){text = '0';}
+                              else{
+                                int fraisRetrait, fraisTransfert;
+                              int montant = int.parse(text
+                                  .replaceAll(RegExp(r'\D'), ""));
+                          
+                                setState((){
+                                  (fraisTransfert, fraisRetrait) =
+                                    quelFraisTransactionEtRetrait(montant);
+                                    frt = fraisRetrait;
+                                    ftrn = fraisTransfert;
+                                    mnt = montant;
+                                });
+                              
+                              }
+                              },
                               controller: _montantController,
                               focusNode: _montantFocusNode,
                               decoration: InputDecoration(
@@ -238,24 +255,6 @@ class PageDepot extends StatelessWidget {
                                 _isSelected = newValue;
                                 fraisVisible = !fraisVisible;
                               });
-                              if (_montantController.text ==''){ _montantController.text = '0';}
-                              else{
-                                int fraisRetrait, fraisTransfert;
-                              int montant = int.parse(_montantController.text
-                                  .replaceAll(RegExp(r'\D'), ""));
-                              if (_isSelected == false) {
-                                fraisTransfert = quelFraisTransaction(montant);
-                                fraisRetrait = 0;
-                              } else {
-                                setState((){
-                                  (fraisTransfert, fraisRetrait) =
-                                    quelFraisTransactionEtRetrait(montant);
-                                    frt = fraisRetrait;
-                                    ftrn = fraisTransfert;
-                                    mnt = montant;
-                                });
-                              }
-                              }
                             },
                           ),
                         ),
@@ -263,7 +262,6 @@ class PageDepot extends StatelessWidget {
                         Visibility(
                           visible: fraisVisible,
                           child: Text('$frt'))
-                        //TODO faire apparaitre le montant avant lancement
                       ],
                     ),
                   ],
@@ -281,29 +279,15 @@ class PageDepot extends StatelessWidget {
                       child: ElevatedButton(
                         onPressed: () {
                           if (_numeroController.text == '') {
-                            showDialog(
-                                context: context,
-                                builder: (BuildContext context) {
-                                  return const AlertDialog(
-                                      title: Text("Pas de numéro"),
-                                      content: Text(
-                                        "Veuillez renseigner le numéro",
-                                        textAlign: TextAlign.center,
-                                      ));
-                                });
+                            ScaffoldMessenger.of(context).showSnackBar(
+                       const SnackBar(content: Text('Veuillez renseigner un numéro'))
+                            );
                             _numeroControllerFocusNode.requestFocus();
                           } else {
                             if (_montantController.text == '') {
-                              showDialog(
-                                  context: context,
-                                  builder: (BuildContext context) {
-                                    return const AlertDialog(
-                                        title: Text("Pas de montant"),
-                                        content: Text(
-                                          "Veuillez renseigner le montant",
-                                          textAlign: TextAlign.center,
-                                        ));
-                                  });
+                              ScaffoldMessenger.of(context).showSnackBar(
+                       const SnackBar(content: Text('Veuillez renseigner un montant'))
+                            );
                               _montantFocusNode.requestFocus();
                             } else {
                               String num = _numeroController.text
@@ -312,38 +296,30 @@ class PageDepot extends StatelessWidget {
 
                               ///print (num[0]);
 
-                              // int fraisRetrait, fraisTransfert;
-                              // int montant = int.parse(_montantController.text
-                              //     .replaceAll(RegExp(r'\D'), ""));
-                              // if (_isSelected == false) {
-                              //   fraisTransfert = quelFraisTransaction(montant);
-                              //   fraisRetrait = 0;
-                              // } else {
-                              //   (fraisTransfert, fraisRetrait) =
-                              //       quelFraisTransactionEtRetrait(montant);
-                              // }
+                              int fraisRetrait, fraisTransfert;
+                              int montant = int.parse(_montantController.text
+                                  .replaceAll(RegExp(r'\D'), ""));
+                              if (_isSelected == false) {
+                                fraisTransfert = quelFraisTransaction(montant);
+                                fraisRetrait = 0;
+                              } else {
+                                (fraisTransfert, fraisRetrait) =
+                                    quelFraisTransactionEtRetrait(montant);
+                              }
 
                               if (num[0] == '9' || num[0] == '7') {
                                 callButtomSheetEnvoie(
                                         context,
                                         num,
-                                        mnt,
-                                        ftrn,
-                                        frt,
-                                        _isSelected)
-                                    .whenComplete(reset);
+                                        montant,
+                                        fraisTransfert,
+                                        fraisRetrait,
+                                        _isSelected);
+                                    // .whenComplete(reset);
                               } else {
-                                showDialog(
-                                    context: context,
-                                    builder: (BuildContext context) {
-                                      return const AlertDialog(
-                                          title: Text("Numéro incorrect",
-                                          textAlign: TextAlign.center,),
-                                          content: Text(
-                                            "Renseigner un numéro du Togo",
-                                            textAlign: TextAlign.center,
-                                          ));
-                                    });
+                                ScaffoldMessenger.of(context).showSnackBar(
+                       const SnackBar(content: Text('Veuillez renseigner un Togocel ou moov'))
+                            );
                               }
                             }
                           }

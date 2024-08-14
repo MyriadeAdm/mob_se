@@ -92,7 +92,7 @@ Future<void> callButtomSheetEnvoie(
                       const SizedBox(height: 10),
                       const Divider(
                         thickness: 0.5,
-                        color: ColorConstants.colorCustom2,
+                        color: Colors.black,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
