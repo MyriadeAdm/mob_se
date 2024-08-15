@@ -5,6 +5,8 @@ import 'package:mob_se/pages/page_transactions.dart';
 import 'package:mob_se/widgets/custom_app_bar.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent_bottom_nav_bar_v2.dart';
 import 'package:provider/provider.dart';
+import '../constants/color_constants.dart';
+import '../constants/reseaux.dart';
 import 'menu_accueil/home_page.dart';
 import 'page_forfait.dart';
 
@@ -62,6 +64,14 @@ class _BaseState extends State<Base> {
 
 // ==================================
 
+  Color colorItem() {
+    if (context.watch<Reseaux>().reseau=="Togocom") {
+       return ColorConstants.colorCustomButtonTg;
+    } else {
+      return ColorConstants.colorCustomButtonMv;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,6 +81,7 @@ class _BaseState extends State<Base> {
           PersistentTabConfig(
             screen: const HomePage(),
             item: ItemConfig(
+              activeForegroundColor: colorItem(),
               icon: const Icon(Icons.home),
               title: "Accueil",
             ),
@@ -78,6 +89,7 @@ class _BaseState extends State<Base> {
           PersistentTabConfig(
             screen: const ForfaitPage(),
             item: ItemConfig(
+              activeForegroundColor: colorItem(),
               icon: const Icon(Icons.sync_alt),
               title: "Forfaits",
             ),
@@ -85,6 +97,7 @@ class _BaseState extends State<Base> {
           PersistentTabConfig(
             screen: const TransactionsPage(),
             item: ItemConfig(
+              activeForegroundColor: colorItem(),
               icon: const Icon(Icons.attach_money),
               title: "Transactions",
             ),
@@ -92,6 +105,7 @@ class _BaseState extends State<Base> {
           PersistentTabConfig(
             screen: const PageParametre(),
             item: ItemConfig(
+              activeForegroundColor: colorItem(),
               icon: const Icon(Icons.settings),
               title: "Paramètre",
             ),

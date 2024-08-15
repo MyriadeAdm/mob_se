@@ -5,6 +5,7 @@ import 'package:flutter_native_contact_picker/flutter_native_contact_picker.dart
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:mob_se/constants/color_constants.dart';
 import 'package:mob_se/models/historique_database.dart';
+import 'package:info_popup/info_popup.dart';
 import 'package:provider/provider.dart';
 
 import '../../constants/reseaux.dart';
@@ -190,7 +191,7 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                       // setState(() {
                       //   // click += 1;
                       // });
-        
+
                       Contact? contact = await _contactPicker.selectContact();
                       if (contact != null) {
                         setState(() {
@@ -212,6 +213,7 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                 const SizedBox(
                   height: 20,
                 ),
+<<<<<<< HEAD:lib/pages/menu_transactions/page_achatCredit.dart
                 DropdownSearch<int>(
                   mode: Mode.MENU,
                   showSelectedItems: true,
@@ -229,6 +231,33 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                   style: TextStyle(
                     fontSize: 20,
                   ),
+=======
+                 const Row(
+                  children: [
+                    Text(
+                      'Montant',
+                      style: TextStyle(
+                        fontSize: 20,
+                      ),
+                    ),
+                    InfoPopupWidget(
+                      contentTitle: '''
+Montants autorisés:
+Recharge 200
+Recharge 500
+Recharge 1000
+Recharge 2000
+Recharge 4500
+Recharge 9000
+Recharge 22500
+Recharge 45000''',
+                      child: Icon(
+                        Icons.info,
+                        color: Colors.pink,
+                      ),
+                    ),
+                  ],
+>>>>>>> a32527b7f53d247dd06508f21f461a3db8e25c6d:lib/pages/menu_transactions/page_achat_credit.dart
                 ),
                 Row(
                   //crossAxisAlignment: CrossAxisAlignment.end,
@@ -312,56 +341,55 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                 ),
               ],
             ),
-        
-        
             const SizedBox(
-                height: 40,
-              ),
-              Center(
-                child: ElevatedButton(
-                  onPressed: () {
-                    var montant = _montantController.text;
-                    var codeSecret = _codeController.text;
-        
-                      if (montant == '' || int.parse(montant) <= 0) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                     const SnackBar(content: Text('Veuillez renseigner un montant'))
-                          );
-                      } else {
-                        if (codeSecret == '') {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                     const SnackBar(content: Text('Veuillez renseigner votre code'))
-                          );
-                        } else {
-                          FlutterPhoneDirectCaller.callNumber(
-                              "*145*3**1*1*choix**$codeSecret#");
-        
-                          context.read<HistoriqueDatabase>()
-                                  .addHistorique("Retrait", "$montant F CFA retiré chez l'agent."
-                                      );
-                        }
-                      }
-                  },
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: (context.watch<Reseaux>().reseau=="Togocom") ? ColorConstants.colorCustomButton2 : ColorConstants.colorCustomButtonMv,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      )),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 15),
-                    child: Text(
-                      'CONFIRMER',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w700,
-                        color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
-                      ),
+              height: 40,
+            ),
+            Center(
+              child: ElevatedButton(
+                onPressed: () {
+                  var montant = _montantController.text;
+                  var codeSecret = _codeController.text;
+
+                  if (montant == '' || int.parse(montant) <= 0) {
+                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                        content: Text('Veuillez renseigner un montant')));
+                  } else {
+                    if (codeSecret == '') {
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                          content: Text('Veuillez renseigner votre code')));
+                    } else {
+                      FlutterPhoneDirectCaller.callNumber(
+                          "*145*3**1*1*choix**$codeSecret#");
+
+                      context.read<HistoriqueDatabase>().addHistorique(
+                          "Retrait", "$montant F CFA retiré chez l'agent.");
+                    }
+                  }
+                },
+                style: ElevatedButton.styleFrom(
+                    backgroundColor:
+                        (context.watch<Reseaux>().reseau == "Togocom")
+                            ? ColorConstants.colorCustomButton2
+                            : ColorConstants.colorCustomButtonMv,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    )),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 30.0, vertical: 15),
+                  child: Text(
+                    'CONFIRMER',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w700,
+                      color: (context.watch<Reseaux>().reseau == "Togocom")
+                          ? Colors.black
+                          : Colors.white,
                     ),
                   ),
                 ),
               ),
-        
-        
+            ),
           ],
         ),
       ),
