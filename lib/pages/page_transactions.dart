@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mob_se/pages/menu_transactions/page_achatCredit.dart';
+import 'package:mob_se/pages/menu_transactions/page_achatcredit.dart';
 import 'package:mob_se/pages/menu_transactions/page_annulation.dart';
 import 'package:mob_se/pages/menu_transactions/page_depot.dart';
 import 'package:mob_se/pages/menu_transactions/page_retrait.dart';

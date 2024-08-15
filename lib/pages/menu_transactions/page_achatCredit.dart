@@ -1,3 +1,4 @@
+import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_native_contact_picker/flutter_native_contact_picker.dart';
@@ -211,6 +212,18 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                 const SizedBox(
                   height: 20,
                 ),
+                DropdownSearch<int>(
+                  mode: Mode.MENU,
+                  showSelectedItems: true,
+                  items: const [200,500,1000,2000,4500,9000,22500,45000],
+                  dropdownSearchDecoration: const InputDecoration(
+                    hintText: 'Faites un choix'
+                  ),
+                  onChanged: ItemSelectionChanged,
+                  searchFieldProps:
+                ),
+
+
                 const Text(
                   'Montant',
                   style: TextStyle(
