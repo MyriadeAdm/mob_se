@@ -1,10 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
-import 'package:mob_se/pages/menu_transactions/page_achatcredit.dart';
-=======
 import 'package:mob_se/pages/menu_transactions/page_achat_credit.dart';
->>>>>>> a32527b7f53d247dd06508f21f461a3db8e25c6d
 import 'package:mob_se/pages/menu_transactions/page_annulation.dart';
 import 'package:mob_se/pages/menu_transactions/page_depot.dart';
 import 'package:mob_se/pages/menu_transactions/page_retrait.dart';
@@ -130,7 +126,53 @@ class TransactionsPage extends StatelessWidget {
                 ),
               ],
             ),
-        
+
+
+
+            Padding(
+                  padding: const EdgeInsets.only(top:25.0),
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width,
+                    height: 130,
+                    child: ElevatedButton(
+                        onPressed: () {
+                         Navigator.push(
+                          context,
+                          CupertinoPageRoute(
+                              builder: (BuildContext context) =>
+                                  const PageAchatcredit()));
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: (context.watch<Reseaux>().reseau=="Togocom") ? ColorConstants.colorCustomButtonTg : ColorConstants.colorCustomButtonMv,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15)),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.ad_units,
+                              size: 40,
+                              color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
+                            ),
+                            const SizedBox(
+                              height: 15,
+                            ),
+                            Text(
+                              "Achats d'unités",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 17,
+                                fontWeight: FontWeight.w900,
+                                color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
+                              ),
+                            ),
+                          ],
+                        )),
+                  ),
+                ),
+
+
             
             Padding(
                   padding: const EdgeInsets.only(top:25.0),
@@ -163,50 +205,6 @@ class TransactionsPage extends StatelessWidget {
                             ),
                             Text(
                               'Annulation',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontSize: 17,
-                                fontWeight: FontWeight.w900,
-                                color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
-                              ),
-                            ),
-                          ],
-                        )),
-                  ),
-                ),
-      
-      
-                Padding(
-                  padding: const EdgeInsets.only(top:25.0),
-                  child: SizedBox(
-                    width: MediaQuery.of(context).size.width,
-                    height: 130,
-                    child: ElevatedButton(
-                        onPressed: () {
-                         Navigator.push(
-                          context,
-                          CupertinoPageRoute(
-                              builder: (BuildContext context) =>
-                                  const PageAchatcredit()));
-                        },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: (context.watch<Reseaux>().reseau=="Togocom") ? ColorConstants.colorCustomButtonTg : ColorConstants.colorCustomButtonMv,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15)),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.ad_units,
-                              size: 40,
-                              color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
-                            ),
-                            const SizedBox(
-                              height: 15,
-                            ),
-                            Text(
-                              "Achats d'unités",
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontSize: 17,

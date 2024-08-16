@@ -318,7 +318,7 @@ class PageDepot extends StatelessWidget {
                                     // .whenComplete(reset);
                               } else {
                                 ScaffoldMessenger.of(context).showSnackBar(
-                       const SnackBar(content: Text('Veuillez renseigner un Togocel ou moov'))
+                       const SnackBar(content: Text('Veuillez renseigner un numéro Togocel ou moov'))
                             );
                               }
                             }
