@@ -7,7 +7,6 @@ import 'package:mob_se/constants/color_constants.dart';
 import 'package:mob_se/models/historique_database.dart';
 import 'package:info_popup/info_popup.dart';
 import 'package:provider/provider.dart';
-
 import '../../constants/reseaux.dart';
 
 class LabeledCheckbox extends StatelessWidget {
@@ -213,25 +212,6 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                 const SizedBox(
                   height: 20,
                 ),
-<<<<<<< HEAD:lib/pages/menu_transactions/page_achatCredit.dart
-                DropdownSearch<int>(
-                  mode: Mode.MENU,
-                  showSelectedItems: true,
-                  items: const [200,500,1000,2000,4500,9000,22500,45000],
-                  dropdownSearchDecoration: const InputDecoration(
-                    hintText: 'Faites un choix'
-                  ),
-                  onChanged: ItemSelectionChanged,
-                  searchFieldProps:
-                ),
-
-
-                const Text(
-                  'Montant',
-                  style: TextStyle(
-                    fontSize: 20,
-                  ),
-=======
                  const Row(
                   children: [
                     Text(
@@ -257,7 +237,6 @@ Recharge 45000''',
                       ),
                     ),
                   ],
->>>>>>> a32527b7f53d247dd06508f21f461a3db8e25c6d:lib/pages/menu_transactions/page_achat_credit.dart
                 ),
                 Row(
                   //crossAxisAlignment: CrossAxisAlignment.end,

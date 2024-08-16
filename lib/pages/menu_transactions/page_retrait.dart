@@ -229,6 +229,9 @@ class PageRetrait extends StatelessWidget {
                           }
                         }
                       }
+                      _codeAgentController.clear();
+                      _montantController.clear();
+                      _codeController.clear();
                     },
                     style: ElevatedButton.styleFrom(
                         backgroundColor: (context.watch<Reseaux>().reseau=="Togocom") ? ColorConstants.colorCustomButton2 : ColorConstants.colorCustomButtonMv,

@@ -1,10 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
-import 'package:mob_se/pages/menu_transactions/page_achatcredit.dart';
-=======
 import 'package:mob_se/pages/menu_transactions/page_achat_credit.dart';
->>>>>>> a32527b7f53d247dd06508f21f461a3db8e25c6d
 import 'package:mob_se/pages/menu_transactions/page_annulation.dart';
 import 'package:mob_se/pages/menu_transactions/page_depot.dart';
 import 'package:mob_se/pages/menu_transactions/page_retrait.dart';
