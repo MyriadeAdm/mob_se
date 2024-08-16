@@ -207,79 +207,10 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                 const SizedBox(
                   height: 20,
                 ),
-<<<<<<< HEAD
                 const Text('* Séléctionner le montant à envoyer',
                     style: TextStyle(
                       fontSize: 15,
                     )),
-=======
-                 const Row(
-                  children: [
-                    Text(
-                      'Montant',
-                      style: TextStyle(
-                        fontSize: 20,
-                      ),
-                    ),
-                    InfoPopupWidget(
-                      contentTitle: '''
-Montants autorisés:
-Recharge 200
-Recharge 500
-Recharge 1000
-Recharge 2000
-Recharge 4500
-Recharge 9000
-Recharge 22500
-Recharge 45000''',
-                      child: Icon(
-                        Icons.info,
-                        color: Colors.pink,
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  //crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Expanded(
-                      child: TextField(
-                          textAlign: TextAlign.right,
-                          keyboardType: TextInputType.number,
-                          inputFormatters: [
-                            LengthLimitingTextInputFormatter(7),
-                          ],
-                          controller: _montantController,
-                          decoration: InputDecoration(
-                              isDense: true,
-                              // contentPadding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
-                                borderSide: const BorderSide(
-                                  color: ColorConstants.colorCustomButton2,
-                                ),
-                              )),
-                          style: const TextStyle(
-                            fontSize: 25,
-                          )),
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    const Text(
-                      'F CFA',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w700,
-                        color: ColorConstants.colorCustom3,
-                        fontSize: 35,
-                      ),
-                    )
-                  ],
-                ),
->>>>>>> 5b549b04313689bc78ceda098964eed6657f183c
                 const SizedBox(
                   height: 10,
                 ),
