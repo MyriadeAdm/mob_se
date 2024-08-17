@@ -32,11 +32,11 @@ Future<void> callButtomSheetUnite(
     ),
     builder: (context) {
                         if (numero != ''){
-                  intitule = 'Achat de crédit pour le';
+                  intitule = 'Achat de crédit pour';
                   numVisible = true;
                   numOui = "${numero[0]}${numero[1]} ${numero[2]}${numero[3]} ${numero[4]}${numero[5]} ${numero[6]}${numero[7]}";
-                }else{ intitule = 'Achat de credit à moi meme';
-                numOui = '';
+                }else{ intitule = 'Achat de credit à';
+                numOui = 'Moi-même';
                 numVisible = false;}
 
       return Padding(
@@ -56,14 +56,11 @@ Future<void> callButtomSheetUnite(
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                Visibility(
-                  visible: numVisible,
-                  child: Text(
-                    numOui,
-                    style: const TextStyle(
-                      fontSize: 40,
-                      fontWeight: FontWeight.bold,
-                    ),
+                Text(
+                  numOui,
+                  style: const TextStyle(
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
                 Container(
@@ -80,13 +77,15 @@ Future<void> callButtomSheetUnite(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           const Text("Choix de:",
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500,
-                          ),),
+                          // style: TextStyle(
+                          //   //fontSize: 20,
+                          //   fontWeight: FontWeight.w500,
+                          // ),
+                          ),
                           Text("$montant F CFA",
                           style: const TextStyle(
-                            fontSize: 20,
+                            //fontSize: 20,
+                            fontWeight: FontWeight.w800,
                           ),),
                         ],
                       ),
@@ -134,7 +133,7 @@ Future<void> callButtomSheetUnite(
                     }
                     else { 
                       //TODO ajouter le code USSD
-                        FlutterPhoneDirectCaller.callNumber("*145*1*$montant*$numero*1*${_codeController.text}#");  
+                        FlutterPhoneDirectCaller.callNumber("*145*3*1*$montant*$numero*1*${_codeController.text}#");  
                     }
                   },
                   style: ElevatedButton.styleFrom(
