@@ -151,7 +151,6 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
             Visibility(
               visible: numVisible,
               child: Row(
-                //mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Expanded(
                     child: TextField(
@@ -183,10 +182,6 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                     icon: const Icon(Icons.contacts_rounded,
                         color: Colors.grey, size: 40.0),
                     onPressed: () async {
-                      // setState(() {
-                      //   // click += 1;
-                      // });
-
                       Contact? contact = await _contactPicker.selectContact();
                       if (contact != null) {
                         setState(() {
@@ -217,446 +212,29 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                 ),
                 Row(
                   children: [
-                    Expanded(
-                      child: SizedBox(
-                        height: 100,
-                        child: TextButton(
-                          onPressed: () {
-                            _numeroControllerFocusNode.unfocus();
-                            montant = 200;
-                            if (currentOption == options[0]) {
-                              String num = _numeroController.text = '';
-                              callButtomSheetUnite(
-                                context,
-                                num,
-                                montant,
-                              );
-                            } else {
-                              if (currentOption == options[1] &&
-                                  _numeroController.text == '') {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                    const SnackBar(
-                                        content: Text(
-                                            'Veuillez renseigner un numéro')));
-                                _numeroControllerFocusNode.requestFocus();
-                              } else {
-                                String num = _numeroController.text
-                                    .replaceAll(RegExp(r'\D'), "");
-                                num = num.substring(num.length - 8);
-
-                                ///print (num[0]);
-
-                                if (num[0] == '9' || num[0] == '7') {
-                                  callButtomSheetUnite(
-                                    context,
-                                    num,
-                                    montant,
-                                  );
-                                } else {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                      const SnackBar(
-                                          content: Text(
-                                              'Veuillez renseigner un numéro Togocel ou moov')));
-                                }
-                              }
-                            }
-                          },
-                          style: TextButton.styleFrom(
-                            backgroundColor: Colors.white,
-                            padding: const EdgeInsets.all(13),
-                            shape: RoundedRectangleBorder(
-                              borderRadius:
-                                  const BorderRadius.all(Radius.circular(15)),
-                              side: BorderSide(
-                                  style: BorderStyle.solid,
-                                  width: 1.5,
-                                  color: (context.watch<Reseaux>().reseau ==
-                                          "Togocom")
-                                      ? ColorConstants.colorCustomButton2
-                                      : ColorConstants.colorCustomButtonMv),
-                            ),
-                          ),
-                          child: const Text(
-                            "200",
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                    creditColumn(context, 200),
 
                     const SizedBox(width: 10),
 
-                    Expanded(
-                      child: SizedBox(
-                        height: 100,
-                        child: TextButton(
-                          onPressed: () {
-                            _numeroControllerFocusNode.unfocus();
-                            montant = 500;
-                            if (currentOption == options[0]) {
-                              String num = _numeroController.text = '';
-                              
-                              callButtomSheetUnite(
-                                context,
-                                num,
-                                montant,
-                              );
-                            } else {
-                              if (currentOption == options[1] &&
-                                  _numeroController.text == '') {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                    const SnackBar(
-                                        content: Text(
-                                            'Veuillez renseigner un numéro')));
-                                _numeroControllerFocusNode.requestFocus();
-                              } else {
-                                String num = _numeroController.text
-                                    .replaceAll(RegExp(r'\D'), "");
-                                num = num.substring(num.length - 8);
-
-                                ///print (num[0]);
-
-                                if (num[0] == '9' || num[0] == '7') {
-                                  callButtomSheetUnite(
-                                    context,
-                                    num,
-                                    montant,
-                                  );
-                                } else {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                      const SnackBar(
-                                          content: Text(
-                                              'Veuillez renseigner un numéro Togocel ou moov')));
-                                }
-                              }
-                            }
-                          },
-                          style: TextButton.styleFrom(
-                            backgroundColor: Colors.white,
-                            padding: const EdgeInsets.all(13),
-                            shape: RoundedRectangleBorder(
-                              borderRadius:
-                                  const BorderRadius.all(Radius.circular(15)),
-                              side: BorderSide(
-                                  style: BorderStyle.solid,
-                                  width: 1.5,
-                                  color: (context.watch<Reseaux>().reseau ==
-                                          "Togocom")
-                                      ? ColorConstants.colorCustomButton2
-                                      : ColorConstants.colorCustomButtonMv),
-                            ),
-                          ),
-                          child: const Text(
-                            "500",
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                    creditColumn(context, 500),
 
                     const SizedBox(width: 10),
 
-                    Expanded(
-                      child: SizedBox(
-                        height: 100,
-                        child: TextButton(
-                          onPressed: () {
-                            _numeroControllerFocusNode.unfocus();
-                            montant = 1000;
-                            if (currentOption == options[0]) {
-                              String num = _numeroController.text = '';
-                              
-                              callButtomSheetUnite(
-                                context,
-                                num,
-                                montant,
-                              );
-                            } else {
-                              if (currentOption == options[1] &&
-                                  _numeroController.text == '') {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                    const SnackBar(
-                                        content: Text(
-                                            'Veuillez renseigner un numéro')));
-                                _numeroControllerFocusNode.requestFocus();
-                              } else {
-                                String num = _numeroController.text
-                                    .replaceAll(RegExp(r'\D'), "");
-                                num = num.substring(num.length - 8);
-
-                                ///print (num[0]);
-
-                                if (num[0] == '9' || num[0] == '7') {
-                                  callButtomSheetUnite(
-                                    context,
-                                    num,
-                                    montant,
-                                  );
-                                } else {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                      const SnackBar(
-                                          content: Text(
-                                              'Veuillez renseigner un numéro Togocel ou moov')));
-                                }
-                              }
-                            }
-                          },
-                          style: TextButton.styleFrom(
-                            backgroundColor: Colors.white,
-                            padding: const EdgeInsets.all(13),
-                            shape: RoundedRectangleBorder(
-                              borderRadius:
-                                  const BorderRadius.all(Radius.circular(15)),
-                              side: BorderSide(
-                                  style: BorderStyle.solid,
-                                  width: 1.5,
-                                  color: (context.watch<Reseaux>().reseau ==
-                                          "Togocom")
-                                      ? ColorConstants.colorCustomButton2
-                                      : ColorConstants.colorCustomButtonMv),
-                            ),
-                          ),
-                          child: const Text(
-                            "1.000",
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
+                    creditColumn(context, 1000),
+                    ],
                 ),
                 const SizedBox(height: 10),
                 Row(
                   children: [
-                    Expanded(
-                      child: SizedBox(
-                        height: 100,
-                        child: TextButton(
-                          onPressed: () {
-                            _numeroControllerFocusNode.unfocus();
-                            montant = 2000;
-                            if (currentOption == options[0]) {
-                              String num = _numeroController.text = '';
-                              
-                              callButtomSheetUnite(
-                                context,
-                                num,
-                                montant,
-                              );
-                            } else {
-                              if (currentOption == options[1] &&
-                                  _numeroController.text == '') {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                    const SnackBar(
-                                        content: Text(
-                                            'Veuillez renseigner un numéro')));
-                                _numeroControllerFocusNode.requestFocus();
-                              } else {
-                                String num = _numeroController.text
-                                    .replaceAll(RegExp(r'\D'), "");
-                                num = num.substring(num.length - 8);
-
-                                ///print (num[0]);
-
-                                if (num[0] == '9' || num[0] == '7') {
-                                  callButtomSheetUnite(
-                                    context,
-                                    num,
-                                    montant,
-                                  );
-                                } else {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                      const SnackBar(
-                                          content: Text(
-                                              'Veuillez renseigner un numéro Togocel ou moov')));
-                                }
-                              }
-                            }
-                          },
-                          style: TextButton.styleFrom(
-                            backgroundColor: Colors.white,
-                            padding: const EdgeInsets.all(13),
-                            shape: RoundedRectangleBorder(
-                              borderRadius:
-                                  const BorderRadius.all(Radius.circular(15)),
-                              side: BorderSide(
-                                  style: BorderStyle.solid,
-                                  width: 1.5,
-                                  color: (context.watch<Reseaux>().reseau ==
-                                          "Togocom")
-                                      ? ColorConstants.colorCustomButton2
-                                      : ColorConstants.colorCustomButtonMv),
-                            ),
-                          ),
-                          child: const Text(
-                            "2.000",
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                    creditColumn(context, 2000),
 
                     const SizedBox(width: 10),
 
-                    Expanded(
-                      child: SizedBox(
-                        height: 100,
-                        child: TextButton(
-                          onPressed: () {
-                            _numeroControllerFocusNode.unfocus();
-                            montant = 4500;
-                            if (currentOption == options[0]) {
-                              String num = _numeroController.text = '';
-                              
-                              callButtomSheetUnite(
-                                context,
-                                num,
-                                montant,
-                              );
-                            } else {
-                              if (currentOption == options[1] &&
-                                  _numeroController.text == '') {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                    const SnackBar(
-                                        content: Text(
-                                            'Veuillez renseigner un numéro')));
-                                _numeroControllerFocusNode.requestFocus();
-                              } else {
-                                String num = _numeroController.text
-                                    .replaceAll(RegExp(r'\D'), "");
-                                num = num.substring(num.length - 8);
-
-                                ///print (num[0]);
-
-                                if (num[0] == '9' || num[0] == '7') {
-                                  callButtomSheetUnite(
-                                    context,
-                                    num,
-                                    montant,
-                                  );
-                                } else {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                      const SnackBar(
-                                          content: Text(
-                                              'Veuillez renseigner un numéro Togocel ou moov')));
-                                }
-                              }
-                            }
-                          },
-                          style: TextButton.styleFrom(
-                            backgroundColor: Colors.white,
-                            padding: const EdgeInsets.all(13),
-                            shape: RoundedRectangleBorder(
-                              borderRadius:
-                                  const BorderRadius.all(Radius.circular(15)),
-                              side: BorderSide(
-                                  style: BorderStyle.solid,
-                                  width: 1.5,
-                                  color: (context.watch<Reseaux>().reseau ==
-                                          "Togocom")
-                                      ? ColorConstants.colorCustomButton2
-                                      : ColorConstants.colorCustomButtonMv),
-                            ),
-                          ),
-                          child: const Text(
-                            "4.500",
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                    creditColumn(context, 4500),                  
+                    
                     const SizedBox(width: 10),
-                    Expanded(
-                      child: SizedBox(
-                        height: 100,
-                        child: TextButton(
-                          onPressed: () {
-                            _numeroControllerFocusNode.unfocus();
-                            montant = 9000;
-                            if (currentOption == options[0]) {
-                              String num = _numeroController.text = '';
-                              
-                              callButtomSheetUnite(
-                                context,
-                                num,
-                                montant,
-                              );
-                            } else {
-                              if (currentOption == options[1] &&
-                                  _numeroController.text == '') {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                    const SnackBar(
-                                        content: Text(
-                                            'Veuillez renseigner un numéro')));
-                                _numeroControllerFocusNode.requestFocus();
-                              } else {
-                                String num = _numeroController.text
-                                    .replaceAll(RegExp(r'\D'), "");
-                                num = num.substring(num.length - 8);
-
-                                ///print (num[0]);
-
-                                if (num[0] == '9' || num[0] == '7') {
-                                  callButtomSheetUnite(
-                                    context,
-                                    num,
-                                    montant,
-                                  );
-                                } else {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                      const SnackBar(
-                                          content: Text(
-                                              'Veuillez renseigner un numéro Togocel ou moov')));
-                                }
-                              }
-                            }
-                          },
-                          style: TextButton.styleFrom(
-                            backgroundColor: Colors.white,
-                            padding: const EdgeInsets.all(13),
-                            shape: RoundedRectangleBorder(
-                              borderRadius:
-                                  const BorderRadius.all(Radius.circular(15)),
-                              side: BorderSide(
-                                  style: BorderStyle.solid,
-                                  width: 1.5,
-                                  color: (context.watch<Reseaux>().reseau ==
-                                          "Togocom")
-                                      ? ColorConstants.colorCustomButton2
-                                      : ColorConstants.colorCustomButtonMv),
-                            ),
-                          ),
-                          child: const Text(
-                            "9.000",
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                    
+                    creditColumn(context, 9000),                 
                   ],
                 ),
 
@@ -664,151 +242,11 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
 
                 Row(
                   children: [
-                    Expanded(
-                      child: SizedBox(
-                        height: 100,
-                        child: TextButton(
-                          onPressed: () {
-                            _numeroControllerFocusNode.unfocus();
-                            montant = 22500;
-                            if (currentOption == options[0]) {
-                              String num = _numeroController.text = '';
-                              
-                              callButtomSheetUnite(
-                                context,
-                                num,
-                                montant,
-                              );
-                            } else {
-                              if (currentOption == options[1] &&
-                                  _numeroController.text == '') {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                    const SnackBar(
-                                        content: Text(
-                                            'Veuillez renseigner un numéro')));
-                                _numeroControllerFocusNode.requestFocus();
-                              } else {
-                                String num = _numeroController.text
-                                    .replaceAll(RegExp(r'\D'), "");
-                                num = num.substring(num.length - 8);
-
-                                ///print (num[0]);
-
-                                if (num[0] == '9' || num[0] == '7') {
-                                  callButtomSheetUnite(
-                                    context,
-                                    num,
-                                    montant,
-                                  );
-                                } else {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                      const SnackBar(
-                                          content: Text(
-                                              'Veuillez renseigner un numéro Togocel ou moov')));
-                                }
-                              }
-                            }
-                          },
-                          style: TextButton.styleFrom(
-                            backgroundColor: Colors.white,
-                            padding: const EdgeInsets.all(13),
-                            shape: RoundedRectangleBorder(
-                              borderRadius:
-                                  const BorderRadius.all(Radius.circular(15)),
-                              side: BorderSide(
-                                  style: BorderStyle.solid,
-                                  width: 1.5,
-                                  color: (context.watch<Reseaux>().reseau ==
-                                          "Togocom")
-                                      ? ColorConstants.colorCustomButton2
-                                      : ColorConstants.colorCustomButtonMv),
-                            ),
-                          ),
-                          child: const Text(
-                            "22.500",
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                    creditColumn(context, 22500),
 
                     const SizedBox(width: 10),
 
-                    Expanded(
-                      child: SizedBox(
-                        height: 100,
-                        child: TextButton(
-                          onPressed: () {
-                            _numeroControllerFocusNode.unfocus();
-                            montant = 45000;
-                            if (currentOption == options[0]) {
-                              String num = _numeroController.text = '';
-                              
-                              callButtomSheetUnite(
-                                context,
-                                num,
-                                montant,
-                              );
-                            } else {
-                              if (currentOption == options[1] &&
-                                  _numeroController.text == '') {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                    const SnackBar(
-                                        content: Text(
-                                            'Veuillez renseigner un numéro')));
-                                _numeroControllerFocusNode.requestFocus();
-                              } else {
-                                String num = _numeroController.text
-                                    .replaceAll(RegExp(r'\D'), "");
-                                num = num.substring(num.length - 8);
-
-                                ///print (num[0]);
-
-                                if (num[0] == '9' || num[0] == '7') {
-                                  callButtomSheetUnite(
-                                    context,
-                                    num,
-                                    montant,
-                                  );
-                                } else {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                      const SnackBar(
-                                          content: Text(
-                                              'Veuillez renseigner un numéro Togocel ou moov')));
-                                }
-                              }
-                            }
-                          },
-                          style: TextButton.styleFrom(
-                            backgroundColor: Colors.white,
-                            padding: const EdgeInsets.all(13),
-                            shape: RoundedRectangleBorder(
-                              borderRadius:
-                                  const BorderRadius.all(Radius.circular(15)),
-                              side: BorderSide(
-                                  style: BorderStyle.solid,
-                                  width: 1.5,
-                                  color: (context.watch<Reseaux>().reseau ==
-                                          "Togocom")
-                                      ? ColorConstants.colorCustomButton2
-                                      : ColorConstants.colorCustomButtonMv),
-                            ),
-                          ),
-                          child: const Text(
-                            "45.000",
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                    creditColumn(context, 45000),                
                   ],
                 ),
               ],
@@ -821,3 +259,78 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
 }
 
 void verif() {}
+
+
+Widget creditColumn(BuildContext context, int montantArg) {
+
+  return Expanded(
+                      child: SizedBox(
+                        height: 100,
+                        child: TextButton(
+                          onPressed: () {
+                            _numeroControllerFocusNode.unfocus();
+                            montant = montantArg;
+                            if (currentOption == options[0]) {
+                              String num = _numeroController.text = '';
+                              callButtomSheetUnite(
+                                context,
+                                num,
+                                montant,
+                              );
+                            } else {
+                              if (currentOption == options[1] &&
+                                  _numeroController.text == '') {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(
+                                        content: Text(
+                                            'Veuillez renseigner un numéro')));
+                                _numeroControllerFocusNode.requestFocus();
+                              } else {
+                                String num = _numeroController.text
+                                    .replaceAll(RegExp(r'\D'), "");
+                                num = num.substring(num.length - 8);
+
+                                ///print (num[0]);
+
+                                if (num[0] == '9' || num[0] == '7') {
+                                  callButtomSheetUnite(
+                                    context,
+                                    num,
+                                    montant,
+                                  );
+                                } else {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                      const SnackBar(
+                                          content: Text(
+                                              'Veuillez renseigner un numéro Togocel ou moov')));
+                                }
+                              }
+                            }
+                          },
+                          style: TextButton.styleFrom(
+                            backgroundColor: Colors.white,
+                            padding: const EdgeInsets.all(13),
+                            shape: RoundedRectangleBorder(
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(15)),
+                              side: BorderSide(
+                                  style: BorderStyle.solid,
+                                  width: 1.5,
+                                  color: (context.watch<Reseaux>().reseau ==
+                                          "Togocom")
+                                      ? ColorConstants.colorCustomButton2
+                                      : ColorConstants.colorCustomButtonMv),
+                            ),
+                          ),
+                          child: Text(
+                            '$montantArg',
+                            style: const TextStyle(
+                              color: Colors.black,
+                              fontSize: 20,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
+                      ),
+                    );
+}
