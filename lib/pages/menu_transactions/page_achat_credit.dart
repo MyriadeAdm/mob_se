@@ -212,29 +212,29 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                 ),
                 Row(
                   children: [
-                    creditColumn(context, 200),
+                    creditColumn(context, 200, '200'),
 
                     const SizedBox(width: 10),
 
-                    creditColumn(context, 500),
+                    creditColumn(context, 500, '500'),
 
                     const SizedBox(width: 10),
 
-                    creditColumn(context, 1000),
+                    creditColumn(context, 1000, '1.000'),
                     ],
                 ),
                 const SizedBox(height: 10),
                 Row(
                   children: [
-                    creditColumn(context, 2000),
+                    creditColumn(context, 2000, '2.000'),
 
                     const SizedBox(width: 10),
 
-                    creditColumn(context, 4500),                  
+                    creditColumn(context, 4500, '4.500'),                  
                     
                     const SizedBox(width: 10),
                     
-                    creditColumn(context, 9000),                 
+                    creditColumn(context, 9000, '9.000'),                 
                   ],
                 ),
 
@@ -242,11 +242,11 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
 
                 Row(
                   children: [
-                    creditColumn(context, 22500),
+                    creditColumn(context, 22500, '22.500'),
 
                     const SizedBox(width: 10),
 
-                    creditColumn(context, 45000),                
+                    creditColumn(context, 45000, '45.000'),                
                   ],
                 ),
               ],
@@ -261,7 +261,7 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
 void verif() {}
 
 
-Widget creditColumn(BuildContext context, int montantArg) {
+Widget creditColumn(BuildContext context, int montantArg, String montantAfficher) {
 
   return Expanded(
                       child: SizedBox(
@@ -323,7 +323,7 @@ Widget creditColumn(BuildContext context, int montantArg) {
                             ),
                           ),
                           child: Text(
-                            '$montantArg',
+                            montantAfficher,
                             style: const TextStyle(
                               color: Colors.black,
                               fontSize: 20,
