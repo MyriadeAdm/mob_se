@@ -64,6 +64,12 @@ class _MainAppState extends State<MainApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        useMaterial3: true,
+        highlightColor: Colors.white,
+        scaffoldBackgroundColor: Colors.white,
+        indicatorColor: Colors.white,
+        dialogBackgroundColor: Colors.white,
+        //colorSchemeSeed: Colors.white,
         //brightness: Brightness.light,
         appBarTheme: const AppBarTheme(
           color: Colors.white,

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_contact_picker/flutter_native_contact_picker.dart';
 import 'package:mob_se/constants/color_constants.dart';
-import 'package:mob_se/models/historique_database.dart';
 import 'package:mob_se/widgets/custum_bottom_sheet_unite.dart';
 import 'package:provider/provider.dart';
 import '../../constants/reseaux.dart';
@@ -113,7 +112,7 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                 Expanded(
                     child: ListTile(
                         horizontalTitleGap: 0,
-                        title: const Text('Moi meme'),
+                        title: const Text('Moi-même'),
                         leading: Radio(
                           value: options[0],
                           groupValue: currentOption,
@@ -121,6 +120,7 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                             setState(() {
                               currentOption = value.toString();
                               numVisible = false;
+                              _numeroController.clear();
                             });
                           },
                           activeColor:
@@ -157,6 +157,7 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                     child: TextField(
                       autofocus: true,
                       controller: _numeroController,
+                      focusNode: _numeroControllerFocusNode,
                       decoration: InputDecoration(
                         hintText: 'Nom ou numéro de téléphone',
                         filled: true,
@@ -221,9 +222,10 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                         height: 100,
                         child: TextButton(
                           onPressed: () {
+                            _numeroControllerFocusNode.unfocus();
+                            montant = 200;
                             if (currentOption == options[0]) {
                               String num = _numeroController.text = '';
-                              montant = 200;
                               callButtomSheetUnite(
                                 context,
                                 num,
@@ -277,6 +279,7 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                           child: const Text(
                             "200",
                             style: TextStyle(
+                              color: Colors.black,
                               fontSize: 20,
                               fontWeight: FontWeight.w600,
                             ),
@@ -284,15 +287,19 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                         ),
                       ),
                     ),
+
                     const SizedBox(width: 10),
+
                     Expanded(
                       child: SizedBox(
                         height: 100,
                         child: TextButton(
                           onPressed: () {
+                            _numeroControllerFocusNode.unfocus();
+                            montant = 500;
                             if (currentOption == options[0]) {
                               String num = _numeroController.text = '';
-                              montant = 500;
+                              
                               callButtomSheetUnite(
                                 context,
                                 num,
@@ -347,21 +354,26 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                             "500",
                             style: TextStyle(
                               fontSize: 20,
+                              color: Colors.black,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
                         ),
                       ),
                     ),
+
                     const SizedBox(width: 10),
+
                     Expanded(
                       child: SizedBox(
                         height: 100,
                         child: TextButton(
                           onPressed: () {
+                            _numeroControllerFocusNode.unfocus();
+                            montant = 1000;
                             if (currentOption == options[0]) {
                               String num = _numeroController.text = '';
-                              montant = 1000;
+                              
                               callButtomSheetUnite(
                                 context,
                                 num,
@@ -416,6 +428,7 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                             "1.000",
                             style: TextStyle(
                               fontSize: 20,
+                              color: Colors.black,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
@@ -432,9 +445,11 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                         height: 100,
                         child: TextButton(
                           onPressed: () {
+                            _numeroControllerFocusNode.unfocus();
+                            montant = 2000;
                             if (currentOption == options[0]) {
                               String num = _numeroController.text = '';
-                              montant = 2000;
+                              
                               callButtomSheetUnite(
                                 context,
                                 num,
@@ -489,21 +504,26 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                             "2.000",
                             style: TextStyle(
                               fontSize: 20,
+                              color: Colors.black,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
                         ),
                       ),
                     ),
+
                     const SizedBox(width: 10),
+
                     Expanded(
                       child: SizedBox(
                         height: 100,
                         child: TextButton(
                           onPressed: () {
+                            _numeroControllerFocusNode.unfocus();
+                            montant = 4500;
                             if (currentOption == options[0]) {
                               String num = _numeroController.text = '';
-                              montant = 4500;
+                              
                               callButtomSheetUnite(
                                 context,
                                 num,
@@ -558,6 +578,7 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                             "4.500",
                             style: TextStyle(
                               fontSize: 20,
+                              color: Colors.black,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
@@ -570,9 +591,11 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                         height: 100,
                         child: TextButton(
                           onPressed: () {
+                            _numeroControllerFocusNode.unfocus();
+                            montant = 9000;
                             if (currentOption == options[0]) {
                               String num = _numeroController.text = '';
-                              montant = 9000;
+                              
                               callButtomSheetUnite(
                                 context,
                                 num,
@@ -627,6 +650,7 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                             "9.000",
                             style: TextStyle(
                               fontSize: 20,
+                              color: Colors.black,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
@@ -635,7 +659,9 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                     ),
                   ],
                 ),
+
                 const SizedBox(height: 10),
+
                 Row(
                   children: [
                     Expanded(
@@ -643,9 +669,11 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                         height: 100,
                         child: TextButton(
                           onPressed: () {
+                            _numeroControllerFocusNode.unfocus();
+                            montant = 22500;
                             if (currentOption == options[0]) {
                               String num = _numeroController.text = '';
-                              montant = 22500;
+                              
                               callButtomSheetUnite(
                                 context,
                                 num,
@@ -700,21 +728,26 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                             "22.500",
                             style: TextStyle(
                               fontSize: 20,
+                              color: Colors.black,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
                         ),
                       ),
                     ),
+
                     const SizedBox(width: 10),
+
                     Expanded(
                       child: SizedBox(
                         height: 100,
                         child: TextButton(
                           onPressed: () {
+                            _numeroControllerFocusNode.unfocus();
+                            montant = 45000;
                             if (currentOption == options[0]) {
                               String num = _numeroController.text = '';
-                              montant = 45000;
+                              
                               callButtomSheetUnite(
                                 context,
                                 num,
@@ -769,6 +802,7 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                             "45.000",
                             style: TextStyle(
                               fontSize: 20,
+                              color: Colors.black,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
