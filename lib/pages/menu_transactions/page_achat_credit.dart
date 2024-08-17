@@ -290,8 +290,6 @@ Widget creditColumn(BuildContext context, int montantArg, String montantAfficher
                                     .replaceAll(RegExp(r'\D'), "");
                                 num = num.substring(num.length - 8);
 
-                                ///print (num[0]);
-
                                 if (num[0] == '9' || num[0] == '7') {
                                   callButtomSheetUnite(
                                     context,

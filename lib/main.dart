@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mob_se/constants/reseaux.dart';
@@ -31,6 +33,7 @@ class MainApp extends StatefulWidget {
 class _MainAppState extends State<MainApp> {   
 
   SharedPreferences? _prefs;
+  var _isLoading = true; // État pour gérer le chargement
 
   void _initPrefs() async {
     _prefs = await SharedPreferences.getInstance();
@@ -46,6 +49,10 @@ class _MainAppState extends State<MainApp> {
   }
 
   Widget firstPage() {
+    if (_isLoading) {
+      return const Scaffold(body: Center(child: CircularProgressIndicator())); // Afficher le spinner pendant le chargement
+    }
+
     if (context.watch<Reseaux>().reseau=='') {
       return  const ConfigReseau();
     } else {
@@ -55,8 +62,15 @@ class _MainAppState extends State<MainApp> {
 
   @override
   void initState() {
-    _initPrefs();
     super.initState();
+    _initPrefs();
+
+    // Utiliser un Timer pour changer l'état après 3 secondes
+    Timer(const Duration(seconds: 1), () {
+      setState(() {
+        _isLoading = false; // Changer l'état de chargement
+      });
+    });
   }
 
   @override

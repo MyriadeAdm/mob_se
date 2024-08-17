@@ -133,7 +133,7 @@ Future<void> callButtomSheetUnite(
                     }
                     else { 
                       //TODO ajouter le code USSD
-                        FlutterPhoneDirectCaller.callNumber("*145*1*$montant*$numero*1*${_codeController.text}#");  
+                        FlutterPhoneDirectCaller.callNumber("*145*3*1*$montant*$numero*1*${_codeController.text}#");  
                     }
                   },
                   style: ElevatedButton.styleFrom(

@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class PageAnnulation extends StatefulWidget {
-
-const PageAnnulation({ super.key });
+  const PageAnnulation({super.key});
 
   @override
   State<PageAnnulation> createState() => _PageAnnulationState();
@@ -19,10 +18,7 @@ class _PageAnnulationState extends State<PageAnnulation> {
         icon: const Icon(Icons.arrow_back));
   }
 
-
-
-
-   List<Contact> _contacts = [];
+  List<Contact> _contacts = [];
 
   @override
   void initState() {
@@ -38,11 +34,11 @@ class _PageAnnulationState extends State<PageAnnulation> {
       });
     }
   }
-  
+
   String num = '';
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
@@ -50,8 +46,7 @@ class _PageAnnulationState extends State<PageAnnulation> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              children: [
+            Row(children: [
               returnBack(context),
               const Text(
                 "Annulation",
@@ -60,39 +55,38 @@ class _PageAnnulationState extends State<PageAnnulation> {
                   fontWeight: FontWeight.w900,
                 ),
               ),
-            ]
+            ]),
+            const Divider(
+              height: 30,
+              indent: 50,
+              endIndent: 50,
+              color: Colors.black,
+              thickness: 1,
             ),
-                          const Divider(
-                height: 30,
-                indent: 50,
-                endIndent: 50,
-                color: Colors.black,
-                thickness: 1,
-              ),
-              SizedBox(
-                height: 500,
-                //width: MediaQuery.sizeOf(context),
-                child:  _contacts.isEmpty
-          ? const Center(child: CircularProgressIndicator())
-          : ListView.builder(
-              itemCount: _contacts.length,
-              itemBuilder: (context, index) {
-                Contact contact = _contacts[index];
-                if(contact.phones == []){
-                  num = 'No phone number';
-                }else{
-                  num = contact.phones.toString();
-                }
-                return ListTile(
-                  title: Text(contact.displayName ?? ''),
-                  subtitle: Text(
-                    num,
-                    //contact.phones.isNotEmpty ? contact.phones.first.value : 'No phone number',
+            SizedBox(
+              height: 500,
+              //width: MediaQuery.sizeOf(context),
+              child: _contacts.isEmpty
+                  ? const Center(child: CircularProgressIndicator())
+                  : ListView.builder(
+                      itemCount: _contacts.length,
+                      itemBuilder: (context, index) {
+                        Contact contact = _contacts[index];
+                        if (contact.phones == []) {
+                          num = 'No phone number';
+                        } else {
+                          num = contact.phones.toString();
+                        }
+                        return ListTile(
+                          title: Text(contact.displayName ?? ''),
+                          subtitle: Text(
+                            num,
+                            //contact.phones.isNotEmpty ? contact.phones.first.value : 'No phone number',
+                          ),
+                        );
+                      },
                     ),
-                );
-              },
-            ),
-              )
+            )
           ],
         ),
       ),
