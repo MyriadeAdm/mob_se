@@ -11,6 +11,7 @@ final FocusNode _codeControllerFocusNode = FocusNode();
 String intitule = '';
 String numOui = '';
 bool numVisible = true;
+int choixMontant = 0;
 
 class MyWidget extends StatelessWidget {
   const MyWidget({super.key});
@@ -135,15 +136,45 @@ Future<void> callButtomSheetUnite(
                       _codeControllerFocusNode.requestFocus();
                     }
                     else { 
+
+                      switch (montant) {
+                          case 200:
+                            choixMontant = 1;
+                            break;
+                          case 500:
+                            choixMontant = 2;
+                            break;
+                          case 1000:
+                            choixMontant = 3;
+                            break;
+                          case 2000:
+                            choixMontant = 4;
+                            break;
+                          case 4500:
+                            choixMontant = 5;
+                            break;
+                          case 9000:
+                            choixMontant = 7;
+                            break;
+                          case 22500:
+                            choixMontant = 8;
+                            break;
+                          case 45000:
+                            choixMontant = 9;
+                            break;
+                          default:
+                        }
+
                       if (isSelected) {
-                        FlutterPhoneDirectCaller.callNumber("*145*3*1*2*$numero*$montant*${_codeController.text}#");  
+
+                        FlutterPhoneDirectCaller.callNumber("*145*3*1*2*$numero*$choixMontant*${_codeController.text}#");  
 
                         context.read<HistoriqueDatabase>()
                                       .addHistorique("Achat crédit T-Money",
                                         "$montant F CFA rechargé à $numero");
 
                       } else {
-                        FlutterPhoneDirectCaller.callNumber("*145*3*1*1*$numero*$montant*${_codeController.text}#");
+                         FlutterPhoneDirectCaller.callNumber("*145*3*1*1*$choixMontant*${_codeController.text}#");
 
                         context.read<HistoriqueDatabase>()
                                       .addHistorique("Achat crédit T-Money",
