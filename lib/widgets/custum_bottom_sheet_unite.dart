@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
+import 'package:provider/provider.dart';
 
 import '../constants/color_constants.dart';
+import '../models/historique_database.dart';
 
 final _codeController = TextEditingController();
 final FocusNode _codeControllerFocusNode = FocusNode();
@@ -22,7 +24,8 @@ class MyWidget extends StatelessWidget {
 Future<void> callButtomSheetUnite(
     BuildContext context,
     var numero,
-    int montant,) async {
+    int montant,
+    bool isSelected) async {
   await showModalBottomSheet<dynamic>(
     useRootNavigator: true,
     isScrollControlled: true,
@@ -132,8 +135,20 @@ Future<void> callButtomSheetUnite(
                       _codeControllerFocusNode.requestFocus();
                     }
                     else { 
-                      //TODO ajouter le code USSD
-                        FlutterPhoneDirectCaller.callNumber("*145*3*1*$montant*$numero*1*${_codeController.text}#");  
+                      if (isSelected) {
+                        FlutterPhoneDirectCaller.callNumber("*145*3*1*2*$numero*$montant*${_codeController.text}#");  
+
+                        context.read<HistoriqueDatabase>()
+                                      .addHistorique("Achat crédit T-Money",
+                                        "$montant F CFA rechargé à $numero");
+
+                      } else {
+                        FlutterPhoneDirectCaller.callNumber("*145*3*1*1*$numero*$montant*${_codeController.text}#");
+
+                        context.read<HistoriqueDatabase>()
+                                      .addHistorique("Achat crédit T-Money",
+                                        "$montant F CFA rechargé à Moi-Même");
+                      }
                     }
                   },
                   style: ElevatedButton.styleFrom(
