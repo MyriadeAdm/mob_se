@@ -28,6 +28,7 @@ Future<void> callButtomSheetUnite(
     int montant,
     bool isSelected) async {
   await showModalBottomSheet<dynamic>(
+    showDragHandle: true,
     useRootNavigator: true,
     isScrollControlled: true,
     context: context,
@@ -49,7 +50,7 @@ Future<void> callButtomSheetUnite(
         child: SizedBox(
           height: MediaQuery.of(context).size.height / 2,
           child: Padding(
-            padding: const EdgeInsets.all(30),
+            padding: const EdgeInsets.only(bottom:30, left:30, right: 30),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.center,

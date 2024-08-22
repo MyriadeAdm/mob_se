@@ -24,6 +24,7 @@ Future<void> callButtomSheetEnvoie(
     int fraisRetrait,
     bool fraisVisible) async {
   await showModalBottomSheet<dynamic>(
+    showDragHandle: true,
     useRootNavigator: true,
     isScrollControlled: true,
     context: context,
@@ -36,8 +37,9 @@ Future<void> callButtomSheetEnvoie(
             EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
         child: SizedBox(
           height: MediaQuery.of(context).size.height / 2,
+          //height: 350,
           child: Padding(
-            padding: const EdgeInsets.all(30),
+            padding: const EdgeInsets.only(bottom:30, left:30, right: 30),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -55,6 +57,7 @@ Future<void> callButtomSheetEnvoie(
                     fontWeight: FontWeight.bold,
                   ),
                 ),
+                const SizedBox(height: 5),
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: const BorderRadius.all(Radius.circular(13)),
@@ -116,6 +119,7 @@ Future<void> callButtomSheetEnvoie(
                     ]),
                   ),
                 ),
+                const SizedBox(height: 10),
                 TextField(
                   textAlign: TextAlign.center,
                   keyboardType: TextInputType.number,
@@ -136,6 +140,7 @@ Future<void> callButtomSheetEnvoie(
                     ),
                   ),
                 ),
+                const SizedBox(height: 10),
                 ElevatedButton(
                   onPressed: () {
                     //print ('le code est *${_codeController.text}*');

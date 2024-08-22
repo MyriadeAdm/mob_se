@@ -144,7 +144,7 @@ class _HomePageState extends State<HomePage> {
                   Expanded(
                       child: CustomButton(
                           label: 'Solde $mb',
-                          code: (cname == 'Togocom') ? "*145*7*1#" : "")),
+                          code: (cname == 'Togocom') ? "*145*7*1#" : "*155*6*1#")),
                 ],
               ),
             ),

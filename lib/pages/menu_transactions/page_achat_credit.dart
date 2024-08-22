@@ -112,7 +112,10 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                 Expanded(
                     child: ListTile(
                         horizontalTitleGap: 0,
-                        title: const Text('Moi-même'),
+                        title: const Text('Moi-même',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                        ),),
                         leading: Radio(
                           value: options[0],
                           groupValue: currentOption,
@@ -131,7 +134,10 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                 Expanded(
                     child: ListTile(
                         horizontalTitleGap: 0,
-                        title: const Text('Pour autrui'),
+                        title: const Text('Pour autrui',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                        ),),
                         leading: Radio(
                           value: options[1],
                           groupValue: currentOption,
@@ -302,7 +308,7 @@ Widget creditColumn(BuildContext context, int montantArg, String montantAfficher
                                   ScaffoldMessenger.of(context).showSnackBar(
                                       const SnackBar(
                                           content: Text(
-                                              'Veuillez renseigner un numéro Togocel ou moov')));
+                                              'Veuillez renseigner un numéro correct')));
                                 }
                               }
                             }

@@ -14,19 +14,33 @@ class ConfigReseau extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             const Text("Choix du reseau :"),
-            const SizedBox(height: 20,),
+            const SizedBox(
+              height: 20,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                ElevatedButton(onPressed: () {
-                  context.read<Reseaux>().switchToTogocom();
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const Base()));
-                }, child: const Text("TOGOCOM")),
-                const SizedBox(width: 20,),
-                ElevatedButton(onPressed: () {
-                  context.read<Reseaux>().switchToMoov();
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const Base()));
-                }, child: const Text("Moov"))
+                Expanded(
+                  child: ElevatedButton(
+                      onPressed: () {
+                        context.read<Reseaux>().switchToTogocom();
+                        Navigator.pushAndRemoveUntil(context,MaterialPageRoute(builder: (context) => const Base()),
+                          (Route<dynamic> route) => false,);
+                      },
+                      child: const Text("Togocom")),
+                ),
+                const SizedBox(
+                  width: 20,
+                ),
+                Expanded(
+                  child: ElevatedButton(
+                      onPressed: () {
+                        context.read<Reseaux>().switchToMoov();
+                        Navigator.pushAndRemoveUntil(context,MaterialPageRoute(builder: (context) => const Base()),
+                          (Route<dynamic> route) => false,);
+                      },
+                      child: const Text("Moov")),
+                )
               ],
             )
           ],

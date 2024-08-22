@@ -22,10 +22,10 @@ class Constantes {
     //  ] Forfait moi-meme , Forfait autruit]
     ForfaitInternet('45 Mo', 'Validité 1 j', '100 XOF', '*909*2*1*2*1#',
         '*1*1*2*1#', '*909*2*1*2*2*', '*1*1*2*2*'),
-    ForfaitInternet('250 Mo', 'Validité 1 j', '250 XOF', '*909*2*1*1*1#',
-        '*1*1*1*1#', '*909*2*1*1*2*', '*1*1*1*2*'),
     ForfaitInternet('100 Mo', 'Validité 1 j', '200 XOF', '*909*2*1*3*1#',
         '*1*1*3*1#', '*909*2*1*3*2*', '*1*1*3*2*'),
+    ForfaitInternet('250 Mo', 'Validité 1 j', '250 XOF', '*909*2*1*1*1#',
+        '*1*1*1*1#', '*909*2*1*1*2*', '*1*1*1*2*'),
     ForfaitInternet('180 Mo', 'Validité 3 j', '350  XOF', '*909*2*1*4*1#',
         '*1*1*4*1#', '*909*2*1*4*2*', '*1*1*4*2*'),
     ForfaitInternet('400 Mo', 'Validité 3 j', '600 XOF', '*909*2*1*6*1#',

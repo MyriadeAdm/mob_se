@@ -59,6 +59,7 @@ class PageRetrait extends StatelessWidget {
                         'Code Agent',
                         style: TextStyle(
                           fontSize: 20,
+                          fontWeight: FontWeight.w600,
                         ),
                       ),
                       Row(
@@ -100,6 +101,7 @@ class PageRetrait extends StatelessWidget {
                         'Montant',
                         style: TextStyle(
                           fontSize: 20,
+                          fontWeight: FontWeight.w600,
                         ),
                       ),
                       Row(
@@ -150,6 +152,7 @@ class PageRetrait extends StatelessWidget {
                         'Code secret',
                         style: TextStyle(
                           fontSize: 20,
+                          fontWeight: FontWeight.w600,
                         ),
                       ),
                       Row(

@@ -63,6 +63,7 @@ bool _isSelected = false;
 String currentOption = options[0];
 bool codeVisible = false;
 bool numVisible = false;
+bool voirmsg = false;
 
 final FlutterContactPicker _contactPicker = FlutterContactPicker();
 // ignore: unused_element
@@ -103,6 +104,7 @@ Future<void> callButtomSheet(
     var mega,
     Typeforfait typeforfait) async {
   await showModalBottomSheet<dynamic>(
+    showDragHandle: true,
     useRootNavigator: true,
     isScrollControlled: true,
     context: context,
@@ -127,9 +129,9 @@ Future<void> callButtomSheet(
                   var gg = mega;
                   String codemoneyMM = codeMoneyMM;
                   String codemoneyAutruit = codeMoneyAutruit;
+                  if (bb == ''){voirmsg = false;} else{voirmsg = true;}
                   return Padding(
-                    padding: const EdgeInsets.only(
-                        right: 30, left: 30, top: 30, bottom: 30),
+                    padding: const EdgeInsets.only(right: 30, left: 30, bottom: 30),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisSize: MainAxisSize.min,
@@ -142,12 +144,15 @@ Future<void> callButtomSheet(
                                   typeforfait.name, aa, gg), // credit et mega
                               style: const TextStyle(
                                 fontSize: 20,
-                                fontWeight: FontWeight.w500,
+                                fontWeight: FontWeight.w600,
                               ),
                             ),
-                            Text(bb, //messages
-                                style: const TextStyle(
-                                    fontSize: 15, fontWeight: FontWeight.w500)),
+                            Visibility(
+                              visible: voirmsg,
+                              child: Text(bb, //messages
+                                  style: const TextStyle(
+                                      fontSize: 15, fontWeight: FontWeight.w500)),
+                            ),
                             Text(cc, //validite
                                 style: const TextStyle(
                                     fontSize: 13.5,

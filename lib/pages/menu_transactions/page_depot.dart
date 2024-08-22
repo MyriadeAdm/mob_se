@@ -113,6 +113,7 @@ class PageDepot extends StatelessWidget {
                       'Numéro',
                       style: TextStyle(
                         fontSize: 20,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                     Row(
@@ -180,6 +181,7 @@ class PageDepot extends StatelessWidget {
                       'Montant',
                       style: TextStyle(
                         fontSize: 20,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                     Row(
