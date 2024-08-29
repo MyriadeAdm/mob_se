@@ -40,7 +40,7 @@ class ConfigReseau extends StatelessWidget {
                         ),
                       ),
                       const Text(
-                        'Bienvenue sur Mob_se. En utilisant notre application, vous acceptez les présentes conditions d’utilisation. Veuillez les lire attentivement avant de commencer à utiliser l’application.',
+                        "Bienvenue sur Mob_se. En utilisant notre application, vous acceptez les présentes conditions d’utilisation. Veuillez les lire attentivement avant de commencer à utiliser l’application.",
                         textAlign: TextAlign.justify,
                       ),
                       const SizedBox(
@@ -54,7 +54,7 @@ class ConfigReseau extends StatelessWidget {
                         ),
                       ),
                       const Text(
-                        '2.1 Accès à l’Application',
+                        "2.1 Accès à l’Application",
                         style: TextStyle(
                           fontWeight: FontWeight.w700,
                           fontSize: 16,

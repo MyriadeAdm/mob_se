@@ -45,7 +45,7 @@ class _MainAppState extends State<MainApp> {
       context.read<Reseaux>().switchToTogocom();
     } else if (_prefs?.getString('reseau')=="Moov") {
       context.read<Reseaux>().switchToMoov();
-    }
+    } else{const ConfigReseau();}
   }
 
   Widget firstPage() {
@@ -89,6 +89,7 @@ class _MainAppState extends State<MainApp> {
           color: Colors.white,
         ),
         fontFamily: GoogleFonts.poppins().fontFamily,
+        //fontFamily: 'Poppins'
       ),
       home: firstPage(),
     );

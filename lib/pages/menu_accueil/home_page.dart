@@ -46,6 +46,7 @@ class _HomePageState extends State<HomePage> {
     return Center(
       child: SingleChildScrollView(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Row(
               children: [
