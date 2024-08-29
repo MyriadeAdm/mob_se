@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+// import 'package:google_fonts/google_fonts.dart';
 import 'package:mob_se/constants/reseaux.dart';
 import 'package:mob_se/models/historique_database.dart';
 import 'package:mob_se/pages/config_reseau.dart';
@@ -88,8 +88,8 @@ class _MainAppState extends State<MainApp> {
         appBarTheme: const AppBarTheme(
           color: Colors.white,
         ),
-        fontFamily: GoogleFonts.poppins().fontFamily,
-        //fontFamily: 'Poppins'
+        // fontFamily: GoogleFonts.poppins().fontFamily,
+        fontFamily: 'Poppins',
       ),
       home: firstPage(),
     );

@@ -159,7 +159,8 @@ class _HomePageState extends State<HomePage> {
                     "Forfait Internet",
                     style: TextStyle(
                       fontSize: 16,
-                      fontWeight: FontWeight.w900,
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.bold
                     ),
                   ),
                   const SizedBox(width: 10),

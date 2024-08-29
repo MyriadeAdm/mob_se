@@ -40,14 +40,13 @@ flutter:
   assets:
     - assets/images/
 
-fonts:
-    - family: Ppoppins
+  fonts:
+    - family: Poppins
       fonts:
-        - asset: font/Poppins/Poppins-Medium.ttf
-        - asset: font/Poppins/Poppins-Regular.ttf
-        - asset: font/Poppins/Poppins-Bold.ttf
-        - asset: font/Poppins/Poppins-Black.ttf
-        - asset: font/Poppins/Poppins-SemiBold.ttf
-        - asset: font/Poppins/Poppins-Light.ttf
-          #style: italic
-          #uses-material-design: true
+        - asset: assets/fonts/Poppins-Medium.ttf
+        - asset: assets/fonts/Poppins-Regular.ttf
+        - asset: assets/fonts/Poppins-Bold.ttf
+        - asset: assets/fonts/Poppins-Black.ttf
+        - asset: assets/fonts/Poppins-SemiBold.ttf
+        - asset: assets/fonts/Poppins-Light.ttf
+          #   #uses-material-design: true
