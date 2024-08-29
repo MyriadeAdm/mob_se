@@ -65,7 +65,7 @@ class _MainAppState extends State<MainApp> {
     super.initState();
     _initPrefs();
 
-    // Utiliser un Timer pour changer l'état après 3 secondes
+    // Utiliser un Timer pour changer l'état après 1 seconde
     Timer(const Duration(seconds: 1), () {
       setState(() {
         _isLoading = false; // Changer l'état de chargement

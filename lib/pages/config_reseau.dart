@@ -342,7 +342,7 @@ class ConfigReseau extends StatelessWidget {
                                 ))),
                             ElevatedButton(
                                 onPressed: () {
-                                  SystemChannels.platform.invokeMethod<void>('SystemNavigator.pop');
+                                  SystemNavigator.pop();
                                 },
                                 style: ElevatedButton.styleFrom(
                                     backgroundColor: Colors.red),
