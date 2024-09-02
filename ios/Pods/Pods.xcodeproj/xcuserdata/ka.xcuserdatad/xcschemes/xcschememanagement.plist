@@ -34,6 +34,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>flutter_exit_app.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>flutter_native_contact_picker.xcscheme</key>
 		<dict>
 			<key>isShown</key>

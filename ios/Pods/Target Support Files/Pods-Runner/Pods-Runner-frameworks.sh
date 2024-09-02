@@ -178,6 +178,7 @@ code_sign_if_enabled() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Toast/Toast.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/contacts_service/contacts_service.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/flutter_exit_app/flutter_exit_app.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/flutter_native_contact_picker/flutter_native_contact_picker.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/flutter_phone_direct_caller/flutter_phone_direct_caller.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/fluttertoast/fluttertoast.framework"
@@ -188,6 +189,7 @@ fi
 if [[ "$CONFIGURATION" == "Profile" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Toast/Toast.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/contacts_service/contacts_service.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/flutter_exit_app/flutter_exit_app.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/flutter_native_contact_picker/flutter_native_contact_picker.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/flutter_phone_direct_caller/flutter_phone_direct_caller.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/fluttertoast/fluttertoast.framework"
@@ -198,6 +200,7 @@ fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Toast/Toast.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/contacts_service/contacts_service.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/flutter_exit_app/flutter_exit_app.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/flutter_native_contact_picker/flutter_native_contact_picker.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/flutter_phone_direct_caller/flutter_phone_direct_caller.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/fluttertoast/fluttertoast.framework"

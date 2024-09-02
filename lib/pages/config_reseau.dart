@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:mob_se/constants/reseaux.dart';
 import 'package:mob_se/pages/base.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_exit_app/flutter_exit_app.dart';
 
 class ConfigReseau extends StatelessWidget {
   const ConfigReseau({super.key});
@@ -75,7 +75,7 @@ class ConfigReseau extends StatelessWidget {
                         ),
                       ),
                       const Text(
-                        '''Vous vous engagez à utiliser Mob_se de manière légale et respectueuse. Toute utilisation abusive, frauduleuse ou non autorisée de l’application est interdite. Toute utilisation abusive, frauduleuse ou non autorisée de l’application est interdite.''',
+                        '''Vous vous engagez à utiliser Mob_se de manière légale et respectueuse.''',
                         textAlign: TextAlign.justify,
                       ),
                       const SizedBox(
@@ -231,7 +231,8 @@ class ConfigReseau extends StatelessWidget {
                                       return SizedBox(
                                         height: 200,
                                         child: Padding(
-                                          padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 15.0),
                                           child: Center(
                                             child: Column(
                                               mainAxisAlignment:
@@ -255,67 +256,88 @@ class ConfigReseau extends StatelessWidget {
                                                                 .spaceEvenly,
                                                         children: [
                                                           Expanded(
-                                                            child: ElevatedButton(
-                                                                onPressed: () {
-                                                                  context
-                                                                      .read<
-                                                                          Reseaux>()
-                                                                      .switchToTogocom();
-                                                                  Navigator
-                                                                      .pushAndRemoveUntil(
-                                                                    context,
-                                                                    MaterialPageRoute(
-                                                                        builder:
-                                                                            (context) =>
+                                                            child:
+                                                                ElevatedButton(
+                                                                    onPressed:
+                                                                        () {
+                                                                      context
+                                                                          .read<
+                                                                              Reseaux>()
+                                                                          .switchToTogocom();
+                                                                      Navigator
+                                                                          .pushAndRemoveUntil(
+                                                                        context,
+                                                                        MaterialPageRoute(
+                                                                            builder: (context) =>
                                                                                 const Base()),
-                                                                    (Route<dynamic>
-                                                                            route) =>
-                                                                        false,
-                                                                  );
-                                                                },
-                                                                style: ElevatedButton.styleFrom(
-                                                                              backgroundColor: Colors.amber,
-                                                                              shape: RoundedRectangleBorder(
-                                              borderRadius: BorderRadius.circular(15.0),
-                                            ),),
-                                                                child: const Text(
-                                                                    "Togocom",
-                                                                    style: TextStyle(
-                                                                      color: Colors.black
-                                                                    ),)),
+                                                                        (Route<dynamic>
+                                                                                route) =>
+                                                                            false,
+                                                                      );
+                                                                    },
+                                                                    style: ElevatedButton
+                                                                        .styleFrom(
+                                                                      backgroundColor:
+                                                                          Colors
+                                                                              .amber,
+                                                                      shape:
+                                                                          RoundedRectangleBorder(
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(15.0),
+                                                                      ),
+                                                                    ),
+                                                                    child:
+                                                                        const Text(
+                                                                      "Togocom",
+                                                                      style: TextStyle(
+                                                                          color:
+                                                                              Colors.black),
+                                                                    )),
                                                           ),
                                                           const SizedBox(
                                                             width: 20,
                                                           ),
                                                           Expanded(
-                                                            child: ElevatedButton(
-                                                                onPressed: () {
-                                                                  context
-                                                                      .read<
-                                                                          Reseaux>()
-                                                                      .switchToMoov();
-                                                                  Navigator
-                                                                      .pushAndRemoveUntil(
-                                                                    context,
-                                                                    MaterialPageRoute(
-                                                                        builder:
-                                                                            (context) =>
+                                                            child:
+                                                                ElevatedButton(
+                                                                    onPressed:
+                                                                        () {
+                                                                      context
+                                                                          .read<
+                                                                              Reseaux>()
+                                                                          .switchToMoov();
+                                                                      Navigator
+                                                                          .pushAndRemoveUntil(
+                                                                        context,
+                                                                        MaterialPageRoute(
+                                                                            builder: (context) =>
                                                                                 const Base()),
-                                                                    (Route<dynamic>
-                                                                            route) =>
-                                                                        false,
-                                                                  );
-                                                                },
-                                                                style: ElevatedButton.styleFrom(
-                                                                              backgroundColor: const Color.fromRGBO(0, 94, 178, 1),
-                                                                              shape: RoundedRectangleBorder(
-                                              borderRadius: BorderRadius.circular(15.0),
-                                            ),),
-                                                                child: const Text(
-                                                                    "Moov",
-                                                                    style: TextStyle(
-                                                                      color: Colors.white
-                                                                    ),)),
+                                                                        (Route<dynamic>
+                                                                                route) =>
+                                                                            false,
+                                                                      );
+                                                                    },
+                                                                    style: ElevatedButton
+                                                                        .styleFrom(
+                                                                      backgroundColor: const Color
+                                                                          .fromRGBO(
+                                                                          0,
+                                                                          94,
+                                                                          178,
+                                                                          1),
+                                                                      shape:
+                                                                          RoundedRectangleBorder(
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(15.0),
+                                                                      ),
+                                                                    ),
+                                                                    child:
+                                                                        const Text(
+                                                                      "Moov",
+                                                                      style: TextStyle(
+                                                                          color:
+                                                                              Colors.white),
+                                                                    )),
                                                           ),
                                                         ],
                                                       ),
@@ -337,19 +359,18 @@ class ConfigReseau extends StatelessWidget {
                                     backgroundColor: Colors.green),
                                 child: const Text(
                                     "J'accepte les conditions d'utilisation",
-                                    style: TextStyle(
-                                  color: Colors.black
-                                ))),
+                                    style: TextStyle(color: Colors.black))),
                             ElevatedButton(
                                 onPressed: () {
-                                  SystemNavigator.pop();
+                                  // force exit in ios
+                                  FlutterExitApp.exitApp(iosForceExit: true);
                                 },
                                 style: ElevatedButton.styleFrom(
                                     backgroundColor: Colors.red),
-                                child: const Text('Je refuse',
-                                style: TextStyle(
-                                  color: Colors.white
-                                ),))
+                                child: const Text(
+                                  'Je refuse',
+                                  style: TextStyle(color: Colors.white),
+                                ))
                           ],
                         ),
                       ),

@@ -12,6 +12,12 @@
 @import contacts_service;
 #endif
 
+#if __has_include(<flutter_exit_app/FlutterExitAppPlugin.h>)
+#import <flutter_exit_app/FlutterExitAppPlugin.h>
+#else
+@import flutter_exit_app;
+#endif
+
 #if __has_include(<flutter_native_contact_picker/FlutterNativeContactPickerPlugin.h>)
 #import <flutter_native_contact_picker/FlutterNativeContactPickerPlugin.h>
 #else
@@ -58,6 +64,7 @@
 
 + (void)registerWithRegistry:(NSObject<FlutterPluginRegistry>*)registry {
   [ContactsServicePlugin registerWithRegistrar:[registry registrarForPlugin:@"ContactsServicePlugin"]];
+  [FlutterExitAppPlugin registerWithRegistrar:[registry registrarForPlugin:@"FlutterExitAppPlugin"]];
   [FlutterNativeContactPickerPlugin registerWithRegistrar:[registry registrarForPlugin:@"FlutterNativeContactPickerPlugin"]];
   [FlutterPhoneDirectCallerPlugin registerWithRegistrar:[registry registrarForPlugin:@"FlutterPhoneDirectCallerPlugin"]];
   [FluttertoastPlugin registerWithRegistrar:[registry registrarForPlugin:@"FluttertoastPlugin"]];
