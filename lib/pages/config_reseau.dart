@@ -61,7 +61,7 @@ class ConfigReseau extends StatelessWidget {
                         ),
                       ),
                       const Text(
-                        '''Mob_se est une application autonome qui ne nécessite ni la création de compte ni une connexion Internet pour fonctionner. Vous pouvez accéder à toutes les fonctionnalités de l’application dès son installation.''',
+                        "Mob_se est une application autonome qui ne nécessite ni la création de compte ni une connexion Internet pour fonctionner. Vous pouvez accéder à toutes les fonctionnalités de l’application dès son installation.",
                         textAlign: TextAlign.justify,
                       ),
                       const SizedBox(
@@ -75,7 +75,7 @@ class ConfigReseau extends StatelessWidget {
                         ),
                       ),
                       const Text(
-                        '''Vous vous engagez à utiliser Mob_se de manière légale et respectueuse.''',
+                        "Vous vous engagez à utiliser Mob_se de manière légale et respectueuse.",
                         textAlign: TextAlign.justify,
                       ),
                       const SizedBox(
@@ -96,7 +96,7 @@ class ConfigReseau extends StatelessWidget {
                         ),
                       ),
                       const Text(
-                        '''Bien que Mob_se ne collecte pas de données personnelles, nous mettons en œuvre des mesures de sécurité pour protéger les informations locales stockées sur votre appareil. Vos données sont chiffrées et stockées de manière sécurisée sur votre appareil.''',
+                        "Bien que Mob_se ne collecte pas de données personnelles, nous mettons en œuvre des mesures de sécurité pour protéger les informations locales stockées sur votre appareil. Vos données sont chiffrées et stockées de manière sécurisée sur votre appareil.",
                         textAlign: TextAlign.justify,
                       ),
                       const SizedBox(
@@ -110,7 +110,7 @@ class ConfigReseau extends StatelessWidget {
                         ),
                       ),
                       const Text(
-                        '''Mob_se ne partage aucune donnée personnelle avec des tiers, car aucune donnée personnelle n’est collectée.''',
+                        "Mob_se ne partage aucune donnée personnelle avec des tiers, car aucune donnée personnelle n’est collectée.",
                         textAlign: TextAlign.justify,
                       ),
                       const SizedBox(
@@ -131,7 +131,7 @@ class ConfigReseau extends StatelessWidget {
                         ),
                       ),
                       const Text(
-                        '''Tous les contenus de l’application (textes, images, logos, etc.) sont protégés par des droits d’auteur et autres droits de propriété intellectuelle. Vous ne pouvez pas reproduire, distribuer ou modifier ces contenus sans autorisation préalable.''',
+                        "Tous les contenus de l’application (textes, images, logos, etc.) sont protégés par des droits d’auteur et autres droits de propriété intellectuelle. Vous ne pouvez pas reproduire, distribuer ou modifier ces contenus sans autorisation préalable",
                         textAlign: TextAlign.justify,
                       ),
                       const SizedBox(
@@ -143,7 +143,7 @@ class ConfigReseau extends StatelessWidget {
                             fontSize: 16,
                           )),
                       const Text(
-                        '''Nous vous accordons une licence limitée, non exclusive et non transférable pour utiliser l’application conformément à ces conditions d’utilisation.''',
+                        "Nous vous accordons une licence limitée, non exclusive et non transférable pour utiliser l’application conformément à ces conditions d’utilisation.",
                         textAlign: TextAlign.justify,
                       ),
                       const SizedBox(
@@ -164,7 +164,7 @@ class ConfigReseau extends StatelessWidget {
                         ),
                       ),
                       const Text(
-                        '''Mob_se est fournie “telle quelle” sans garantie d’aucune sorte, explicite ou implicite. Nous ne garantissons pas que l’application sera exempte d’erreurs ou que son fonctionnement sera ininterrompu.''',
+                        "Mob_se est fournie “telle quelle” sans garantie d’aucune sorte, explicite ou implicite. Nous ne garantissons pas que l’application sera exempte d’erreurs ou que son fonctionnement sera ininterrompu.",
                         textAlign: TextAlign.justify,
                       ),
                       const SizedBox(
@@ -178,7 +178,7 @@ class ConfigReseau extends StatelessWidget {
                         ),
                       ),
                       const Text(
-                        '''Nous ne serons pas responsables des dommages directs, indirects, accessoires, spéciaux ou consécutifs résultant de l’utilisation ou de l’incapacité à utiliser l’application.''',
+                        "Nous ne serons pas responsables des dommages directs, indirects, accessoires, spéciaux ou consécutifs résultant de l’utilisation ou de l’incapacité à utiliser l’application.",
                         textAlign: TextAlign.justify,
                       ),
                       const SizedBox(
@@ -192,7 +192,7 @@ class ConfigReseau extends StatelessWidget {
                         ),
                       ),
                       const Text(
-                        '''Nous nous réservons le droit de modifier ces conditions d’utilisation à tout moment. Les modifications seront publiées sur cette page et vous en serez informé par une notification dans l’application. Votre utilisation continue de l’application après la publication des modifications constitue votre acceptation des nouvelles conditions.''',
+                        "Nous nous réservons le droit de modifier ces conditions d’utilisation à tout moment. Les modifications seront publiées sur cette page et vous en serez informé par une notification dans l’application. Votre utilisation continue de l’application après la publication des modifications constitue votre acceptation des nouvelles conditions.",
                         textAlign: TextAlign.justify,
                       ),
                       const SizedBox(
@@ -208,7 +208,7 @@ class ConfigReseau extends StatelessWidget {
                       const Text.rich(
                         TextSpan(
                           text:
-                              'Pour toutes questions concernant ces conditions d’utilisation, veuillez nous contacter à l’adresse suivante :',
+                              "Pour toutes questions concernant ces conditions d’utilisation, veuillez nous contacter à l’adresse suivante :",
                           children: <TextSpan>[
                             TextSpan(
                                 text: ' myriade@myriade-groupe.com',
