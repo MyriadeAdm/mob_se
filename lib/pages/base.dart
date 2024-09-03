@@ -102,14 +102,14 @@ class _BaseState extends State<Base> {
               title: "Transactions",
             ),
           ),
-          PersistentTabConfig(
-            screen: const PageParametre(),
-            item: ItemConfig(
-              activeForegroundColor: colorItem(),
-              icon: const Icon(Icons.settings),
-              title: "Paramètre",
-            ),
-          ),
+          // PersistentTabConfig(
+          //   screen: const PageParametre(),
+          //   item: ItemConfig(
+          //     activeForegroundColor: colorItem(),
+          //     icon: const Icon(Icons.settings),
+          //     title: "Paramètre",
+          //   ),
+          // ),
         ],
         navBarBuilder: (navBarConfig) => Style4BottomNavBar(
           navBarConfig: navBarConfig,
