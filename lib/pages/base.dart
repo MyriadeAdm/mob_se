@@ -8,6 +8,7 @@ import '../constants/color_constants.dart';
 import '../constants/reseaux.dart';
 import 'menu_accueil/home_page.dart';
 import 'page_forfait.dart';
+import 'page_parametre.dart';
 
 class Base extends StatefulWidget {
   const Base({super.key});

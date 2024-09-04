@@ -66,11 +66,29 @@ class PageAnnulation extends StatefulWidget {
 }
 
 class _PageAnnulationState extends State<PageAnnulation> {
-  final List<Contact> _contacts = [];
+  List<Contact> _contacts = [];
   List<Contact> _filteredContacts = [];
   Contact? _selectedContact;
   final TextEditingController _controller = TextEditingController();
   bool _isListVisible = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _fetchContacts();
+  }
+
+  Future<void> _fetchContacts() async {
+    try {
+      Iterable<Contact> contacts = await ContactsService.getContacts();
+      setState(() {
+        _contacts = contacts.toList();
+        _filteredContacts = _contacts;
+      });
+    } catch (e) {
+      print("Error fetching contacts: $e");
+    }
+  }
 
   IconButton returnBack(BuildContext context) {
     return IconButton(
