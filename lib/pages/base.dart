@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mob_se/models/historique_database.dart';
-import 'package:mob_se/pages/page_parametre.dart';
 import 'package:mob_se/pages/page_transactions.dart';
 import 'package:mob_se/widgets/custom_app_bar.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent_bottom_nav_bar_v2.dart';
