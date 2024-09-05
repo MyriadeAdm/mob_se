@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mob_se/constants/reseaux.dart';
 import 'package:mob_se/pages/base.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_exit_app/flutter_exit_app.dart';
 
@@ -264,16 +265,14 @@ class ConfigReseau extends StatelessWidget {
                                                                           .read<
                                                                               Reseaux>()
                                                                           .switchToTogocom();
-                                                                      Navigator
-                                                                          .pushAndRemoveUntil(
-                                                                        context,
-                                                                        MaterialPageRoute(
-                                                                            builder: (context) =>
-                                                                                const Base()),
-                                                                        (Route<dynamic>
-                                                                                route) =>
-                                                                            false,
-                                                                      );
+                                                                      Navigator.pushAndRemoveUntil(
+                                                                          context,
+                                                                          MaterialPageRoute(
+                                                                              builder: (context) =>
+                                                                                  const Base()),
+                                                                          (Route<dynamic> route) =>
+                                                                              false);
+                                                                        _getContactPermission();
                                                                     },
                                                                     style: ElevatedButton
                                                                         .styleFrom(
@@ -306,16 +305,14 @@ class ConfigReseau extends StatelessWidget {
                                                                           .read<
                                                                               Reseaux>()
                                                                           .switchToMoov();
-                                                                      Navigator
-                                                                          .pushAndRemoveUntil(
-                                                                        context,
-                                                                        MaterialPageRoute(
-                                                                            builder: (context) =>
-                                                                                const Base()),
-                                                                        (Route<dynamic>
-                                                                                route) =>
-                                                                            false,
-                                                                      );
+                                                                      Navigator.pushAndRemoveUntil(
+                                                                          context,
+                                                                          MaterialPageRoute(
+                                                                              builder: (context) =>
+                                                                                  const Base()),
+                                                                          (Route<dynamic> route) =>
+                                                                              false);
+                                                                      _getContactPermission();
                                                                     },
                                                                     style: ElevatedButton
                                                                         .styleFrom(
@@ -383,5 +380,16 @@ class ConfigReseau extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+Future<PermissionStatus> _getContactPermission() async {
+  PermissionStatus permission = await Permission.contacts.status;
+  if (permission != PermissionStatus.granted &&
+      permission != PermissionStatus.permanentlyDenied) {
+    PermissionStatus permissionStatus = await Permission.contacts.request();
+    return permissionStatus;
+  } else {
+    return permission;
   }
 }

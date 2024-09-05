@@ -30,8 +30,7 @@ class MainApp extends StatefulWidget {
   State<MainApp> createState() => _MainAppState();
 }
 
-class _MainAppState extends State<MainApp> {   
-
+class _MainAppState extends State<MainApp> {
   SharedPreferences? _prefs;
   var _isLoading = true; // État pour gérer le chargement
 
@@ -41,20 +40,25 @@ class _MainAppState extends State<MainApp> {
   }
 
   void setPrefs() {
-    if (_prefs?.getString('reseau')=="Togocom") {
+    if (_prefs?.getString('reseau') == "Togocom") {
       context.read<Reseaux>().switchToTogocom();
-    } else if (_prefs?.getString('reseau')=="Moov") {
+    } else if (_prefs?.getString('reseau') == "Moov") {
       context.read<Reseaux>().switchToMoov();
-    } else{const ConfigReseau();}
+    } else {
+      const ConfigReseau();
+    }
   }
 
   Widget firstPage() {
     if (_isLoading) {
-      return const Scaffold(body: Center(child: CircularProgressIndicator())); // Afficher le spinner pendant le chargement
+      return const Scaffold(
+          body: Center(
+              child:
+                  CircularProgressIndicator())); // Afficher le spinner pendant le chargement
     }
 
-    if (context.watch<Reseaux>().reseau=='') {
-      return  const ConfigReseau();
+    if (context.watch<Reseaux>().reseau == '') {
+      return const ConfigReseau();
     } else {
       return const Base();
     }

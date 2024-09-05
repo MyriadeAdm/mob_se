@@ -8,7 +8,6 @@ import '../constants/color_constants.dart';
 import '../constants/reseaux.dart';
 import 'menu_accueil/home_page.dart';
 import 'page_forfait.dart';
-import 'page_parametre.dart';
 
 class Base extends StatefulWidget {
   const Base({super.key});
@@ -102,14 +101,14 @@ class _BaseState extends State<Base> {
               title: "Transactions",
             ),
           ),
-          PersistentTabConfig(
-            screen: const PageParametre(),
-            item: ItemConfig(
-              activeForegroundColor: colorItem(),
-              icon: const Icon(Icons.settings),
-              title: "Paramètre",
-            ),
-          ),
+          // PersistentTabConfig(
+          //   screen: const PageParametre(),
+          //   item: ItemConfig(
+          //     activeForegroundColor: colorItem(),
+          //     icon: const Icon(Icons.settings),
+          //     title: "Paramètre",
+          //   ),
+          // ),
         ],
         navBarBuilder: (navBarConfig) => Style4BottomNavBar(
           navBarConfig: navBarConfig,

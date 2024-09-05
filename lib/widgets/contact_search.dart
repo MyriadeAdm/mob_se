@@ -24,19 +24,7 @@ class _ContactFloatingListState extends State<ContactFloatingList> {
   @override
   void initState() {
     super.initState();
-    _getContactPermission();
     _fetchContacts();
-  }
-
-  Future<PermissionStatus> _getContactPermission() async {
-    PermissionStatus permission = await Permission.contacts.status;
-    if (permission != PermissionStatus.granted &&
-        permission != PermissionStatus.permanentlyDenied) {
-      PermissionStatus permissionStatus = await Permission.contacts.request();
-      return permissionStatus;
-    } else {
-      return permission;
-    }
   }
 
   Future<void> _fetchContacts() async {
