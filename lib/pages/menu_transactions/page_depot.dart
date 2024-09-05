@@ -1,10 +1,11 @@
+import 'package:contacts_service/contacts_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mob_se/constants/color_constants.dart';
-import 'package:flutter_native_contact_picker/flutter_native_contact_picker.dart';
 import 'package:provider/provider.dart';
 
 import '../../constants/reseaux.dart';
+import '../../widgets/contact_search.dart';
 import '../../widgets/custom_bottom_sheet_envoi.dart';
 
 bool? isChecked = false;
@@ -14,15 +15,9 @@ final _montantController = TextEditingController();
 final FocusNode _montantFocusNode = FocusNode();
 bool _isSelected = false;
 bool fraisVisible = false;
-int frt = 0; 
+int frt = 0;
 int mnt = 0;
 int ftrn = 0;
-
-
-final FlutterContactPicker _contactPicker = FlutterContactPicker();
-// ignore: unused_element
-Contact? _contact;
-String? selectedNumber;
 
 class LabeledCheckbox extends StatelessWidget {
   const LabeledCheckbox({
@@ -49,7 +44,9 @@ class LabeledCheckbox extends StatelessWidget {
         children: <Widget>[
           Text(label),
           Checkbox(
-            activeColor: (context.watch<Reseaux>().reseau=="Togocom") ? ColorConstants.colorCustomButtonTg : ColorConstants.colorCustomButtonMv,
+            activeColor: (context.watch<Reseaux>().reseau == "Togocom")
+                ? ColorConstants.colorCustomButtonTg
+                : ColorConstants.colorCustomButtonMv,
             value: value,
             onChanged: (bool? newValue) {
               onChanged(newValue!);
@@ -116,63 +113,11 @@ class PageDepot extends StatelessWidget {
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: TextField(
-                            //autofocus: true,
-                            controller: _numeroController,
-                            focusNode: _numeroControllerFocusNode,
-                            decoration: InputDecoration(
-                                hintText: 'Nom ou numéro de téléphone',
-                                filled: true,
-                                fillColor:
-                                    const Color.fromRGBO(230, 227, 227, 1),
-                                border: OutlineInputBorder(
-                                  borderSide: BorderSide.none,
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                suffixIcon: IconButton(
-                                  onPressed: () {
-                                    _numeroController.clear();
-                                  },
-                                  icon: const Icon(
-                                    Icons.clear,
-                                    size: 20,
-                                    color: Colors.grey,
-                                  ),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                  borderSide: BorderSide(
-                                    color: (context.watch<Reseaux>().reseau=="Togocom") ? ColorConstants.colorCustomButtonTg : ColorConstants.colorCustomButtonMv,
-                                  ),
-                                )),
-                          ),
-                        ),
-                        IconButton(
-                          icon: const Icon(Icons.contacts_rounded,
-                              color: Colors.grey, size: 40.0),
-                          onPressed: () async {
-                            // setState(() {
-                            //   // click += 1;
-                            // });
-
-                            Contact? contact =
-                                await _contactPicker.selectContact();
-                            if (contact != null) {
-                              setState(() {
-                                _contact = contact;
-                                List<String>? phoneNumbers =
-                                    contact.phoneNumbers;
-                                selectedNumber =
-                                    phoneNumbers?[0] ?? 'Nothing selected';
-                                _numeroController.text = selectedNumber!;
-                              });
-                            }
-                          },
-                        ),
-                      ],
+                    ContactFloatingList(
+                      onContactSelected: (Contact? contact) {
+                        // Faites quelque chose avec le contact sélectionné
+                        print('Selected contact: ${contact?.displayName}');
+                      },
                     ),
                     const SizedBox(
                       height: 20,
@@ -194,22 +139,22 @@ class PageDepot extends StatelessWidget {
                               inputFormatters: [
                                 LengthLimitingTextInputFormatter(7),
                               ],
-                              onChanged :(text){
-                                if (text ==''){text = '0';}
-                              else{
-                                int fraisRetrait, fraisTransfert;
-                              int montant = int.parse(text
-                                  .replaceAll(RegExp(r'\D'), ""));
-                          
-                                setState((){
-                                  (fraisTransfert, fraisRetrait) =
-                                    quelFraisTransactionEtRetrait(montant);
+                              onChanged: (text) {
+                                if (text == '') {
+                                  text = '0';
+                                } else {
+                                  int fraisRetrait, fraisTransfert;
+                                  int montant = int.parse(
+                                      text.replaceAll(RegExp(r'\D'), ""));
+
+                                  setState(() {
+                                    (fraisTransfert, fraisRetrait) =
+                                        quelFraisTransactionEtRetrait(montant);
                                     frt = fraisRetrait;
                                     ftrn = fraisTransfert;
                                     mnt = montant;
-                                });
-                              
-                              }
+                                  });
+                                }
                               },
                               controller: _montantController,
                               focusNode: _montantFocusNode,
@@ -222,7 +167,10 @@ class PageDepot extends StatelessWidget {
                                   focusedBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(10),
                                     borderSide: BorderSide(
-                                      color: (context.watch<Reseaux>().reseau=="Togocom") ? ColorConstants.colorCustomButton2 : ColorConstants.colorCustomButtonMv,
+                                      color: (context.watch<Reseaux>().reseau ==
+                                              "Togocom")
+                                          ? ColorConstants.colorCustomButton2
+                                          : ColorConstants.colorCustomButtonMv,
                                     ),
                                   )),
                               style: const TextStyle(
@@ -260,10 +208,7 @@ class PageDepot extends StatelessWidget {
                             },
                           ),
                         ),
-                        
-                        Visibility(
-                          visible: fraisVisible,
-                          child: Text('$frt'))
+                        Visibility(visible: fraisVisible, child: Text('$frt'))
                       ],
                     ),
                   ],
@@ -282,14 +227,16 @@ class PageDepot extends StatelessWidget {
                         onPressed: () {
                           if (_numeroController.text == '') {
                             ScaffoldMessenger.of(context).showSnackBar(
-                       const SnackBar(content: Text('Veuillez renseigner un numéro'))
-                            );
+                                const SnackBar(
+                                    content:
+                                        Text('Veuillez renseigner un numéro')));
                             _numeroControllerFocusNode.requestFocus();
                           } else {
                             if (_montantController.text == '') {
                               ScaffoldMessenger.of(context).showSnackBar(
-                       const SnackBar(content: Text('Veuillez renseigner un montant'))
-                            );
+                                  const SnackBar(
+                                      content: Text(
+                                          'Veuillez renseigner un montant')));
                               _montantFocusNode.requestFocus();
                             } else {
                               String num = _numeroController.text
@@ -310,24 +257,23 @@ class PageDepot extends StatelessWidget {
                               }
 
                               if (num[0] == '9' || num[0] == '7') {
-                                callButtomSheetEnvoie(
-                                        context,
-                                        num,
-                                        montant,
-                                        fraisTransfert,
-                                        fraisRetrait,
-                                        _isSelected);
-                                    // .whenComplete(reset);
+                                callButtomSheetEnvoie(context, num, montant,
+                                    fraisTransfert, fraisRetrait, _isSelected);
+                                // .whenComplete(reset);
                               } else {
                                 ScaffoldMessenger.of(context).showSnackBar(
-                       const SnackBar(content: Text('Veuillez renseigner un numéro Togocel ou moov'))
-                            );
+                                    const SnackBar(
+                                        content: Text(
+                                            'Veuillez renseigner un numéro Togocel ou moov')));
                               }
                             }
                           }
                         },
                         style: ElevatedButton.styleFrom(
-                            backgroundColor: (context.watch<Reseaux>().reseau=="Togocom") ? ColorConstants.colorCustomButton2 : ColorConstants.colorCustomButtonMv,
+                            backgroundColor:
+                                (context.watch<Reseaux>().reseau == "Togocom")
+                                    ? ColorConstants.colorCustomButton2
+                                    : ColorConstants.colorCustomButtonMv,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
                             )),
@@ -336,7 +282,10 @@ class PageDepot extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.w900,
-                            color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
+                            color:
+                                (context.watch<Reseaux>().reseau == "Togocom")
+                                    ? Colors.black
+                                    : Colors.white,
                           ),
                         ),
                       )),
