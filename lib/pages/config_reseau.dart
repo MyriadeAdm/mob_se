@@ -20,7 +20,7 @@ class ConfigReseau extends StatelessWidget {
                 "Conditions d'utilisation de Mob_se",
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontWeight: FontWeight.w900,
+                  fontWeight: FontWeight.w700,
                   fontSize: 20,
                 ),
               ),
@@ -272,7 +272,7 @@ class ConfigReseau extends StatelessWidget {
                                                                                   const Base()),
                                                                           (Route<dynamic> route) =>
                                                                               false);
-                                                                        _getContactPermission();
+                                                                      _getContactPermission();
                                                                     },
                                                                     style: ElevatedButton
                                                                         .styleFrom(
@@ -317,11 +317,7 @@ class ConfigReseau extends StatelessWidget {
                                                                     style: ElevatedButton
                                                                         .styleFrom(
                                                                       backgroundColor: const Color
-                                                                          .fromRGBO(
-                                                                          0,
-                                                                          94,
-                                                                          178,
-                                                                          1),
+                                                                          .fromRGBO(0,94,178,1),
                                                                       shape:
                                                                           RoundedRectangleBorder(
                                                                         borderRadius:

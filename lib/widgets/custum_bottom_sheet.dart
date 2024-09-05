@@ -5,7 +5,6 @@ import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:mob_se/constants/color_constants.dart';
 import 'package:mob_se/models/type_forfait.dart';
 import 'package:provider/provider.dart';
-
 import '../constants/reseaux.dart';
 import '../models/historique_database.dart';
 
@@ -151,12 +150,12 @@ Future<void> callButtomSheet(
                               visible: voirmsg,
                               child: Text(bb, //messages
                                   style: const TextStyle(
-                                      fontSize: 15, fontWeight: FontWeight.w500)),
+                                      fontSize: 15, fontWeight: FontWeight.w600)),
                             ),
                             Text(cc, //validite
                                 style: const TextStyle(
                                     fontSize: 13.5,
-                                    fontWeight: FontWeight.w400)),
+                                    fontWeight: FontWeight.w500)),
                             const SizedBox(height: 20),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -173,7 +172,7 @@ Future<void> callButtomSheet(
                                   dd, //prix
                                   style: const TextStyle(
                                     fontSize: 25,
-                                    fontWeight: FontWeight.w700,
+                                    fontWeight: FontWeight.w600,
                                     //color: Colors.orange,
                                   ),
                                 )
@@ -183,6 +182,7 @@ Future<void> callButtomSheet(
                         ),
 
                         const Divider(
+                          //color: Colors.black,
                           height: 30,
                           thickness: 2,
                           indent: 30,

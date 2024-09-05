@@ -38,10 +38,10 @@ class _PageAnnulationState extends State<PageAnnulation> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Annulation Page',
+          'Annulation',
           style: TextStyle(
             fontSize: 23,
-            fontWeight: FontWeight.w900,
+            fontWeight: FontWeight.w700,
           ),
         ),
         leading: returnBack(context),
@@ -56,7 +56,7 @@ class _PageAnnulationState extends State<PageAnnulation> {
                   child: ListTile(
                       horizontalTitleGap: 0,
                       title: const Text(
-                        'Derniere Transaction',
+                        'Dernière Transaction',
                         style: TextStyle(
                           fontWeight: FontWeight.w600,
                         ),
@@ -104,15 +104,18 @@ class _PageAnnulationState extends State<PageAnnulation> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Visibility(
                   visible: numVisible,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const SizedBox(height: 15),
+                      const SizedBox(
+                        height: 40,
+                      ),
                       const Text(
-                        'Réference',
+                        'Référence',
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.w600,
@@ -122,7 +125,7 @@ class _PageAnnulationState extends State<PageAnnulation> {
                         children: [
                           Expanded(
                             child: TextField(
-                              //autofocus: true,
+                              autofocus: true,
                               controller: _numeroController,
                               focusNode: _numeroControllerFocusNode,
                               decoration: InputDecoration(
@@ -151,6 +154,9 @@ class _PageAnnulationState extends State<PageAnnulation> {
                       ),
                     ],
                   ),
+                ),
+                const SizedBox(
+                  height: 40,
                 ),
                 const Text(
                   'Code secret',

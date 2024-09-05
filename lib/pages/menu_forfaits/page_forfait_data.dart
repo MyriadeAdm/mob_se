@@ -40,7 +40,7 @@ class ForfaitDataPage extends StatelessWidget {
                           "Forfaits internet",
                           style: TextStyle(
                             fontSize: 23,
-                            fontWeight: FontWeight.w800,
+                            fontWeight: FontWeight.w700,
                           ),
                         ),
                       ],
@@ -61,7 +61,7 @@ class ForfaitDataPage extends StatelessWidget {
                       style: TextStyle(
                         color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
                         fontSize: 18,
-                        fontWeight: FontWeight.w800,
+                        fontWeight: FontWeight.w700,
                       ),
                     ),
                   ),

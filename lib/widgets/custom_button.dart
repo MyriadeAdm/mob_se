@@ -30,7 +30,7 @@ class CustomButton extends StatelessWidget {
           label,
           style: TextStyle(
             fontSize: 14,
-            fontWeight: FontWeight.w900,
+            fontWeight: FontWeight.w700,
             color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
           ),
         ),

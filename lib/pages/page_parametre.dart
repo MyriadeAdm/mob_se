@@ -14,7 +14,7 @@ class PageParametre extends StatelessWidget {
             "Paramètres",
             style: TextStyle(
               fontSize: 25,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w700,
             ),
           ),
           Divider(

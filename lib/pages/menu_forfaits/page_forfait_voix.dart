@@ -38,7 +38,7 @@ class ForfaitVoixPage extends StatelessWidget {
                         "Forfaits Voix",
                         style: TextStyle(
                           fontSize: 23,
-                          fontWeight: FontWeight.w900,
+                          fontWeight: FontWeight.w700,
                         ),
                       ),
                     ],
@@ -57,7 +57,7 @@ class ForfaitVoixPage extends StatelessWidget {
                       style: TextStyle(
                         color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
                         fontSize: 18,
-                        fontWeight: FontWeight.w800,
+                        fontWeight: FontWeight.w700,
                       ),
                     ),
                   ),

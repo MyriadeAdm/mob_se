@@ -50,7 +50,7 @@ class _PageHistoriqueState extends State<PageHistorique> {
                   "Historique",
                   style: TextStyle(
                     fontSize: 23,
-                    fontWeight: FontWeight.w900,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
               ],

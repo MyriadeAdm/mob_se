@@ -38,7 +38,7 @@ class ForfaitNuitPage extends StatelessWidget {
                           "Forfaits Nuit",
                           style: TextStyle(
                             fontSize: 23,
-                            fontWeight: FontWeight.w800,
+                            fontWeight: FontWeight.w700,
                           ),
                         ),
                       ],
@@ -59,7 +59,7 @@ class ForfaitNuitPage extends StatelessWidget {
                       style: TextStyle(
                         color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
                         fontSize: 18,
-                        fontWeight: FontWeight.w800,
+                        fontWeight: FontWeight.w700,
                       ),
                     ),
                   ),

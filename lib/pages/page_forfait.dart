@@ -24,7 +24,7 @@ class ForfaitPage extends StatelessWidget {
             "Achat de forfaits",
             style: TextStyle(
               fontSize: 25,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w700,
             ),
           ),
               const Divider(
@@ -68,7 +68,7 @@ class ForfaitPage extends StatelessWidget {
                             'Forfait voix',
                             style: TextStyle(
                               fontSize: 17,
-                              fontWeight: FontWeight.w900,
+                              fontWeight: FontWeight.w700,
                               color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
                             ),
                           ),
@@ -112,7 +112,7 @@ class ForfaitPage extends StatelessWidget {
                             'Forfait data',
                             style: TextStyle(
                               fontSize: 17,
-                              fontWeight: FontWeight.w900,
+                              fontWeight: FontWeight.w700,
                               color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
                             ),
                           ),
@@ -161,7 +161,7 @@ class ForfaitPage extends StatelessWidget {
                             'Forfait mixte',
                             style: TextStyle(
                               fontSize: 16,
-                              fontWeight: FontWeight.w900,
+                              fontWeight: FontWeight.w700,
                               color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
                             ),
                           ),
@@ -205,7 +205,7 @@ class ForfaitPage extends StatelessWidget {
                             'Forfait nuit',
                             style: TextStyle(
                               fontSize: 17,
-                              fontWeight: FontWeight.w900,
+                              fontWeight: FontWeight.w700,
                               color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
                             ),
                           ),

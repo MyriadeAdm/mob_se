@@ -328,7 +328,7 @@ class _HomePageState extends State<HomePage> {
                     const Text(
                       'Historique',
                       style: TextStyle(
-                          fontWeight: FontWeight.w900,
+                          fontWeight: FontWeight.w700,
                           fontSize: 18,
                           color: Colors.black),
                     ),

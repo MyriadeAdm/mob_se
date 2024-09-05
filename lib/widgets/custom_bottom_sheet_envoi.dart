@@ -180,7 +180,7 @@ Future<void> callButtomSheetEnvoie(
                       'Valider',
                       style: TextStyle(
                         fontSize: 18,
-                        fontWeight: FontWeight.w900,
+                        fontWeight: FontWeight.w700,
                         color: Colors.black,
                       ),
                     ),

@@ -36,7 +36,7 @@ class PageRetrait extends StatelessWidget {
                     "Retrait",
                     style: TextStyle(
                       fontSize: 23,
-                      fontWeight: FontWeight.w900,
+                      fontWeight: FontWeight.w700,
                     ),
                   ),
                 ]),
@@ -89,7 +89,7 @@ class PageRetrait extends StatelessWidget {
                                 style: const TextStyle(
                                   fontSize: 25,
                                   letterSpacing: 8.0,
-                                  fontWeight: FontWeight.w900,
+                                  fontWeight: FontWeight.w700,
                                 )),
                           ),
                         ],

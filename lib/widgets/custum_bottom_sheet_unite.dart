@@ -90,7 +90,7 @@ Future<void> callButtomSheetUnite(
                           Text("$montant F CFA",
                           style: const TextStyle(
                             //fontSize: 20,
-                            fontWeight: FontWeight.w800,
+                            fontWeight: FontWeight.w700,
                           ),),
                         ],
                       ),
@@ -195,7 +195,7 @@ Future<void> callButtomSheetUnite(
                       'Valider',
                       style: TextStyle(
                         fontSize: 18,
-                        fontWeight: FontWeight.w900,
+                        fontWeight: FontWeight.w700,
                         color: Colors.black,
                       ),
                     ),

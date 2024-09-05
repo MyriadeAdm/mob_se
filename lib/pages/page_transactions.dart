@@ -24,7 +24,7 @@ class TransactionsPage extends StatelessWidget {
               "Transactions",
               style: TextStyle(
                 fontSize: 25,
-                fontWeight: FontWeight.w800,
+                fontWeight: FontWeight.w700,
               ),
             ),
         
@@ -72,7 +72,7 @@ class TransactionsPage extends StatelessWidget {
                               'Envoi',
                               style: TextStyle(
                                 fontSize: 17,
-                                fontWeight: FontWeight.w900,
+                                fontWeight: FontWeight.w700,
                                 color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
                               ),
                             ),
@@ -116,7 +116,7 @@ class TransactionsPage extends StatelessWidget {
                               'Retrait',
                               style: TextStyle(
                                 fontSize: 17,
-                                fontWeight: FontWeight.w900,
+                                fontWeight: FontWeight.w700,
                                 color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
                               ),
                             ),
@@ -163,7 +163,7 @@ class TransactionsPage extends StatelessWidget {
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontSize: 17,
-                                fontWeight: FontWeight.w900,
+                                fontWeight: FontWeight.w700,
                                 color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
                               ),
                             ),
@@ -208,7 +208,7 @@ class TransactionsPage extends StatelessWidget {
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontSize: 17,
-                                fontWeight: FontWeight.w900,
+                                fontWeight: FontWeight.w700,
                                 color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
                               ),
                             ),

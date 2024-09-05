@@ -95,7 +95,7 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                 "Achats d'unités",
                 style: TextStyle(
                   fontSize: 23,
-                  fontWeight: FontWeight.w900,
+                  fontWeight: FontWeight.w700,
                 ),
               ),
             ]),
@@ -106,6 +106,9 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
               color: Colors.black,
               thickness: 1,
             ),
+            const SizedBox(
+            height: 30,
+          ),
             
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,

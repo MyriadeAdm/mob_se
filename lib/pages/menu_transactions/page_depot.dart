@@ -86,7 +86,7 @@ class PageDepot extends StatelessWidget {
                   "Envoi",
                   style: TextStyle(
                     fontSize: 23,
-                    fontWeight: FontWeight.w900,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
               ]),
@@ -281,7 +281,7 @@ class PageDepot extends StatelessWidget {
                           "RECAP DE L'ENVOI",
                           style: TextStyle(
                             fontSize: 20,
-                            fontWeight: FontWeight.w900,
+                            fontWeight: FontWeight.w700,
                             color:
                                 (context.watch<Reseaux>().reseau == "Togocom")
                                     ? Colors.black
