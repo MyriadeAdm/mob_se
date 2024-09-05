@@ -39,7 +39,7 @@ class ForfaitMixtePage extends StatelessWidget {
                     : ColorConstants.colorCustomButtonMv,
               ),
               onPressed: () {
-                (context.watch<Reseaux>().reseau=="Togocom") ?
+                (Provider.of<Reseaux>(context, listen: false).reseau=="Togocom") ?
                       FlutterPhoneDirectCaller.callNumber(Constantes.soldeTogocom[0].codeNormal) :
                       FlutterPhoneDirectCaller.callNumber(Constantes.soldeMoov[0].codeNormal) ;
               },

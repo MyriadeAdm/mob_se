@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:mob_se/pages/menu_transactions/page_achat_credit.dart';
-import 'package:mob_se/pages/menu_transactions/page_annulation.dart';
 import 'package:mob_se/pages/menu_transactions/page_depot.dart';
 import 'package:mob_se/pages/menu_transactions/page_retrait.dart';
 import 'package:provider/provider.dart';
@@ -181,11 +181,9 @@ class TransactionsPage extends StatelessWidget {
                     height: 130,
                     child: ElevatedButton(
                         onPressed: () {
-                         Navigator.push(
-                          context,
-                          CupertinoPageRoute(
-                              builder: (BuildContext context) =>
-                                  const PageAnnulation()));
+                          (Provider.of<Reseaux>(context, listen: false).reseau=="Togocom") ? 
+                          FlutterPhoneDirectCaller.callNumber("*145*8*4#") :
+                          FlutterPhoneDirectCaller.callNumber("*155*1*4#");
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: (context.watch<Reseaux>().reseau=="Togocom") ? ColorConstants.colorCustomButtonTg : ColorConstants.colorCustomButtonMv,

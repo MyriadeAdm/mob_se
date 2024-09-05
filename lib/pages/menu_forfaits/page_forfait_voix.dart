@@ -49,7 +49,7 @@ class ForfaitVoixPage extends StatelessWidget {
                       backgroundColor: (context.watch<Reseaux>().reseau=="Togocom") ? ColorConstants.colorCustomButtonTg : ColorConstants.colorCustomButtonMv,
                     ),
                     onPressed: () {
-                      (context.watch<Reseaux>().reseau=="Togocom") ? FlutterPhoneDirectCaller.callNumber(Constantes.soldeTogocom[1].codeNormal) 
+                      (Provider.of<Reseaux>(context, listen: false).reseau=="Togocom") ? FlutterPhoneDirectCaller.callNumber(Constantes.soldeTogocom[1].codeNormal) 
                       : FlutterPhoneDirectCaller.callNumber(Constantes.soldeMoov[1].codeNormal);
                     },
                     child: Text(

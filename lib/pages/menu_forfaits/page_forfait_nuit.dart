@@ -50,7 +50,7 @@ class ForfaitNuitPage extends StatelessWidget {
                       backgroundColor: (context.watch<Reseaux>().reseau=="Togocom") ? ColorConstants.colorCustomButtonTg : ColorConstants.colorCustomButtonMv,
                     ),
                     onPressed: () {
-                      (context.watch<Reseaux>().reseau=="Togocom") ?
+                      (Provider.of<Reseaux>(context, listen: false).reseau=="Togocom") ?
                       FlutterPhoneDirectCaller.callNumber(Constantes.soldeTogocom[0].codeNormal) :
                       FlutterPhoneDirectCaller.callNumber(Constantes.soldeMoov[0].codeNormal) ;
                     },
