@@ -106,6 +106,7 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
               color: Colors.black,
               thickness: 1,
             ),
+            
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
