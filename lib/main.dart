@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:mob_se/constants/reseaux.dart';
 import 'package:mob_se/models/historique_database.dart';
 import 'package:mob_se/pages/config_reseau.dart';
+import 'package:mob_se/pages/splash_screen.dart';
 import 'package:provider/provider.dart';
 import 'pages/base.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -54,7 +55,7 @@ class _MainAppState extends State<MainApp> {
       return const Scaffold(
           body: Center(
               child:
-                  CircularProgressIndicator())); // Afficher le spinner pendant le chargement
+                  SplashScreen())); // Afficher le spinner pendant le chargement
     }
 
     if (context.watch<Reseaux>().reseau == '') {
@@ -69,7 +70,7 @@ class _MainAppState extends State<MainApp> {
     super.initState();
     _initPrefs();
     // Utiliser un Timer pour changer l'état après 1 seconde
-    Timer(const Duration(seconds: 1), () {
+    Timer(const Duration(milliseconds: 1200), () {
       setState(() {
         _isLoading = false; // Changer l'état de chargement
       });
