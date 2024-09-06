@@ -20,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget content() {
     return Center(
       child: Container(
-        child: Lottie.asset("assets/json/Mobse.json",),
+        child: Lottie.asset("assets/json/Mobsee.json",),
       ),
     );
   }
