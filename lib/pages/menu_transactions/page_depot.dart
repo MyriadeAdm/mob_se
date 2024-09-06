@@ -256,13 +256,13 @@ class PageDepot extends StatelessWidget {
               
                                   if (num[0] == '9' || num[0] == '7') {
                                     callButtomSheetEnvoie(context, num, montant,
-                                        fraisTransfert, fraisRetrait, _isSelected);
-                                    // .whenComplete(reset);
+                                        fraisTransfert, fraisRetrait, _isSelected).whenComplete(reset);
                                   } else {
                                     ScaffoldMessenger.of(context).showSnackBar(
                                         const SnackBar(
                                             content: Text(
                                                 'Veuillez renseigner un numéro Togocel ou moov')));
+                                                //print(_numeroController.text);
                                   }
                                 }
                               }
@@ -298,9 +298,10 @@ class PageDepot extends StatelessWidget {
               bottom: 20,
               child: ContactFloatingList(
                 onContactSelected: (Contact? contact) {
+                  _numeroController.text = contact?.phones?[0].value as String;
                   // Do something with the selected contact
                   if (kDebugMode) {
-                    print('Selected contact: ${contact?.displayName}');
+                    print('Selected contact: ${contact?.displayName}, ${contact?.phones?[0].value}, ${_numeroController.text}');
                   }
                 },
               ),

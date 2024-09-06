@@ -65,6 +65,8 @@ class _ContactFloatingListState extends State<ContactFloatingList> {
                   contact.phones!
                       .any((phone) => phone.value?.contains(query) ?? false)))
           .toList();
+
+      // Show the list only if there are matching contacts
       _isListVisible = query.isNotEmpty && _filteredContacts.isNotEmpty;
     });
   }
@@ -106,7 +108,18 @@ class _ContactFloatingListState extends State<ContactFloatingList> {
                 ),
                 onChanged: (value) {
                   _filterContacts(value);
+
+                  // If there are no matching contacts, hide the list
+                  if (_filteredContacts.isEmpty) {
+                    setState(() {
+                      _isListVisible = false;
+                      _selectedContact = null;
+                      _controller.text = value;
+                      // No contact matches, user input is treated as a phone number
+                    });
+                  }
                 },
+                keyboardType: TextInputType.phone,
               ),
             ],
           ),
@@ -137,14 +150,13 @@ class _ContactFloatingListState extends State<ContactFloatingList> {
                               '${contact.phones?.isNotEmpty ?? false ? contact.phones!.first.value : ''}'),
                           onTap: () {
                             setState(() {
-                              _selectedContact = contact;
-                              _controller.text =
-                                  ' ${_selectedContact?.phones?.isNotEmpty ?? false ? _selectedContact!.phones!.first.value : ''}';
+                                 _selectedContact = contact;
+                                 _controller.text ='${_selectedContact?.phones?.isNotEmpty ?? false ? _selectedContact!.phones!.first.value : ''}';
                               _isListVisible = false;
                               if (widget.onContactSelected != null) {
                                 widget.onContactSelected!(_selectedContact);
                               }
-                            });
+                          });
                           },
                         );
                       }).toList(),
