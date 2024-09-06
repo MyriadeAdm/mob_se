@@ -68,7 +68,6 @@ class _MainAppState extends State<MainApp> {
   void initState() {
     super.initState();
     _initPrefs();
-
     // Utiliser un Timer pour changer l'état après 1 seconde
     Timer(const Duration(seconds: 1), () {
       setState(() {
