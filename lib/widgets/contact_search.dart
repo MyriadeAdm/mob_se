@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:contacts_service/contacts_service.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -24,7 +25,19 @@ class _ContactFloatingListState extends State<ContactFloatingList> {
   @override
   void initState() {
     super.initState();
+    _getContactPermission();
     _fetchContacts();
+  }
+
+  Future<PermissionStatus> _getContactPermission() async {
+    PermissionStatus permission = await Permission.contacts.status;
+    if (permission != PermissionStatus.granted &&
+        permission != PermissionStatus.permanentlyDenied) {
+      PermissionStatus permissionStatus = await Permission.contacts.request();
+      return permissionStatus;
+    } else {
+      return permission;
+    }
   }
 
   Future<void> _fetchContacts() async {
@@ -35,7 +48,9 @@ class _ContactFloatingListState extends State<ContactFloatingList> {
         _filteredContacts = _contacts;
       });
     } catch (e) {
-      print("Error fetching contacts: $e");
+      if (kDebugMode) {
+        print("Error fetching contacts: $e");
+      }
     }
   }
 
@@ -60,84 +75,36 @@ class _ContactFloatingListState extends State<ContactFloatingList> {
       children: [
         Column(
           children: [
-            Row(
-              children: [
-                Expanded(
-                  child: TextField(
-                    controller: _controller,
-                    focusNode: _numeroControllerFocusNode,
-                    decoration: InputDecoration(
-                      hintText: 'Nom ou numéro de téléphone',
-                      filled: true,
-                      fillColor: const Color.fromRGBO(230, 227, 227, 1),
-                      border: OutlineInputBorder(
-                        borderSide: BorderSide.none,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      suffixIcon: IconButton(
-                        onPressed: () {
-                          _controller.clear();
-                          _filterContacts('');
-                        },
-                        icon: const Icon(
-                          Icons.clear,
-                          size: 20,
-                          color: Colors.grey,
-                        ),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(color: Colors.blue),
-                      ),
-                    ),
-                    onChanged: (value) {
-                      _filterContacts(value);
-                    },
+            TextField(
+              controller: _controller,
+              focusNode: _numeroControllerFocusNode,
+              decoration: InputDecoration(
+                hintText: 'Nom ou numéro de téléphone',
+                filled: true,
+                fillColor: const Color.fromRGBO(230, 227, 227, 1),
+                border: OutlineInputBorder(
+                  borderSide: BorderSide.none,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                suffixIcon: IconButton(
+                  onPressed: () {
+                    _controller.clear();
+                    _filterContacts('');
+                  },
+                  icon: const Icon(
+                    Icons.clear,
+                    size: 20,
+                    color: Colors.grey,
                   ),
                 ),
-                const SizedBox(width: 8.0), // Spacing between TextField and IconButton
-                IconButton(
-                  icon: const Icon(Icons.contacts_rounded, color: Colors.grey, size: 40.0),
-                  onPressed: () async {
-                    // Demander la permission d'accéder aux contacts
-                    if (await Permission.contacts.request().isGranted) {
-                      // Si la permission est accordée, ouvrir le sélecteur de contacts
-                      Iterable<Contact> contacts = await ContactsService.getContacts();
-    
-                      // Montrer une boîte de dialogue ou une page pour que l'utilisateur puisse choisir un contact
-                      Contact? contact = await showDialog<Contact>(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return SimpleDialog(
-                            title: const Text('Select a Contact'),
-                            children: contacts.map((Contact contact) {
-                              return SimpleDialogOption(
-                                onPressed: () {
-                                  Navigator.pop(context, contact);
-                                },
-                                child: Text(contact.displayName ?? 'No Name'),
-                              );
-                            }).toList(),
-                          );
-                        },
-                      );
-    
-                      if (contact != null) {
-                        setState(() {
-                          _contact = contact;
-                          String? selectedNumber = contact.phones?.isNotEmpty ?? false
-                              ? contact.phones!.first.value
-                              : 'Nothing selected';
-                          _controller.text = selectedNumber ?? '';
-                        });
-                      }
-                    } else {
-                      // Gérer le cas où la permission est refusée
-                      print("Permission to access contacts was denied.");
-                    }
-                  },
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: const BorderSide(color: Colors.blue),
                 ),
-              ],
+              ),
+              onChanged: (value) {
+                _filterContacts(value);
+              },
             ),
           ],
         ),

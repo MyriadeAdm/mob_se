@@ -1,4 +1,5 @@
 import 'package:contacts_service/contacts_service.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mob_se/constants/color_constants.dart';
@@ -115,8 +116,13 @@ class PageDepot extends StatelessWidget {
                     ),
                     ContactFloatingList(
                       onContactSelected: (Contact? contact) {
-                        // Faites quelque chose avec le contact sélectionné
-                        print('Selected contact: ${contact?.displayName}');
+                        if (contact != null) {
+                          _numeroController.text =
+                              contact.phones?.first.value ?? '';
+                        }
+                        if (kDebugMode) {
+                          print('Selected contact: ${contact?.displayName}');
+                        }
                       },
                     ),
                     const SizedBox(
