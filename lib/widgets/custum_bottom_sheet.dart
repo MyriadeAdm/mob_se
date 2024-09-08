@@ -37,7 +37,9 @@ class LabeledCheckbox extends StatelessWidget {
           children: <Widget>[
             Text(label),
             Checkbox(
-              activeColor: (context.watch<Reseaux>().reseau=="Togocom") ? ColorConstants.colorCustomButtonTg : ColorConstants.colorCustomButtonMv,
+              activeColor: (context.watch<Reseaux>().reseau == "Togocom")
+                  ? ColorConstants.colorCustomButtonTg
+                  : ColorConstants.colorCustomButtonMv,
               value: value,
               onChanged: (bool? newValue) {
                 onChanged(newValue!);
@@ -128,9 +130,14 @@ Future<void> callButtomSheet(
                   var gg = mega;
                   String codemoneyMM = codeMoneyMM;
                   String codemoneyAutruit = codeMoneyAutruit;
-                  if (bb == ''){voirmsg = false;} else{voirmsg = true;}
+                  if (bb == '') {
+                    voirmsg = false;
+                  } else {
+                    voirmsg = true;
+                  }
                   return Padding(
-                    padding: const EdgeInsets.only(right: 30, left: 30, bottom: 30),
+                    padding:
+                        const EdgeInsets.only(right: 30, left: 30, bottom: 30),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisSize: MainAxisSize.min,
@@ -150,7 +157,8 @@ Future<void> callButtomSheet(
                               visible: voirmsg,
                               child: Text(bb, //messages
                                   style: const TextStyle(
-                                      fontSize: 15, fontWeight: FontWeight.w600)),
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w600)),
                             ),
                             Text(cc, //validite
                                 style: const TextStyle(
@@ -281,7 +289,12 @@ Future<void> callButtomSheet(
                                           _codeController.clear();
                                         });
                                       },
-                                      activeColor: (context.watch<Reseaux>().reseau=="Togocom") ? ColorConstants.colorCustomButton2 : ColorConstants.colorCustomButtonMv,
+                                      activeColor: (context
+                                                  .watch<Reseaux>()
+                                                  .reseau ==
+                                              "Togocom")
+                                          ? ColorConstants.colorCustomButton2
+                                          : ColorConstants.colorCustomButtonMv,
                                     ))),
                             Expanded(
                                 child: ListTile(
@@ -298,7 +311,12 @@ Future<void> callButtomSheet(
                                               .requestFocus();
                                         });
                                       },
-                                      activeColor: (context.watch<Reseaux>().reseau=="Togocom") ? ColorConstants.colorCustomButton2 : ColorConstants.colorCustomButtonMv,
+                                      activeColor: (context
+                                                  .watch<Reseaux>()
+                                                  .reseau ==
+                                              "Togocom")
+                                          ? ColorConstants.colorCustomButton2
+                                          : ColorConstants.colorCustomButtonMv,
                                     ))),
                           ],
                         ),
@@ -362,7 +380,11 @@ Future<void> callButtomSheet(
                           //child: CustomButton(label: 'Confirmer'),
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                                backgroundColor: (context.watch<Reseaux>().reseau=="Togocom") ? ColorConstants.colorCustomButton2 : ColorConstants.colorCustomButtonMv,
+                                backgroundColor:
+                                    (context.watch<Reseaux>().reseau ==
+                                            "Togocom")
+                                        ? ColorConstants.colorCustomButton2
+                                        : ColorConstants.colorCustomButtonMv,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10),
                                 )),
@@ -387,37 +409,47 @@ Future<void> callButtomSheet(
 
                                 if (num != '') {
                                   num = num.substring(num.length - 8);
-                                  FlutterPhoneDirectCaller.callNumber(
-                                      "*909*7*$num$ff");
 
-                                  context
-                                      .read<HistoriqueDatabase>()
-                                      .addHistorique(
-                                        typeForfait(typeforfait.name),
-                                        typeForfaitDetailsNumero(
-                                            typeforfait.name,
-                                            aa,
-                                            bb,
-                                            cc,
-                                            dd,
-                                            gg,
-                                            num),
-                                      );
+                                  if (context.watch<Reseaux>().reseau ==
+                                      "Togocom") {
+                                    FlutterPhoneDirectCaller.callNumber(
+                                        "*909*7*$num$ff");
+                                    context
+                                        .read<HistoriqueDatabase>()
+                                        .addHistorique(
+                                          typeForfait(typeforfait.name),
+                                          typeForfaitDetailsNumero(
+                                              typeforfait.name,
+                                              aa,
+                                              bb,
+                                              cc,
+                                              dd,
+                                              gg,
+                                              num),
+                                        );
+                                  } else {
+                                    // TODO faire apparaitre un toast pour signaler que cette option n'existe pas pour le reseau moov
+                                  }
                                 } else {
                                   showDialog(
                                       context: context,
                                       builder: (BuildContext context) {
                                         return const AlertDialog(
-                                            title: Text("Pas de numéro",
-                                            textAlign: TextAlign.center,),
+                                            title: Text(
+                                              "Pas de numéro",
+                                              textAlign: TextAlign.center,
+                                            ),
                                             content: Text(
-                                                "Veuillez renseigner le numéro",
-                                                textAlign: TextAlign.center,));
+                                              "Veuillez renseigner le numéro",
+                                              textAlign: TextAlign.center,
+                                            ));
                                       });
 
                                   _numeroControllerFocusNode.requestFocus;
                                 }
                               }
+
+
                               /* option achat pour moi meme via mobile money */
                               else if (_isSelected == false &&
                                   currentOption == options[1]) {
@@ -427,10 +459,13 @@ Future<void> callButtomSheet(
                                 context
                                     .read<HistoriqueDatabase>()
                                     .addHistorique(
-                                        typeForfaitMobileMoney(typeforfait.name),
+                                        typeForfaitMobileMoney(
+                                            typeforfait.name),
                                         typeForfaitDetails(typeforfait.name, aa,
                                             bb, cc, dd, gg));
                               }
+
+
                               /* option achat pour autrui via mobile money */
                               else if (_isSelected == true &&
                                   currentOption == options[1]) {
@@ -440,12 +475,19 @@ Future<void> callButtomSheet(
                                 if (num != '') {
                                   num = num.substring(num.length - 8);
 
-                                  FlutterPhoneDirectCaller.callNumber(
-                                      "*909*7*$num$codemoneyAutruit${_codeController.text}#");
+                                  if (context.watch<Reseaux>().reseau ==
+                                      "Togocom") {
+                                    FlutterPhoneDirectCaller.callNumber(
+                                      "*909*7*$num$codemoneyAutruit${_codeController.text}#");  
+                                  } else {
+                                    FlutterPhoneDirectCaller.callNumber("$codeMoneyAutruit$num*${_codeController.text}#");
+                                  }
+
                                   context
                                       .read<HistoriqueDatabase>()
                                       .addHistorique(
-                                        typeForfaitMobileMoney(typeforfait.name),
+                                        typeForfaitMobileMoney(
+                                            typeforfait.name),
                                         typeForfaitDetailsNumero(
                                             typeforfait.name,
                                             aa,
@@ -463,7 +505,10 @@ Future<void> callButtomSheet(
                               style: TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.w700,
-                                color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
+                                color: (context.watch<Reseaux>().reseau ==
+                                        "Togocom")
+                                    ? Colors.black
+                                    : Colors.white,
                               ),
                             ),
                           ),
@@ -528,6 +573,7 @@ String typeForfait(String typeForfait) {
       return "error";
   }
 }
+
 String typeForfaitMobileMoney(String typeForfait) {
   switch (typeForfait) {
     case "forfaitAppel":

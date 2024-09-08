@@ -10,12 +10,14 @@ class Constantes {
     Solde('data', '*909*9*1*2*1#'),
     Solde('voix', '*909*9*1*2*3#'),
     Solde('mixte', '*909*9*1*2*2#'),
+    Solde('nuit', ''),
   ];
 
   static final List<Solde> soldeMoov = [
     Solde('data', '*400*4#'),
     Solde('voix', '*400*4#'),
     Solde('mixte', '*555*1*1#'),
+    Solde('nuit', '*400*2*3*2#'),
   ];
 
   static final List<ForfaitInternet> forfaitsInternetTogocom = [

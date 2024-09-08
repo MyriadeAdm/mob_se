@@ -40,8 +40,8 @@ class ForfaitMixtePage extends StatelessWidget {
               ),
               onPressed: () {
                 (Provider.of<Reseaux>(context, listen: false).reseau=="Togocom") ?
-                      FlutterPhoneDirectCaller.callNumber(Constantes.soldeTogocom[0].codeNormal) :
-                      FlutterPhoneDirectCaller.callNumber(Constantes.soldeMoov[0].codeNormal) ;
+                      FlutterPhoneDirectCaller.callNumber(Constantes.soldeTogocom[2].codeNormal) :
+                      FlutterPhoneDirectCaller.callNumber(Constantes.soldeMoov[2].codeNormal) ;
               },
               child: Text(
                 "Solde",
