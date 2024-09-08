@@ -219,8 +219,9 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                 ),
                 const Text('* Séléctionner le montant à envoyer',
                     style: TextStyle(
-                      fontSize: 15,
-                    )),
+                      fontSize: 23,
+                      fontWeight: FontWeight.w700,
+                    ),),
                 const SizedBox(
                   height: 10,
                 ),
@@ -277,8 +278,8 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                 const SizedBox(
                   height: 10,
                 ),
-              Expanded(
-                            child: TextField(
+
+           TextField(
                                 textAlign: TextAlign.right,
                                 keyboardType: TextInputType.number,
                                 inputFormatters: [
@@ -300,7 +301,7 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                                 style: const TextStyle(
                                   fontSize: 25,
                                 )),
-                          ),
+
               ],
             ),
           ],
