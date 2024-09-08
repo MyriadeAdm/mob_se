@@ -108,19 +108,20 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
               thickness: 1,
             ),
             const SizedBox(
-            height: 30,
-          ),
-            
+              height: 30,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Expanded(
                     child: ListTile(
                         horizontalTitleGap: 0,
-                        title: const Text('Moi-même',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                        ),),
+                        title: const Text(
+                          'Moi-même',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
                         leading: Radio(
                           value: options[0],
                           groupValue: currentOption,
@@ -139,10 +140,12 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                 Expanded(
                     child: ListTile(
                         horizontalTitleGap: 0,
-                        title: const Text('Pour autrui',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                        ),),
+                        title: const Text(
+                          'Pour autrui',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
                         leading: Radio(
                           value: options[1],
                           groupValue: currentOption,
@@ -208,102 +211,120 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                 ],
               ),
             ),
-
-            (context.watch<Reseaux>().reseau == "Togocom") ?
-
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(
-                  height: 20,
-                ),
-                const Text('* Séléctionner le montant à envoyer',
-                    style: TextStyle(
+            (context.watch<Reseaux>().reseau == "Togocom")
+                ? Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      const Text('* Séléctionner le montant à envoyer',
+                          style: TextStyle(
+                            fontSize: 15,
+                          )),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Row(
+                        children: [
+                          creditColumn(context, 200, '200'),
+                          const SizedBox(width: 10),
+                          creditColumn(context, 500, '500'),
+                          const SizedBox(width: 10),
+                          creditColumn(context, 1000, '1.000'),
+                        ],
+                      ),
+                      const SizedBox(height: 10),
+                      Row(
+                        children: [
+                          creditColumn(context, 2000, '2.000'),
+                          const SizedBox(width: 10),
+                          creditColumn(context, 4500, '4.500'),
+                          const SizedBox(width: 10),
+                          creditColumn(context, 9000, '9.000'),
+                        ],
+                      ),
+                      const SizedBox(height: 10),
+                      Row(
+                        children: [
+                          creditColumn(context, 22500, '22.500'),
+                          const SizedBox(width: 10),
+                          creditColumn(context, 45000, '45.000'),
+                        ],
+                      ),
+                    ],
+                  )
+                : Column(
+                    children: [
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      const Text('Montant',
+                          style: TextStyle(
                       fontSize: 23,
                       fontWeight: FontWeight.w700,
                     ),),
-                const SizedBox(
-                  height: 10,
-                ),
-                Row(
-                  children: [
-                    creditColumn(context, 200, '200'),
-
-                    const SizedBox(width: 10),
-
-                    creditColumn(context, 500, '500'),
-
-                    const SizedBox(width: 10),
-
-                    creditColumn(context, 1000, '1.000'),
-                    ],
-                ),
-                const SizedBox(height: 10),
-                Row(
-                  children: [
-                    creditColumn(context, 2000, '2.000'),
-
-                    const SizedBox(width: 10),
-
-                    creditColumn(context, 4500, '4.500'),                  
-                    
-                    const SizedBox(width: 10),
-                    
-                    creditColumn(context, 9000, '9.000'),                 
-                  ],
-                ),
-
-                const SizedBox(height: 10),
-
-                Row(
-                  children: [
-                    creditColumn(context, 22500, '22.500'),
-
-                    const SizedBox(width: 10),
-
-                    creditColumn(context, 45000, '45.000'),                
-                  ],
-                ),
-              ],
-            ) : 
-            Column(
-              children: [
-                const SizedBox(
-                  height: 20,
-                ),
-                const Text('* Saisissez le montant à envoyer',
-                    style: TextStyle(
-                      fontSize: 15,
-                    )),
-                const SizedBox(
-                  height: 10,
-                ),
-
-           TextField(
-                                textAlign: TextAlign.right,
-                                keyboardType: TextInputType.number,
-                                inputFormatters: [
-                                  LengthLimitingTextInputFormatter(7),
-                                 ],
-                                controller: _montantController,
-                                decoration: InputDecoration(
-                                  isDense: true,
-                                    border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                  borderSide: const BorderSide(
-                                    color: ColorConstants.colorCustomButton2,
-                                  ),
-                                )
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      TextField(
+                          textAlign: TextAlign.right,
+                          keyboardType: TextInputType.number,
+                          inputFormatters: [
+                            LengthLimitingTextInputFormatter(7),
+                          ],
+                          controller: _montantController,
+                          decoration: InputDecoration(
+                              isDense: true,
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: const BorderSide(
+                                  color: ColorConstants.colorCustomButton2,
                                 ),
-                                style: const TextStyle(
-                                  fontSize: 25,
+                              )),
+                          style: const TextStyle(
+                            fontSize: 25,
+                          )),
+                          const SizedBox(
+                    height: 20,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 30, left: 30),
+                    child: Center(
+                      child: SizedBox(
+                          width: double.maxFinite,
+                          height: 52,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              
+                            },
+                            style: ElevatedButton.styleFrom(
+                                backgroundColor:
+                                    (context.watch<Reseaux>().reseau == "Togocom")
+                                        ? ColorConstants.colorCustomButton2
+                                        : ColorConstants.colorCustomButtonMv,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10),
                                 )),
-
-              ],
-            ),
+                            child: Text(
+                              "RECAP DE L'ENVOI",
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w700,
+                                color:
+                                    (context.watch<Reseaux>().reseau == "Togocom")
+                                        ? Colors.black
+                                        : Colors.white,
+                              ),
+                            ),
+                          )),
+                    ),
+                  ),
+                    ],
+                  ),
           ],
         ),
       ),
@@ -311,76 +332,58 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
   }
 }
 
-Widget creditColumn(BuildContext context, int montantArg, String montantAfficher) {
-
+Widget creditColumn(
+    BuildContext context, int montantArg, String montantAfficher) {
   return Expanded(
-                      child: SizedBox(
-                        height: 100,
-                        child: TextButton(
-                          onPressed: () {
-                            _numeroControllerFocusNode.unfocus();
-                            montant = montantArg;
-                            if (currentOption == options[0]) {
-                              String num = _numeroController.text = '';
-                              callButtomSheetUnite(
-                                context,
-                                num,
-                                montant,
-                                false
-                              );
-                            } else {
-                              if (currentOption == options[1] &&
-                                  _numeroController.text == '') {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                    const SnackBar(
-                                        content: Text(
-                                            'Veuillez renseigner un numéro')));
-                                _numeroControllerFocusNode.requestFocus();
-                              } else {
-                                String num = _numeroController.text
-                                    .replaceAll(RegExp(r'\D'), "");
-                                num = num.substring(num.length - 8);
+    child: SizedBox(
+      height: 100,
+      child: TextButton(
+        onPressed: () {
+          _numeroControllerFocusNode.unfocus();
+          montant = montantArg;
+          if (currentOption == options[0]) {
+            String num = _numeroController.text = '';
+            callButtomSheetUnite(context, num, montant, false);
+          } else {
+            if (currentOption == options[1] && _numeroController.text == '') {
+              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                  content: Text('Veuillez renseigner un numéro')));
+              _numeroControllerFocusNode.requestFocus();
+            } else {
+              String num = _numeroController.text.replaceAll(RegExp(r'\D'), "");
+              num = num.substring(num.length - 8);
 
-                                if (num[0] == '9' || num[0] == '7') {
-                                  callButtomSheetUnite(
-                                    context,
-                                    num,
-                                    montant,
-                                    true
-                                  );
-                                } else {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                      const SnackBar(
-                                          content: Text(
-                                              'Veuillez renseigner un numéro correct')));
-                                }
-                              }
-                            }
-                          },
-                          style: TextButton.styleFrom(
-                            backgroundColor: Colors.white,
-                            padding: const EdgeInsets.all(13),
-                            shape: RoundedRectangleBorder(
-                              borderRadius:
-                                  const BorderRadius.all(Radius.circular(15)),
-                              side: BorderSide(
-                                  style: BorderStyle.solid,
-                                  width: 1.5,
-                                  color: (context.watch<Reseaux>().reseau ==
-                                          "Togocom")
-                                      ? ColorConstants.colorCustomButton2
-                                      : ColorConstants.colorCustomButtonMv),
-                            ),
-                          ),
-                          child: Text(
-                            montantAfficher,
-                            style: const TextStyle(
-                              color: Colors.black,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ),
-                      ),
-                    );
+              if (num[0] == '9' || num[0] == '7') {
+                callButtomSheetUnite(context, num, montant, true);
+              } else {
+                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                    content: Text('Veuillez renseigner un numéro correct')));
+              }
+            }
+          }
+        },
+        style: TextButton.styleFrom(
+          backgroundColor: Colors.white,
+          padding: const EdgeInsets.all(13),
+          shape: RoundedRectangleBorder(
+            borderRadius: const BorderRadius.all(Radius.circular(15)),
+            side: BorderSide(
+                style: BorderStyle.solid,
+                width: 1.5,
+                color: (context.watch<Reseaux>().reseau == "Togocom")
+                    ? ColorConstants.colorCustomButton2
+                    : ColorConstants.colorCustomButtonMv),
+          ),
+        ),
+        child: Text(
+          montantAfficher,
+          style: const TextStyle(
+            color: Colors.black,
+            fontSize: 20,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+      ),
+    ),
+  );
 }
