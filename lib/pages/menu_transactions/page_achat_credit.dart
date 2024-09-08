@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_native_contact_picker/flutter_native_contact_picker.dart';
 import 'package:mob_se/constants/color_constants.dart';
 import 'package:mob_se/widgets/custum_bottom_sheet_unite.dart';
@@ -53,7 +54,7 @@ bool? isChecked = false;
 final _numeroController = TextEditingController();
 final FocusNode _numeroControllerFocusNode = FocusNode();
 int montant = 0;
-
+final _montantController = TextEditingController();
 String currentOption = options[0];
 bool codeVisible = false;
 bool numVisible = false;
@@ -207,6 +208,9 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                 ],
               ),
             ),
+
+            (context.watch<Reseaux>().reseau == "Togocom") ?
+
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -260,6 +264,44 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                   ],
                 ),
               ],
+            ) : 
+            Column(
+              children: [
+                const SizedBox(
+                  height: 20,
+                ),
+                const Text('* Saisissez le montant à envoyer',
+                    style: TextStyle(
+                      fontSize: 15,
+                    )),
+                const SizedBox(
+                  height: 10,
+                ),
+              Expanded(
+                            child: TextField(
+                                textAlign: TextAlign.right,
+                                keyboardType: TextInputType.number,
+                                inputFormatters: [
+                                  LengthLimitingTextInputFormatter(7),
+                                 ],
+                                controller: _montantController,
+                                decoration: InputDecoration(
+                                  isDense: true,
+                                    border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                  borderSide: const BorderSide(
+                                    color: ColorConstants.colorCustomButton2,
+                                  ),
+                                )
+                                ),
+                                style: const TextStyle(
+                                  fontSize: 25,
+                                )),
+                          ),
+              ],
             ),
           ],
         ),
@@ -267,9 +309,6 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
     );
   }
 }
-
-void verif() {}
-
 
 Widget creditColumn(BuildContext context, int montantArg, String montantAfficher) {
 
