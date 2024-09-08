@@ -10,7 +10,7 @@ class Constantes {
     Solde('data', '*909*9*1*2*1#'),
     Solde('voix', '*909*9*1*2*3#'),
     Solde('mixte', '*909*9*1*2*2#'),
-    Solde('nuit', ''),
+    Solde('nuit', '*909*9*1*2*1#'),
   ];
 
   static final List<Solde> soldeMoov = [
@@ -84,71 +84,37 @@ class Constantes {
         '*909*3*1*3*1#', '*2*1*3*1#', '*909*3*1*3*2*', '*2*1*3*2*'),
     ForfaitMixte('5.400f v TR', '120 Mo', '50 SMS', 'Validité 7 j', '1.000 XOF',
         '*909*3*2*1*1#', '*2*2*1*1#', '*909*3*2*1*2*', '*2*2*1*2*'),
-    ForfaitMixte(
-        '13.500f v TR',
-        '350 Mo',
-        '50 SMS',
-        'Validité 7 j',
-        '2.500 XOF',
-        '*909*3*2*2*1#',
-        '*2*2*2*1#',
-        '*909*3*2*2*2*',
-        '*2*2*2*2*'),
-    ForfaitMixte(
-        '20.000f v TR',
-        '1 Go',
-        '100 SMS',
-        'Validité 30 j',
-        '5.000 XOF',
-        '*909*3*3*2*1#',
-        '*2*3*2*1#',
-        '*909*3*3*2*2*',
-        '*2*3*2*2*'),
-    ForfaitMixte(
-        '42.000f v TR',
-        '2 Go',
-        '100 SMS',
-        'Validité 30 j',
-        '7.500 XOF',
-        '*909*3*3*1*1#',
-        '*2*3*1*1#',
-        '*909*3*3*1*2*',
-        '*2*3*1*2*'),
+    ForfaitMixte('13.500f v TR', '350 Mo', '50 SMS', 'Validité 7 j', '2.500 XOF',
+        '*909*3*2*2*1#', '*2*2*2*1#', '*909*3*2*2*2*','*2*2*2*2*'),
+    ForfaitMixte('20.000f v TR', '1 Go', '100 SMS', 'Validité 30 j','5.000 XOF',
+        '*909*3*3*2*1#', '*2*3*2*1#', '*909*3*3*2*2*', '*2*3*2*2*'),
+    ForfaitMixte('42.000f v TR', '2 Go', '100 SMS', 'Validité 30 j','7.500 XOF',
+        '*909*3*3*1*1#','*2*3*1*1#','*909*3*3*1*2*','*2*3*1*2*'),
     ForfaitMixte('400 min', '3 Go', '100 SMS', 'Validité 7 j', '10.000 XOF',
         '*909*3*3*3*1#', '*2*3*3*1#', '*909*3*3*3*2*', '*2*3*3*2*'),
   ];
 
   static final List<ForfaitMixte> forfaitsMixteMoov = [
     //  ] Forfait moi-meme , Forfait autruit]
-    ForfaitMixte(
-        '7 min v TR', '10 Mo', '10 SMS', 'Validité 1 j', '150 XOF',
+    ForfaitMixte('7 min v TR', '10 Mo', '10 SMS', 'Validité 1 j', '150 XOF',
         '*555*2*1*1#', '', '*155*3*3*2*1*1*1*', '*155*3*3*2*1*1*2*'),
-    ForfaitMixte(
-        '15 min v TR', '20 Mo', '20 SMS', 'Validité 2 j', '250 XOF',
+    ForfaitMixte('15 min v TR', '20 Mo', '20 SMS', 'Validité 2 j', '250 XOF',
         '*555*2*2*1#', '', '*155*3*3*2*2*1*1*', '*155*3*3*2*2*1*2*'),
-    ForfaitMixte(
-        '25 min v TR', '50 Mo', '50 SMS', 'Validité 3 j', '450 XOF',
+    ForfaitMixte('25 min v TR', '50 Mo', '50 SMS', 'Validité 3 j', '450 XOF',
         '*555*2*3*1#', '', '*155*3*3*2*3*1*1*', '*155*3*3*2*3*1*2*'),
-    ForfaitMixte(
-        '40 min v TR', '50 Mo', '50 SMS', 'Validité 3 j', '600 XOF',
+    ForfaitMixte('40 min v TR', '50 Mo', '50 SMS', 'Validité 3 j', '600 XOF',
         '*555*2*10*1#', '', '*155*3*3*2*10*1*1*', '*155*3*3*2*10*1*2*'),
-    ForfaitMixte(
-        '60 min v TR', '100 Mo', '100 SMS', 'Validité 7 j', '900 XOF',
+    ForfaitMixte('60 min v TR', '100 Mo', '100 SMS', 'Validité 7 j', '900 XOF',
         '*555*2*4*1#', '', '*155*3*3*2*4*1*1*', '*155*3*3*2*4*1*2*'),
-    ForfaitMixte(
-        '100 min v TR', '160 Mo', '160 SMS', 'Validité 10 j', '1400 XOF',
+    ForfaitMixte('100 min v TR', '160 Mo', '160 SMS', 'Validité 10 j', '1400 XOF',
         '*555*2*5*1#', '', '*155*3*3*2*5*1*1*', '*155*3*3*2*5*1*2*'),
-    ForfaitMixte(
-        '150 min v TR', '350 Mo', '200 SMS', 'Validité 15 j', '2500 XOF',
+    ForfaitMixte('150 min v TR', '350 Mo', '200 SMS', 'Validité 15 j', '2500 XOF',
         '*555*2*6*1#', '', '*155*3*3*2*6*1*1*', '*155*3*3*2*6*1*2*'),
-    ForfaitMixte(
-        '330 min v TR', '1 Go', '200 SMS', 'Validité 30 j', '5000 XOF',
+    ForfaitMixte('330 min v TR', '1 Go', '200 SMS', 'Validité 30 j', '5000 XOF',
         '*555*2*7*1#', '', '*155*3*3*2*7*1*1*', '*155*3*3*2*7*1*2*'),
-    ForfaitMixte(
-        '540 min v TR', '1.5 Go', '100 SMS', 'Validité 30 j', '7000 XOF',
+    ForfaitMixte('540 min v TR', '1.5 Go', '100 SMS', 'Validité 30 j', '7000 XOF',
         '*555*2*8*1#', '', '*155*3*3*2*8*1*1*', '*155*3*3*2*8*1*2*'),
-    ForfaitMixte(
-        '700 min v TR', '2 Go', '200 SMS', 'Validité 30 j', '9500 XOF',
+    ForfaitMixte('700 min v TR', '2 Go', '200 SMS', 'Validité 30 j', '9500 XOF',
         '*555*2*9*1#', '', '*155*3*3*2*9*1*1*', '*155*3*3*2*9*1*2*'),
   ];
 
