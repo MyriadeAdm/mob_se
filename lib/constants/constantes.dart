@@ -14,8 +14,8 @@ class Constantes {
 
   static final List<Solde> soldeMoov = [
     Solde('data', '*400*4#'),
-    Solde('voix', ''),
-    Solde('mixte', ''),
+    Solde('voix', '*400*4#'),
+    Solde('mixte', '*555*1*1#'),
   ];
 
   static final List<ForfaitInternet> forfaitsInternetTogocom = [
@@ -48,26 +48,26 @@ class Constantes {
 
   static final List<ForfaitInternet> forfaitsInternetMoov = [
     //  ] Forfait moi-meme , Forfait autruit]
-    ForfaitInternet('50 Mo', 'Validité 1 j', '100 XOF', '*400*2*1*1#',
-        '', '', ''),
-    ForfaitInternet('120 Mo', 'Validité 1 j', '200 XOF', '*400*2*1*2#',
-        '', '', ''),
-    ForfaitInternet('180 Mo', 'Validité 3 j', '300 XOF', '*400*2*1*5#',
-        '', '', ''),
-    ForfaitInternet('400 Mo', 'Validité 3 j', '500 XOF', '*400*2*1*4#',
-        '', '', ''),
-    ForfaitInternet('1.5 Go', 'Validité 7 j', '1000 XOF', '*400*2*1*3#',
-        '', '', ''),
-    ForfaitInternet('6 Go', 'Validité 10 j', '2500 XOF', '*400*2*2*1#',
-        '', '', ''),
-    ForfaitInternet('6 Go', 'Validité 30 j', '4500 XOF', '*400*2*2*2#',
-        '', '', ''),
-    ForfaitInternet('15 Go', 'Validité 15 j', '5000 XOF', '*400*2*2*3#',
-        '', '', ''),
-    ForfaitInternet('30 Go', 'Validité 30 j', '9000 XOF', '*400*2*2*4#',
-        '', '', ''),
-    ForfaitInternet('75 Go', 'Validité 30 j', '15000 XOF', '*400*2*2*5#',
-        '', '', ''),
+    ForfaitInternet('50 Mo', 'Validité 1 j', '100 XOF', '*400*2*1*1*1#',
+        '*400*2*1*1*2*', '*155*3*2*1*1*1*1*', '*155*3*2*1*1*1*2*'),
+    ForfaitInternet('120 Mo', 'Validité 1 j', '200 XOF', '*400*2*1*2*1#',
+        '*400*2*1*2*2*', '*155*3*2*1*1*2*1*', '*155*3*2*1*1*2*2*'),
+    ForfaitInternet('180 Mo', 'Validité 3 j', '300 XOF', '*400*2*1*5*1#',
+        '*400*2*1*5*2*', '*155*3*2*1*1*5*1*', '*155*3*2*1*1*5*2*'),
+    ForfaitInternet('400 Mo', 'Validité 3 j', '500 XOF', '*400*2*1*4*1#',
+        '*400*2*1*4*2*', '*155*3*2*1*1*4*1*', '*155*3*2*1*1*4*2*'),
+    ForfaitInternet('1.5 Go', 'Validité 7 j', '1000 XOF', '*400*2*1*3*1#',
+        '*400*2*1*3*2*', '*155*3*2*1*1*3*1*', '*155*3*2*1*1*3*2*'),
+    ForfaitInternet('6 Go', 'Validité 10 j', '2500 XOF', '*400*2*2*1*1#',
+        '*400*2*2*1*2*', '*155*3*2*1*2*1*1*', '*155*3*2*1*2*1*2*'),
+    ForfaitInternet('6 Go', 'Validité 30 j', '4500 XOF', '*400*2*2*2*1#',
+        '*400*2*2*2*2*', '*155*3*2*1*2*2*1*', '*155*3*2*1*2*2*2*'),
+    ForfaitInternet('15 Go', 'Validité 15 j', '5000 XOF', '*400*2*2*3*1#',
+        '*400*2*2*3*2*', '*155*3*2*1*2*3*1*', '*155*3*2*1*2*3*2*'),
+    ForfaitInternet('30 Go', 'Validité 30 j', '9000 XOF', '*400*2*2*4*1#',
+        '*400*2*2*4*2*', '*155*3*2*1*2*4*1*', '*155*3*2*1*2*4*2*'),
+    ForfaitInternet('75 Go', 'Validité 30 j', '15000 XOF', '*400*2*2*5*1#',
+        '*400*2*2*5*2*', '*155*3*2*1*2*5*1*', '*155*3*2*1*2*5*2*'),
   ];
 
   static final List<ForfaitMixte> forfaitsMixteTogocom = [
@@ -120,34 +120,34 @@ class Constantes {
     //  ] Forfait moi-meme , Forfait autruit]
     ForfaitMixte(
         '7 min v TR', '10 Mo', '10 SMS', 'Validité 1 j', '150 XOF',
-        '*555*2*1*1#', '', '', ''),
+        '*555*2*1*1#', '', '*155*3*3*2*1*1*1*', '*155*3*3*2*1*1*2*'),
     ForfaitMixte(
         '15 min v TR', '20 Mo', '20 SMS', 'Validité 2 j', '250 XOF',
-        '*555*2*2*1#', '', '', ''),
+        '*555*2*2*1#', '', '*155*3*3*2*2*1*1*', '*155*3*3*2*2*1*2*'),
     ForfaitMixte(
         '25 min v TR', '50 Mo', '50 SMS', 'Validité 3 j', '450 XOF',
-        '*555*2*3*1#', '', '', ''),
+        '*555*2*3*1#', '', '*155*3*3*2*3*1*1*', '*155*3*3*2*3*1*2*'),
     ForfaitMixte(
         '40 min v TR', '50 Mo', '50 SMS', 'Validité 3 j', '600 XOF',
-        '*555*2*10*1#', '', '', ''),
+        '*555*2*10*1#', '', '*155*3*3*2*10*1*1*', '*155*3*3*2*10*1*2*'),
     ForfaitMixte(
         '60 min v TR', '100 Mo', '100 SMS', 'Validité 7 j', '900 XOF',
-        '*555*2*4*1#', '', '', ''),
+        '*555*2*4*1#', '', '*155*3*3*2*4*1*1*', '*155*3*3*2*4*1*2*'),
     ForfaitMixte(
         '100 min v TR', '160 Mo', '160 SMS', 'Validité 10 j', '1400 XOF',
-        '*555*2*5*1#', '', '', ''),
+        '*555*2*5*1#', '', '*155*3*3*2*5*1*1*', '*155*3*3*2*5*1*2*'),
     ForfaitMixte(
         '150 min v TR', '350 Mo', '200 SMS', 'Validité 15 j', '2500 XOF',
-        '*555*2*6*1#', '', '', ''),
+        '*555*2*6*1#', '', '*155*3*3*2*6*1*1*', '*155*3*3*2*6*1*2*'),
     ForfaitMixte(
         '330 min v TR', '1 Go', '200 SMS', 'Validité 30 j', '5000 XOF',
-        '*555*2*7*1#', '', '', ''),
+        '*555*2*7*1#', '', '*155*3*3*2*7*1*1*', '*155*3*3*2*7*1*2*'),
     ForfaitMixte(
         '540 min v TR', '1.5 Go', '100 SMS', 'Validité 30 j', '7000 XOF',
-        '*555*2*8*1#', '', '', ''),
+        '*555*2*8*1#', '', '*155*3*3*2*8*1*1*', '*155*3*3*2*8*1*2*'),
     ForfaitMixte(
         '700 min v TR', '2 Go', '200 SMS', 'Validité 30 j', '9500 XOF',
-        '*555*2*9*1#', '', '', ''),
+        '*555*2*9*1#', '', '*155*3*3*2*9*1*1*', '*155*3*3*2*9*1*2*'),
   ];
 
   static final List<ForfaitAppel> forfaitsAppelTogocom = [
@@ -173,25 +173,25 @@ class Constantes {
   static final List<ForfaitAppel> forfaitsAppelMoov = [
     //  ] Forfait moi-meme , Forfait autruit]
     ForfaitAppel('11 min v TR', '0 SMS', 'Validité 1 j', '150 XOF',
-        '*555*2*1*2#', '', '', '', null),
+        '*555*2*1*2#', '', '*155*3*3*2*1*2*1*', '*155*3*3*2*1*2*2*', null),
     ForfaitAppel('20 min v TR', '0 SMS', 'Validité 2 j', '250 XOF',
-        '*555*2*2*2#', '', '', '', null),
+        '*555*2*2*2#', '', '*155*3*3*2*2*2*1*', '*155*3*3*2*2*2*2*', null),
     ForfaitAppel('36 min v TR', '0 SMS', 'Validité 3 j', '450 XOF',
-        '*555*2*3*2#', '', '', '', null),
+        '*555*2*3*2#', '', '*155*3*3*2*3*2*1*', '*155*3*3*2*3*2*2*', null),
     ForfaitAppel('50 min v TR', '0 SMS', 'Validité 3 j', '600 XOF',
-        '*555*2*10*2#', '', '', '', null),
+        '*555*2*10*2#', '', '*155*3*3*2*10*2*1*', '*155*3*3*2*10*2*2*', null),
     ForfaitAppel('75 min v TR', '0 SMS', 'Validité 7 j', '900 XOF',
-        '*555*2*4*2#', '', '', '', null),
+        '*555*2*4*2#', '', '*155*3*3*2*4*2*1*', '*155*3*3*2*4*2*2*', null),
     ForfaitAppel('120 min v TR', '0 SMS', 'Validité 10 j', '1400 XOF',
-        '*555*2*5*2#', '', '', '', null),
+        '*555*2*5*2#', '', '*155*3*3*2*5*2*1*', '*155*3*3*2*5*2*2*', null),
     ForfaitAppel('220 min v TR', '0 SMS', 'Validité 15 j', '2500 XOF',
-        '*555*2*6*2#', '', '', '', null),
+        '*555*2*6*2#', '', '*155*3*3*2*6*2*1*', '*155*3*3*2*6*2*2*', null),
     ForfaitAppel('450 min v TR', '0 SMS', 'Validité 30 j', '5000 XOF',
-        '*555*2*7*2#', '', '', '', null),
+        '*555*2*7*2#', '', '*155*3*3*2*7*2*1*', '*155*3*3*2*7*2*2*', null),
     ForfaitAppel('660 min v TR', '0 SMS', 'Validité 30 j', '7000 XOF',
-        '*555*2*8*2#', '', '', '', null),
+        '*555*2*8*2#', '', '*155*3*3*2*8*2*1*', '*155*3*3*2*8*2*2*', null),
     ForfaitAppel('930 min v TR', '0 SMS', 'Validité 30 j', '9500 XOF',
-        '*555*2*9*2#', '', '', '', null),
+        '*555*2*9*2#', '', '*155*3*3*2*9*2*1*', '*155*3*3*2*9*2*2*', null),
   ];
 
   static final List<ForfaitNuit> forfaitsNuitTogocom = [
@@ -203,6 +203,6 @@ class Constantes {
   static final List<ForfaitNuit> forfaitsNuitMoov = [
     //  ] Forfait moi-meme , Forfait autruit]
     ForfaitNuit('4 Go', 'Validité 1j (22h-07h)', '500 XOF', '*400*2*3*1#',
-        '', '', ''),
+        '*400*2*3*1*2*', '*155*3*2*1*3*1*1*', '*155*3*2*1*3*1*2*'),
   ];
 }
