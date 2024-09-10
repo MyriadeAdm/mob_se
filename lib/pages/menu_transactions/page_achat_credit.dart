@@ -255,7 +255,7 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                     ],
                   )
                 : Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const SizedBox(
                         height: 20,
@@ -279,18 +279,18 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                                 ],
                                 controller: _montantController,
                                 decoration: InputDecoration(
-                                  isDense: true,
-                                  // contentPadding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                  borderSide: const BorderSide(
-                                    color: ColorConstants.colorCustomButton2,
-                                  ),
-                                )
-                                ),
+                                    isDense: true,
+                                    // contentPadding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                      borderSide: const BorderSide(
+                                        color:
+                                            ColorConstants.colorCustomButton2,
+                                      ),
+                                    )),
                                 style: const TextStyle(
                                   fontSize: 25,
                                 )),
@@ -311,35 +311,63 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                       const SizedBox(
                         height: 40,
                       ),
-                  Center(
-                    child: SizedBox(
-                        width: double.maxFinite,
-                        height: 52,
-                        child: ElevatedButton(
-                          onPressed: () {
-                            
-                          },
-                          style: ElevatedButton.styleFrom(
-                              backgroundColor:
-                                  (context.watch<Reseaux>().reseau == "Togocom")
-                                      ? ColorConstants.colorCustomButton2
-                                      : ColorConstants.colorCustomButtonMv,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10),
-                              )),
-                          child: Text(
-                            "RECAP DE L'ENVOI",
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w700,
-                              color:
-                                  (context.watch<Reseaux>().reseau == "Togocom")
+                      Center(
+                        child: SizedBox(
+                            width: double.maxFinite,
+                            height: 52,
+                            child: ElevatedButton(
+                              onPressed: () {
+                                if (currentOption == options[0]) {
+                                  String num = _numeroController.text = '';
+                                  callButtomSheetUnite(
+                                      context, num, int.parse(_montantController.text), false);
+                                } else {
+                                  if (currentOption == options[1] &&
+                                      _numeroController.text == '') {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                        const SnackBar(
+                                            content: Text(
+                                                'Veuillez renseigner un numéro')));
+                                    _numeroControllerFocusNode.requestFocus();
+                                  } else {
+                                    String num = _numeroController.text
+                                        .replaceAll(RegExp(r'\D'), "");
+                                    num = num.substring(num.length - 8);
+
+                                    if (num[0] == '9' || num[0] == '7') {
+                                      callButtomSheetUnite(
+                                          context, num, int.parse(_montantController.text), true);
+                                    } else {
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(const SnackBar(
+                                              content: Text(
+                                                  'Veuillez renseigner un numéro correct')));
+                                    }
+                                  }
+                                }
+                              },
+                              style: ElevatedButton.styleFrom(
+                                  backgroundColor:
+                                      (context.watch<Reseaux>().reseau ==
+                                              "Togocom")
+                                          ? ColorConstants.colorCustomButton2
+                                          : ColorConstants.colorCustomButtonMv,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  )),
+                              child: Text(
+                                "RECAP DE L'ENVOI",
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w700,
+                                  color: (context.watch<Reseaux>().reseau ==
+                                          "Togocom")
                                       ? Colors.black
                                       : Colors.white,
-                            ),
-                          ),
-                        )),
-                  ),
+                                ),
+                              ),
+                            )),
+                      ),
                     ],
                   ),
           ],

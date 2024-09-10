@@ -15,7 +15,7 @@ final FocusNode _numeroControllerFocusNode = FocusNode();
 final _montantController = TextEditingController();
 final FocusNode _montantFocusNode = FocusNode();
 bool _isSelected = false;
-bool fraisVisible = false ;
+bool fraisVisible = false;
 int frt = 0;
 int mnt = 0;
 int ftrn = 0;
@@ -116,7 +116,9 @@ class PageDepot extends StatelessWidget {
                             fontWeight: FontWeight.w600,
                           ),
                         ),
-                        const SizedBox(height: 60,), //place pour positionner le textfield
+                        const SizedBox(
+                          height: 60,
+                        ), //place pour positionner le textfield
                         const SizedBox(
                           height: 20,
                         ),
@@ -144,10 +146,11 @@ class PageDepot extends StatelessWidget {
                                       int fraisRetrait, fraisTransfert;
                                       int montant = int.parse(
                                           text.replaceAll(RegExp(r'\D'), ""));
-              
+
                                       setState(() {
                                         (fraisTransfert, fraisRetrait) =
-                                            quelFraisTransactionEtRetrait(montant);
+                                            quelFraisTransactionEtRetrait(
+                                                context, montant);
                                         frt = fraisRetrait;
                                         ftrn = fraisTransfert;
                                         mnt = montant;
@@ -165,10 +168,14 @@ class PageDepot extends StatelessWidget {
                                       focusedBorder: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(10),
                                         borderSide: BorderSide(
-                                          color: (context.watch<Reseaux>().reseau ==
+                                          color: (context
+                                                      .watch<Reseaux>()
+                                                      .reseau ==
                                                   "Togocom")
-                                              ? ColorConstants.colorCustomButton2
-                                              : ColorConstants.colorCustomButtonMv,
+                                              ? ColorConstants
+                                                  .colorCustomButton2
+                                              : ColorConstants
+                                                  .colorCustomButtonMv,
                                         ),
                                       )),
                                   style: const TextStyle(
@@ -195,8 +202,8 @@ class PageDepot extends StatelessWidget {
                               textDirection: TextDirection.rtl,
                               child: LabeledCheckbox(
                                 label: 'Ajouter les frais de retraits',
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 20.0),
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 20.0),
                                 value: _isSelected,
                                 onChanged: (bool newValue) {
                                   setState(() {
@@ -206,7 +213,8 @@ class PageDepot extends StatelessWidget {
                                 },
                               ),
                             ),
-                            Visibility(visible: fraisVisible, child: Text('$frt'))
+                            Visibility(
+                                visible: fraisVisible, child: Text('$frt'))
                           ],
                         ),
                       ],
@@ -226,8 +234,8 @@ class PageDepot extends StatelessWidget {
                               if (_numeroController.text == '') {
                                 ScaffoldMessenger.of(context).showSnackBar(
                                     const SnackBar(
-                                        content:
-                                            Text('Veuillez renseigner un numéro')));
+                                        content: Text(
+                                            'Veuillez renseigner un numéro')));
                                 _numeroControllerFocusNode.requestFocus();
                               } else {
                                 if (_montantController.text == '') {
@@ -240,36 +248,46 @@ class PageDepot extends StatelessWidget {
                                   String num = _numeroController.text
                                       .replaceAll(RegExp(r'\D'), "");
                                   num = num.substring(num.length - 8);
-              
+
                                   ///print (num[0]);
-              
+
                                   int fraisRetrait, fraisTransfert;
-                                  int montant = int.parse(_montantController.text
+                                  int montant = int.parse(_montantController
+                                      .text
                                       .replaceAll(RegExp(r'\D'), ""));
                                   if (_isSelected == false) {
-                                    fraisTransfert = quelFraisTransaction(montant);
+                                    fraisTransfert =
+                                        quelFraisTransaction(context, montant);
                                     fraisRetrait = 0;
                                   } else {
                                     (fraisTransfert, fraisRetrait) =
-                                        quelFraisTransactionEtRetrait(montant);
+                                        quelFraisTransactionEtRetrait(
+                                            context, montant);
                                   }
-              
+
                                   if (num[0] == '9' || num[0] == '7') {
-                                    callButtomSheetEnvoie(context, num, montant,
-                                        fraisTransfert, fraisRetrait, _isSelected).whenComplete(reset);
+                                    callButtomSheetEnvoie(
+                                            context,
+                                            num,
+                                            montant,
+                                            fraisTransfert,
+                                            fraisRetrait,
+                                            _isSelected)
+                                        .whenComplete(reset);
                                   } else {
                                     ScaffoldMessenger.of(context).showSnackBar(
                                         const SnackBar(
                                             content: Text(
                                                 'Veuillez renseigner un numéro Togocel ou moov')));
-                                                //print(_numeroController.text);
+                                    //print(_numeroController.text);
                                   }
                                 }
                               }
                             },
                             style: ElevatedButton.styleFrom(
                                 backgroundColor:
-                                    (context.watch<Reseaux>().reseau == "Togocom")
+                                    (context.watch<Reseaux>().reseau ==
+                                            "Togocom")
                                         ? ColorConstants.colorCustomButton2
                                         : ColorConstants.colorCustomButtonMv,
                                 shape: RoundedRectangleBorder(
@@ -280,10 +298,10 @@ class PageDepot extends StatelessWidget {
                               style: TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.w700,
-                                color:
-                                    (context.watch<Reseaux>().reseau == "Togocom")
-                                        ? Colors.black
-                                        : Colors.white,
+                                color: (context.watch<Reseaux>().reseau ==
+                                        "Togocom")
+                                    ? Colors.black
+                                    : Colors.white,
                               ),
                             ),
                           )),
@@ -292,20 +310,22 @@ class PageDepot extends StatelessWidget {
                 ],
               ),
               Positioned(
-              top: 135, // Adjust this position based on your layout
-              left: 0,
-              right: 0,
-              bottom: 20,
-              child: ContactFloatingList(
-                onContactSelected: (Contact? contact) {
-                  _numeroController.text = contact?.phones?[0].value as String;
-                  // Do something with the selected contact
-                  if (kDebugMode) {
-                    print('Selected contact: ${contact?.displayName}, ${contact?.phones?[0].value}, ${_numeroController.text}');
-                  }
-                },
+                top: 135, // Adjust this position based on your layout
+                left: 0,
+                right: 0,
+                bottom: 20,
+                child: ContactFloatingList(
+                  onContactSelected: (Contact? contact) {
+                    _numeroController.text =
+                        contact?.phones?[0].value as String;
+                    // Do something with the selected contact
+                    if (kDebugMode) {
+                      print(
+                          'Selected contact: ${contact?.displayName}, ${contact?.phones?[0].value}, ${_numeroController.text}');
+                    }
+                  },
+                ),
               ),
-            ),
             ],
           );
         },
@@ -314,52 +334,122 @@ class PageDepot extends StatelessWidget {
   }
 }
 
-(int tranfert, int retrait) quelFraisTransactionEtRetrait(int montant) {
-  var newMontant = montantTransfererPlusFrais(montant);
-  if (newMontant > 0 && newMontant <= 5000) {
-    return (10, 90);
-  } else if (newMontant > 5000 && newMontant <= 15000) {
-    return (30, 250);
-  } else if (newMontant > 15000 && newMontant <= 20000) {
-    return (30, 290);
-  } else if (newMontant > 20000 && newMontant <= 50000) {
-    return (50, 550);
-  } else if (newMontant > 50000 && newMontant <= 100000) {
-    return (100, 900);
+(int tranfert, int retrait) quelFraisTransactionEtRetrait(
+    BuildContext context, int montant) {
+  if (Provider.of<Reseaux>(context, listen: false).reseau == "Togocom") {
+    var newMontant = montantTransfererPlusFrais(context, montant);
+    if (newMontant > 0 && newMontant <= 500) {
+      return (5, 45);
+    } else if (newMontant > 500 && newMontant <= 1000) {
+      return (5, 70);
+    } else if (newMontant > 1000 && newMontant <= 5000) {
+      return (10, 90);
+    } else if (newMontant > 5000 && newMontant <= 15000) {
+      return (30, 250);
+    } else if (newMontant > 15000 && newMontant <= 20000) {
+      return (30, 290);
+    } else if (newMontant > 20000 && newMontant <= 50000) {
+      return (50, 550);
+    } else if (newMontant > 50000 && newMontant <= 100000) {
+      return (100, 900);
+    } else {
+      return (0, 666);
+    }
   } else {
-    return (0, 0);
+    var newMontant = montantTransfererPlusFrais(context, montant);
+    if (newMontant > 0 && newMontant <= 500) {
+      return (0, 50);
+    } else if (newMontant > 500 && newMontant <= 1000) {
+      return (0, 75);
+    } else if (newMontant > 1000 && newMontant <= 5000) {
+      return (0, 100);
+    } else if (newMontant > 5000 && newMontant <= 15000) {
+      return (0, 280);
+    } else if (newMontant > 15000 && newMontant <= 20000) {
+      return (0, 320);
+    } else if (newMontant > 20000 && newMontant <= 50000) {
+      return (0, 600);
+    } else if (newMontant > 50000 && newMontant <= 100000) {
+      return (0, 1000);
+    } else {
+      return (0, 0);
+    }
   }
 }
 
-int quelFraisTransaction(int montant) {
-  if (montant > 0 && montant <= 5000) {
-    return 10;
-  } else if (montant > 5000 && montant <= 15000) {
-    return 30;
-  } else if (montant > 15000 && montant <= 20000) {
-    return 30;
-  } else if (montant > 20000 && montant <= 50000) {
-    return 50;
-  } else if (montant > 50000 && montant <= 100000) {
-    return 100;
+int quelFraisTransaction(BuildContext context, int montant) {
+  if (Provider.of<Reseaux>(context, listen: false).reseau == "Togocom") {
+    if (montant > 0 && montant <= 500) {
+      return 5;
+    } else if (montant > 500 && montant <= 1000) {
+      return 5;
+    } else if (montant > 1000 && montant <= 5000) {
+      return 10;
+    } else if (montant > 5000 && montant <= 15000) {
+      return 30;
+    } else if (montant > 15000 && montant <= 20000) {
+      return 30;
+    } else if (montant > 20000 && montant <= 50000) {
+      return 50;
+    } else if (montant > 50000 && montant <= 100000) {
+      return 100;
+    } else {
+      return 0;
+    }
   } else {
-    return 0;
+    if (montant > 0 && montant <= 500) {
+      return 0;
+    } else if (montant > 500 && montant <= 1000) {
+      return 0;
+    } else if (montant > 1000 && montant <= 5000) {
+      return 0;
+    } else if (montant > 5000 && montant <= 15000) {
+      return 0;
+    } else if (montant > 15000 && montant <= 20000) {
+      return 0;
+    } else if (montant > 20000 && montant <= 50000) {
+      return 0;
+    } else if (montant > 50000 && montant <= 100000) {
+      return 0;
+    } else {
+      return 0;
+    }
   }
 }
 
-int montantTransfererPlusFrais(int montantTransferer) {
-  if (montantTransferer > 0 && montantTransferer <= 5000) {
-    return montantTransferer + 90;
-  } else if (montantTransferer > 5000 && montantTransferer <= 15000) {
-    return montantTransferer + 250;
-  } else if (montantTransferer > 15000 && montantTransferer <= 20000) {
-    return montantTransferer + 290;
-  } else if (montantTransferer > 20000 && montantTransferer <= 50000) {
-    return montantTransferer + 550;
-  } else if (montantTransferer > 50000 && montantTransferer <= 100000) {
-    return montantTransferer + 900;
+int montantTransfererPlusFrais(BuildContext context, int montantTransferer) {
+  if (Provider.of<Reseaux>(context, listen: false).reseau == "Togocom") {
+    if (montantTransferer > 0 && montantTransferer <= 500) {
+      return montantTransferer + 45;
+    } else if (montantTransferer > 500 && montantTransferer <= 1000) {
+      return montantTransferer + 90;
+    } else if (montantTransferer > 1000 && montantTransferer <= 5000) {
+      return montantTransferer + 250;
+    } else if (montantTransferer > 15000 && montantTransferer <= 20000) {
+      return montantTransferer + 290;
+    } else if (montantTransferer > 20000 && montantTransferer <= 50000) {
+      return montantTransferer + 550;
+    } else if (montantTransferer > 50000 && montantTransferer <= 100000) {
+      return montantTransferer + 900;
+    } else {
+      return 0;
+    }
   } else {
-    return 0;
+    if (montantTransferer > 0 && montantTransferer <= 500) {
+      return montantTransferer + 50;
+    } else if (montantTransferer > 500 && montantTransferer <= 1000) {
+      return montantTransferer + 100;
+    } else if (montantTransferer > 1000 && montantTransferer <= 5000) {
+      return montantTransferer + 280;
+    } else if (montantTransferer > 15000 && montantTransferer <= 20000) {
+      return montantTransferer + 320;
+    } else if (montantTransferer > 20000 && montantTransferer <= 50000) {
+      return montantTransferer + 600;
+    } else if (montantTransferer > 50000 && montantTransferer <= 100000) {
+      return montantTransferer + 1000;
+    } else {
+      return 0;
+    }
   }
 }
 
@@ -367,4 +457,5 @@ void reset() {
   _numeroController.clear();
   _montantController.clear();
   _isSelected = false;
+  fraisVisible = false;
 }

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:provider/provider.dart';
-
 import '../constants/color_constants.dart';
+import '../constants/reseaux.dart';
 import '../models/historique_database.dart';
 
 final _codeController = TextEditingController();
@@ -122,7 +122,6 @@ Future<void> callButtomSheetUnite(
                     //print ('le code est *${_codeController.text}*');
 
 
-
                     if (_codeController.text == '') {
                       showDialog(
                           context: context,
@@ -169,6 +168,8 @@ Future<void> callButtomSheetUnite(
                           default:
                         }
 
+                      if (Provider.of<Reseaux>(context, listen: false).reseau ==
+                              "Togocom") {
                       if (isSelected) {
 
                         FlutterPhoneDirectCaller.callNumber("*145*3*1*2*$numero*$choixMontant*${_codeController.text}#");  
@@ -183,6 +184,24 @@ Future<void> callButtomSheetUnite(
                         context.read<HistoriqueDatabase>()
                                       .addHistorique("Achat crédit T-Money",
                                         "$montant F CFA rechargé à Moi-Même");
+                      }} 
+                      else {
+                        if (isSelected) {
+
+                        FlutterPhoneDirectCaller.callNumber("*155*3*1*2*$numero*$montant*${_codeController.text}#");  // syntaxe moov achat credit autruit
+
+                        context.read<HistoriqueDatabase>()
+                                      .addHistorique("Achat crédit Flooz",
+                                        "$montant F CFA rechargé à $numero");
+
+                      } else {
+
+                        FlutterPhoneDirectCaller.callNumber("*155*3*1*1*$montant*${_codeController.text}#"); // syntaxe moov achat credit moi meme
+
+                        context.read<HistoriqueDatabase>()
+                                      .addHistorique("Achat crédit Flooz",
+                                        "$montant F CFA rechargé à Moi-Même");
+                      }
                       }
                     }
                   },
