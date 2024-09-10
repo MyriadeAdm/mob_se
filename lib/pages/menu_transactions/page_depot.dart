@@ -143,16 +143,18 @@ class PageDepot extends StatelessWidget {
                                     if (text == '') {
                                       text = '0';
                                     } else {
-                                      int fraisRetrait, fraisTransfert;
+                                      int fraisRetrait, fraisTransfert;                                      
                                       int montant = int.parse(
                                           text.replaceAll(RegExp(r'\D'), ""));
 
                                       setState(() {
                                         (fraisTransfert, fraisRetrait) =
-                                            quelFraisTransactionEtRetrait(
-                                                context, montant);
+                                            quelFraisTransactionEtRetrait(context, montant);
                                         frt = fraisRetrait;
                                         ftrn = fraisTransfert;
+                                        print(frt);
+                                        //print(fraisRetrait);
+                                        print(montant);
                                         mnt = montant;
                                       });
                                     }
@@ -168,14 +170,8 @@ class PageDepot extends StatelessWidget {
                                       focusedBorder: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(10),
                                         borderSide: BorderSide(
-                                          color: (context
-                                                      .watch<Reseaux>()
-                                                      .reseau ==
-                                                  "Togocom")
-                                              ? ColorConstants
-                                                  .colorCustomButton2
-                                              : ColorConstants
-                                                  .colorCustomButtonMv,
+                                          color: (context.watch<Reseaux>().reseau == "Togocom")?
+                                          ColorConstants.colorCustomButton2: ColorConstants.colorCustomButtonMv,
                                         ),
                                       )),
                                   style: const TextStyle(
@@ -334,6 +330,7 @@ class PageDepot extends StatelessWidget {
   }
 }
 
+//logic derriere ce code 
 (int tranfert, int retrait) quelFraisTransactionEtRetrait(
     BuildContext context, int montant) {
   if (Provider.of<Reseaux>(context, listen: false).reseau == "Togocom") {
@@ -397,23 +394,7 @@ int quelFraisTransaction(BuildContext context, int montant) {
       return 0;
     }
   } else {
-    if (montant > 0 && montant <= 500) {
       return 0;
-    } else if (montant > 500 && montant <= 1000) {
-      return 0;
-    } else if (montant > 1000 && montant <= 5000) {
-      return 0;
-    } else if (montant > 5000 && montant <= 15000) {
-      return 0;
-    } else if (montant > 15000 && montant <= 20000) {
-      return 0;
-    } else if (montant > 20000 && montant <= 50000) {
-      return 0;
-    } else if (montant > 50000 && montant <= 100000) {
-      return 0;
-    } else {
-      return 0;
-    }
   }
 }
 
