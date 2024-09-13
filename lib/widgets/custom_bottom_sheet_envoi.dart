@@ -167,6 +167,7 @@ Future<void> callButtomSheetEnvoie(
                         FlutterPhoneDirectCaller.callNumber("*145*1*$montantEnvoye*$numero*2*${_codeController.text}#");
                       
                     }
+                    _codeController.clear();
                   },
                   style: ElevatedButton.styleFrom(
                       backgroundColor: ColorConstants.colorCustomButton2,

@@ -1,24 +1,30 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:contacts_service/contacts_service.dart';
+import 'package:contacts_service/contacts_service.dart' as c_service;
+import 'package:flutter_native_contact_picker/flutter_native_contact_picker.dart'
+    as c_picker;
+import 'package:mob_se/widgets/custum_bottom_sheet.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-Contact? _contact;
+c_picker.FlutterContactPicker _contactPicker =
+    c_picker.FlutterContactPicker();
 
 class ContactFloatingList extends StatefulWidget {
-  const ContactFloatingList({super.key, this.onContactSelected});
+  const ContactFloatingList(
+      {super.key, this.onContactSelected, required this.controller});
 
-  final ValueChanged<Contact?>? onContactSelected;
+  final ValueChanged<c_service.Contact?>? onContactSelected;
+
+  final TextEditingController controller;
 
   @override
   _ContactFloatingListState createState() => _ContactFloatingListState();
 }
 
 class _ContactFloatingListState extends State<ContactFloatingList> {
-  List<Contact> _contacts = [];
-  List<Contact> _filteredContacts = [];
-  Contact? _selectedContact;
-  final TextEditingController _controller = TextEditingController();
+  List<c_service.Contact> _contacts = [];
+  List<c_service.Contact> _filteredContacts = [];
+  c_service.Contact? _selectedContact;
   final FocusNode _numeroControllerFocusNode = FocusNode();
   bool _isListVisible = false;
 
@@ -42,7 +48,8 @@ class _ContactFloatingListState extends State<ContactFloatingList> {
 
   Future<void> _fetchContacts() async {
     try {
-      List<Contact> contacts = await ContactsService.getContacts();
+      List<c_service.Contact> contacts =
+          await c_service.ContactsService.getContacts();
       setState(() {
         _contacts = contacts.toList();
         _filteredContacts = _contacts;
@@ -79,48 +86,70 @@ class _ContactFloatingListState extends State<ContactFloatingList> {
         children: [
           Column(
             children: [
-              TextField(
-                controller: _controller,
-                focusNode: _numeroControllerFocusNode,
-                decoration: InputDecoration(
-                  hintText: 'Nom ou numéro de téléphone',
-                  filled: true,
-                  fillColor: const Color.fromRGBO(230, 227, 227, 1),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide.none,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  suffixIcon: IconButton(
-                    onPressed: () {
-                      _controller.clear();
-                      _filterContacts('');
-                    },
-                    icon: const Icon(
-                      Icons.clear,
-                      size: 20,
-                      color: Colors.grey,
+              Row(
+                children: [
+                  Expanded(
+                    child: TextField(
+                      controller: widget.controller,
+                      focusNode: _numeroControllerFocusNode,
+                      decoration: InputDecoration(
+                        hintText: 'Nom ou numéro de téléphone',
+                        filled: true,
+                        fillColor: const Color.fromRGBO(230, 227, 227, 1),
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide.none,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        suffixIcon: IconButton(
+                          onPressed: () {
+                            widget.controller.clear();
+                            _filterContacts('');
+                          },
+                          icon: const Icon(
+                            Icons.clear,
+                            size: 20,
+                            color: Colors.grey,
+                          ),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: const BorderSide(color: Colors.blue),
+                        ),
+                      ),
+                      onChanged: (value) {
+                        _filterContacts(value);
+                  
+                        // If there are no matching contacts, hide the list
+                        if (_filteredContacts.isEmpty) {
+                          setState(() {
+                            _isListVisible = false;
+                            _selectedContact = null;
+                            widget.controller.text = value;
+                            // No contact matches, user input is treated as a phone number
+                          });
+                        }
+                      },
+                      keyboardType: TextInputType.phone,
                     ),
                   ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: const BorderSide(color: Colors.blue),
-                  ),
-                ),
-                onChanged: (value) {
-                  _filterContacts(value);
-
-                  // If there are no matching contacts, hide the list
-                  if (_filteredContacts.isEmpty) {
+                  IconButton(
+                icon: const Icon(Icons.contacts_rounded,
+                    color: Colors.grey, size: 40.0),
+                onPressed: () async {
+                  c_picker.Contact? contact =
+                      await _contactPicker.selectContact();
+                  if (contact != null) {
                     setState(() {
-                      _isListVisible = false;
-                      _selectedContact = null;
-                      _controller.text = value;
-                      // No contact matches, user input is treated as a phone number
+                      List<String>? phoneNumbers = contact.phoneNumbers;
+                      selectedNumber = phoneNumbers?[0] ?? 'Nothing selected';
+                      widget.controller.text = selectedNumber!;
                     });
                   }
                 },
-                keyboardType: TextInputType.phone,
               ),
+                ],
+              ),
+              
             ],
           ),
           Positioned(
@@ -143,20 +172,22 @@ class _ContactFloatingListState extends State<ContactFloatingList> {
                       color: Colors.white,
                     ),
                     child: ListView(
-                      children: _filteredContacts.map((Contact contact) {
+                      children:
+                          _filteredContacts.map((c_service.Contact contact) {
                         return ListTile(
                           title: Text(contact.displayName ?? ''),
                           subtitle: Text(
                               '${contact.phones?.isNotEmpty ?? false ? contact.phones!.first.value : ''}'),
                           onTap: () {
                             setState(() {
-                                 _selectedContact = contact;
-                                 _controller.text ='${_selectedContact?.phones?.isNotEmpty ?? false ? _selectedContact!.phones!.first.value : ''}';
+                              _selectedContact = contact;
+                              widget.controller.text =
+                                  '${_selectedContact?.phones?.isNotEmpty ?? false ? _selectedContact!.phones!.first.value : ''}';
                               _isListVisible = false;
                               if (widget.onContactSelected != null) {
                                 widget.onContactSelected!(_selectedContact);
                               }
-                          });
+                            });
                           },
                         );
                       }).toList(),

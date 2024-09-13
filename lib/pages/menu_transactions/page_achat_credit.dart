@@ -227,28 +227,26 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                       ),
                       Row(
                         children: [
-                          creditColumn(context, 200, '200'),
-                          const SizedBox(width: 10),
                           creditColumn(context, 500, '500'),
                           const SizedBox(width: 10),
-                          creditColumn(context, 1000, '1.000'),
+                          creditColumn(context, 1000, '1000'),
+                          const SizedBox(width: 10),
+                          creditColumn(context, 2000, '2.000'),
                         ],
                       ),
                       const SizedBox(height: 10),
                       Row(
                         children: [
-                          creditColumn(context, 2000, '2.000'),
-                          const SizedBox(width: 10),
                           creditColumn(context, 4500, '4.500'),
                           const SizedBox(width: 10),
                           creditColumn(context, 9000, '9.000'),
+                          const SizedBox(width: 10),
+                          creditColumn(context, 22500, '22.500'),
                         ],
                       ),
                       const SizedBox(height: 10),
                       Row(
                         children: [
-                          creditColumn(context, 22500, '22.500'),
-                          const SizedBox(width: 10),
                           creditColumn(context, 45000, '45.000'),
                         ],
                       ),

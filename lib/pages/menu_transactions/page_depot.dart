@@ -143,13 +143,14 @@ class PageDepot extends StatelessWidget {
                                     if (text == '') {
                                       text = '0';
                                     } else {
-                                      int fraisRetrait, fraisTransfert;                                      
+                                      int fraisRetrait, fraisTransfert;
                                       int montant = int.parse(
                                           text.replaceAll(RegExp(r'\D'), ""));
 
                                       setState(() {
                                         (fraisTransfert, fraisRetrait) =
-                                            quelFraisTransactionEtRetrait(context, montant);
+                                            quelFraisTransactionEtRetrait(
+                                                context, montant);
                                         frt = fraisRetrait;
                                         ftrn = fraisTransfert;
                                         print(frt);
@@ -170,8 +171,14 @@ class PageDepot extends StatelessWidget {
                                       focusedBorder: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(10),
                                         borderSide: BorderSide(
-                                          color: (context.watch<Reseaux>().reseau == "Togocom")?
-                                          ColorConstants.colorCustomButton2: ColorConstants.colorCustomButtonMv,
+                                          color: (context
+                                                      .watch<Reseaux>()
+                                                      .reseau ==
+                                                  "Togocom")
+                                              ? ColorConstants
+                                                  .colorCustomButton2
+                                              : ColorConstants
+                                                  .colorCustomButtonMv,
                                         ),
                                       )),
                                   style: const TextStyle(
@@ -245,8 +252,6 @@ class PageDepot extends StatelessWidget {
                                       .replaceAll(RegExp(r'\D'), "");
                                   num = num.substring(num.length - 8);
 
-                                  ///print (num[0]);
-
                                   int fraisRetrait, fraisTransfert;
                                   int montant = int.parse(_montantController
                                       .text
@@ -269,7 +274,16 @@ class PageDepot extends StatelessWidget {
                                             fraisTransfert,
                                             fraisRetrait,
                                             _isSelected)
-                                        .whenComplete(reset);
+                                        .whenComplete(() {
+                                      setState(
+                                        () {
+                                          _numeroController.clear();
+                                          _montantController.clear();
+                                          _isSelected = false;
+                                          fraisVisible = false;
+                                        },
+                                      );
+                                    });
                                   } else {
                                     ScaffoldMessenger.of(context).showSnackBar(
                                         const SnackBar(
@@ -311,6 +325,7 @@ class PageDepot extends StatelessWidget {
                 right: 0,
                 bottom: 20,
                 child: ContactFloatingList(
+                  controller: _numeroController,
                   onContactSelected: (Contact? contact) {
                     _numeroController.text =
                         contact?.phones?[0].value as String;
@@ -330,7 +345,7 @@ class PageDepot extends StatelessWidget {
   }
 }
 
-//logic derriere ce code 
+//logic derriere ce code
 (int tranfert, int retrait) quelFraisTransactionEtRetrait(
     BuildContext context, int montant) {
   if (Provider.of<Reseaux>(context, listen: false).reseau == "Togocom") {
@@ -394,10 +409,25 @@ int quelFraisTransaction(BuildContext context, int montant) {
       return 0;
     }
   } else {
+    if (montant > 0 && montant <= 500) {
+      return 50;
+    } else if (montant > 500 && montant <= 1000) {
+      return 100;
+    } else if (montant > 1000 && montant <= 5000) {
+      return 280;
+    } else if (montant > 15000 && montant <= 20000) {
+      return 320;
+    } else if (montant > 20000 && montant <= 50000) {
+      return 600;
+    } else if (montant > 50000 && montant <= 100000) {
+      return 1000;
+    } else {
       return 0;
+    }
   }
 }
 
+// Montant  a transferer plus les frais de retraits
 int montantTransfererPlusFrais(BuildContext context, int montantTransferer) {
   if (Provider.of<Reseaux>(context, listen: false).reseau == "Togocom") {
     if (montantTransferer > 0 && montantTransferer <= 500) {
@@ -416,27 +446,6 @@ int montantTransfererPlusFrais(BuildContext context, int montantTransferer) {
       return 0;
     }
   } else {
-    if (montantTransferer > 0 && montantTransferer <= 500) {
-      return montantTransferer + 50;
-    } else if (montantTransferer > 500 && montantTransferer <= 1000) {
-      return montantTransferer + 100;
-    } else if (montantTransferer > 1000 && montantTransferer <= 5000) {
-      return montantTransferer + 280;
-    } else if (montantTransferer > 15000 && montantTransferer <= 20000) {
-      return montantTransferer + 320;
-    } else if (montantTransferer > 20000 && montantTransferer <= 50000) {
-      return montantTransferer + 600;
-    } else if (montantTransferer > 50000 && montantTransferer <= 100000) {
-      return montantTransferer + 1000;
-    } else {
-      return 0;
-    }
+    return 0;
   }
-}
-
-void reset() {
-  _numeroController.clear();
-  _montantController.clear();
-  _isSelected = false;
-  fraisVisible = false;
 }

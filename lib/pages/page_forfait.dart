@@ -35,185 +35,167 @@ class ForfaitPage extends StatelessWidget {
                 thickness: 1,
               ),
       
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Expanded(
-                child: SizedBox(
-                  //width: 150,
-                  height: 130,
-                  child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context, CupertinoPageRoute(builder: (BuildContext context) => const ForfaitVoixPage()));
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: (context.watch<Reseaux>().reseau=="Togocom") ? ColorConstants.colorCustomButtonTg : ColorConstants.colorCustomButtonMv,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15)),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Icon(
-                            Icons.call,
-                            size: 40,
-                            color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
-                          ),
-                          const SizedBox(
-                            height: 15,
-                          ),
-                          Text(
-                            'Forfait voix',
-                            style: TextStyle(
-                              fontSize: 17,
-                              fontWeight: FontWeight.w700,
-                              color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
-                            ),
-                          ),
-                        ],
-                      )),
+          SizedBox(
+            width: double.infinity,
+            height: 90,
+            child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                      context, CupertinoPageRoute(builder: (BuildContext context) => const ForfaitVoixPage()));
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: (context.watch<Reseaux>().reseau=="Togocom") ? ColorConstants.colorCustomButtonTg : ColorConstants.colorCustomButtonMv,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15)),
                 ),
-              ),
-
-              const SizedBox(width: 20),
-      
-              Expanded(
-                child: SizedBox(
-                  //width: 150,
-                  height: 130,
-                  child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            CupertinoPageRoute(
-                                builder: (BuildContext context) =>
-                                    const ForfaitDataPage()));
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: (context.watch<Reseaux>().reseau=="Togocom") ? ColorConstants.colorCustomButtonTg : ColorConstants.colorCustomButtonMv,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.call,
+                      size: 40,
+                      color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
+                    ),
+                    const SizedBox(
+                      width: 30,
+                    ),
+                    Text(
+                      'Forfait voix',
+                      style: TextStyle(
+                        fontSize: 17,
+                        fontWeight: FontWeight.w700,
+                        color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
                       ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Icon(
-                            FontAwesomeIcons.earthAfrica,
-                            size: 40,
-                            color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
-                          ),
-                          const SizedBox(
-                            height: 15,
-                          ),
-                          Text(
-                            'Forfait data',
-                            style: TextStyle(
-                              fontSize: 17,
-                              fontWeight: FontWeight.w700,
-                              color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
-                            ),
-                          ),
-                        ],
-                      )),
+                    ),
+                  ],
+                )),
+          ),
+          
+                         const SizedBox(height: 20),
+                
+          SizedBox(
+            width: double.infinity,
+            height: 90,
+            child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      CupertinoPageRoute(
+                          builder: (BuildContext context) =>
+                              const ForfaitDataPage()));
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: (context.watch<Reseaux>().reseau=="Togocom") ? ColorConstants.colorCustomButtonTg : ColorConstants.colorCustomButtonMv,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15)),
                 ),
-              ),
-            ],
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Icon(
+                      FontAwesomeIcons.earthAfrica,
+                      size: 40,
+                      color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
+                    ),
+                    const SizedBox(
+                      width: 30,
+                    ),
+                    Text(
+                      'Forfait data',
+                      style: TextStyle(
+                        fontSize: 17,
+                        fontWeight: FontWeight.w700,
+                        color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
+                      ),
+                    ),
+                  ],
+                )),
           ),
       
                       const SizedBox(height: 20),
       
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Expanded(
-                child: SizedBox(
-                  //width: 150,
-                  height: 130,
-                  child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            CupertinoPageRoute(
-                                builder: (BuildContext context) =>
-                                    const ForfaitMixtePage()));
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: (context.watch<Reseaux>().reseau=="Togocom") ? ColorConstants.colorCustomButtonTg : ColorConstants.colorCustomButtonMv,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15)),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Icon(
-                            FontAwesomeIcons.mixer,
-                            size: 40,
-                            color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
-                          ),
-                          const SizedBox(
-                            height: 15,
-                          ),
-                          Text(
-                            'Forfait mixte',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700,
-                              color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
-                            ),
-                          ),
-                        ],
-                      )),
+          SizedBox(
+            width: double.infinity,
+            height: 90,
+            child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      CupertinoPageRoute(
+                          builder: (BuildContext context) =>
+                              const ForfaitMixtePage()));
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: (context.watch<Reseaux>().reseau=="Togocom") ? ColorConstants.colorCustomButtonTg : ColorConstants.colorCustomButtonMv,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15)),
                 ),
-              ),
-
-              const SizedBox(width: 20),
-
-              Expanded(
-                child: SizedBox(
-                  //width: 150,
-                  height: 130,
-                  child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            CupertinoPageRoute(
-                                builder: (BuildContext context) =>
-                                    const ForfaitNuitPage()));
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: (context.watch<Reseaux>().reseau=="Togocom") ? ColorConstants.colorCustomButtonTg : ColorConstants.colorCustomButtonMv,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Icon(
+                      FontAwesomeIcons.mixer,
+                      size: 40,
+                      color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
+                    ),
+                    const SizedBox(
+                      width: 30,
+                    ),
+                    Text(
+                      'Forfait mixte',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w700,
+                        color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
                       ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Icon(
-                            Icons.nights_stay,
-                            size: 40,
-                            color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
-                          ),
-                          const SizedBox(
-                            height: 15,
-                          ),
-                          Text(
-                            'Forfait nuit',
-                            style: TextStyle(
-                              fontSize: 17,
-                              fontWeight: FontWeight.w700,
-                              color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
-                            ),
-                          ),
-                        ],
-                      )),
+                    ),
+                  ],
+                )),
+          ),
+          
+                         const SizedBox(height: 20),
+          
+          SizedBox(
+            width: double.infinity,
+            height: 90,
+            child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      CupertinoPageRoute(
+                          builder: (BuildContext context) =>
+                              const ForfaitNuitPage()));
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: (context.watch<Reseaux>().reseau=="Togocom") ? ColorConstants.colorCustomButtonTg : ColorConstants.colorCustomButtonMv,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15)),
                 ),
-              ),
-            ],
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.nights_stay,
+                      size: 40,
+                      color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
+                    ),
+                    const SizedBox(
+                      width: 30,
+                    ),
+                    Text(
+                      'Forfait nuit',
+                      style: TextStyle(
+                        fontSize: 17,
+                        fontWeight: FontWeight.w700,
+                        color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
+                      ),
+                    ),
+                  ],
+                )),
           ),
         ],
       ),
