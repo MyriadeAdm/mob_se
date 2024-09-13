@@ -153,9 +153,9 @@ class PageDepot extends StatelessWidget {
                                                 context, montant);
                                         frt = fraisRetrait;
                                         ftrn = fraisTransfert;
-                                        print(frt);
+                                        //print(frt);
                                         //print(fraisRetrait);
-                                        print(montant);
+                                        //print(montant);
                                         mnt = montant;
                                       });
                                     }

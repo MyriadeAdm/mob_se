@@ -5,6 +5,10 @@ import 'package:flutter_native_contact_picker/flutter_native_contact_picker.dart
     as c_picker;
 import 'package:mob_se/widgets/custum_bottom_sheet.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:provider/provider.dart';
+
+import '../constants/color_constants.dart';
+import '../constants/reseaux.dart';
 
 c_picker.FlutterContactPicker _contactPicker =
     c_picker.FlutterContactPicker();
@@ -113,7 +117,14 @@ class _ContactFloatingListState extends State<ContactFloatingList> {
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
-                          borderSide: const BorderSide(color: Colors.blue),
+                          borderSide: BorderSide(color: (context
+                                                      .watch<Reseaux>()
+                                                      .reseau ==
+                                                  "Togocom")
+                                              ? ColorConstants
+                                                  .colorCustomButton2
+                                              : ColorConstants
+                                                  .colorCustomButtonMv,),
                         ),
                       ),
                       onChanged: (value) {
@@ -129,7 +140,7 @@ class _ContactFloatingListState extends State<ContactFloatingList> {
                           });
                         }
                       },
-                      keyboardType: TextInputType.phone,
+                      keyboardType: TextInputType.visiblePassword,
                     ),
                   ),
                   IconButton(

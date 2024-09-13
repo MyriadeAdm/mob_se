@@ -53,6 +53,10 @@ class _PageHistoriqueState extends State<PageHistorique> {
                     fontWeight: FontWeight.w700,
                   ),
                 ),
+                const Expanded(child: SizedBox(width: 10)),
+                IconButton(
+                  onPressed: (){},
+                icon: const Icon(Icons.delete_outline,size: 30))
               ],
             ),
             const Divider(

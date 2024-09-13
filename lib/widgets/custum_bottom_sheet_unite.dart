@@ -23,10 +23,7 @@ class MyWidget extends StatelessWidget {
 }
 
 Future<void> callButtomSheetUnite(
-    BuildContext context,
-    var numero,
-    int montant,
-    bool isSelected) async {
+    BuildContext context, var numero, int montant, bool isSelected) async {
   await showModalBottomSheet<dynamic>(
     showDragHandle: true,
     useRootNavigator: true,
@@ -36,21 +33,25 @@ Future<void> callButtomSheetUnite(
       borderRadius: BorderRadius.vertical(top: Radius.circular(30.0)),
     ),
     builder: (context) {
-                        if (numero != ''){
-                  intitule = 'Achat de crédit pour';
-                  numVisible = true;
-                  numOui = "${numero[0]}${numero[1]} ${numero[2]}${numero[3]} ${numero[4]}${numero[5]} ${numero[6]}${numero[7]}";
-                }else{ intitule = 'Achat de credit à';
-                numOui = 'Moi-même';
-                numVisible = false;}
+      if (numero != '') {
+        intitule = 'Achat de crédit pour';
+        numVisible = true;
+        numOui =
+            "${numero[0]}${numero[1]} ${numero[2]}${numero[3]} ${numero[4]}${numero[5]} ${numero[6]}${numero[7]}";
+      } else {
+        intitule = 'Achat de credit à';
+        numOui = 'Moi-même';
+        numVisible = false;
+      }
 
       return Padding(
         padding:
             EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
         child: SizedBox(
-          height: MediaQuery.of(context).size.height / 2,
+          //height: MediaQuery.of(context).size.height / 2,
+          height: 400,
           child: Padding(
-            padding: const EdgeInsets.only(bottom:30, left:30, right: 30),
+            padding: const EdgeInsets.only(bottom: 30, left: 30, right: 30),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -81,17 +82,20 @@ Future<void> callButtomSheetUnite(
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Text("Choix de:",
-                          // style: TextStyle(
-                          //   //fontSize: 20,
-                          //   fontWeight: FontWeight.w500,
-                          // ),
+                          const Text(
+                            "Choix de:",
+                            // style: TextStyle(
+                            //   //fontSize: 20,
+                            //   fontWeight: FontWeight.w500,
+                            // ),
                           ),
-                          Text("$montant F CFA",
-                          style: const TextStyle(
-                            //fontSize: 20,
-                            fontWeight: FontWeight.w700,
-                          ),),
+                          Text(
+                            "$montant F CFA",
+                            style: const TextStyle(
+                              //fontSize: 20,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
                         ],
                       ),
                     ]),
@@ -121,7 +125,6 @@ Future<void> callButtomSheetUnite(
                   onPressed: () {
                     //print ('le code est *${_codeController.text}*');
 
-
                     if (_codeController.text == '') {
                       showDialog(
                           context: context,
@@ -137,68 +140,65 @@ Future<void> callButtomSheetUnite(
                                 ));
                           });
                       _codeControllerFocusNode.requestFocus();
-                    }
-                    else { 
-
+                    } else {
                       switch (montant) {
-                          case 500:
-                            choixMontant = 1;
-                            break;
-                          case 1000:
-                            choixMontant = 2;
-                            break;
-                          case 2000:
-                            choixMontant = 3;
-                            break;
-                          case 4500:
-                            choixMontant = 4;
-                            break;
-                          case 9000:
-                            choixMontant = 5;
-                            break;
-                          case 22500:
-                            choixMontant = 6;
-                            break;
-                          case 45000:
-                            choixMontant = 7;
-                            break;
-                          default:
-                        }
+                        case 500:
+                          choixMontant = 1;
+                          break;
+                        case 1000:
+                          choixMontant = 2;
+                          break;
+                        case 2000:
+                          choixMontant = 3;
+                          break;
+                        case 4500:
+                          choixMontant = 4;
+                          break;
+                        case 9000:
+                          choixMontant = 5;
+                          break;
+                        case 22500:
+                          choixMontant = 6;
+                          break;
+                        case 45000:
+                          choixMontant = 7;
+                          break;
+                        default:
+                      }
 
                       if (Provider.of<Reseaux>(context, listen: false).reseau ==
-                              "Togocom") {
-                      if (isSelected) {
-
-                        FlutterPhoneDirectCaller.callNumber("*145*3*1*2*$numero*$choixMontant*${_codeController.text}#");  
-
-                        context.read<HistoriqueDatabase>()
-                                      .addHistorique("Achat crédit T-Money",
-                                        "$montant F CFA rechargé à $numero");
-
-                      } else {
-                         FlutterPhoneDirectCaller.callNumber("*145*3*1*1*$choixMontant*${_codeController.text}#");
-
-                        context.read<HistoriqueDatabase>()
-                                      .addHistorique("Achat crédit T-Money",
-                                        "$montant F CFA rechargé à Moi-Même");
-                      }} 
-                      else {
+                          "Togocom") {
                         if (isSelected) {
+                          FlutterPhoneDirectCaller.callNumber(
+                              "*145*3*1*2*$numero*$choixMontant*${_codeController.text}#");
 
-                        FlutterPhoneDirectCaller.callNumber("*155*3*1*2*$numero*$montant*${_codeController.text}#");  // syntaxe moov achat credit autruit
+                          context.read<HistoriqueDatabase>().addHistorique(
+                              "Achat crédit T-Money",
+                              "$montant F CFA rechargé à $numero");
+                        } else {
+                          FlutterPhoneDirectCaller.callNumber(
+                              "*145*3*1*1*$choixMontant*${_codeController.text}#");
 
-                        context.read<HistoriqueDatabase>()
-                                      .addHistorique("Achat crédit Flooz",
-                                        "$montant F CFA rechargé à $numero");
-
+                          context.read<HistoriqueDatabase>().addHistorique(
+                              "Achat crédit T-Money",
+                              "$montant F CFA rechargé à Moi-Même");
+                        }
                       } else {
+                        if (isSelected) {
+                          FlutterPhoneDirectCaller.callNumber(
+                              "*155*3*1*2*$numero*$montant*${_codeController.text}#"); // syntaxe moov achat credit autruit
 
-                        FlutterPhoneDirectCaller.callNumber("*155*3*1*1*$montant*${_codeController.text}#"); // syntaxe moov achat credit moi meme
+                          context.read<HistoriqueDatabase>().addHistorique(
+                              "Achat crédit Flooz",
+                              "$montant F CFA rechargé à $numero");
+                        } else {
+                          FlutterPhoneDirectCaller.callNumber(
+                              "*155*3*1*1*$montant*${_codeController.text}#"); // syntaxe moov achat credit moi meme
 
-                        context.read<HistoriqueDatabase>()
-                                      .addHistorique("Achat crédit Flooz",
-                                        "$montant F CFA rechargé à Moi-Même");
-                      }
+                          context.read<HistoriqueDatabase>().addHistorique(
+                              "Achat crédit Flooz",
+                              "$montant F CFA rechargé à Moi-Même");
+                        }
                       }
                     }
 
