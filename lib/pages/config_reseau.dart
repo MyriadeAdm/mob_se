@@ -389,3 +389,31 @@ Future<PermissionStatus> _getContactPermission() async {
     return permission;
   }
 }
+
+// Future<bool> _requestPermission() async {
+//   var result = await _permissionHandler.requestPermissions(
+//       [PermissionGroup.phone, PermissionGroup.contacts, PermissionGroup.sms]);
+//   if (result == PermissionStatus.granted) {
+//     return true;
+//   }
+//   return false;
+// }
+
+// Future<bool> requestPermission({required Function onPermissionDenied}) async {
+//   var granted = await _requestPermission();
+//   if (!granted) {
+//     onPermissionDenied();
+//   }
+//   return granted;
+// }
+
+// Future<bool> hasPhonePermission() async {
+//   return hasPermission(PermissionGroup.phone);
+// }
+
+// Future<bool> hasPermission(PermissionGroup permission) async {
+//   var permissionStatus =
+//       await _permissionHandler.checkPermissionStatus(permission);
+//   return permissionStatus == PermissionStatus.granted;
+// }
+  
