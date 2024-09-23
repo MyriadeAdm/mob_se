@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
-
 import '../constants/color_constants.dart';
+import 'package:mob_se/lib/make_call.dart';
 
 final _codeController = TextEditingController();
 final FocusNode _codeControllerFocusNode = FocusNode();
@@ -39,7 +38,7 @@ Future<void> callButtomSheetEnvoie(
           height: MediaQuery.of(context).size.height / 2,
           //height: 350,
           child: Padding(
-            padding: const EdgeInsets.only(bottom:30, left:30, right: 30),
+            padding: const EdgeInsets.only(bottom: 30, left: 30, right: 30),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -159,13 +158,12 @@ Future<void> callButtomSheetEnvoie(
                                 ));
                           });
                       _codeControllerFocusNode.requestFocus();
-                    }
-                    else { 
-                      fraisVisible?
-                        FlutterPhoneDirectCaller.callNumber("*145*1*$montantEnvoye*$numero*1*${_codeController.text}#")
-                      :
-                        FlutterPhoneDirectCaller.callNumber("*145*1*$montantEnvoye*$numero*2*${_codeController.text}#");
-                      
+                    } else {
+                      fraisVisible
+                          ? makePhoneCall(
+                              "*145*1*$montantEnvoye*$numero*1*${_codeController.text}#")
+                          : makePhoneCall(
+                              "*145*1*$montantEnvoye*$numero*2*${_codeController.text}#");
                     }
                     _codeController.clear();
                   },

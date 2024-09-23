@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_native_contact_picker/flutter_native_contact_picker.dart';
-import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:mob_se/constants/color_constants.dart';
 import 'package:mob_se/models/type_forfait.dart';
 import 'package:provider/provider.dart';
 import '../constants/reseaux.dart';
+import 'package:mob_se/lib/make_call.dart';
 import '../models/historique_database.dart';
 
 //=============================================[DEBUT} !!!besoin pour faire marcher le bottom Sheet
@@ -392,7 +392,7 @@ Future<void> callButtomSheet(
                               /* option achat pour moi-même via credit */
                               if (_isSelected == false &&
                                   currentOption == options[0]) {
-                                FlutterPhoneDirectCaller.callNumber(ee);
+                                makePhoneCall(ee);
 
                                 context
                                     .read<HistoriqueDatabase>()
@@ -412,8 +412,7 @@ Future<void> callButtomSheet(
 
                                   if (context.watch<Reseaux>().reseau ==
                                       "Togocom") {
-                                    FlutterPhoneDirectCaller.callNumber(
-                                        "*909*7*$num$ff");
+                                    makePhoneCall("*909*7*$num$ff");
                                     context
                                         .read<HistoriqueDatabase>()
                                         .addHistorique(
@@ -449,11 +448,10 @@ Future<void> callButtomSheet(
                                 }
                               }
 
-
                               /* option achat pour moi meme via mobile money */
                               else if (_isSelected == false &&
                                   currentOption == options[1]) {
-                                FlutterPhoneDirectCaller.callNumber(
+                                makePhoneCall(
                                     "$codemoneyMM${_codeController.text}#");
 
                                 context
@@ -464,7 +462,6 @@ Future<void> callButtomSheet(
                                         typeForfaitDetails(typeforfait.name, aa,
                                             bb, cc, dd, gg));
                               }
-
 
                               /* option achat pour autrui via mobile money */
                               else if (_isSelected == true &&
@@ -477,10 +474,11 @@ Future<void> callButtomSheet(
 
                                   if (context.watch<Reseaux>().reseau ==
                                       "Togocom") {
-                                    FlutterPhoneDirectCaller.callNumber(
-                                      "*909*7*$num$codemoneyAutruit${_codeController.text}#");  
+                                    makePhoneCall(
+                                        "*909*7*$num$codemoneyAutruit${_codeController.text}#");
                                   } else {
-                                    FlutterPhoneDirectCaller.callNumber("$codeMoneyAutruit$num*${_codeController.text}#");
+                                    makePhoneCall(
+                                        "$codeMoneyAutruit$num*${_codeController.text}#");
                                   }
 
                                   context

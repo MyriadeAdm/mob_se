@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:mob_se/pages/menu_transactions/page_achat_credit.dart';
 import 'package:mob_se/pages/menu_transactions/page_depot.dart';
 import 'package:mob_se/pages/menu_transactions/page_retrait.dart';
 import 'package:provider/provider.dart';
 import '../constants/color_constants.dart';
 import '../constants/reseaux.dart';
+import 'package:mob_se/lib/make_call.dart';
 
 class TransactionsPage extends StatelessWidget {
   const TransactionsPage({super.key});
@@ -196,8 +196,8 @@ class TransactionsPage extends StatelessWidget {
                     onPressed: () {
                       (Provider.of<Reseaux>(context, listen: false).reseau ==
                               "Togocom")
-                          ? FlutterPhoneDirectCaller.callNumber("*145*8*4#")
-                          : FlutterPhoneDirectCaller.callNumber("*155*1*4#");
+                          ? makePhoneCall("*145*8*4#")
+                          : makePhoneCall("*155*1*4#");
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor:

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:provider/provider.dart';
 import '../constants/color_constants.dart';
 import '../constants/reseaux.dart';
+import 'package:mob_se/lib/make_call.dart';
 import '../models/historique_database.dart';
 
 final _codeController = TextEditingController();
@@ -169,14 +169,14 @@ Future<void> callButtomSheetUnite(
                       if (Provider.of<Reseaux>(context, listen: false).reseau ==
                           "Togocom") {
                         if (isSelected) {
-                          FlutterPhoneDirectCaller.callNumber(
+                          makePhoneCall(
                               "*145*3*1*2*$numero*$choixMontant*${_codeController.text}#");
 
                           context.read<HistoriqueDatabase>().addHistorique(
                               "Achat crédit T-Money",
                               "$montant F CFA rechargé à $numero");
                         } else {
-                          FlutterPhoneDirectCaller.callNumber(
+                          makePhoneCall(
                               "*145*3*1*1*$choixMontant*${_codeController.text}#");
 
                           context.read<HistoriqueDatabase>().addHistorique(
@@ -185,14 +185,14 @@ Future<void> callButtomSheetUnite(
                         }
                       } else {
                         if (isSelected) {
-                          FlutterPhoneDirectCaller.callNumber(
+                          makePhoneCall(
                               "*155*3*1*2*$numero*$montant*${_codeController.text}#"); // syntaxe moov achat credit autruit
 
                           context.read<HistoriqueDatabase>().addHistorique(
                               "Achat crédit Flooz",
                               "$montant F CFA rechargé à $numero");
                         } else {
-                          FlutterPhoneDirectCaller.callNumber(
+                          makePhoneCall(
                               "*155*3*1*1*$montant*${_codeController.text}#"); // syntaxe moov achat credit moi meme
 
                           context.read<HistoriqueDatabase>().addHistorique(

@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 // import 'package:contacts_service/contacts_service.dart';
 // import 'package:mob_se/widgets/contact_search.dart';
 import 'package:provider/provider.dart';
 import '../../constants/color_constants.dart';
 import '../../constants/reseaux.dart';
-
-
+import 'package:mob_se/lib/make_call.dart';
 
 final _codeController = TextEditingController();
 
@@ -43,13 +41,11 @@ class _PageAnnulationState extends State<PageAnnulation> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-         
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                
                 const SizedBox(
                   height: 40,
                 ),
@@ -100,7 +96,7 @@ class _PageAnnulationState extends State<PageAnnulation> {
           Center(
             child: ElevatedButton(
               onPressed: () {
-                  FlutterPhoneDirectCaller.callNumber("*145*8*4*${_codeController.text}#");
+                makePhoneCall("*145*8*4*${_codeController.text}#");
               },
               style: ElevatedButton.styleFrom(
                   backgroundColor:

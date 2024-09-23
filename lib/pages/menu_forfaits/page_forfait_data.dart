@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:mob_se/constants/color_constants.dart';
 import 'package:mob_se/constants/constantes.dart';
 import 'package:mob_se/widgets/custum_bottom_sheet.dart';
 import 'package:provider/provider.dart';
 
 import '../../constants/reseaux.dart';
+import 'package:mob_se/lib/make_call.dart';
 
 class ForfaitDataPage extends StatelessWidget {
   const ForfaitDataPage({super.key});
@@ -27,7 +27,7 @@ class ForfaitDataPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.only(left: 20,right: 20),
+              padding: const EdgeInsets.only(left: 20, right: 20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -46,20 +46,25 @@ class ForfaitDataPage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: (context.watch<Reseaux>().reseau=="Togocom") ? ColorConstants.colorCustomButtonTg : ColorConstants.colorCustomButtonMv,
+                      backgroundColor:
+                          (context.watch<Reseaux>().reseau == "Togocom")
+                              ? ColorConstants.colorCustomButtonTg
+                              : ColorConstants.colorCustomButtonMv,
                     ),
                     onPressed: () {
-                      (Provider.of<Reseaux>(context, listen: false).reseau=="Togocom") ?
-                      FlutterPhoneDirectCaller.callNumber(Constantes.soldeTogocom[0].codeNormal) :
-                      FlutterPhoneDirectCaller.callNumber(Constantes.soldeMoov[0].codeNormal);
+                      (Provider.of<Reseaux>(context, listen: false).reseau ==
+                              "Togocom")
+                          ? makePhoneCall(Constantes.soldeTogocom[0].codeNormal)
+                          : makePhoneCall(Constantes.soldeMoov[0].codeNormal);
                     },
                     child: Text(
                       "Solde",
                       style: TextStyle(
-                        color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
+                        color: (context.watch<Reseaux>().reseau == "Togocom")
+                            ? Colors.black
+                            : Colors.white,
                         fontSize: 18,
                         fontWeight: FontWeight.w700,
                       ),
@@ -79,25 +84,41 @@ class ForfaitDataPage extends StatelessWidget {
               child: SizedBox(
                 height: 700,
                 child: ListView.builder(
-                  itemCount: (context.watch<Reseaux>().reseau=="Togocom") ? Constantes.forfaitsInternetTogocom.length : 
-                    Constantes.forfaitsInternetMoov.length,
+                  itemCount: (context.watch<Reseaux>().reseau == "Togocom")
+                      ? Constantes.forfaitsInternetTogocom.length
+                      : Constantes.forfaitsInternetMoov.length,
                   itemBuilder: (BuildContext context, int index) {
-                    final item = (context.watch<Reseaux>().reseau=="Togocom") ? Constantes.forfaitsInternetTogocom[index] :
-                      Constantes.forfaitsInternetMoov[index];
+                    final item = (context.watch<Reseaux>().reseau == "Togocom")
+                        ? Constantes.forfaitsInternetTogocom[index]
+                        : Constantes.forfaitsInternetMoov[index];
                     return Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 28),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 6, horizontal: 28),
                       child: SizedBox(
                         height: 65,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: (context.watch<Reseaux>().reseau=="Togocom") ? ColorConstants.colorCustomButtonTg : ColorConstants.colorCustomButtonMv,
+                            backgroundColor:
+                                (context.watch<Reseaux>().reseau == "Togocom")
+                                    ? ColorConstants.colorCustomButtonTg
+                                    : ColorConstants.colorCustomButtonMv,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(13),
                             ),
                           ),
                           onPressed: () {
-                             callButtomSheet(
-                                context, '', '', item.validite, item.prix, item.codeMMCredit, item.codeAutruiCredit, item.codeMoneyMM, item.codeMoneyAutruit, item.mega, item.typeforfait);
+                            callButtomSheet(
+                                context,
+                                '',
+                                '',
+                                item.validite,
+                                item.prix,
+                                item.codeMMCredit,
+                                item.codeAutruiCredit,
+                                item.codeMoneyMM,
+                                item.codeMoneyAutruit,
+                                item.mega,
+                                item.typeforfait);
                           },
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -113,15 +134,23 @@ class ForfaitDataPage extends StatelessWidget {
                                     children: [
                                       Icon(
                                         Icons.language,
-                                        color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
+                                        color:
+                                            (context.watch<Reseaux>().reseau ==
+                                                    "Togocom")
+                                                ? Colors.black
+                                                : Colors.white,
                                       ),
                                       const SizedBox(width: 10),
                                       Text(
                                         item.mega,
                                         style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white
-                                        ),
+                                            fontWeight: FontWeight.bold,
+                                            color: (context
+                                                        .watch<Reseaux>()
+                                                        .reseau ==
+                                                    "Togocom")
+                                                ? Colors.black
+                                                : Colors.white),
                                       ),
                                     ],
                                   ),
@@ -129,7 +158,10 @@ class ForfaitDataPage extends StatelessWidget {
                                     item.validite,
                                     style: TextStyle(
                                       fontWeight: FontWeight.normal,
-                                      color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
+                                      color: (context.watch<Reseaux>().reseau ==
+                                              "Togocom")
+                                          ? Colors.black
+                                          : Colors.white,
                                       fontSize: 13,
                                     ),
                                   ),
@@ -140,7 +172,10 @@ class ForfaitDataPage extends StatelessWidget {
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 18,
-                                  color: (context.watch<Reseaux>().reseau=="Togocom") ? Colors.black : Colors.white,
+                                  color: (context.watch<Reseaux>().reseau ==
+                                          "Togocom")
+                                      ? Colors.black
+                                      : Colors.white,
                                 ),
                               )
                             ],
