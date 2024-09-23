@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 // import 'package:contacts_service/contacts_service.dart';
 // import 'package:mob_se/widgets/contact_search.dart';
 import 'package:provider/provider.dart';
@@ -96,7 +99,10 @@ class _PageAnnulationState extends State<PageAnnulation> {
           Center(
             child: ElevatedButton(
               onPressed: () {
-                makePhoneCall("*145*8*4*${_codeController.text}#");
+                Platform.isAndroid
+                    ? FlutterPhoneDirectCaller.callNumber(
+                        "*145*8*4*${_codeController.text}#")
+                    : makePhoneCall("*145*8*4*${_codeController.text}#");
               },
               style: ElevatedButton.styleFrom(
                   backgroundColor:

@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:provider/provider.dart';
 import '../../constants/color_constants.dart';
 import '../../constants/constantes.dart';
@@ -54,8 +57,16 @@ class ForfaitNuitPage extends StatelessWidget {
                     onPressed: () {
                       (Provider.of<Reseaux>(context, listen: false).reseau ==
                               "Togocom")
-                          ? makePhoneCall(Constantes.soldeTogocom[4].codeNormal)
-                          : makePhoneCall(Constantes.soldeMoov[4].codeNormal);
+                          ? Platform.isAndroid
+                              ? FlutterPhoneDirectCaller.callNumber(
+                                  Constantes.soldeTogocom[4].codeNormal)
+                              : makePhoneCall(
+                                  Constantes.soldeTogocom[4].codeNormal)
+                          : Platform.isAndroid
+                              ? FlutterPhoneDirectCaller.callNumber(
+                                  Constantes.soldeMoov[4].codeNormal)
+                              : makePhoneCall(
+                                  Constantes.soldeMoov[4].codeNormal);
                     },
                     child: Text(
                       "Solde",

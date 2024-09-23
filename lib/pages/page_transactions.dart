@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:mob_se/pages/menu_transactions/page_achat_credit.dart';
 import 'package:mob_se/pages/menu_transactions/page_depot.dart';
 import 'package:mob_se/pages/menu_transactions/page_retrait.dart';
@@ -196,8 +199,12 @@ class TransactionsPage extends StatelessWidget {
                     onPressed: () {
                       (Provider.of<Reseaux>(context, listen: false).reseau ==
                               "Togocom")
-                          ? makePhoneCall("*145*8*4#")
-                          : makePhoneCall("*155*1*4#");
+                          ? Platform.isAndroid
+                              ? FlutterPhoneDirectCaller.callNumber("*145*8*4#")
+                              : makePhoneCall("*145*8*4#")
+                          : Platform.isAndroid
+                              ? FlutterPhoneDirectCaller.callNumber("*155*1*4#")
+                              : makePhoneCall("*155*1*4#");
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor:

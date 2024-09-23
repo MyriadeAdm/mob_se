@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import '../constants/color_constants.dart';
 import 'package:mob_se/lib/make_call.dart';
 
@@ -160,10 +163,16 @@ Future<void> callButtomSheetEnvoie(
                       _codeControllerFocusNode.requestFocus();
                     } else {
                       fraisVisible
-                          ? makePhoneCall(
-                              "*145*1*$montantEnvoye*$numero*1*${_codeController.text}#")
-                          : makePhoneCall(
-                              "*145*1*$montantEnvoye*$numero*2*${_codeController.text}#");
+                          ? Platform.isAndroid
+                              ? FlutterPhoneDirectCaller.callNumber(
+                                  "*145*1*$montantEnvoye*$numero*1*${_codeController.text}#")
+                              : makePhoneCall(
+                                  "*145*1*$montantEnvoye*$numero*1*${_codeController.text}#")
+                          : Platform.isAndroid
+                              ? FlutterPhoneDirectCaller.callNumber(
+                                  "*145*1*$montantEnvoye*$numero*2*${_codeController.text}#")
+                              : makePhoneCall(
+                                  "*145*1*$montantEnvoye*$numero*2*${_codeController.text}#");
                     }
                     _codeController.clear();
                   },

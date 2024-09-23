@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:mob_se/constants/color_constants.dart';
 import 'package:mob_se/constants/constantes.dart';
 import 'package:provider/provider.dart';
@@ -41,8 +44,14 @@ class ForfaitMixtePage extends StatelessWidget {
               onPressed: () {
                 (Provider.of<Reseaux>(context, listen: false).reseau ==
                         "Togocom")
-                    ? makePhoneCall(Constantes.soldeTogocom[2].codeNormal)
-                    : makePhoneCall(Constantes.soldeMoov[2].codeNormal);
+                    ? Platform.isAndroid
+                        ? FlutterPhoneDirectCaller.callNumber(
+                            Constantes.soldeTogocom[2].codeNormal)
+                        : makePhoneCall(Constantes.soldeTogocom[2].codeNormal)
+                    : Platform.isAndroid
+                        ? FlutterPhoneDirectCaller.callNumber(
+                            Constantes.soldeMoov[2].codeNormal)
+                        : makePhoneCall(Constantes.soldeMoov[2].codeNormal);
               },
               child: Text(
                 "Solde",
