@@ -145,26 +145,29 @@ Future<void> callButtomSheetUnite(
                       _codeControllerFocusNode.requestFocus();
                     } else {
                       switch (montant) {
-                        case 500:
+                        case 200:
                           choixMontant = 1;
                           break;
-                        case 1000:
+                        case 500:
                           choixMontant = 2;
                           break;
-                        case 2000:
+                        case 1000:
                           choixMontant = 3;
                           break;
-                        case 4500:
+                        case 2000:
                           choixMontant = 4;
                           break;
-                        case 9000:
+                        case 4500:
                           choixMontant = 5;
                           break;
-                        case 22500:
+                        case 9000:
                           choixMontant = 6;
                           break;
-                        case 45000:
+                        case 22500:
                           choixMontant = 7;
+                          break;
+                        case 45000:
+                          choixMontant = 8;
                           break;
                         default:
                       }

@@ -227,26 +227,28 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                       ),
                       Row(
                         children: [
+                          creditColumn(context, 200, '200'),
+                          const SizedBox(width: 10),
                           creditColumn(context, 500, '500'),
                           const SizedBox(width: 10),
-                          creditColumn(context, 1000, '1000'),
-                          const SizedBox(width: 10),
-                          creditColumn(context, 2000, '2.000'),
+                          creditColumn(context, 1000, '1.000'),
                         ],
                       ),
                       const SizedBox(height: 10),
                       Row(
                         children: [
+                          creditColumn(context, 2000, '2.000'),
+                          const SizedBox(width: 10),
                           creditColumn(context, 4500, '4.500'),
                           const SizedBox(width: 10),
                           creditColumn(context, 9000, '9.000'),
-                          const SizedBox(width: 10),
-                          creditColumn(context, 22500, '22.500'),
                         ],
                       ),
                       const SizedBox(height: 10),
                       Row(
                         children: [
+                          creditColumn(context, 22500, '22.500'),
+                          const SizedBox(width: 10),
                           creditColumn(context, 45000, '45.000'),
                         ],
                       ),
@@ -318,14 +320,19 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                                 if (currentOption == options[0]) {
                                   String num = _numeroController.text = '';
                                   callButtomSheetUnite(
-                                      context, num, int.parse(_montantController.text), false);
+                                      context,
+                                      num,
+                                      int.parse(_montantController.text),
+                                      false);
                                 } else {
                                   if (currentOption == options[1] &&
                                       _numeroController.text == '') {
                                     ScaffoldMessenger.of(context).showSnackBar(
-                                        const SnackBar(
-                                            content: Text(
-                                                'Veuillez renseigner un numéro')));
+                                      const SnackBar(
+                                        content: Text(
+                                            'Veuillez renseigner un numéro'),
+                                      ),
+                                    );
                                     _numeroControllerFocusNode.requestFocus();
                                   } else {
                                     String num = _numeroController.text
@@ -334,12 +341,18 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
 
                                     if (num[0] == '9' || num[0] == '7') {
                                       callButtomSheetUnite(
-                                          context, num, int.parse(_montantController.text), true);
+                                          context,
+                                          num,
+                                          int.parse(_montantController.text),
+                                          true);
                                     } else {
                                       ScaffoldMessenger.of(context)
-                                          .showSnackBar(const SnackBar(
-                                              content: Text(
-                                                  'Veuillez renseigner un numéro correct')));
+                                          .showSnackBar(
+                                        const SnackBar(
+                                          content: Text(
+                                              'Veuillez renseigner un numéro correct'),
+                                        ),
+                                      );
                                     }
                                   }
                                 }
