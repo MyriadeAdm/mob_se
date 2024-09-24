@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:provider/provider.dart';
 import '../../constants/color_constants.dart';
 import '../../constants/reseaux.dart';
@@ -224,8 +227,11 @@ class PageRetrait extends StatelessWidget {
                                     content: Text(
                                         'Veuillez renseigner votre code')));
                           } else {
-                            makePhoneCall(
-                                "*145*2*$montant*$codeAgent*$codeSecret#");
+                            Platform.isAndroid
+                                ? FlutterPhoneDirectCaller.callNumber(
+                                    "*145*2*$montant*$codeAgent*$codeSecret#")
+                                : makePhoneCall(
+                                    "*145*2*$montant*$codeAgent*$codeSecret#");
 
                             context.read<HistoriqueDatabase>().addHistorique(
                                 "Retrait",

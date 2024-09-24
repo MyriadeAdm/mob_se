@@ -6,8 +6,6 @@ PODS:
     - Flutter
   - flutter_native_contact_picker (0.0.1):
     - Flutter
-  - flutter_phone_direct_caller (0.0.1):
-    - Flutter
   - fluttertoast (0.0.2):
     - Flutter
     - Toast
@@ -30,7 +28,6 @@ DEPENDENCIES:
   - Flutter (from `Flutter`)
   - flutter_exit_app (from `.symlinks/plugins/flutter_exit_app/ios`)
   - flutter_native_contact_picker (from `.symlinks/plugins/flutter_native_contact_picker/ios`)
-  - flutter_phone_direct_caller (from `.symlinks/plugins/flutter_phone_direct_caller/ios`)
   - fluttertoast (from `.symlinks/plugins/fluttertoast/ios`)
   - isar_flutter_libs (from `.symlinks/plugins/isar_flutter_libs/ios`)
   - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
@@ -51,8 +48,6 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/flutter_exit_app/ios"
   flutter_native_contact_picker:
     :path: ".symlinks/plugins/flutter_native_contact_picker/ios"
-  flutter_phone_direct_caller:
-    :path: ".symlinks/plugins/flutter_phone_direct_caller/ios"
   fluttertoast:
     :path: ".symlinks/plugins/fluttertoast/ios"
   isar_flutter_libs:
@@ -71,7 +66,6 @@ SPEC CHECKSUMS:
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
   flutter_exit_app: 452eaaeeda718095eeebcb45c9fe2e7e37f212b4
   flutter_native_contact_picker: bd430ba0fbf82768bb50c2c52a69a65759a8f907
-  flutter_phone_direct_caller: bd2ffd297f371a8a6c7bfbba0196964ffe3c4358
   fluttertoast: e9a18c7be5413da53898f660530c56f35edfba9c
   isar_flutter_libs: b69f437aeab9c521821c3f376198c4371fa21073
   path_provider_foundation: 2b6b4c569c0fb62ec74538f866245ac84301af46

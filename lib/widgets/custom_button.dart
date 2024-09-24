@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:mob_se/constants/color_constants.dart';
 import 'package:mob_se/lib/make_call.dart';
 import 'package:provider/provider.dart';
@@ -25,7 +28,9 @@ class CustomButton extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
             )),
         onPressed: () {
-          makePhoneCall(code);
+          Platform.isAndroid
+              ? FlutterPhoneDirectCaller.callNumber(code)
+              : makePhoneCall(code);
         },
         child: Text(
           label,
