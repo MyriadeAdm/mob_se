@@ -221,21 +221,27 @@ Future<void> callButtomSheetUnite(
                     }
 
                     _codeController.clear();
+                    // Navigator.pop(context);
                   },
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: ColorConstants.colorCustomButton2,
+                      backgroundColor:
+                          (context.watch<Reseaux>().reseau == "Togocom")
+                              ? ColorConstants.colorCustomButton2
+                              : ColorConstants.colorCustomButtonMv,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       )),
-                  child: const Padding(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 30.0, vertical: 15),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 30.0, vertical: 15),
                     child: Text(
                       'Valider',
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w700,
-                        color: Colors.black,
+                        color: (context.watch<Reseaux>().reseau == "Togocom")
+                            ? Colors.black
+                            : Colors.white,
                       ),
                     ),
                   ),

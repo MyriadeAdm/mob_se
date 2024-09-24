@@ -165,7 +165,10 @@ class ForfaitVoixPage extends StatelessWidget {
                                     ],
                                   ),
                                   Text(
-                                    '${item.validite} + ${item.msg}',
+                                    (context.watch<Reseaux>().reseau ==
+                                            "Togocom")
+                                        ? '${item.validite} + ${item.msg}'
+                                        : item.validite,
                                     style: TextStyle(
                                       fontWeight: FontWeight.normal,
                                       color: (context.watch<Reseaux>().reseau ==

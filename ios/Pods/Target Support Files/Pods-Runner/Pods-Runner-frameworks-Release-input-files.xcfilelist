@@ -3,6 +3,7 @@ ${BUILT_PRODUCTS_DIR}/Toast/Toast.framework
 ${BUILT_PRODUCTS_DIR}/contacts_service/contacts_service.framework
 ${BUILT_PRODUCTS_DIR}/flutter_exit_app/flutter_exit_app.framework
 ${BUILT_PRODUCTS_DIR}/flutter_native_contact_picker/flutter_native_contact_picker.framework
+${BUILT_PRODUCTS_DIR}/flutter_phone_direct_caller/flutter_phone_direct_caller.framework
 ${BUILT_PRODUCTS_DIR}/fluttertoast/fluttertoast.framework
 ${BUILT_PRODUCTS_DIR}/isar_flutter_libs/isar_flutter_libs.framework
 ${BUILT_PRODUCTS_DIR}/path_provider_foundation/path_provider_foundation.framework

@@ -302,7 +302,10 @@ Future<void> callButtomSheet(
                             Expanded(
                                 child: ListTile(
                                     horizontalTitleGap: 0,
-                                    title: const Text('T-money'),
+                                    title: (context.watch<Reseaux>().reseau ==
+                                            "Togocom")
+                                        ? const Text('T-money')
+                                        : const Text('Flooz'),
                                     leading: Radio(
                                       value: options[1],
                                       groupValue: currentOption,
@@ -415,7 +418,9 @@ Future<void> callButtomSheet(
                                 if (num != '') {
                                   num = num.substring(num.length - 8);
 
-                                  if (context.watch<Reseaux>().reseau ==
+                                  if (Provider.of<Reseaux>(context,
+                                              listen: false)
+                                          .reseau ==
                                       "Togocom") {
                                     Platform.isAndroid
                                         ? FlutterPhoneDirectCaller.callNumber(
