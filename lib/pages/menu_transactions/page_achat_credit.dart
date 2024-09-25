@@ -61,7 +61,7 @@ final _montantController = TextEditingController();
 String currentOption = options[0];
 bool codeVisible = false;
 bool numVisible = false;
-bool bool_search = false;
+bool boolSearch = false;
 
 // final FlutterContactPicker _contactPicker = FlutterContactPicker();
 // ignore: unused_element
@@ -135,7 +135,7 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                                 currentOption = value.toString();
                                 numVisible = false;
                                 _numeroController.clear();
-                                bool_search = false;
+                                boolSearch = false;
                               });
                             },
                             activeColor:
@@ -159,7 +159,7 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                               setState(() {
                                 currentOption = value.toString();
                                 numVisible = !numVisible;
-                                bool_search = !bool_search;
+                                boolSearch = !boolSearch;
                               });
                             },
                             activeColor:
@@ -369,7 +369,7 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
           ),
         ),
         Visibility(
-          visible: bool_search,
+          visible: boolSearch,
           child: Positioned(
             top: 177, // Adjust this position based on your layout
             left: 0,

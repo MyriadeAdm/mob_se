@@ -43,7 +43,8 @@
         </intent>
     </queries>
 
-    <!-- Provide required visibility configuration for API level 30 and above -->
+
+  <!-- Provide required visibility configuration for API level 30 and above -->
 <queries>
   <!-- If your app checks for SMS support -->
   <intent>
@@ -56,6 +57,7 @@
     <data android:scheme="tel" />
   </intent>
 </queries>
+
 
 
     <uses-permission android:name="android.permission.READ_CONTACTS" />  

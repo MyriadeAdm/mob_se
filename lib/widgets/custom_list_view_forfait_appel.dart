@@ -39,7 +39,18 @@ class CustomListViewForfaitAppel extends StatelessWidget {
       padding: const EdgeInsets.only(right: 8),
       child: ElevatedButton(
         onPressed: () {
-          callButtomSheet(context, credit, msg, validite, prix, codeMMCredit, codeAutruiCredit, codeMoneyMM, codeMoneyAutruit ,mega, typeforfait);
+          callButtomSheet(
+              context,
+              credit,
+              msg,
+              validite,
+              prix,
+              codeMMCredit,
+              codeAutruiCredit,
+              codeMoneyMM,
+              codeMoneyAutruit,
+              mega,
+              typeforfait);
         },
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.white,
@@ -47,9 +58,11 @@ class CustomListViewForfaitAppel extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: const BorderRadius.all(Radius.circular(15)),
             side: BorderSide(
-              style: BorderStyle.solid,
-              width: 1.5,
-              color: (context.watch<Reseaux>().reseau=="Togocom") ? ColorConstants.colorCustomButton2 : ColorConstants.colorCustomButtonMv),
+                style: BorderStyle.solid,
+                width: 1.5,
+                color: (context.watch<Reseaux>().reseau == "Togocom")
+                    ? ColorConstants.colorCustomButton2
+                    : ColorConstants.colorCustomButtonMv),
           ),
         ),
         child: Column(
@@ -71,7 +84,10 @@ class CustomListViewForfaitAppel extends StatelessWidget {
               ],
             ),
             Text(
-              '$validite + $msg' ,
+              (context.watch<Reseaux>().reseau == "Togocom")
+                  ? '$validite + $msg'
+                  : validite,
+              //'$validite + $msg' ,
               style: const TextStyle(
                 color: Colors.black,
                 fontSize: 12,
