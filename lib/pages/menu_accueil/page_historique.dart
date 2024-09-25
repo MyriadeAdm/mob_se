@@ -32,6 +32,8 @@ class _PageHistoriqueState extends State<PageHistorique> {
         icon: const Icon(Icons.arrow_back));
   }
 
+  bool boolDelete = false;
+
   @override
   Widget build(BuildContext context) {
     final historiqueDatabase = context.watch<HistoriqueDatabase>();
@@ -55,8 +57,28 @@ class _PageHistoriqueState extends State<PageHistorique> {
                 ),
                 const Expanded(child: SizedBox(width: 10)),
                 IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.delete_outline, size: 30))
+                    onPressed: () {
+                      setState(() {
+                        boolDelete = !boolDelete;
+                      });
+                    },
+                    icon: const Icon(
+                      Icons.select_all,
+                      size: 30,
+                    )),
+                Visibility(
+                  visible: boolDelete,
+                  child: IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.delete_sharp,
+                        size: 30,
+                        color: Colors.red,
+                      )),
+                ),
+                const SizedBox(
+                  width: 5,
+                )
               ],
             ),
             const Divider(
@@ -113,6 +135,15 @@ class _PageHistoriqueState extends State<PageHistorique> {
                         final item = currentHistoriques[index];
 
                         return Dismissible(
+                          direction: DismissDirection.endToStart,
+                          background: Container(
+                            alignment: Alignment.centerRight,
+                            color: Colors.red,
+                            child: const Padding(
+                              padding: EdgeInsets.only(right: 20),
+                              child: Icon(Icons.delete_forever),
+                            ),
+                          ),
                           key: ValueKey<int>(item.id as int),
                           onDismissed: (direction) {
                             // Remove the item from the data source.
