@@ -324,17 +324,20 @@ class PageDepot extends StatelessWidget {
                 left: 0,
                 right: 0,
                 bottom: 20,
-                child: ContactFloatingList(
-                  controller: _numeroController,
-                  onContactSelected: (Contact? contact) {
-                    _numeroController.text =
-                        contact?.phones?[0].value as String;
-                    // Do something with the selected contact
-                    if (kDebugMode) {
-                      print(
-                          'Selected contact: ${contact?.displayName}, ${contact?.phones?[0].value}, ${_numeroController.text}');
-                    }
-                  },
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25),
+                  child: ContactFloatingList(
+                    controller: _numeroController,
+                    onContactSelected: (Contact? contact) {
+                      _numeroController.text =
+                          contact?.phones?[0].value as String;
+                      // Do something with the selected contact
+                      if (kDebugMode) {
+                        print(
+                            'Selected contact: ${contact?.displayName}, ${contact?.phones?[0].value}, ${_numeroController.text}');
+                      }
+                    },
+                  ),
                 ),
               ),
             ],

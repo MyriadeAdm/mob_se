@@ -10,8 +10,7 @@ import 'package:provider/provider.dart';
 import '../constants/color_constants.dart';
 import '../constants/reseaux.dart';
 
-c_picker.FlutterContactPicker _contactPicker =
-    c_picker.FlutterContactPicker();
+c_picker.FlutterContactPicker _contactPicker = c_picker.FlutterContactPicker();
 
 class ContactFloatingList extends StatefulWidget {
   const ContactFloatingList(
@@ -84,132 +83,125 @@ class _ContactFloatingListState extends State<ContactFloatingList> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 25.0),
-      child: Stack(
-        children: [
-          Column(
-            children: [
-              Row(
-                children: [
-                  Expanded(
-                    child: TextField(
-                      controller: widget.controller,
-                      focusNode: _numeroControllerFocusNode,
-                      decoration: InputDecoration(
-                        hintText: 'Nom ou numéro de téléphone',
-                        filled: true,
-                        fillColor: const Color.fromRGBO(230, 227, 227, 1),
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide.none,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        suffixIcon: IconButton(
-                          onPressed: () {
-                            widget.controller.clear();
-                            _filterContacts('');
-                          },
-                          icon: const Icon(
-                            Icons.clear,
-                            size: 20,
-                            color: Colors.grey,
-                          ),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide(color: (context
-                                                      .watch<Reseaux>()
-                                                      .reseau ==
-                                                  "Togocom")
-                                              ? ColorConstants
-                                                  .colorCustomButton2
-                                              : ColorConstants
-                                                  .colorCustomButtonMv,),
+    return Stack(
+      children: [
+        Column(
+          children: [
+            Row(
+              children: [
+                Expanded(
+                  child: TextField(
+                    controller: widget.controller,
+                    focusNode: _numeroControllerFocusNode,
+                    decoration: InputDecoration(
+                      hintText: 'Nom ou numéro de téléphone',
+                      filled: true,
+                      fillColor: const Color.fromRGBO(230, 227, 227, 1),
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide.none,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      suffixIcon: IconButton(
+                        onPressed: () {
+                          widget.controller.clear();
+                          _filterContacts('');
+                        },
+                        icon: const Icon(
+                          Icons.clear,
+                          size: 20,
+                          color: Colors.grey,
                         ),
                       ),
-                      onChanged: (value) {
-                        _filterContacts(value);
-                  
-                        // If there are no matching contacts, hide the list
-                        if (_filteredContacts.isEmpty) {
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(
+                          color: (context.watch<Reseaux>().reseau == "Togocom")
+                              ? ColorConstants.colorCustomButton2
+                              : ColorConstants.colorCustomButtonMv,
+                        ),
+                      ),
+                    ),
+                    onChanged: (value) {
+                      _filterContacts(value);
+
+                      // If there are no matching contacts, hide the list
+                      if (_filteredContacts.isEmpty) {
+                        setState(() {
+                          _isListVisible = false;
+                          _selectedContact = null;
+                          widget.controller.text = value;
+                          // No contact matches, user input is treated as a phone number
+                        });
+                      }
+                    },
+                    keyboardType: TextInputType.visiblePassword,
+                  ),
+                ),
+                IconButton(
+                  icon: const Icon(Icons.contacts_rounded,
+                      color: Colors.grey, size: 40.0),
+                  onPressed: () async {
+                    c_picker.Contact? contact =
+                        await _contactPicker.selectContact();
+                    if (contact != null) {
+                      setState(() {
+                        List<String>? phoneNumbers = contact.phoneNumbers;
+                        selectedNumber = phoneNumbers?[0] ?? 'Nothing selected';
+                        widget.controller.text = selectedNumber!;
+                      });
+                    }
+                  },
+                ),
+              ],
+            ),
+          ],
+        ),
+        Positioned(
+          top: 60, // Adjust this value based on your TextField height
+          left: 0,
+          right: 0,
+          child: Visibility(
+            visible: _isListVisible,
+            child: Material(
+              elevation: 4,
+              borderRadius: BorderRadius.circular(8),
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(
+                  minHeight: 100,
+                  maxHeight: 200,
+                ),
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    color: Colors.white,
+                  ),
+                  child: ListView(
+                    children:
+                        _filteredContacts.map((c_service.Contact contact) {
+                      return ListTile(
+                        title: Text(contact.displayName ?? ''),
+                        subtitle: Text(
+                            '${contact.phones?.isNotEmpty ?? false ? contact.phones!.first.value : ''}'),
+                        onTap: () {
                           setState(() {
+                            _selectedContact = contact;
+                            widget.controller.text =
+                                '${_selectedContact?.phones?.isNotEmpty ?? false ? _selectedContact!.phones!.first.value : ''}';
                             _isListVisible = false;
-                            _selectedContact = null;
-                            widget.controller.text = value;
-                            // No contact matches, user input is treated as a phone number
+                            if (widget.onContactSelected != null) {
+                              widget.onContactSelected!(_selectedContact);
+                            }
                           });
-                        }
-                      },
-                      keyboardType: TextInputType.visiblePassword,
-                    ),
-                  ),
-                  IconButton(
-                icon: const Icon(Icons.contacts_rounded,
-                    color: Colors.grey, size: 40.0),
-                onPressed: () async {
-                  c_picker.Contact? contact =
-                      await _contactPicker.selectContact();
-                  if (contact != null) {
-                    setState(() {
-                      List<String>? phoneNumbers = contact.phoneNumbers;
-                      selectedNumber = phoneNumbers?[0] ?? 'Nothing selected';
-                      widget.controller.text = selectedNumber!;
-                    });
-                  }
-                },
-              ),
-                ],
-              ),
-              
-            ],
-          ),
-          Positioned(
-            top: 60, // Adjust this value based on your TextField height
-            left: 0,
-            right: 0,
-            child: Visibility(
-              visible: _isListVisible,
-              child: Material(
-                elevation: 4,
-                borderRadius: BorderRadius.circular(8),
-                child: ConstrainedBox(
-                  constraints: const BoxConstraints(
-                    minHeight: 100,
-                    maxHeight: 200,
-                  ),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
-                      color: Colors.white,
-                    ),
-                    child: ListView(
-                      children:
-                          _filteredContacts.map((c_service.Contact contact) {
-                        return ListTile(
-                          title: Text(contact.displayName ?? ''),
-                          subtitle: Text(
-                              '${contact.phones?.isNotEmpty ?? false ? contact.phones!.first.value : ''}'),
-                          onTap: () {
-                            setState(() {
-                              _selectedContact = contact;
-                              widget.controller.text =
-                                  '${_selectedContact?.phones?.isNotEmpty ?? false ? _selectedContact!.phones!.first.value : ''}';
-                              _isListVisible = false;
-                              if (widget.onContactSelected != null) {
-                                widget.onContactSelected!(_selectedContact);
-                              }
-                            });
-                          },
-                        );
-                      }).toList(),
-                    ),
+                        },
+                      );
+                    }).toList(),
                   ),
                 ),
               ),
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

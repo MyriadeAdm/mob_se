@@ -121,37 +121,37 @@ Future<void> callButtomSheet(
       borderRadius: BorderRadius.vertical(top: Radius.circular(30.0)),
     ),
     builder: ((context) {
-      return Stack(children: [
-        Row(
-          children: [
-            Expanded(
-              child: Padding(
-                padding: EdgeInsets.only(
-                    bottom: MediaQuery.of(context).viewInsets.bottom),
-                child: StatefulBuilder(
-                  builder: (BuildContext context, StateSetter setState) {
-                    String aa = credit;
-                    String bb = sms;
-                    String cc = validite;
-                    String dd = prix;
-                    String ee = codeMMCredit;
-                    String ff = codeAutruiCredit;
-                    var gg = mega;
-                    String codemoneyMM = codeMoneyMM;
-                    String codemoneyAutruit = codeMoneyAutruit;
-                    if (bb == '') {
-                      voirmsg = false;
-                    } else {
-                      voirmsg = true;
-                    }
-                    (Provider.of<Reseaux>(context, listen: false).reseau ==
-                            "Moov")
-                        ? autrePersonne = false || currentOption != options[0]
-                        : autrePersonne = true;
-                    return Padding(
-                      padding: const EdgeInsets.only(
-                          right: 30, left: 30, bottom: 30),
-                      child: Column(
+      return Row(
+        children: [
+          Expanded(
+            child: Padding(
+              padding: EdgeInsets.only(
+                  bottom: MediaQuery.of(context).viewInsets.bottom),
+              child: StatefulBuilder(
+                builder: (BuildContext context, StateSetter setState) {
+                  String aa = credit;
+                  String bb = sms;
+                  String cc = validite;
+                  String dd = prix;
+                  String ee = codeMMCredit;
+                  String ff = codeAutruiCredit;
+                  var gg = mega;
+                  String codemoneyMM = codeMoneyMM;
+                  String codemoneyAutruit = codeMoneyAutruit;
+                  if (bb == '') {
+                    voirmsg = false;
+                  } else {
+                    voirmsg = true;
+                  }
+                  (Provider.of<Reseaux>(context, listen: false).reseau ==
+                          "Moov")
+                      ? autrePersonne = false || currentOption != options[0]
+                      : autrePersonne = true;
+                  return Padding(
+                    padding:
+                        const EdgeInsets.only(right: 30, left: 30, bottom: 30),
+                    child: Stack(children: [
+                      Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisSize: MainAxisSize.min,
                         children: [
@@ -570,34 +570,35 @@ Future<void> callButtomSheet(
                           )
                         ],
                       ),
-                    );
-                  },
-                ),
+                      Visibility(
+                        visible: boolSearch,
+                        child: Positioned(
+                          top: 190, // Adjust this position based on your layout
+                          left: 10,
+                          right: 0,
+                          bottom: 20,
+                          child: ContactFloatingList(
+                            controller: _numeroController,
+                            onContactSelected: (Contact? contact) {
+                              _numeroController.text =
+                                  contact?.phones?[0].value as String;
+                              // Do something with the selected contact
+                              if (kDebugMode) {
+                                print(
+                                    'Selected contact: ${contact?.displayName}, ${contact?.phones?[0].value}, ${_numeroController.text}');
+                              }
+                            },
+                          ),
+                        ),
+                      ),
+                    ]),
+                  );
+                },
               ),
             ),
-          ],
-        ),
-        Visibility(
-          visible: boolSearch,
-          child: Positioned(
-            top: 190, // Adjust this position based on your layout
-            left: 10,
-            right: 0,
-            bottom: 20,
-            child: ContactFloatingList(
-              controller: _numeroController,
-              onContactSelected: (Contact? contact) {
-                _numeroController.text = contact?.phones?[0].value as String;
-                // Do something with the selected contact
-                if (kDebugMode) {
-                  print(
-                      'Selected contact: ${contact?.displayName}, ${contact?.phones?[0].value}, ${_numeroController.text}');
-                }
-              },
-            ),
           ),
-        ),
-      ]);
+        ],
+      );
     }),
   ).whenComplete(reset);
 }
