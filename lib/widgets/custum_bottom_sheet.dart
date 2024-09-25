@@ -72,7 +72,7 @@ bool codeVisible = false;
 bool numVisible = false;
 bool voirmsg = false;
 bool autrePersonne = false;
-bool boolSearch = true;
+bool boolSearch = false;
 
 //final FlutterContactPicker _contactPicker = FlutterContactPicker();
 // ignore: unused_element
@@ -224,7 +224,12 @@ Future<void> callButtomSheet(
                                   setState(() {
                                     _isSelected = newValue;
                                     numVisible = !numVisible;
-                                    boolSearch = true;
+                                    if (_isSelected == true) {
+                                      boolSearch = true;
+                                    } else {
+                                      boolSearch = false;
+                                    }
+                                    print(boolSearch);
                                     _numeroController.clear();
                                   });
                                 },
@@ -573,7 +578,7 @@ Future<void> callButtomSheet(
           ],
         ),
         Visibility(
-          visible: numVisible,
+          visible: boolSearch,
           child: Positioned(
             top: 190, // Adjust this position based on your layout
             left: 10,
