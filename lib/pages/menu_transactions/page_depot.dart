@@ -285,10 +285,17 @@ class PageDepot extends StatelessWidget {
                                       );
                                     });
                                   } else {
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                        const SnackBar(
-                                            content: Text(
-                                                'Veuillez renseigner un numéro Togocel ou moov')));
+                                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                        duration:
+                                            const Duration(milliseconds: 500),
+                                        content: (Provider.of<Reseaux>(context,
+                                                        listen: false)
+                                                    .reseau ==
+                                                "Togocom")
+                                            ? const Text(
+                                                'Veuillez renseigner un numéro Togocom')
+                                            : const Text(
+                                                'Veuillez renseigner un numéro Moov')));
                                     //print(_numeroController.text);
                                   }
                                 }

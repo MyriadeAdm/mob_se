@@ -229,7 +229,6 @@ Future<void> callButtomSheet(
                                     } else {
                                       boolSearch = false;
                                     }
-                                    print(boolSearch);
                                     _numeroController.clear();
                                   });
                                 },
@@ -474,9 +473,6 @@ Future<void> callButtomSheet(
                                                 num),
                                           );
                                     }
-                                    // else {
-                                    //   // TODO faire apparaitre un toast pour signaler que cette option n'existe pas pour le reseau moov
-                                    // }
                                   } else {
                                     showDialog(
                                         context: context,

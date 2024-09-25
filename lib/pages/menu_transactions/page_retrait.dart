@@ -218,12 +218,14 @@ class PageRetrait extends StatelessWidget {
                         if (montant == '' || int.parse(montant) <= 0) {
                           ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(
+                                  duration: Duration(milliseconds: 500),
                                   content:
                                       Text('Veuillez renseigner un montant')));
                         } else {
                           if (codeSecret == '') {
                             ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
+                                    duration: Duration(milliseconds: 500),
                                     content: Text(
                                         'Veuillez renseigner votre code')));
                           } else {

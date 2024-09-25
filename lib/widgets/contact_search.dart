@@ -21,6 +21,7 @@ class ContactFloatingList extends StatefulWidget {
   final TextEditingController controller;
 
   @override
+  // ignore: library_private_types_in_public_api
   _ContactFloatingListState createState() => _ContactFloatingListState();
 }
 
@@ -64,19 +65,48 @@ class _ContactFloatingListState extends State<ContactFloatingList> {
     }
   }
 
+  // void _filterContacts(String query) {
+  //   setState(() {
+  //     _filteredContacts = _contacts
+  //         .where((contact) =>
+  //             contact.displayName != null &&
+  //             (contact.displayName!
+  //                     .toLowerCase()
+  //                     .contains(query.toLowerCase()) ||
+  //                 contact.phones!
+  //                     .any((phone) => phone.value?.contains(query) ?? false)))
+  //         .toList();
+
+  //     // Show the list only if there are matching contacts
+  //     _isListVisible = query.isNotEmpty && _filteredContacts.isNotEmpty;
+  //   });
+  // }
+
   void _filterContacts(String query) {
     setState(() {
-      _filteredContacts = _contacts
-          .where((contact) =>
-              contact.displayName != null &&
-              (contact.displayName!
-                      .toLowerCase()
-                      .contains(query.toLowerCase()) ||
-                  contact.phones!
-                      .any((phone) => phone.value?.contains(query) ?? false)))
-          .toList();
+      // Filtrer d'abord les contacts dont le nom commence par les premières lettres du query
+      List<c_service.Contact> startsWithQuery = _contacts.where((contact) {
+        final displayName = contact.displayName?.toLowerCase() ?? '';
+        return displayName.startsWith(query.toLowerCase());
+      }).toList();
 
-      // Show the list only if there are matching contacts
+      // Ensuite, filtrer les contacts qui contiennent le query dans leur nom ou leur numéro
+      List<c_service.Contact> containsQuery = _contacts.where((contact) {
+        final displayName = contact.displayName?.toLowerCase() ?? '';
+        final phoneMatches = contact.phones?.any((phone) {
+              return phone.value?.contains(query) ?? false;
+            }) ??
+            false;
+
+        // S'assurer que ce contact n'a pas déjà été ajouté dans startsWithQuery
+        return !displayName.startsWith(query.toLowerCase()) &&
+            (displayName.contains(query.toLowerCase()) || phoneMatches);
+      }).toList();
+
+      // Combine both lists: those starting with the query first, then the rest
+      _filteredContacts = [...startsWithQuery, ...containsQuery];
+
+      // Afficher la liste seulement s'il y a des contacts correspondants
       _isListVisible = query.isNotEmpty && _filteredContacts.isNotEmpty;
     });
   }

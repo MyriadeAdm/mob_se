@@ -289,6 +289,7 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                                   if (_montantController.text == "") {
                                     ScaffoldMessenger.of(context)
                                         .showSnackBar(const SnackBar(
+                                      duration: Duration(milliseconds: 500),
                                       content: Text(
                                           'Veuillez renseigner un montant'),
                                     ));
@@ -306,6 +307,8 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                                         ScaffoldMessenger.of(context)
                                             .showSnackBar(
                                           const SnackBar(
+                                            duration:
+                                                Duration(milliseconds: 500),
                                             content: Text(
                                                 'Veuillez renseigner un numéro'),
                                           ),
@@ -328,6 +331,8 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                                           ScaffoldMessenger.of(context)
                                               .showSnackBar(
                                             const SnackBar(
+                                              duration:
+                                                  Duration(milliseconds: 500),
                                               content: Text(
                                                   'Veuillez renseigner un numéro correct'),
                                             ),
@@ -411,6 +416,7 @@ Widget creditColumn(
           } else {
             if (currentOption == options[1] && _numeroController.text == '') {
               ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                  duration: Duration(milliseconds: 500),
                   content: Text('Veuillez renseigner un numéro')));
               _numeroControllerFocusNode.requestFocus();
             } else {
@@ -421,6 +427,7 @@ Widget creditColumn(
                 callButtomSheetUnite(context, num, montant, true);
               } else {
                 ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                    duration: Duration(milliseconds: 500),
                     content: Text('Veuillez renseigner un numéro correct')));
               }
             }

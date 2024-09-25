@@ -152,8 +152,9 @@ class _PageHistoriqueState extends State<PageHistorique> {
                             });
 
                             // Then show a snackbar.
-                            ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(content: Text('$item supprimé')));
+                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                duration: const Duration(milliseconds: 500),
+                                content: Text('$item supprimé')));
                           },
                           child: ListTile(
                             title: Text(
