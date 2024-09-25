@@ -113,7 +113,7 @@ class _PageHistoriqueState extends State<PageHistorique> {
                         final item = currentHistoriques[index];
 
                         return Dismissible(
-                          key: Key(item as String),
+                          key: ValueKey<int>(item.id as int),
                           onDismissed: (direction) {
                             // Remove the item from the data source.
                             setState(() {
