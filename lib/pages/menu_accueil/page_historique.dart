@@ -55,8 +55,8 @@ class _PageHistoriqueState extends State<PageHistorique> {
                 ),
                 const Expanded(child: SizedBox(width: 10)),
                 IconButton(
-                  onPressed: (){},
-                icon: const Icon(Icons.delete_outline,size: 30))
+                    onPressed: () {},
+                    icon: const Icon(Icons.delete_outline, size: 30))
               ],
             ),
             const Divider(
@@ -69,15 +69,15 @@ class _PageHistoriqueState extends State<PageHistorique> {
             Expanded(
               child: currentHistoriques.isEmpty
                   ? const Center(
-                    child: Text(
-                      'Historique vide, veuillez lancer \nvotre première transaction',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: ColorConstants.colorCustom3,
+                      child: Text(
+                        'Historique vide, veuillez lancer \nvotre première transaction',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: ColorConstants.colorCustom3,
+                        ),
                       ),
-                    ),
-                  )
+                    )
                   : ListView.builder(
                       itemCount: currentHistoriques.length,
                       itemBuilder: (BuildContext context, int index) {
@@ -110,25 +110,40 @@ class _PageHistoriqueState extends State<PageHistorique> {
                             }
                           }
                         }
-                        return ListTile(
-                          title: Text(
-                            historique.typeForfait as String,
-                            style: const TextStyle(fontSize: 15),
-                          ),
-                          subtitle: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Expanded(
-                                child: Text(
-                                  '${historique.detailsForfait}',
-                                  style: const TextStyle(fontSize: 9),
+                        final item = currentHistoriques[index];
+
+                        return Dismissible(
+                          key: Key(item as String),
+                          onDismissed: (direction) {
+                            // Remove the item from the data source.
+                            setState(() {
+                              currentHistoriques.removeAt(index);
+                            });
+
+                            // Then show a snackbar.
+                            ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(content: Text('$item supprimé')));
+                          },
+                          child: ListTile(
+                            title: Text(
+                              historique.typeForfait as String,
+                              style: const TextStyle(fontSize: 15),
+                            ),
+                            subtitle: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Expanded(
+                                  child: Text(
+                                    '${historique.detailsForfait}',
+                                    style: const TextStyle(fontSize: 9),
+                                  ),
                                 ),
-                              ),
-                              Text(
-                                date,
-                                style: const TextStyle(fontSize: 10),
-                              ),
-                            ],
+                                Text(
+                                  date,
+                                  style: const TextStyle(fontSize: 10),
+                                ),
+                              ],
+                            ),
                           ),
                         );
                       },
