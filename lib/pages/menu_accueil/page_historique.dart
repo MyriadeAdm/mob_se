@@ -33,6 +33,7 @@ class _PageHistoriqueState extends State<PageHistorique> {
   }
 
   bool boolDelete = false;
+  String supList = '';
 
   @override
   Widget build(BuildContext context) {
@@ -148,13 +149,18 @@ class _PageHistoriqueState extends State<PageHistorique> {
                             // Remove the item from the data source.
                             setState(() {
                               currentHistoriques.removeAt(index);
+                              if (currentHistoriques.isEmpty) {
+                                supList =
+                                    '${currentHistoriques[index].typeForfait} supprimé';
+                              } else {
+                                supList = 'Historique vide';
+                              }
                             });
 
                             // Then show a snackbar.
                             ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                                 duration: const Duration(milliseconds: 500),
-                                content: Text(
-                                    '${currentHistoriques[index].typeForfait} supprimé')));
+                                content: Text(supList)));
                           },
                           child: ListTile(
                             title: Text(
