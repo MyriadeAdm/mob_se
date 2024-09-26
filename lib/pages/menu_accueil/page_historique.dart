@@ -39,7 +39,7 @@ class _PageHistoriqueState extends State<PageHistorique> {
   Widget build(BuildContext context) {
     final historiqueDatabase = context.watch<HistoriqueDatabase>();
     List<Historique> currentHistoriques = historiqueDatabase.currentHistoriques;
-    print(currentHistoriques);
+    //print(currentHistoriques);
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -72,9 +72,52 @@ class _PageHistoriqueState extends State<PageHistorique> {
                   visible: boolDelete,
                   child: IconButton(
                       onPressed: () {
-                        context
-                            .read<HistoriqueDatabase>()
-                            .deleteAllHistorique();
+                        if (currentHistoriques.isEmpty) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                  duration: Duration(milliseconds: 500),
+                                  content: Text("L'historique est vide")));
+                        } else {
+                          showDialog<String>(
+                            context: context,
+                            builder: (BuildContext context) => AlertDialog(
+                              title: const Text(
+                                'TOUT SUPPRIMER !',
+                                textAlign: TextAlign.center,
+                              ),
+                              content: const Text(
+                                  "Etes-vous sur de vouloir tout supprimer ?"),
+                              actions: <Widget>[
+                                TextButton(
+                                  onPressed: () =>
+                                      Navigator.pop(context, 'Annuler'),
+                                  child: const Text(
+                                    'Annuler',
+                                    style: TextStyle(
+                                      color: Colors.green,
+                                    ),
+                                  ),
+                                ),
+                                TextButton(
+                                  onPressed: () {
+                                    context
+                                        .read<HistoriqueDatabase>()
+                                        .deleteAllHistorique();
+                                    Navigator.pop(context, 'Oui');
+                                    boolDelete = false;
+                                  },
+                                  child: const Text(
+                                    'Oui',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        }
+                        boolDelete = false;
                       },
                       icon: const Icon(
                         Icons.delete_sharp,
@@ -155,11 +198,11 @@ class _PageHistoriqueState extends State<PageHistorique> {
                             // Remove the item from the data source.
                             setState(() {
                               currentHistoriques.removeAt(index);
-                              print(index);
+                              //print(index);
                               context
                                   .read<HistoriqueDatabase>()
                                   .deleteHistorique(historique.id as int);
-                              print(historique.id);
+                              //print(historique.id);
 
                               if (reversehistorique.isNotEmpty) {
                                 supList =
