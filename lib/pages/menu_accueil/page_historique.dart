@@ -132,7 +132,6 @@ class _PageHistoriqueState extends State<PageHistorique> {
                             }
                           }
                         }
-                        final item = currentHistoriques[index];
 
                         return Dismissible(
                           direction: DismissDirection.endToStart,
@@ -144,7 +143,7 @@ class _PageHistoriqueState extends State<PageHistorique> {
                               child: Icon(Icons.delete_forever),
                             ),
                           ),
-                          key: ValueKey<int>(item.id as int),
+                          key: ValueKey<int>(index),
                           onDismissed: (direction) {
                             // Remove the item from the data source.
                             setState(() {
@@ -154,7 +153,8 @@ class _PageHistoriqueState extends State<PageHistorique> {
                             // Then show a snackbar.
                             ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                                 duration: const Duration(milliseconds: 500),
-                                content: Text('$item supprimé')));
+                                content: Text(
+                                    '${currentHistoriques[index].typeForfait} supprimé')));
                           },
                           child: ListTile(
                             title: Text(
