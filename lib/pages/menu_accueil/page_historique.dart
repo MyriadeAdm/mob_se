@@ -39,6 +39,7 @@ class _PageHistoriqueState extends State<PageHistorique> {
   Widget build(BuildContext context) {
     final historiqueDatabase = context.watch<HistoriqueDatabase>();
     List<Historique> currentHistoriques = historiqueDatabase.currentHistoriques;
+    print(currentHistoriques);
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -70,7 +71,11 @@ class _PageHistoriqueState extends State<PageHistorique> {
                 Visibility(
                   visible: boolDelete,
                   child: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        context
+                            .read<HistoriqueDatabase>()
+                            .deleteAllHistorique();
+                      },
                       icon: const Icon(
                         Icons.delete_sharp,
                         size: 30,
@@ -144,14 +149,21 @@ class _PageHistoriqueState extends State<PageHistorique> {
                               child: Icon(Icons.delete_forever),
                             ),
                           ),
-                          key: ValueKey<int>(index),
+                          // key: ValueKey<int>(index),
+                          key: UniqueKey(),
                           onDismissed: (direction) {
                             // Remove the item from the data source.
                             setState(() {
                               currentHistoriques.removeAt(index);
-                              if (currentHistoriques.isEmpty) {
+                              print(index);
+                              context
+                                  .read<HistoriqueDatabase>()
+                                  .deleteHistorique(historique.id as int);
+                              print(historique.id);
+
+                              if (reversehistorique.isNotEmpty) {
                                 supList =
-                                    '${currentHistoriques[index].typeForfait} supprimé';
+                                    '${reversehistorique[index].typeForfait} supprimé';
                               } else {
                                 supList = 'Historique vide';
                               }
