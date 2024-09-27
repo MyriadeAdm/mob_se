@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
 import 'package:mob_se/constants/color_constants.dart';
 import 'package:mob_se/constants/constantes.dart';
 import 'package:mob_se/constants/reseaux.dart';
@@ -56,15 +57,13 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   GestureDetector(
                     onVerticalDragDown: (details) {
-                      setState(() {
-                        if (Provider.of<Reseaux>(context, listen: false)
-                                .reseau ==
-                            "Togocom") {
-                          context.read<Reseaux>().switchToMoov();
-                        } else {
-                          context.read<Reseaux>().switchToTogocom();
-                        }
-                      });
+                      HapticFeedback.heavyImpact();
+                      if (Provider.of<Reseaux>(context, listen: false).reseau ==
+                          "Togocom") {
+                        context.read<Reseaux>().switchToMoov();
+                      } else {
+                        context.read<Reseaux>().switchToTogocom();
+                      }
                     },
                     child: Padding(
                       padding: const EdgeInsets.only(left: 15),
