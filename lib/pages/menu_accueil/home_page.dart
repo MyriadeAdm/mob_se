@@ -22,8 +22,7 @@ class HomePage extends StatefulWidget {
 const List<String> carriername = ['Togocom', 'Moov'];
 
 class _HomePageState extends State<HomePage> {
-
-  final List<bool> _selectedcarrier = <bool>[true, false];
+  late List<bool> _selectedcarrier;
 
   // Fonction de recupération des historiques dans la base de donnée
   void readHistorque() {
@@ -42,6 +41,9 @@ class _HomePageState extends State<HomePage> {
     String cname = context.watch<Reseaux>().reseau!;
     String mb = context.watch<Reseaux>().money!;
     List<Historique> currentHistoriques = historiqueDatabase.currentHistoriques;
+    _selectedcarrier = (context.watch<Reseaux>().reseau == 'Togocom')
+        ? [true, false]
+        : [false, true];
 
     return Center(
       child: Column(
@@ -54,7 +56,15 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   GestureDetector(
                     onVerticalDragDown: (details) {
-                      //print('botn draged');
+                      setState(() {
+                        if (Provider.of<Reseaux>(context, listen: false)
+                                .reseau ==
+                            "Togocom") {
+                          context.read<Reseaux>().switchToMoov();
+                        } else {
+                          context.read<Reseaux>().switchToTogocom();
+                        }
+                      });
                     },
                     child: Padding(
                       padding: const EdgeInsets.only(left: 15),
@@ -97,7 +107,9 @@ class _HomePageState extends State<HomePage> {
                                         i++) {
                                       _selectedcarrier[i] = i == index;
                                       if (index == 0) {
-                                        context.read<Reseaux>().switchToTogocom();
+                                        context
+                                            .read<Reseaux>()
+                                            .switchToTogocom();
                                       } else {
                                         context.read<Reseaux>().switchToMoov();
                                       }
@@ -107,18 +119,38 @@ class _HomePageState extends State<HomePage> {
                                 },
                                 borderRadius:
                                     const BorderRadius.all(Radius.circular(13)),
-                                selectedBorderColor: Colors.amber,
-                                selectedColor: Colors.black,
-                                fillColor: Colors.amber,
-                                color: Colors.amber,
+                                selectedBorderColor:
+                                    (context.watch<Reseaux>().reseau ==
+                                            'Togocom')
+                                        ? ColorConstants.colorCustomButtonTg
+                                        : ColorConstants.colorCustomButtonMv,
+                                selectedColor:
+                                    (context.watch<Reseaux>().reseau ==
+                                            'Togocom')
+                                        ? Colors.black
+                                        : Colors.white,
+                                fillColor: (context.watch<Reseaux>().reseau ==
+                                        'Togocom')
+                                    ? ColorConstants.colorCustomButtonTg
+                                    : ColorConstants.colorCustomButtonMv,
+                                color: (context.watch<Reseaux>().reseau ==
+                                        'Togocom')
+                                    ? ColorConstants.colorCustomButtonMv
+                                    : Colors.black,
                                 constraints: const BoxConstraints(
                                   minHeight: 40.0,
                                   minWidth: 80.0,
                                 ),
                                 isSelected: _selectedcarrier,
                                 children: [
-                                  Text(carriername[0]),
-                                  Text(carriername[1]),
+                                  Text(carriername[0],
+                                      style: const TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                      )),
+                                  Text(carriername[1],
+                                      style: const TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                      )),
                                 ],
                               ),
                             ),
@@ -147,23 +179,24 @@ class _HomePageState extends State<HomePage> {
                     Expanded(
                         child: CustomButton(
                             label: 'Solde $mb',
-                            code: (cname == 'Togocom') ? "*145*7*1#" : "*155*6*1#")),
+                            code: (cname == 'Togocom')
+                                ? "*145*7*1#"
+                                : "*155*6*1#")),
                   ],
                 ),
               ),
               Padding(
-                padding:
-                    const EdgeInsets.only(right: 20, left: 20, top: 20, bottom: 18),
+                padding: const EdgeInsets.only(
+                    right: 20, left: 20, top: 20, bottom: 18),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     const Text(
                       "Forfait Internet",
                       style: TextStyle(
-                        fontSize: 16,
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.bold
-                      ),
+                          fontSize: 16,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(width: 10),
                     Expanded(
@@ -183,58 +216,59 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
-              (context.watch<Reseaux>().reseau=='Togocom')?
-              SizedBox(
-                height: 90,
-                child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount:  Constantes.forfaitsInternetTogocom.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      final item = Constantes.forfaitsInternetTogocom[index];
-                      return CustomListViewForfaitInternet(
-                        icon: const Icon(
-                          Icons.public,
-                          size: 20,
-                          color: Colors.black,
-                        ),
-                        mega: item.mega,
-                        validite: item.validite,
-                        prix: item.prix,
-                        codeMMCredit: item.codeMMCredit,
-                        codeAutruiCredit: item.codeAutruiCredit,
-                        codeMoneyMM: item.codeMoneyMM,
-                        codeMoneyAutruit: item.codeMoneyAutruit,
-                        typeforfait: item.typeforfait,
-                      );
-                    }),
-              ) : 
-              SizedBox(
-                height: 90,
-                child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount:  Constantes.forfaitsInternetMoov.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      final item = Constantes.forfaitsInternetMoov[index];
-                      return CustomListViewForfaitInternet(
-                        icon: const Icon(
-                          Icons.public,
-                          size: 20,
-                          color: Colors.black,
-                        ),
-                        mega: item.mega,
-                        validite: item.validite,
-                        prix: item.prix,
-                        codeMMCredit: item.codeMMCredit,
-                        codeAutruiCredit: item.codeAutruiCredit,
-                        codeMoneyMM: item.codeMoneyMM,
-                        codeMoneyAutruit: item.codeMoneyAutruit,
-                        typeforfait: item.typeforfait,
-                      );
-                    }),
-              ),
+              (context.watch<Reseaux>().reseau == 'Togocom')
+                  ? SizedBox(
+                      height: 90,
+                      child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: Constantes.forfaitsInternetTogocom.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            final item =
+                                Constantes.forfaitsInternetTogocom[index];
+                            return CustomListViewForfaitInternet(
+                              icon: const Icon(
+                                Icons.public,
+                                size: 20,
+                                color: Colors.black,
+                              ),
+                              mega: item.mega,
+                              validite: item.validite,
+                              prix: item.prix,
+                              codeMMCredit: item.codeMMCredit,
+                              codeAutruiCredit: item.codeAutruiCredit,
+                              codeMoneyMM: item.codeMoneyMM,
+                              codeMoneyAutruit: item.codeMoneyAutruit,
+                              typeforfait: item.typeforfait,
+                            );
+                          }),
+                    )
+                  : SizedBox(
+                      height: 90,
+                      child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: Constantes.forfaitsInternetMoov.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            final item = Constantes.forfaitsInternetMoov[index];
+                            return CustomListViewForfaitInternet(
+                              icon: const Icon(
+                                Icons.public,
+                                size: 20,
+                                color: Colors.black,
+                              ),
+                              mega: item.mega,
+                              validite: item.validite,
+                              prix: item.prix,
+                              codeMMCredit: item.codeMMCredit,
+                              codeAutruiCredit: item.codeAutruiCredit,
+                              codeMoneyMM: item.codeMoneyMM,
+                              codeMoneyAutruit: item.codeMoneyAutruit,
+                              typeforfait: item.typeforfait,
+                            );
+                          }),
+                    ),
               Padding(
-                padding:
-                    const EdgeInsets.only(right: 15, left: 15, top: 20, bottom: 18),
+                padding: const EdgeInsets.only(
+                    right: 15, left: 15, top: 20, bottom: 18),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -263,63 +297,63 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
-              (context.watch<Reseaux>().reseau=='Togocom')?
-              SizedBox(
-                height: 95,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: Constantes.forfaitsAppelTogocom.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    final item = Constantes.forfaitsAppelTogocom[index];
-          
-                    return CustomListViewForfaitAppel(
-                      icon: const Icon(
-                        Icons.call,
-                        size: 20,
-                        color: Colors.black,
+              (context.watch<Reseaux>().reseau == 'Togocom')
+                  ? SizedBox(
+                      height: 95,
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: Constantes.forfaitsAppelTogocom.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          final item = Constantes.forfaitsAppelTogocom[index];
+
+                          return CustomListViewForfaitAppel(
+                            icon: const Icon(
+                              Icons.call,
+                              size: 20,
+                              color: Colors.black,
+                            ),
+                            credit: item.credit,
+                            validite: item.validite,
+                            msg: item.msg,
+                            prix: item.prix,
+                            codeMMCredit: item.codeMMCredit,
+                            codeAutruiCredit: item.codeAutruiCredit,
+                            codeMoneyMM: item.codeMoneyMM,
+                            codeMoneyAutruit: item.codeMoneyAutruit,
+                            mega: item.mega,
+                            typeforfait: item.typeforfait,
+                          );
+                        },
                       ),
-                      credit: item.credit,
-                      validite: item.validite,
-                      msg: item.msg,
-                      prix: item.prix,
-                      codeMMCredit: item.codeMMCredit,
-                      codeAutruiCredit: item.codeAutruiCredit,
-                      codeMoneyMM: item.codeMoneyMM,
-                      codeMoneyAutruit: item.codeMoneyAutruit,
-                      mega: item.mega,
-                      typeforfait: item.typeforfait,
-                    );
-                  },
-                ),
-              ) : 
-              SizedBox(
-                height: 95,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: Constantes.forfaitsAppelMoov.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    final item = Constantes.forfaitsAppelMoov[index];
-          
-                    return CustomListViewForfaitAppel(
-                      icon: const Icon(
-                        Icons.call,
-                        size: 20,
-                        color: Colors.black,
+                    )
+                  : SizedBox(
+                      height: 95,
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: Constantes.forfaitsAppelMoov.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          final item = Constantes.forfaitsAppelMoov[index];
+
+                          return CustomListViewForfaitAppel(
+                            icon: const Icon(
+                              Icons.call,
+                              size: 20,
+                              color: Colors.black,
+                            ),
+                            credit: item.credit,
+                            validite: item.validite,
+                            msg: item.msg,
+                            prix: item.prix,
+                            codeMMCredit: item.codeMMCredit,
+                            codeAutruiCredit: item.codeAutruiCredit,
+                            codeMoneyMM: item.codeMoneyMM,
+                            codeMoneyAutruit: item.codeMoneyAutruit,
+                            mega: item.mega,
+                            typeforfait: item.typeforfait,
+                          );
+                        },
                       ),
-                      credit: item.credit,
-                      validite: item.validite,
-                      msg: item.msg,
-                      prix: item.prix,
-                      codeMMCredit: item.codeMMCredit,
-                      codeAutruiCredit: item.codeAutruiCredit,
-                      codeMoneyMM: item.codeMoneyMM,
-                      codeMoneyAutruit: item.codeMoneyAutruit,
-                      mega: item.mega,
-                      typeforfait: item.typeforfait,
-                    );
-                  },
-                ),
-              ),
+                    ),
               Padding(
                 padding: const EdgeInsets.only(left: 20, right: 20, top: 15),
                 child: Row(
@@ -349,7 +383,8 @@ class _HomePageState extends State<HomePage> {
                         children: [
                           Text(
                             'Tout afficher',
-                            style: TextStyle(color: ColorConstants.colorCustom3),
+                            style:
+                                TextStyle(color: ColorConstants.colorCustom3),
                           ),
                           Icon(
                             Icons.trending_flat,
@@ -365,7 +400,6 @@ class _HomePageState extends State<HomePage> {
               //const SizedBox(height: 20,),
             ],
           ),
-
           Expanded(
             child: Padding(
               padding: const EdgeInsets.only(right: 10, left: 10),
@@ -400,10 +434,10 @@ class _HomePageState extends State<HomePage> {
                                 String date = "";
                                 int dateNow = int.parse(
                                     DateFormat.d().format(DateTime.now()));
-                  
+
                                 int dateHistorique = int.parse(
                                     DateFormat.d().format(historique.dateTime));
-                  
+
                                 if (DateFormat('dd-MMM-yyyy')
                                         .format(historique.dateTime) ==
                                     DateFormat('dd-MMM-yyyy')
@@ -439,7 +473,8 @@ class _HomePageState extends State<HomePage> {
                                           children: [
                                             Text(
                                               '${historique.detailsForfait}',
-                                              style: const TextStyle(fontSize: 9),
+                                              style:
+                                                  const TextStyle(fontSize: 9),
                                             ),
                                             Text(
                                               date,

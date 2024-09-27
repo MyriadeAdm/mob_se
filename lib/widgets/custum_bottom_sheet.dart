@@ -569,10 +569,12 @@ Future<void> callButtomSheet(
                       Visibility(
                         visible: boolSearch,
                         child: Positioned(
-                          top: 200, // Adjust this position based on your layout
+                          top: (bb == '')
+                              ? 180
+                              : 205, // Adjust this position based on your layout
                           left: 10,
                           right: 0,
-                          bottom: 20,
+                          bottom: 0,
                           child: ContactFloatingList(
                             controller: _numeroController,
                             onContactSelected: (Contact? contact) {
@@ -607,7 +609,7 @@ void reset() {
   codeVisible = false;
   numVisible = false;
   _codeController.clear();
-  //boolSearch = false;
+  boolSearch = false;
 }
 
 String appelInternetMixteNuit(String typeForfait, dynamic aa, dynamic gg) {
