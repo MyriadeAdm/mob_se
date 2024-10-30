@@ -241,61 +241,7 @@ Future<void> callButtomSheet(
                             child: const SizedBox(
                               height: 60,
                             ),
-                            // child: Row(
-                            //   //mainAxisAlignment: MainAxisAlignment.start,
-                            //   children: [
-                            //     Expanded(
-                            //       child: TextField(
-                            //         autofocus: true,
-                            //         controller: _numeroController,
-                            //         decoration: InputDecoration(
-                            //           hintText: 'Nom ou numéro de téléphone',
-                            //           filled: true,
-                            //           fillColor:
-                            //               const Color.fromRGBO(230, 227, 227, 1),
-                            //           border: OutlineInputBorder(
-                            //             borderSide: BorderSide.none,
-                            //             borderRadius: BorderRadius.circular(10),
-                            //           ),
-                            //           suffixIcon: IconButton(
-                            //             onPressed: () {
-                            //               _numeroController.clear();
-                            //             },
-                            //             icon: const Icon(
-                            //               Icons.clear,
-                            //               size: 20,
-                            //               color: Colors.grey,
-                            //             ),
-                            //           ),
-                            //         ),
-                            //       ),
-                            //     ),
-                            //     IconButton(
-                            //       icon: const Icon(Icons.contacts_rounded,
-                            //           color: Colors.grey, size: 40.0),
-                            //       onPressed: () async {
-                            //         // setState(() {
-                            //         //   // click += 1;
-                            //         // });
-
-                            //         Contact? contact =
-                            //             await _contactPicker.selectContact();
-                            //         if (contact != null) {
-                            //           setState(() {
-                            //             _contact = contact;
-                            //             List<String>? phoneNumbers =
-                            //                 contact.phoneNumbers;
-                            //             selectedNumber = phoneNumbers?[0] ??
-                            //                 'Nothing selected';
-                            //             _numeroController.text = selectedNumber!;
-                            //           });
-                            //         }
-                            //       },
-                            //     ),
-                            //   ],
-                            // ),
                           ),
-                          //const SizedBox(height: 20),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
@@ -396,16 +342,6 @@ Future<void> callButtomSheet(
                                         borderSide: BorderSide.none,
                                         borderRadius: BorderRadius.circular(10),
                                       ),
-                                      // suggixIcon: IconButton(
-                                      //   onPressed: () {
-                                      //     _codeController.clear();
-                                      //   },
-                                      //   icon: const Icon(
-                                      //     Icons.clear,
-                                      //     size: 15,
-                                      //     color: Colors.grey,
-                                      //   ),
-                                      // ),
                                     ),
                                   ),
                                 ),
@@ -416,7 +352,6 @@ Future<void> callButtomSheet(
                           SizedBox(
                             height: 50,
                             width: 180,
-                            //child: CustomButton(label: 'Confirmer'),
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
                                   backgroundColor:

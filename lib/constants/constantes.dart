@@ -213,7 +213,7 @@ class Constantes {
   static final List<ForfaitNuit> forfaitsNuitTogocom = [
     //  ] Forfait moi-meme , Forfait autruit]
     ForfaitNuit('3 Go', 'Validité 1j (22h-06h)', '500 XOF', '*909*2*1*5*1#',
-        '*1*1*5*1#', '*145*3*2*1*', '*145*3*2*2*'),
+        '*1*1*5*1#', '*145*3*2*1*4*', '*1*1*5*2*'),
   ];
 
   static final List<ForfaitNuit> forfaitsNuitMoov = [
