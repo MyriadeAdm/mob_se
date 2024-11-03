@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:contacts_service/contacts_service.dart' as c_service;
 import 'package:flutter_native_contact_picker/flutter_native_contact_picker.dart'
     as c_picker;
+import 'package:flutter_native_contact_picker/model/contact.dart';
 import 'package:mob_se/widgets/custum_bottom_sheet.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
@@ -10,7 +11,8 @@ import 'package:provider/provider.dart';
 import '../constants/color_constants.dart';
 import '../constants/reseaux.dart';
 
-c_picker.FlutterContactPicker _contactPicker = c_picker.FlutterContactPicker();
+c_picker.FlutterNativeContactPicker _contactPicker =
+    c_picker.FlutterNativeContactPicker();
 
 class ContactFloatingList extends StatefulWidget {
   const ContactFloatingList(
@@ -171,8 +173,7 @@ class _ContactFloatingListState extends State<ContactFloatingList> {
                   icon: const Icon(Icons.contacts_rounded,
                       color: Colors.grey, size: 40.0),
                   onPressed: () async {
-                    c_picker.Contact? contact =
-                        await _contactPicker.selectContact();
+                    Contact? contact = await _contactPicker.selectContact();
                     if (contact != null) {
                       setState(() {
                         List<String>? phoneNumbers = contact.phoneNumbers;
