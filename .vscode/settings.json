@@ -1,4 +1,5 @@
 {
-    "cmake.sourceDirectory": "D:/Flutter APP/mob_se/linux",
-    "java.configuration.updateBuildConfiguration": "automatic"
+  "cmake.sourceDirectory": "D:/Flutter APP/mob_se/linux",
+  "java.configuration.updateBuildConfiguration": "automatic",
+  "dart.flutterSdkPath": ".fvm/versions/3.22.3"
 }
