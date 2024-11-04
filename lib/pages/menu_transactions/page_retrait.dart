@@ -204,16 +204,11 @@ class PageRetrait extends StatelessWidget {
                       var codeSecret = _codeController.text;
 
                       if (codeAgent == '') {
-                        showDialog(
-                            context: context,
-                            builder: (BuildContext context) {
-                              return const AlertDialog(
-                                  title: Text("Code agent non saisie",
-                                      textAlign: TextAlign.center),
-                                  content: Text(
-                                      "Veuillez renseigner le code agent",
-                                      textAlign: TextAlign.center));
-                            });
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                                duration: Duration(milliseconds: 500),
+                                content:
+                                    Text('Veuillez renseigner le code agent')));
                       } else {
                         if (montant == '' || int.parse(montant) <= 0) {
                           ScaffoldMessenger.of(context).showSnackBar(

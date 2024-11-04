@@ -485,6 +485,7 @@ Future<void> callButtomSheet(
                                         );
                                   }
                                 }
+                                Navigator.pop(context);
                               },
                               child: Text(
                                 'CONFIRMER',

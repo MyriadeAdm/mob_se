@@ -65,23 +65,6 @@ class _ContactFloatingListState extends State<ContactFloatingList> {
     }
   }
 
-  // void _filterContacts(String query) {
-  //   setState(() {
-  //     _filteredContacts = _contacts
-  //         .where((contact) =>
-  //             contact.displayName != null &&
-  //             (contact.displayName!
-  //                     .toLowerCase()
-  //                     .contains(query.toLowerCase()) ||
-  //                 contact.phones!
-  //                     .any((phone) => phone.value?.contains(query) ?? false)))
-  //         .toList();
-
-  //     // Show the list only if there are matching contacts
-  //     _isListVisible = query.isNotEmpty && _filteredContacts.isNotEmpty;
-  //   });
-  // }
-
   void _filterContacts(String query) {
     setState(() {
       // Filtrer d'abord les contacts dont le nom commence par les premières lettres du query
