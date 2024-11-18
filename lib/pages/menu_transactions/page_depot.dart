@@ -360,7 +360,7 @@ class PageDepot extends StatelessWidget {
     BuildContext context, int montant) {
   if (Provider.of<Reseaux>(context, listen: false).reseau == "Togocom") {
     var newMontant = montantTransfererPlusFrais(context, montant);
-    if (newMontant > 0 && newMontant <= 500) {
+    if (newMontant >= 0 && newMontant <= 500) {
       return (5, 45);
     } else if (newMontant > 500 && newMontant <= 1000) {
       return (5, 70);
@@ -443,8 +443,10 @@ int montantTransfererPlusFrais(BuildContext context, int montantTransferer) {
     if (montantTransferer > 0 && montantTransferer <= 500) {
       return montantTransferer + 45;
     } else if (montantTransferer > 500 && montantTransferer <= 1000) {
-      return montantTransferer + 90;
+      return montantTransferer + 70;
     } else if (montantTransferer > 1000 && montantTransferer <= 5000) {
+      return montantTransferer + 90;
+    } else if (montantTransferer > 5000 && montantTransferer <= 15000) {
       return montantTransferer + 250;
     } else if (montantTransferer > 15000 && montantTransferer <= 20000) {
       return montantTransferer + 290;
