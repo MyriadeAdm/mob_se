@@ -8,6 +8,7 @@ import '../constants/color_constants.dart';
 import 'package:mob_se/lib/make_call.dart';
 
 import '../constants/reseaux.dart';
+import '../models/historique_database.dart';
 
 final _codeController = TextEditingController();
 final FocusNode _codeControllerFocusNode = FocusNode();
@@ -177,6 +178,11 @@ Future<void> callButtomSheetEnvoie(
                               : makePhoneCall(
                                   "*145*1*$montantEnvoye*$numero*2*${_codeController.text}#");
                     }
+
+                    context.read<HistoriqueDatabase>().addHistorique(
+                                "Envoie d'argent",
+                                "Vous avez envoyé $montantEnvoye F CFA au $numero.");
+
                     _codeController.clear();
                   },
                   style: ElevatedButton.styleFrom(
