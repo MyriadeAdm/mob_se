@@ -389,7 +389,7 @@ class PageDepot extends StatelessWidget {
       return (600, 3900);
     } else if (newMontant > 1000000 && newMontant <= 1500000) {
       return (900, 4500);
-    } else if (newMontant > 1500000 && newMontant <= 2000000) {
+    } else if (newMontant > 1500000 && newMontant <= 2009700) {
       return (1500, 8200);
     } else {
       return (0, 666);
