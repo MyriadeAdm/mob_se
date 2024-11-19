@@ -359,37 +359,39 @@ class PageDepot extends StatelessWidget {
 }
 
 //logic derriere ce code
+//Etant donne que la fonction "montantTransfererPlusFrais" retourne le montant + les frais,
+//donc la verification se fait avec les frais ajouter
 (int tranfert, int retrait) quelFraisTransactionEtRetrait(
     BuildContext context, int montant) {
   if (Provider.of<Reseaux>(context, listen: false).reseau == "Togocom") {
     var newMontant = montantTransfererPlusFrais(context, montant);
-    if (newMontant >= 0 && newMontant <= 500) {
+    if (newMontant >= 0 && newMontant <= 545) {
       return (5, 45);
-    } else if (newMontant > 500 && newMontant <= 1000) {
+    } else if (newMontant > 500 && newMontant <= 1070) {
       return (5, 70);
-    } else if (newMontant > 1000 && newMontant <= 5000) {
+    } else if (newMontant > 1000 && newMontant <= 5090) {
       return (10, 90);
-    } else if (newMontant > 5000 && newMontant <= 15000) {
+    } else if (newMontant > 5000 && newMontant <= 15250) {
       return (30, 250);
-    } else if (newMontant > 15000 && newMontant <= 20000) {
+    } else if (newMontant > 15000 && newMontant <= 20290) {
       return (30, 290);
-    } else if (newMontant > 20000 && newMontant <= 50000) {
+    } else if (newMontant > 20000 && newMontant <= 50550) {
       return (50, 550);
-    } else if (newMontant > 50000 && newMontant <= 100000) {
+    } else if (newMontant > 50000 && newMontant <= 100900) {
       return (100, 900);
-    } else if (newMontant > 100000 && newMontant <= 200000) {
+    } else if (newMontant > 100000 && newMontant <= 202700) {
       return (200, 2700);
-    } else if (newMontant > 200000 && newMontant <= 300000) {
+    } else if (newMontant > 200000 && newMontant <= 303300) {
       return (400, 3300);
-    } else if (newMontant > 300000 && newMontant <= 500000) {
+    } else if (newMontant > 300000 && newMontant <= 503500) {
       return (600, 3500);
-    } else if (newMontant > 500000 && newMontant <= 850000) {
+    } else if (newMontant > 500000 && newMontant <= 853700) {
       return (600, 3700);
-    } else if (newMontant > 850000 && newMontant <= 1000000) {
+    } else if (newMontant > 850000 && newMontant <= 1003900) {
       return (600, 3900);
-    } else if (newMontant > 1000000 && newMontant <= 1500000) {
+    } else if (newMontant > 1000000 && newMontant <= 1504500) {
       return (900, 4500);
-    } else if (newMontant > 1500000 && newMontant <= 2009700) {
+    } else if (newMontant > 1500000 && newMontant <= 2008200) {
       return (1500, 8200);
     } else {
       return (0, 666);
