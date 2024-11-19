@@ -139,14 +139,17 @@ class PageDepot extends StatelessWidget {
                                   inputFormatters: [
                                     LengthLimitingTextInputFormatter(7),
                                   ],
-                                  onChanged: (text) {
-                                    if (text == '') {
-                                      text = '0';
+                                  onChanged: (argent) {
+                                    if (argent == '') {
+                                      argent = '0';
                                     } else {
                                       int fraisRetrait, fraisTransfert;
                                       int montant = int.parse(
-                                          text.replaceAll(RegExp(r'\D'), ""));
-
+                                          argent.replaceAll(RegExp(r'\D'), ""));
+                                      if (montant > 2000000) {
+                                        _montantController.text = '2000000';
+                                        montant = 2000000;
+                                      }
                                       setState(() {
                                         (fraisTransfert, fraisRetrait) =
                                             quelFraisTransactionEtRetrait(
@@ -374,6 +377,20 @@ class PageDepot extends StatelessWidget {
       return (50, 550);
     } else if (newMontant > 50000 && newMontant <= 100000) {
       return (100, 900);
+    } else if (newMontant > 100000 && newMontant <= 200000) {
+      return (200, 2700);
+    } else if (newMontant > 200000 && newMontant <= 300000) {
+      return (400, 3300);
+    } else if (newMontant > 300000 && newMontant <= 500000) {
+      return (600, 3500);
+    } else if (newMontant > 500000 && newMontant <= 850000) {
+      return (600, 3700);
+    } else if (newMontant > 850000 && newMontant <= 1000000) {
+      return (600, 3900);
+    } else if (newMontant > 1000000 && newMontant <= 1500000) {
+      return (900, 4500);
+    } else if (newMontant > 1500000 && newMontant <= 2000000) {
+      return (1500, 8200);
     } else {
       return (0, 666);
     }
@@ -415,6 +432,20 @@ int quelFraisTransaction(BuildContext context, int montant) {
       return 50;
     } else if (montant > 50000 && montant <= 100000) {
       return 100;
+    } else if (montant > 100000 && montant <= 200000) {
+      return 200;
+    } else if (montant > 200000 && montant <= 300000) {
+      return 400;
+    } else if (montant > 300000 && montant <= 500000) {
+      return 600;
+    } else if (montant > 500000 && montant <= 8500000) {
+      return 600;
+    } else if (montant > 8500000 && montant <= 1000000) {
+      return 600;
+    } else if (montant > 1000000 && montant <= 1500000) {
+      return 900;
+    } else if (montant > 1500000 && montant <= 2000000) {
+      return 1500;
     } else {
       return 0;
     }
@@ -454,6 +485,20 @@ int montantTransfererPlusFrais(BuildContext context, int montantTransferer) {
       return montantTransferer + 550;
     } else if (montantTransferer > 50000 && montantTransferer <= 100000) {
       return montantTransferer + 900;
+    } else if (montantTransferer > 100000 && montantTransferer <= 200000) {
+      return montantTransferer + 2900;
+    } else if (montantTransferer > 200000 && montantTransferer <= 300000) {
+      return montantTransferer + 3300;
+    } else if (montantTransferer > 300000 && montantTransferer <= 500000) {
+      return montantTransferer + 3500;
+    } else if (montantTransferer > 500000 && montantTransferer <= 850000) {
+      return montantTransferer + 3700;
+    } else if (montantTransferer > 850000 && montantTransferer <= 1000000) {
+      return montantTransferer + 3900;
+    } else if (montantTransferer > 1000000 && montantTransferer <= 1500000) {
+      return montantTransferer + 4500;
+    } else if (montantTransferer > 1500000 && montantTransferer <= 2000000) {
+      return montantTransferer + 8200;
     } else {
       return 0;
     }
