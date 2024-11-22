@@ -32,7 +32,7 @@ class ForfaitMixtePage extends StatelessWidget {
             fontWeight: FontWeight.w700,
           ),
         ),
-        actions: <Widget>[
+        actions: [
           Padding(
             padding: const EdgeInsets.only(right: 20),
             child: ElevatedButton(
@@ -66,20 +66,12 @@ class ForfaitMixtePage extends StatelessWidget {
             ),
           ), //IconButton
         ],
-        leading: returnBack(context),
       ),
       backgroundColor: Colors.white,
       body: Center(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Divider(
-              height: 30,
-              indent: 50,
-              endIndent: 50,
-              color: Colors.black,
-              thickness: 1,
-            ),
             Expanded(
               child: SizedBox(
                 height: 700,

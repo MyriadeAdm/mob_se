@@ -72,287 +72,285 @@ class PageDepot extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: MediaQuery.of(context).size.height,
-      color: Colors.white,
-      child: StatefulBuilder(
-        builder: (BuildContext context, StateSetter setState) {
-          return Stack(
-            children: [
-              Column(
-                //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(children: [
-                    returnBack(context),
-                    const Text(
-                      "Envoi",
-                      style: TextStyle(
-                        fontSize: 23,
-                        fontWeight: FontWeight.w700,
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          "Envoie d'argent",
+          style: TextStyle(
+            fontSize: 23,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+      ),
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        color: Colors.white,
+        child: StatefulBuilder(
+          builder: (BuildContext context, StateSetter setState) {
+            return Stack(
+              children: [
+                Column(
+                  //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 30, left: 30),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            'Numéro',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 60,
+                          ), //place pour positionner le textfield
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          const Text(
+                            'Montant',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          Row(
+                            //crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Expanded(
+                                child: TextField(
+                                    textAlign: TextAlign.right,
+                                    keyboardType: TextInputType.number,
+                                    inputFormatters: [
+                                      LengthLimitingTextInputFormatter(7),
+                                    ],
+                                    onChanged: (argent) {
+                                      if (argent == '') {
+                                        argent = '0';
+                                      } else {
+                                        int fraisRetrait, fraisTransfert;
+                                        int montant = int.parse(argent
+                                            .replaceAll(RegExp(r'\D'), ""));
+                                        if (montant > 2000000) {
+                                          _montantController.text = '2000000';
+                                          montant = 2000000;
+                                        }
+                                        setState(() {
+                                          (fraisTransfert, fraisRetrait) =
+                                              quelFraisTransactionEtRetrait(
+                                                  context, montant);
+                                          frt = fraisRetrait;
+                                          ftrn = fraisTransfert;
+                                          //print(frt);
+                                          //print(fraisRetrait);
+                                          //print(montant);
+                                          mnt = montant;
+                                        });
+                                      }
+                                    },
+                                    controller: _montantController,
+                                    focusNode: _montantFocusNode,
+                                    decoration: InputDecoration(
+                                        isDense: true,
+                                        // contentPadding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+                                        border: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          borderSide: BorderSide(
+                                            color: (context
+                                                        .watch<Reseaux>()
+                                                        .reseau ==
+                                                    "Togocom")
+                                                ? ColorConstants
+                                                    .colorCustomButton2
+                                                : ColorConstants
+                                                    .colorCustomButtonMv,
+                                          ),
+                                        )),
+                                    style: const TextStyle(
+                                      fontSize: 25,
+                                    )),
+                              ),
+                              const SizedBox(
+                                width: 10,
+                              ),
+                              const Text(
+                                'F CFA',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w700,
+                                  color: ColorConstants.colorCustom3,
+                                  fontSize: 35,
+                                ),
+                              )
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Directionality(
+                                textDirection: TextDirection.rtl,
+                                child: LabeledCheckbox(
+                                  label: 'Ajouter les frais de retraits',
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 20.0),
+                                  value: _isSelected,
+                                  onChanged: (bool newValue) {
+                                    setState(() {
+                                      _isSelected = newValue;
+                                      fraisVisible = !fraisVisible;
+                                    });
+                                  },
+                                ),
+                              ),
+                              Visibility(
+                                  visible: fraisVisible, child: Text('$frt'))
+                            ],
+                          ),
+                        ],
                       ),
                     ),
-                  ]),
-                  const Divider(
-                    height: 30,
-                    indent: 50,
-                    endIndent: 50,
-                    color: Colors.black,
-                    thickness: 1,
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 30, left: 30),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text(
-                          'Numéro',
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 60,
-                        ), //place pour positionner le textfield
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        const Text(
-                          'Montant',
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        Row(
-                          //crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            Expanded(
-                              child: TextField(
-                                  textAlign: TextAlign.right,
-                                  keyboardType: TextInputType.number,
-                                  inputFormatters: [
-                                    LengthLimitingTextInputFormatter(7),
-                                  ],
-                                  onChanged: (argent) {
-                                    if (argent == '') {
-                                      argent = '0';
-                                    } else {
-                                      int fraisRetrait, fraisTransfert;
-                                      int montant = int.parse(
-                                          argent.replaceAll(RegExp(r'\D'), ""));
-                                      if (montant > 2000000) {
-                                        _montantController.text = '2000000';
-                                        montant = 2000000;
-                                      }
-                                      setState(() {
-                                        (fraisTransfert, fraisRetrait) =
-                                            quelFraisTransactionEtRetrait(
-                                                context, montant);
-                                        frt = fraisRetrait;
-                                        ftrn = fraisTransfert;
-                                        //print(frt);
-                                        //print(fraisRetrait);
-                                        //print(montant);
-                                        mnt = montant;
-                                      });
-                                    }
-                                  },
-                                  controller: _montantController,
-                                  focusNode: _montantFocusNode,
-                                  decoration: InputDecoration(
-                                      isDense: true,
-                                      // contentPadding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-                                      border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(10),
-                                      ),
-                                      focusedBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(10),
-                                        borderSide: BorderSide(
-                                          color: (context
-                                                      .watch<Reseaux>()
-                                                      .reseau ==
-                                                  "Togocom")
-                                              ? ColorConstants
-                                                  .colorCustomButton2
-                                              : ColorConstants
-                                                  .colorCustomButtonMv,
-                                        ),
-                                      )),
-                                  style: const TextStyle(
-                                    fontSize: 25,
-                                  )),
-                            ),
-                            const SizedBox(
-                              width: 10,
-                            ),
-                            const Text(
-                              'F CFA',
-                              style: TextStyle(
-                                fontWeight: FontWeight.w700,
-                                color: ColorConstants.colorCustom3,
-                                fontSize: 35,
-                              ),
-                            )
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Directionality(
-                              textDirection: TextDirection.rtl,
-                              child: LabeledCheckbox(
-                                label: 'Ajouter les frais de retraits',
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 20.0),
-                                value: _isSelected,
-                                onChanged: (bool newValue) {
-                                  setState(() {
-                                    _isSelected = newValue;
-                                    fraisVisible = !fraisVisible;
-                                  });
-                                },
-                              ),
-                            ),
-                            Visibility(
-                                visible: fraisVisible, child: Text('$frt'))
-                          ],
-                        ),
-                      ],
+                    const SizedBox(
+                      height: 20,
                     ),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 30, left: 30),
-                    child: Center(
-                      child: SizedBox(
-                          width: double.maxFinite,
-                          height: 52,
-                          child: ElevatedButton(
-                            onPressed: () {
-                              if (_numeroController.text == '') {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                    const SnackBar(
-                                        content: Text(
-                                            'Veuillez renseigner un numéro')));
-                                _numeroControllerFocusNode.requestFocus();
-                              } else {
-                                if (_montantController.text == '') {
+                    Padding(
+                      padding: const EdgeInsets.only(right: 30, left: 30),
+                      child: Center(
+                        child: SizedBox(
+                            width: double.maxFinite,
+                            height: 52,
+                            child: ElevatedButton(
+                              onPressed: () {
+                                if (_numeroController.text == '') {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                       const SnackBar(
                                           content: Text(
-                                              'Veuillez renseigner un montant')));
-                                  _montantFocusNode.requestFocus();
+                                              'Veuillez renseigner un numéro')));
+                                  _numeroControllerFocusNode.requestFocus();
                                 } else {
-                                  String num = _numeroController.text
-                                      .replaceAll(RegExp(r'\D'), "");
-                                  num = num.substring(num.length - 8);
-
-                                  int fraisRetrait, fraisTransfert;
-                                  int montant = int.parse(_montantController
-                                      .text
-                                      .replaceAll(RegExp(r'\D'), ""));
-                                  if (_isSelected == false) {
-                                    fraisTransfert =
-                                        quelFraisTransaction(context, montant);
-                                    fraisRetrait = 0;
+                                  if (_montantController.text == '') {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                        const SnackBar(
+                                            content: Text(
+                                                'Veuillez renseigner un montant')));
+                                    _montantFocusNode.requestFocus();
                                   } else {
-                                    (fraisTransfert, fraisRetrait) =
-                                        quelFraisTransactionEtRetrait(
-                                            context, montant);
-                                  }
+                                    String num = _numeroController.text
+                                        .replaceAll(RegExp(r'\D'), "");
+                                    num = num.substring(num.length - 8);
 
-                                  if (num[0] == '9' || num[0] == '7') {
-                                    callButtomSheetEnvoie(
-                                            context,
-                                            num,
-                                            montant,
-                                            fraisTransfert,
-                                            fraisRetrait,
-                                            _isSelected)
-                                        .whenComplete(() {
-                                      setState(
-                                        () {
-                                          _numeroController.clear();
-                                          _montantController.clear();
-                                          _isSelected = false;
-                                          fraisVisible = false;
-                                        },
-                                      );
-                                    });
-                                  } else {
-                                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                                        duration:
-                                            const Duration(milliseconds: 500),
-                                        content: (Provider.of<Reseaux>(context,
-                                                        listen: false)
-                                                    .reseau ==
-                                                "Togocom")
-                                            ? const Text(
-                                                'Veuillez renseigner un numéro Togocom')
-                                            : const Text(
-                                                'Veuillez renseigner un numéro Moov')));
-                                    //print(_numeroController.text);
+                                    int fraisRetrait, fraisTransfert;
+                                    int montant = int.parse(_montantController
+                                        .text
+                                        .replaceAll(RegExp(r'\D'), ""));
+                                    if (_isSelected == false) {
+                                      fraisTransfert = quelFraisTransaction(
+                                          context, montant);
+                                      fraisRetrait = 0;
+                                    } else {
+                                      (fraisTransfert, fraisRetrait) =
+                                          quelFraisTransactionEtRetrait(
+                                              context, montant);
+                                    }
+
+                                    if (num[0] == '9' || num[0] == '7') {
+                                      callButtomSheetEnvoie(
+                                              context,
+                                              num,
+                                              montant,
+                                              fraisTransfert,
+                                              fraisRetrait,
+                                              _isSelected)
+                                          .whenComplete(() {
+                                        setState(
+                                          () {
+                                            _numeroController.clear();
+                                            _montantController.clear();
+                                            _isSelected = false;
+                                            fraisVisible = false;
+                                          },
+                                        );
+                                      });
+                                    } else {
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(SnackBar(
+                                              duration: const Duration(
+                                                  milliseconds: 500),
+                                              content: (Provider.of<Reseaux>(
+                                                              context,
+                                                              listen: false)
+                                                          .reseau ==
+                                                      "Togocom")
+                                                  ? const Text(
+                                                      'Veuillez renseigner un numéro Togocom')
+                                                  : const Text(
+                                                      'Veuillez renseigner un numéro Moov')));
+                                      //print(_numeroController.text);
+                                    }
                                   }
                                 }
-                              }
-                            },
-                            style: ElevatedButton.styleFrom(
-                                backgroundColor:
-                                    (context.watch<Reseaux>().reseau ==
-                                            "Togocom")
-                                        ? ColorConstants.colorCustomButton2
-                                        : ColorConstants.colorCustomButtonMv,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                )),
-                            child: Text(
-                              "RECAP DE L'ENVOI",
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w700,
-                                color: (context.watch<Reseaux>().reseau ==
-                                        "Togocom")
-                                    ? Colors.black
-                                    : Colors.white,
+                              },
+                              style: ElevatedButton.styleFrom(
+                                  backgroundColor:
+                                      (context.watch<Reseaux>().reseau ==
+                                              "Togocom")
+                                          ? ColorConstants.colorCustomButton2
+                                          : ColorConstants.colorCustomButtonMv,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  )),
+                              child: Text(
+                                "RECAP DE L'ENVOI",
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w700,
+                                  color: (context.watch<Reseaux>().reseau ==
+                                          "Togocom")
+                                      ? Colors.black
+                                      : Colors.white,
+                                ),
                               ),
-                            ),
-                          )),
+                            )),
+                      ),
+                    ),
+                  ],
+                ),
+                Positioned(
+                  top: 60, // Adjust this position based on your layout
+                  left: 0,
+                  right: 0,
+                  bottom: 20,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25),
+                    child: ContactFloatingList(
+                      controller: _numeroController,
+                      onContactSelected: (Contact? contact) {
+                        _numeroController.text =
+                            contact?.phones?[0].value as String;
+                        // Do something with the selected contact
+                        if (kDebugMode) {
+                          print(
+                              'Selected contact: ${contact?.displayName}, ${contact?.phones?[0].value}, ${_numeroController.text}');
+                        }
+                      },
                     ),
                   ),
-                ],
-              ),
-              Positioned(
-                top: 135, // Adjust this position based on your layout
-                left: 0,
-                right: 0,
-                bottom: 20,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25),
-                  child: ContactFloatingList(
-                    controller: _numeroController,
-                    onContactSelected: (Contact? contact) {
-                      _numeroController.text =
-                          contact?.phones?[0].value as String;
-                      // Do something with the selected contact
-                      if (kDebugMode) {
-                        print(
-                            'Selected contact: ${contact?.displayName}, ${contact?.phones?[0].value}, ${_numeroController.text}');
-                      }
-                    },
-                  ),
                 ),
-              ),
-            ],
-          );
-        },
+              ],
+            );
+          },
+        ),
       ),
     );
   }

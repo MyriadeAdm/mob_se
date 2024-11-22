@@ -43,100 +43,86 @@ class _PageHistoriqueState extends State<PageHistorique> {
 
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(
+        title: const Text(
+          "Historique",
+          style: TextStyle(
+            fontSize: 23,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+        actions: [
+          IconButton(
+              onPressed: () {
+                setState(() {
+                  boolDelete = !boolDelete;
+                });
+              },
+              icon: const Icon(
+                Icons.select_all,
+                size: 30,
+              )),
+          Visibility(
+            visible: boolDelete,
+            child: IconButton(
+                onPressed: () {
+                  if (currentHistoriques.isEmpty) {
+                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                        duration: Duration(milliseconds: 500),
+                        content: Text("L'historique est vide")));
+                  } else {
+                    showDialog<String>(
+                      context: context,
+                      builder: (BuildContext context) => AlertDialog(
+                        title: const Text(
+                          'TOUT SUPPRIMER !',
+                          textAlign: TextAlign.center,
+                        ),
+                        content: const Text(
+                            "Etes-vous sur de vouloir tout supprimer ?"),
+                        actions: <Widget>[
+                          TextButton(
+                            onPressed: () => Navigator.pop(context, 'Annuler'),
+                            child: const Text(
+                              'Annuler',
+                              style: TextStyle(
+                                color: Colors.green,
+                              ),
+                            ),
+                          ),
+                          TextButton(
+                            onPressed: () {
+                              context
+                                  .read<HistoriqueDatabase>()
+                                  .deleteAllHistorique();
+                              Navigator.pop(context, 'Oui');
+                              boolDelete = false;
+                            },
+                            child: const Text(
+                              'Oui',
+                              style: TextStyle(
+                                color: Colors.red,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    );
+                  }
+                  boolDelete = false;
+                },
+                icon: const Icon(
+                  Icons.delete_sharp,
+                  size: 30,
+                  color: Colors.red,
+                )),
+          ),
+        ],
+      ),
       body: Center(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              children: [
-                returnBack(context),
-                const Text(
-                  "Historique",
-                  style: TextStyle(
-                    fontSize: 23,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-                const Expanded(child: SizedBox(width: 10)),
-                IconButton(
-                    onPressed: () {
-                      setState(() {
-                        boolDelete = !boolDelete;
-                      });
-                    },
-                    icon: const Icon(
-                      Icons.select_all,
-                      size: 30,
-                    )),
-                Visibility(
-                  visible: boolDelete,
-                  child: IconButton(
-                      onPressed: () {
-                        if (currentHistoriques.isEmpty) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                  duration: Duration(milliseconds: 500),
-                                  content: Text("L'historique est vide")));
-                        } else {
-                          showDialog<String>(
-                            context: context,
-                            builder: (BuildContext context) => AlertDialog(
-                              title: const Text(
-                                'TOUT SUPPRIMER !',
-                                textAlign: TextAlign.center,
-                              ),
-                              content: const Text(
-                                  "Etes-vous sur de vouloir tout supprimer ?"),
-                              actions: <Widget>[
-                                TextButton(
-                                  onPressed: () =>
-                                      Navigator.pop(context, 'Annuler'),
-                                  child: const Text(
-                                    'Annuler',
-                                    style: TextStyle(
-                                      color: Colors.green,
-                                    ),
-                                  ),
-                                ),
-                                TextButton(
-                                  onPressed: () {
-                                    context
-                                        .read<HistoriqueDatabase>()
-                                        .deleteAllHistorique();
-                                    Navigator.pop(context, 'Oui');
-                                    boolDelete = false;
-                                  },
-                                  child: const Text(
-                                    'Oui',
-                                    style: TextStyle(
-                                      color: Colors.red,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          );
-                        }
-                        boolDelete = false;
-                      },
-                      icon: const Icon(
-                        Icons.delete_sharp,
-                        size: 30,
-                        color: Colors.red,
-                      )),
-                ),
-                const SizedBox(
-                  width: 5,
-                )
-              ],
-            ),
-            const Divider(
-              height: 30,
-              indent: 50,
-              endIndent: 50,
-              color: Colors.black,
-              thickness: 1,
-            ),
             Expanded(
               child: currentHistoriques.isEmpty
                   ? const Center(

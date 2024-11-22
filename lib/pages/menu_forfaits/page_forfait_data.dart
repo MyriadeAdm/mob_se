@@ -25,72 +25,53 @@ class ForfaitDataPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(
+        title: const Text(
+          "Forfaits internet",
+          style: TextStyle(
+            fontSize: 23,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 20),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: (context.watch<Reseaux>().reseau == "Togocom")
+                    ? ColorConstants.colorCustomButtonTg
+                    : ColorConstants.colorCustomButtonMv,
+              ),
+              onPressed: () {
+                (Provider.of<Reseaux>(context, listen: false).reseau ==
+                        "Togocom")
+                    ? Platform.isAndroid
+                        ? FlutterPhoneDirectCaller.callNumber(
+                            Constantes.soldeTogocom[0].codeNormal)
+                        : makePhoneCall(Constantes.soldeTogocom[0].codeNormal)
+                    : Platform.isAndroid
+                        ? FlutterPhoneDirectCaller.callNumber(
+                            Constantes.soldeMoov[0].codeNormal)
+                        : makePhoneCall(Constantes.soldeMoov[0].codeNormal);
+              },
+              child: Text(
+                "Solde",
+                style: TextStyle(
+                  color: (context.watch<Reseaux>().reseau == "Togocom")
+                      ? Colors.black
+                      : Colors.white,
+                  fontSize: 18,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
       body: Center(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 20, right: 20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: Row(
-                      children: [
-                        returnBack(context),
-                        const Text(
-                          "Forfaits internet",
-                          style: TextStyle(
-                            fontSize: 23,
-                            fontWeight: FontWeight.w700,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor:
-                          (context.watch<Reseaux>().reseau == "Togocom")
-                              ? ColorConstants.colorCustomButtonTg
-                              : ColorConstants.colorCustomButtonMv,
-                    ),
-                    onPressed: () {
-                      (Provider.of<Reseaux>(context, listen: false).reseau ==
-                              "Togocom")
-                          ? Platform.isAndroid
-                              ? FlutterPhoneDirectCaller.callNumber(
-                                  Constantes.soldeTogocom[0].codeNormal)
-                              : makePhoneCall(
-                                  Constantes.soldeTogocom[0].codeNormal)
-                          : Platform.isAndroid
-                              ? FlutterPhoneDirectCaller.callNumber(
-                                  Constantes.soldeMoov[0].codeNormal)
-                              : makePhoneCall(
-                                  Constantes.soldeMoov[0].codeNormal);
-                    },
-                    child: Text(
-                      "Solde",
-                      style: TextStyle(
-                        color: (context.watch<Reseaux>().reseau == "Togocom")
-                            ? Colors.black
-                            : Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            const Divider(
-              height: 30,
-              indent: 50,
-              endIndent: 50,
-              color: Colors.black,
-              thickness: 1,
-            ),
             Expanded(
               child: SizedBox(
                 height: 700,

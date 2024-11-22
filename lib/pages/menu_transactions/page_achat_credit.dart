@@ -87,6 +87,15 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          "Achat d'unités",
+          style: TextStyle(
+            fontSize: 23,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+      ),
       backgroundColor: Colors.white,
       body: Stack(children: [
         Padding(
@@ -95,25 +104,8 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(children: [
-                returnBack(context),
-                const Text(
-                  "Achats d'unités",
-                  style: TextStyle(
-                    fontSize: 23,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-              ]),
-              const Divider(
-                height: 30,
-                indent: 50,
-                endIndent: 50,
-                color: Colors.black,
-                thickness: 1,
-              ),
               const SizedBox(
-                height: 30,
+                height: 20,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -376,7 +368,7 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
         Visibility(
           visible: boolSearch,
           child: Positioned(
-            top: 177, // Adjust this position based on your layout
+            top: 90, // Adjust this position based on your layout
             left: 0,
             right: 0,
             bottom: 20,

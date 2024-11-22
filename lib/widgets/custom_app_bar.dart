@@ -7,21 +7,16 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: Colors.white,
-      title: Padding(
-        padding: const EdgeInsets.only(top:10.0),
-        child: Center(
-          child: Image.asset(
-            'assets/images/mosbelogo.png',
-            width: 130,
-          ),
+      title: Center(
+        child: Image.asset(
+          'assets/images/mosbelogo.png',
+          height: 30,
         ),
       ),
-      actions: const [
-        
-      ],
+      actions: const [],
     );
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(60);
+  Size get preferredSize => const Size.fromHeight(40);
 }

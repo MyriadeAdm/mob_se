@@ -23,72 +23,54 @@ class ForfaitNuitPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          "Forfaits nuits",
+          style: TextStyle(
+            fontSize: 23,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 20),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: (context.watch<Reseaux>().reseau == "Togocom")
+                    ? ColorConstants.colorCustomButtonTg
+                    : ColorConstants.colorCustomButtonMv,
+              ),
+              onPressed: () {
+                (Provider.of<Reseaux>(context, listen: false).reseau ==
+                        "Togocom")
+                    ? Platform.isAndroid
+                        ? FlutterPhoneDirectCaller.callNumber(
+                            Constantes.soldeTogocom[3].codeNormal)
+                        : makePhoneCall(Constantes.soldeTogocom[3].codeNormal)
+                    : Platform.isAndroid
+                        ? FlutterPhoneDirectCaller.callNumber(
+                            Constantes.soldeMoov[3].codeNormal)
+                        : makePhoneCall(Constantes.soldeMoov[3].codeNormal);
+              },
+              child: Text(
+                "Solde",
+                style: TextStyle(
+                  color: (context.watch<Reseaux>().reseau == "Togocom")
+                      ? Colors.black
+                      : Colors.white,
+                  fontSize: 18,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
       backgroundColor: Colors.white,
       body: Center(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 5, right: 20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Expanded(
-                    child: Row(
-                      children: [
-                        returnBack(context),
-                        const Text(
-                          "Forfaits Nuit",
-                          style: TextStyle(
-                            fontSize: 23,
-                            fontWeight: FontWeight.w700,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor:
-                          (context.watch<Reseaux>().reseau == "Togocom")
-                              ? ColorConstants.colorCustomButtonTg
-                              : ColorConstants.colorCustomButtonMv,
-                    ),
-                    onPressed: () {
-                      (Provider.of<Reseaux>(context, listen: false).reseau ==
-                              "Togocom")
-                          ? Platform.isAndroid
-                              ? FlutterPhoneDirectCaller.callNumber(
-                                  Constantes.soldeTogocom[3].codeNormal)
-                              : makePhoneCall(
-                                  Constantes.soldeTogocom[3].codeNormal)
-                          : Platform.isAndroid
-                              ? FlutterPhoneDirectCaller.callNumber(
-                                  Constantes.soldeMoov[3].codeNormal)
-                              : makePhoneCall(
-                                  Constantes.soldeMoov[3].codeNormal);
-                    },
-                    child: Text(
-                      "Solde",
-                      style: TextStyle(
-                        color: (context.watch<Reseaux>().reseau == "Togocom")
-                            ? Colors.black
-                            : Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            const Divider(
-              height: 30,
-              indent: 50,
-              endIndent: 50,
-              color: Colors.black,
-              thickness: 1,
-            ),
             Expanded(
               child: SizedBox(
                 height: 700,

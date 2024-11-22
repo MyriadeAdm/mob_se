@@ -27,29 +27,21 @@ class PageRetrait extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+          title: const Text(
+            "Retrait d'argent",
+            style: TextStyle(
+              fontSize: 23,
+              fontWeight: FontWeight.w700,
+            ),
+          ),
+        ),
         backgroundColor: Colors.white,
         body: Center(
           child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(children: [
-                  returnBack(context),
-                  const Text(
-                    "Retrait",
-                    style: TextStyle(
-                      fontSize: 23,
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
-                ]),
-                const Divider(
-                  height: 30,
-                  indent: 50,
-                  endIndent: 50,
-                  color: Colors.black,
-                  thickness: 1,
-                ),
                 Padding(
                   padding: const EdgeInsets.only(right: 30, left: 30),
                   child: Column(
