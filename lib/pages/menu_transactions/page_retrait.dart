@@ -241,6 +241,7 @@ class PageRetrait extends StatelessWidget {
                       _codeAgentController.clear();
                       _montantController.clear();
                       _codeController.clear();
+                      Navigator.pop(context);
                     },
                     style: ElevatedButton.styleFrom(
                         backgroundColor:

@@ -184,6 +184,7 @@ Future<void> callButtomSheetEnvoie(
                                 "Vous avez envoyé $montantEnvoye F CFA au $numero.");
 
                     _codeController.clear();
+                    Navigator.pop(context);
                   },
                   style: ElevatedButton.styleFrom(
                       backgroundColor:
