@@ -93,6 +93,13 @@ class PageDepot extends StatelessWidget {
                   //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    const Divider(
+                      height: 30,
+                      indent: 50,
+                      endIndent: 50,
+                      color: Colors.black,
+                      thickness: 1,
+                    ),
                     const SizedBox(
                       height: 20,
                     ),
@@ -327,7 +334,7 @@ class PageDepot extends StatelessWidget {
                   ],
                 ),
                 Positioned(
-                  top: 60, // Adjust this position based on your layout
+                  top: 85, // Adjust this position based on your layout
                   left: 0,
                   right: 0,
                   bottom: 20,
@@ -392,7 +399,7 @@ class PageDepot extends StatelessWidget {
     } else if (newMontant > 1500000 && newMontant <= 2008200) {
       return (1500, 8200);
     } else {
-      return (0, 666);
+      return (00, 00);
     }
   } else {
     var newMontant = montantTransfererPlusFrais(context, montant);
@@ -411,7 +418,7 @@ class PageDepot extends StatelessWidget {
     } else if (newMontant > 50000 && newMontant <= 100000) {
       return (0, 1000);
     } else {
-      return (0, 0);
+      return (00, 00);
     }
   }
 }
@@ -447,7 +454,7 @@ int quelFraisTransaction(BuildContext context, int montant) {
     } else if (montant > 1500000 && montant <= 2000000) {
       return 1500;
     } else {
-      return 0;
+      return 00;
     }
   } else {
     if (montant > 0 && montant <= 500) {
@@ -463,7 +470,7 @@ int quelFraisTransaction(BuildContext context, int montant) {
     } else if (montant > 50000 && montant <= 100000) {
       return 1000;
     } else {
-      return 0;
+      return 00;
     }
   }
 }
@@ -500,7 +507,7 @@ int montantTransfererPlusFrais(BuildContext context, int montantTransferer) {
     } else if (montantTransferer > 1500000 && montantTransferer <= 2000000) {
       return montantTransferer + 8200;
     } else {
-      return 0;
+      return 00;
     }
   } else {
     return 0;

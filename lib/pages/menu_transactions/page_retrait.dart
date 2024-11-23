@@ -42,6 +42,16 @@ class PageRetrait extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                const Divider(
+                  height: 30,
+                  indent: 50,
+                  endIndent: 50,
+                  color: Colors.black,
+                  thickness: 1,
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
                 Padding(
                   padding: const EdgeInsets.only(right: 30, left: 30),
                   child: Column(

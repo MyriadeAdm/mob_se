@@ -104,6 +104,13 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              const Divider(
+                height: 30,
+                indent: 30,
+                endIndent: 30,
+                color: Colors.black,
+                thickness: 1,
+              ),
               const SizedBox(
                 height: 20,
               ),
@@ -368,7 +375,7 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
         Visibility(
           visible: boolSearch,
           child: Positioned(
-            top: 90, // Adjust this position based on your layout
+            top: 100, // Adjust this position based on your layout
             left: 0,
             right: 0,
             bottom: 20,

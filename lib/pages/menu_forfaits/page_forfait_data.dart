@@ -72,6 +72,16 @@ class ForfaitDataPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const Divider(
+              height: 30,
+              indent: 50,
+              endIndent: 50,
+              color: Colors.black,
+              thickness: 1,
+            ),
+            const SizedBox(
+              height: 20,
+            ),
             Expanded(
               child: SizedBox(
                 height: 700,
