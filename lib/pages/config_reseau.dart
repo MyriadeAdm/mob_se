@@ -317,7 +317,11 @@ class ConfigReseau extends StatelessWidget {
                                                                     style: ElevatedButton
                                                                         .styleFrom(
                                                                       backgroundColor: const Color
-                                                                          .fromRGBO(0,94,178,1),
+                                                                          .fromRGBO(
+                                                                          0,
+                                                                          94,
+                                                                          178,
+                                                                          1),
                                                                       shape:
                                                                           RoundedRectangleBorder(
                                                                         borderRadius:

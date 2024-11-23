@@ -5,15 +5,20 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      backgroundColor: Colors.white,
-      title: Center(
-        child: Image.asset(
-          'assets/images/mosbelogo.png',
-          height: 30,
+    return SafeArea(
+      child: AppBar(
+        backgroundColor: Colors.white,
+        title: Center(
+          child: Padding(
+            padding: const EdgeInsets.only(top: 10.0, bottom: 5),
+            child: Image.asset(
+              'assets/images/mosbelogo.png',
+              height: 50,
+            ),
+          ),
         ),
+        actions: const [],
       ),
-      actions: const [],
     );
   }
 
