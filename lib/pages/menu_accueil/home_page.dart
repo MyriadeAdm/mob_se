@@ -46,6 +46,14 @@ class _HomePageState extends State<HomePage> {
         ? [true, false]
         : [false, true];
 
+    Color colorItem() {
+      if (context.watch<Reseaux>().reseau == "Togocom") {
+        return ColorConstants.colorCustomButtonTg;
+      } else {
+        return ColorConstants.colorCustomButtonMv;
+      }
+    }
+
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -118,20 +126,13 @@ class _HomePageState extends State<HomePage> {
                                 },
                                 borderRadius:
                                     const BorderRadius.all(Radius.circular(13)),
-                                selectedBorderColor:
-                                    (context.watch<Reseaux>().reseau ==
-                                            'Togocom')
-                                        ? ColorConstants.colorCustomButtonTg
-                                        : ColorConstants.colorCustomButtonMv,
+                                selectedBorderColor: colorItem(),
                                 selectedColor:
                                     (context.watch<Reseaux>().reseau ==
                                             'Togocom')
                                         ? Colors.black
                                         : Colors.white,
-                                fillColor: (context.watch<Reseaux>().reseau ==
-                                        'Togocom')
-                                    ? ColorConstants.colorCustomButtonTg
-                                    : ColorConstants.colorCustomButtonMv,
+                                fillColor: colorItem(),
                                 color: (context.watch<Reseaux>().reseau ==
                                         'Togocom')
                                     ? ColorConstants.colorCustomButtonMv
@@ -216,55 +217,8 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               (context.watch<Reseaux>().reseau == 'Togocom')
-                  ? SizedBox(
-                      height: 90,
-                      child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemCount: Constantes.forfaitsInternetTogocom.length,
-                          itemBuilder: (BuildContext context, int index) {
-                            final item =
-                                Constantes.forfaitsInternetTogocom[index];
-                            return CustomListViewForfaitInternet(
-                              icon: const Icon(
-                                Icons.public,
-                                size: 20,
-                                color: Colors.black,
-                              ),
-                              mega: item.mega,
-                              validite: item.validite,
-                              prix: item.prix,
-                              codeMMCredit: item.codeMMCredit,
-                              codeAutruiCredit: item.codeAutruiCredit,
-                              codeMoneyMM: item.codeMoneyMM,
-                              codeMoneyAutruit: item.codeMoneyAutruit,
-                              typeforfait: item.typeforfait,
-                            );
-                          }),
-                    )
-                  : SizedBox(
-                      height: 90,
-                      child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemCount: Constantes.forfaitsInternetMoov.length,
-                          itemBuilder: (BuildContext context, int index) {
-                            final item = Constantes.forfaitsInternetMoov[index];
-                            return CustomListViewForfaitInternet(
-                              icon: const Icon(
-                                Icons.public,
-                                size: 20,
-                                color: Colors.black,
-                              ),
-                              mega: item.mega,
-                              validite: item.validite,
-                              prix: item.prix,
-                              codeMMCredit: item.codeMMCredit,
-                              codeAutruiCredit: item.codeAutruiCredit,
-                              codeMoneyMM: item.codeMoneyMM,
-                              codeMoneyAutruit: item.codeMoneyAutruit,
-                              typeforfait: item.typeforfait,
-                            );
-                          }),
-                    ),
+                  ? const ForfaitInternetTogocom()
+                  : const ForfaitInternetMoov(),
               Padding(
                 padding: const EdgeInsets.only(
                     right: 15, left: 15, top: 20, bottom: 18),
@@ -297,62 +251,8 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               (context.watch<Reseaux>().reseau == 'Togocom')
-                  ? SizedBox(
-                      height: 95,
-                      child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        itemCount: Constantes.forfaitsAppelTogocom.length,
-                        itemBuilder: (BuildContext context, int index) {
-                          final item = Constantes.forfaitsAppelTogocom[index];
-
-                          return CustomListViewForfaitAppel(
-                            icon: const Icon(
-                              Icons.call,
-                              size: 20,
-                              color: Colors.black,
-                            ),
-                            credit: item.credit,
-                            validite: item.validite,
-                            msg: item.msg,
-                            prix: item.prix,
-                            codeMMCredit: item.codeMMCredit,
-                            codeAutruiCredit: item.codeAutruiCredit,
-                            codeMoneyMM: item.codeMoneyMM,
-                            codeMoneyAutruit: item.codeMoneyAutruit,
-                            mega: item.mega,
-                            typeforfait: item.typeforfait,
-                          );
-                        },
-                      ),
-                    )
-                  : SizedBox(
-                      height: 95,
-                      child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        itemCount: Constantes.forfaitsAppelMoov.length,
-                        itemBuilder: (BuildContext context, int index) {
-                          final item = Constantes.forfaitsAppelMoov[index];
-
-                          return CustomListViewForfaitAppel(
-                            icon: const Icon(
-                              Icons.call,
-                              size: 20,
-                              color: Colors.black,
-                            ),
-                            credit: item.credit,
-                            validite: item.validite,
-                            msg: item.msg,
-                            prix: item.prix,
-                            codeMMCredit: item.codeMMCredit,
-                            codeAutruiCredit: item.codeAutruiCredit,
-                            codeMoneyMM: item.codeMoneyMM,
-                            codeMoneyAutruit: item.codeMoneyAutruit,
-                            mega: item.mega,
-                            typeforfait: item.typeforfait,
-                          );
-                        },
-                      ),
-                    ),
+                  ? const ForfaitAppelTogocom()
+                  : const ForfaitAppelMoov(),
               Padding(
                 padding: const EdgeInsets.only(left: 20, right: 20, top: 15),
                 child: Row(
@@ -403,7 +303,6 @@ class _HomePageState extends State<HomePage> {
             child: Padding(
               padding: const EdgeInsets.only(right: 10, left: 10),
               child: Container(
-                //height: 258,
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(13)),
                   color: Color.fromRGBO(241, 240, 240, 1),
@@ -501,9 +400,153 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-          const SizedBox(height: 60),
+          const SizedBox(height: 5),
         ],
       ),
+    );
+  }
+}
+
+class ForfaitAppelMoov extends StatelessWidget {
+  const ForfaitAppelMoov({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 95,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: Constantes.forfaitsAppelMoov.length,
+        itemBuilder: (BuildContext context, int index) {
+          final item = Constantes.forfaitsAppelMoov[index];
+
+          return CustomListViewForfaitAppel(
+            icon: const Icon(
+              Icons.call,
+              size: 20,
+              color: Colors.black,
+            ),
+            credit: item.credit,
+            validite: item.validite,
+            msg: item.msg,
+            prix: item.prix,
+            codeMMCredit: item.codeMMCredit,
+            codeAutruiCredit: item.codeAutruiCredit,
+            codeMoneyMM: item.codeMoneyMM,
+            codeMoneyAutruit: item.codeMoneyAutruit,
+            mega: item.mega,
+            typeforfait: item.typeforfait,
+          );
+        },
+      ),
+    );
+  }
+}
+
+class ForfaitAppelTogocom extends StatelessWidget {
+  const ForfaitAppelTogocom({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 95,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: Constantes.forfaitsAppelTogocom.length,
+        itemBuilder: (BuildContext context, int index) {
+          final item = Constantes.forfaitsAppelTogocom[index];
+
+          return CustomListViewForfaitAppel(
+            icon: const Icon(
+              Icons.call,
+              size: 20,
+              color: Colors.black,
+            ),
+            credit: item.credit,
+            validite: item.validite,
+            msg: item.msg,
+            prix: item.prix,
+            codeMMCredit: item.codeMMCredit,
+            codeAutruiCredit: item.codeAutruiCredit,
+            codeMoneyMM: item.codeMoneyMM,
+            codeMoneyAutruit: item.codeMoneyAutruit,
+            mega: item.mega,
+            typeforfait: item.typeforfait,
+          );
+        },
+      ),
+    );
+  }
+}
+
+class ForfaitInternetTogocom extends StatelessWidget {
+  const ForfaitInternetTogocom({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 90,
+      child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: Constantes.forfaitsInternetTogocom.length,
+          itemBuilder: (BuildContext context, int index) {
+            final item = Constantes.forfaitsInternetTogocom[index];
+            return CustomListViewForfaitInternet(
+              icon: const Icon(
+                Icons.public,
+                size: 20,
+                color: Colors.black,
+              ),
+              mega: item.mega,
+              validite: item.validite,
+              prix: item.prix,
+              codeMMCredit: item.codeMMCredit,
+              codeAutruiCredit: item.codeAutruiCredit,
+              codeMoneyMM: item.codeMoneyMM,
+              codeMoneyAutruit: item.codeMoneyAutruit,
+              typeforfait: item.typeforfait,
+            );
+          }),
+    );
+  }
+}
+
+class ForfaitInternetMoov extends StatelessWidget {
+  const ForfaitInternetMoov({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 90,
+      child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: Constantes.forfaitsInternetMoov.length,
+          itemBuilder: (BuildContext context, int index) {
+            final item = Constantes.forfaitsInternetMoov[index];
+            return CustomListViewForfaitInternet(
+              icon: const Icon(
+                Icons.public,
+                size: 20,
+                color: Colors.black,
+              ),
+              mega: item.mega,
+              validite: item.validite,
+              prix: item.prix,
+              codeMMCredit: item.codeMMCredit,
+              codeAutruiCredit: item.codeAutruiCredit,
+              codeMoneyMM: item.codeMoneyMM,
+              codeMoneyAutruit: item.codeMoneyAutruit,
+              typeforfait: item.typeforfait,
+            );
+          }),
     );
   }
 }
