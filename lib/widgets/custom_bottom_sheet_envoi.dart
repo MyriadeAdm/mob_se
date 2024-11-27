@@ -67,7 +67,9 @@ Future<void> callButtomSheetEnvoie(
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: const BorderRadius.all(Radius.circular(13)),
-                    border: Border.all(width: 0.5),
+                    border: Border.all(
+                        color: Theme.of(context).colorScheme.inversePrimary,
+                        width: 0.5),
                     //color: const Color.fromRGBO(241, 240, 240, 1),
                   ),
                   child: Padding(
@@ -99,9 +101,9 @@ Future<void> callButtomSheetEnvoie(
                         ),
                       ),
                       const SizedBox(height: 10),
-                      const Divider(
+                      Divider(
                         thickness: 0.5,
-                        color: Colors.black,
+                        color: Theme.of(context).colorScheme.inversePrimary,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -139,7 +141,7 @@ Future<void> callButtomSheetEnvoie(
                   decoration: InputDecoration(
                     hintText: 'Code secret',
                     filled: true,
-                    fillColor: const Color.fromRGBO(230, 227, 227, 1),
+                    fillColor: Theme.of(context).colorScheme.secondary,
                     border: OutlineInputBorder(
                       borderSide: BorderSide.none,
                       borderRadius: BorderRadius.circular(10),

@@ -96,7 +96,7 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
           ),
         ),
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       body: Stack(children: [
         Padding(
           padding: const EdgeInsets.only(left: 20, right: 20),

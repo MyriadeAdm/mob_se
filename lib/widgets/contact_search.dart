@@ -109,7 +109,7 @@ class _ContactFloatingListState extends State<ContactFloatingList> {
                     decoration: InputDecoration(
                       hintText: 'Nom ou numéro de téléphone',
                       filled: true,
-                      fillColor: const Color.fromRGBO(230, 227, 227, 1),
+                      fillColor: Theme.of(context).colorScheme.secondary,
                       border: OutlineInputBorder(
                         borderSide: BorderSide.none,
                         borderRadius: BorderRadius.circular(10),
@@ -186,7 +186,7 @@ class _ContactFloatingListState extends State<ContactFloatingList> {
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8),
-                    color: Colors.white,
+                    color: Theme.of(context).colorScheme.secondary,
                   ),
                   child: ListView(
                     children:

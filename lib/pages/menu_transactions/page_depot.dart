@@ -84,7 +84,7 @@ class PageDepot extends StatelessWidget {
       ),
       body: Container(
         height: MediaQuery.of(context).size.height,
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.surface,
         child: StatefulBuilder(
           builder: (BuildContext context, StateSetter setState) {
             return Stack(

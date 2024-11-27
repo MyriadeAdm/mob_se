@@ -36,7 +36,7 @@ class PageRetrait extends StatelessWidget {
             ),
           ),
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: Theme.of(context).colorScheme.surface,
         body: Center(
           child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -179,7 +179,7 @@ class PageRetrait extends StatelessWidget {
                                 filled: true,
                                 //hintText: '',
                                 fillColor:
-                                    const Color.fromRGBO(230, 227, 227, 1),
+                                    Theme.of(context).colorScheme.secondary,
                                 border: OutlineInputBorder(
                                   borderSide: BorderSide.none,
                                   borderRadius: BorderRadius.circular(10),

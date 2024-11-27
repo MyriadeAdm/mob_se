@@ -66,7 +66,7 @@ class ForfaitMixtePage extends StatelessWidget {
           ), //IconButton
         ],
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       body: Center(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
