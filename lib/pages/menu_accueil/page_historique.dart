@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:mob_se/components/my_historie_card.dart';
 import '../../models/historique.dart';
 import '../../models/historique_database.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
-import 'package:mob_se/constants/color_constants.dart';
 
 class PageHistorique extends StatefulWidget {
   const PageHistorique({super.key});
@@ -13,32 +13,13 @@ class PageHistorique extends StatefulWidget {
 }
 
 class _PageHistoriqueState extends State<PageHistorique> {
-  // Fonction de recupération des historiques dans la base de donnée
-  void readHistorque() {
-    context.read<HistoriqueDatabase>().fetchHistoriques();
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    readHistorque();
-  }
-
-  IconButton returnBack(BuildContext context) {
-    return IconButton(
-        onPressed: () {
-          Navigator.pop(context);
-        },
-        icon: const Icon(Icons.arrow_back));
-  }
 
   bool boolDelete = false;
   String supList = '';
 
   @override
   Widget build(BuildContext context) {
-    final historiqueDatabase = context.watch<HistoriqueDatabase>();
-    List<Historique> currentHistoriques = historiqueDatabase.currentHistoriques;
+    List<Historique> currentHistoriques = Provider.of<HistoriqueDatabase>(context).currentHistoriques;
     //print(currentHistoriques);
 
     return Scaffold(
@@ -92,9 +73,7 @@ class _PageHistoriqueState extends State<PageHistorique> {
                           ),
                           TextButton(
                             onPressed: () {
-                              context
-                                  .read<HistoriqueDatabase>()
-                                  .deleteAllHistorique();
+                              Provider.of<HistoriqueDatabase>(context).deleteAllHistorique();
                               Navigator.pop(context);
                               boolDelete = false;
                             },
@@ -135,16 +114,7 @@ class _PageHistoriqueState extends State<PageHistorique> {
             ),
             Expanded(
               child: currentHistoriques.isEmpty
-                  ? const Center(
-                      child: Text(
-                        'Historique vide, veuillez lancer \nvotre première transaction',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: ColorConstants.colorCustom3,
-                        ),
-                      ),
-                    )
+                  ? const HistorieEmpty()
                   : ListView.builder(
                       itemCount: currentHistoriques.length,
                       itemBuilder: (BuildContext context, int index) {
@@ -194,7 +164,6 @@ class _PageHistoriqueState extends State<PageHistorique> {
                             // Remove the item from the data source.
                             setState(() {
                               currentHistoriques.removeAt(index);
-                              //print(index);
                               context
                                   .read<HistoriqueDatabase>()
                                   .deleteHistorique(historique.id as int);

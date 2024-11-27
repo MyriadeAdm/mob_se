@@ -75,8 +75,9 @@ Future<void> callButtomSheetUnite(
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: const BorderRadius.all(Radius.circular(13)),
-                    border: Border.all(width: 0.5),
-                    //color: const Color.fromRGBO(241, 240, 240, 1),
+                    border:  Border.all(
+                        color: Theme.of(context).colorScheme.inversePrimary,
+                        width: 0.5),
                   ),
                   child: Padding(
                     padding: const EdgeInsets.only(
@@ -85,17 +86,10 @@ Future<void> callButtomSheetUnite(
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Text(
-                            "Choix de:",
-                            // style: TextStyle(
-                            //   //fontSize: 20,
-                            //   fontWeight: FontWeight.w500,
-                            // ),
-                          ),
+                          const Text("Choix de:"),
                           Text(
                             "$montant F CFA",
                             style: const TextStyle(
-                              //fontSize: 20,
                               fontWeight: FontWeight.w700,
                             ),
                           ),
@@ -117,7 +111,7 @@ Future<void> callButtomSheetUnite(
                   decoration: InputDecoration(
                     hintText: 'Code secret',
                     filled: true,
-                    fillColor: const Color.fromRGBO(230, 227, 227, 1),
+                    fillColor: Theme.of(context).colorScheme.secondary,
                     border: OutlineInputBorder(
                       borderSide: BorderSide.none,
                       borderRadius: BorderRadius.circular(10),

@@ -63,27 +63,16 @@ bool codeVisible = false;
 bool numVisible = false;
 bool boolSearch = false;
 
-// final FlutterContactPicker _contactPicker = FlutterContactPicker();
-// ignore: unused_element
-Contact? _contact;
 String? selectedNumber;
 
-class PageAchatcredit extends StatefulWidget {
-  const PageAchatcredit({super.key});
+class PageAchatCredit extends StatefulWidget {
+  const PageAchatCredit({super.key});
 
   @override
-  State<PageAchatcredit> createState() => _PageAchatcreditState();
+  State<PageAchatCredit> createState() => _PageAchatCreditState();
 }
 
-class _PageAchatcreditState extends State<PageAchatcredit> {
-  IconButton returnBack(BuildContext context) {
-    return IconButton(
-        onPressed: () {
-          Navigator.pop(context);
-        },
-        icon: const Icon(Icons.arrow_back));
-  }
-
+class _PageAchatCreditState extends State<PageAchatCredit> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -104,11 +93,11 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Divider(
+              Divider(
                 height: 30,
                 indent: 30,
                 endIndent: 30,
-                color: Colors.black,
+                color: Theme.of(context).colorScheme.inversePrimary,
                 thickness: 1,
               ),
               const SizedBox(
@@ -138,42 +127,45 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                               });
                             },
                             activeColor:
-                                (context.watch<Reseaux>().reseau == "Yas")
+                                (Provider.of<Reseaux>(context).reseau == 'Yas')
                                     ? ColorConstants.colorCustomButton2
                                     : ColorConstants.colorCustomButtonMv,
                           ))),
                   Expanded(
-                      child: ListTile(
-                          horizontalTitleGap: 0,
-                          title: const Text(
-                            'Pour autrui',
-                            style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                          leading: Radio(
-                            value: options[1],
-                            groupValue: currentOption,
-                            onChanged: (value) {
-                              setState(() {
-                                currentOption = value.toString();
-                                numVisible = !numVisible;
-                                boolSearch = !boolSearch;
-                              });
-                            },
-                            activeColor:
-                                (context.watch<Reseaux>().reseau == "Yas")
-                                    ? ColorConstants.colorCustomButton2
-                                    : ColorConstants.colorCustomButtonMv,
-                          ))),
+                    child: ListTile(
+                      horizontalTitleGap: 0,
+                      title: const Text(
+                        'Pour autrui',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      leading: Radio(
+                        value: options[1],
+                        groupValue: currentOption,
+                        onChanged: (value) {
+                          setState(() {
+                            currentOption = value.toString();
+                            numVisible = !numVisible;
+                            boolSearch = !boolSearch;
+                          });
+                        },
+                        activeColor:
+                            (Provider.of<Reseaux>(context).reseau == 'Yas')
+                                ? ColorConstants.colorCustomButton2
+                                : ColorConstants.colorCustomButtonMv,
+                      ),
+                    ),
+                  ),
                 ],
               ),
               Visibility(
-                  visible: numVisible,
-                  child: const SizedBox(
-                    height: 60,
-                  )),
-              (context.watch<Reseaux>().reseau == "Yas")
+                visible: numVisible,
+                child: const SizedBox(
+                  height: 60,
+                ),
+              ),
+              (Provider.of<Reseaux>(context).reseau == 'Yas')
                   ? Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -375,7 +367,8 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
         Visibility(
           visible: boolSearch,
           child: Positioned(
-            top: 100, // Adjust this position based on your layout
+            top: 120,
+            // Adjust this position based on your layout
             left: 0,
             right: 0,
             bottom: 20,
@@ -433,7 +426,7 @@ Widget creditColumn(
           }
         },
         style: TextButton.styleFrom(
-          backgroundColor: Colors.white,
+          backgroundColor: Theme.of(context).colorScheme.surface,
           padding: const EdgeInsets.all(13),
           shape: RoundedRectangleBorder(
             borderRadius: const BorderRadius.all(Radius.circular(15)),
@@ -447,8 +440,8 @@ Widget creditColumn(
         ),
         child: Text(
           montantAfficher,
-          style: const TextStyle(
-            color: Colors.black,
+          style: TextStyle(
+            color: Theme.of(context).colorScheme.inversePrimary,
             fontSize: 20,
             fontWeight: FontWeight.w600,
           ),

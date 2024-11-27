@@ -147,7 +147,7 @@ class TransactionsPage extends StatelessWidget {
                         context,
                         CupertinoPageRoute(
                             builder: (BuildContext context) =>
-                                const PageAchatcredit()));
+                                const PageAchatCredit()));
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: (context.watch<Reseaux>().reseau == "Yas")
