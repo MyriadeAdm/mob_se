@@ -49,7 +49,7 @@ class _MyToggleButtonState extends State<MyToggleButton> {
       fillColor: colorItem(),
       color: Provider.of<Reseaux>(context, listen: false).reseau == 'Togocom'
           ? ColorConstants.colorCustomButtonMv
-          : Colors.black,
+          : Theme.of(context).colorScheme.inversePrimary,
       constraints: const BoxConstraints(
         minHeight: 40.0,
         minWidth: 80.0,
