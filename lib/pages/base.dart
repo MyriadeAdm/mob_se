@@ -61,6 +61,7 @@ class _BaseState extends State<Base> {
           ],
         ),
         child: SafeArea(
+
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
             child: GNav(
