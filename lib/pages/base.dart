@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:mob_se/pages/page_transactions.dart';
+import 'package:mob_se/pages/settings_page.dart';
 import 'package:mob_se/widgets/custom_app_bar.dart';
 import 'package:provider/provider.dart';
 import '../constants/color_constants.dart';
@@ -22,6 +23,7 @@ class _BaseState extends State<Base> {
     HomePage(),
     ForfaitPage(),
     TransactionsPage(),
+    SettingsPage(),
   ];
 
   Color colorItem() {
@@ -43,6 +45,7 @@ class _BaseState extends State<Base> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.surface,
       appBar: const CustomAppBar(),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
@@ -82,6 +85,10 @@ class _BaseState extends State<Base> {
                 GButton(
                   icon: LineIcons.dollarSign,
                   text: 'Transactions',
+                ),
+                GButton(
+                  icon: Icons.settings,
+                  text: 'Parametres',
                 ),
               ],
               selectedIndex: _selectedIndex,

@@ -4,6 +4,7 @@ import 'package:mob_se/constants/reseaux.dart';
 import 'package:mob_se/models/historique_database.dart';
 import 'package:mob_se/pages/config_reseau.dart';
 import 'package:mob_se/pages/splash_screen.dart';
+import 'package:mob_se/themes/theme_provider.dart';
 import 'package:provider/provider.dart';
 import 'pages/base.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -17,6 +18,8 @@ void main() async {
     providers: [
       ChangeNotifierProvider(create: (context) => HistoriqueDatabase()),
       ChangeNotifierProvider(create: (context) => Reseaux()),
+      ChangeNotifierProvider(create: (context) => ThemeProvider()),
+
     ],
     child: const MainApp(),
   ));
@@ -79,20 +82,7 @@ class _MainAppState extends State<MainApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        useMaterial3: true,
-        highlightColor: Colors.white,
-        scaffoldBackgroundColor: Colors.white,
-        indicatorColor: Colors.white,
-        dialogBackgroundColor: Colors.white,
-        //colorSchemeSeed: Colors.white,
-        //brightness: Brightness.light,
-        appBarTheme: const AppBarTheme(
-          color: Colors.white,
-        ),
-        // fontFamily: GoogleFonts.poppins().fontFamily,
-        fontFamily: 'Poppins',
-      ),
+      theme: Provider.of<ThemeProvider>(context).themeData,
       home: firstPage(),
     );
   }
