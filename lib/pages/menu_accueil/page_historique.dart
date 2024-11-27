@@ -42,7 +42,7 @@ class _PageHistoriqueState extends State<PageHistorique> {
     //print(currentHistoriques);
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       appBar: AppBar(
         title: const Text(
           "Historique",
@@ -82,7 +82,7 @@ class _PageHistoriqueState extends State<PageHistorique> {
                             "Etes-vous sur de vouloir tout supprimer ?"),
                         actions: <Widget>[
                           TextButton(
-                            onPressed: () => Navigator.pop(context, 'Annuler'),
+                            onPressed: () => Navigator.pop(context),
                             child: const Text(
                               'Annuler',
                               style: TextStyle(
@@ -95,7 +95,7 @@ class _PageHistoriqueState extends State<PageHistorique> {
                               context
                                   .read<HistoriqueDatabase>()
                                   .deleteAllHistorique();
-                              Navigator.pop(context, 'Oui');
+                              Navigator.pop(context);
                               boolDelete = false;
                             },
                             child: const Text(
@@ -123,11 +123,11 @@ class _PageHistoriqueState extends State<PageHistorique> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Divider(
+            Divider(
               height: 30,
               indent: 50,
               endIndent: 50,
-              color: Colors.black,
+              color: Theme.of(context).colorScheme.inversePrimary,
               thickness: 1,
             ),
             const SizedBox(
