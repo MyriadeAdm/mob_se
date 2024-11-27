@@ -68,15 +68,15 @@ class _BaseState extends State<Base> {
               hoverColor: Colors.grey[100]!,
               gap: 8,
               activeColor: colorTextItem(),
-              iconSize: 24,
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+              iconSize: 20,
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
               duration: const Duration(milliseconds: 400),
               tabBackgroundColor: colorItem(),
               color: Colors.black,
               tabs: const [
                 GButton(
                   icon: LineIcons.home,
-                  text: 'Acceuil',
+                  text: 'Accueil',
                 ),
                 GButton(
                   icon: LineIcons.syncIcon,
@@ -88,7 +88,7 @@ class _BaseState extends State<Base> {
                 ),
                 GButton(
                   icon: Icons.settings,
-                  text: 'Parametres',
+                  text: 'Settings',
                 ),
               ],
               selectedIndex: _selectedIndex,
