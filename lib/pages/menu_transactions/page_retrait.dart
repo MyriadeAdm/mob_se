@@ -245,7 +245,7 @@ class PageRetrait extends StatelessWidget {
                     },
                     style: ElevatedButton.styleFrom(
                         backgroundColor:
-                            (context.watch<Reseaux>().reseau == "Togocom")
+                            (context.watch<Reseaux>().reseau == "Yas")
                                 ? ColorConstants.colorCustomButton2
                                 : ColorConstants.colorCustomButtonMv,
                         shape: RoundedRectangleBorder(
@@ -259,7 +259,7 @@ class PageRetrait extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w700,
-                          color: (context.watch<Reseaux>().reseau == "Togocom")
+                          color: (context.watch<Reseaux>().reseau == "Yas")
                               ? Colors.black
                               : Colors.white,
                         ),

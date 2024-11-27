@@ -21,7 +21,7 @@ class CustomButton extends StatelessWidget {
       width: 150,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-            backgroundColor: (context.watch<Reseaux>().reseau == "Togocom")
+            backgroundColor: (context.watch<Reseaux>().reseau == "Yas")
                 ? ColorConstants.colorCustomButtonTg
                 : ColorConstants.colorCustomButtonMv,
             shape: RoundedRectangleBorder(
@@ -37,7 +37,7 @@ class CustomButton extends StatelessWidget {
           style: TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.w700,
-            color: (context.watch<Reseaux>().reseau == "Togocom")
+            color: (context.watch<Reseaux>().reseau == "Yas")
                 ? Colors.black
                 : Colors.white,
           ),

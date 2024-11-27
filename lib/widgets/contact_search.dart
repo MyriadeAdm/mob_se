@@ -128,7 +128,7 @@ class _ContactFloatingListState extends State<ContactFloatingList> {
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
-                          color: (context.watch<Reseaux>().reseau == "Togocom")
+                          color: (context.watch<Reseaux>().reseau == "Yas")
                               ? ColorConstants.colorCustomButton2
                               : ColorConstants.colorCustomButtonMv,
                         ),

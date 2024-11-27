@@ -14,14 +14,14 @@ class MyToggleButton extends StatefulWidget {
 class _MyToggleButtonState extends State<MyToggleButton> {
   @override
   Widget build(BuildContext context) {
-    var selectedCarrier = Provider.of<Reseaux>(context).reseau == 'Togocom'
+    var selectedCarrier = Provider.of<Reseaux>(context).reseau == 'Yas'
         ? [true, false]
         : [false, true];
 
-    const List<String> carrier = ['Togocom', 'Moov'];
+    const List<String> carrier = ['Yas', 'Moov'];
 
     Color colorItem() {
-      return Provider.of<Reseaux>(context, listen: false).reseau == 'Togocom'
+      return Provider.of<Reseaux>(context, listen: false).reseau == 'Yas'
           ? ColorConstants.colorCustomButtonTg
           : ColorConstants.colorCustomButtonMv;
     }
@@ -47,7 +47,7 @@ class _MyToggleButtonState extends State<MyToggleButton> {
       selectedBorderColor: colorItem(),
       selectedColor: Theme.of(context).colorScheme.onSurface,
       fillColor: colorItem(),
-      color: Provider.of<Reseaux>(context, listen: false).reseau == 'Togocom'
+      color: Provider.of<Reseaux>(context, listen: false).reseau == 'Yas'
           ? ColorConstants.colorCustomButtonMv
           : Theme.of(context).colorScheme.inversePrimary,
       constraints: const BoxConstraints(

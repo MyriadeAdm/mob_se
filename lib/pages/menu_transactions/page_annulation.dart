@@ -105,10 +105,9 @@ class _PageAnnulationState extends State<PageAnnulation> {
                     : makePhoneCall("*145*8*4*${_codeController.text}#");
               },
               style: ElevatedButton.styleFrom(
-                  backgroundColor:
-                      (context.watch<Reseaux>().reseau == "Togocom")
-                          ? ColorConstants.colorCustomButton2
-                          : ColorConstants.colorCustomButtonMv,
+                  backgroundColor: (context.watch<Reseaux>().reseau == "Yas")
+                      ? ColorConstants.colorCustomButton2
+                      : ColorConstants.colorCustomButtonMv,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   )),
@@ -120,7 +119,7 @@ class _PageAnnulationState extends State<PageAnnulation> {
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w700,
-                    color: (context.watch<Reseaux>().reseau == "Togocom")
+                    color: (context.watch<Reseaux>().reseau == "Yas")
                         ? Colors.black
                         : Colors.white,
                   ),

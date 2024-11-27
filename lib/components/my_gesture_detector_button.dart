@@ -12,8 +12,7 @@ class MyGestureDetectorButton extends StatelessWidget {
     return GestureDetector(
       onVerticalDragDown: (details) {
         HapticFeedback.heavyImpact();
-        if (Provider.of<Reseaux>(context, listen: false).reseau ==
-            "Togocom") {
+        if (Provider.of<Reseaux>(context, listen: false).reseau == "Yas") {
           context.read<Reseaux>().switchToMoov();
         } else {
           context.read<Reseaux>().switchToTogocom();
@@ -37,4 +36,3 @@ class MyGestureDetectorButton extends StatelessWidget {
     );
   }
 }
-

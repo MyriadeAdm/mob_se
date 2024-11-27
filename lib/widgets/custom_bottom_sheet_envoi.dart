@@ -180,15 +180,15 @@ Future<void> callButtomSheetEnvoie(
                     }
 
                     context.read<HistoriqueDatabase>().addHistorique(
-                                "Envoie d'argent",
-                                "Vous avez envoyé $montantEnvoye F CFA au $numero.");
+                        "Envoie d'argent",
+                        "Vous avez envoyé $montantEnvoye F CFA au $numero.");
 
                     _codeController.clear();
                     Navigator.pop(context);
                   },
                   style: ElevatedButton.styleFrom(
                       backgroundColor:
-                          (context.watch<Reseaux>().reseau == "Togocom")
+                          (context.watch<Reseaux>().reseau == "Yas")
                               ? ColorConstants.colorCustomButton2
                               : ColorConstants.colorCustomButtonMv,
                       shape: RoundedRectangleBorder(
@@ -202,7 +202,7 @@ Future<void> callButtomSheetEnvoie(
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w700,
-                        color: (context.watch<Reseaux>().reseau == "Togocom")
+                        color: (context.watch<Reseaux>().reseau == "Yas")
                             ? Colors.black
                             : Colors.white,
                       ),

@@ -173,7 +173,7 @@ Future<void> callButtomSheetUnite(
                       }
 
                       if (Provider.of<Reseaux>(context, listen: false).reseau ==
-                          "Togocom") {
+                          "Yas") {
                         if (isSelected) {
                           Platform.isAndroid
                               ? FlutterPhoneDirectCaller.callNumber(
@@ -182,7 +182,7 @@ Future<void> callButtomSheetUnite(
                                   "*145*3*1*2*$numero*$choixMontant*${_codeController.text}#");
 
                           context.read<HistoriqueDatabase>().addHistorique(
-                              "Achat crédit T-Money",
+                              "Achat crédit Mixx",
                               "$montant F CFA rechargé à $numero");
                         } else {
                           Platform.isAndroid
@@ -192,7 +192,7 @@ Future<void> callButtomSheetUnite(
                                   "*145*3*1*1*$choixMontant*${_codeController.text}#");
 
                           context.read<HistoriqueDatabase>().addHistorique(
-                              "Achat crédit T-Money",
+                              "Achat crédit Mixx",
                               "$montant F CFA rechargé à Moi-Même");
                         }
                       } else {
@@ -225,7 +225,7 @@ Future<void> callButtomSheetUnite(
                   },
                   style: ElevatedButton.styleFrom(
                       backgroundColor:
-                          (context.watch<Reseaux>().reseau == "Togocom")
+                          (context.watch<Reseaux>().reseau == "Yas")
                               ? ColorConstants.colorCustomButton2
                               : ColorConstants.colorCustomButtonMv,
                       shape: RoundedRectangleBorder(
@@ -239,7 +239,7 @@ Future<void> callButtomSheetUnite(
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w700,
-                        color: (context.watch<Reseaux>().reseau == "Togocom")
+                        color: (context.watch<Reseaux>().reseau == "Yas")
                             ? Colors.black
                             : Colors.white,
                       ),

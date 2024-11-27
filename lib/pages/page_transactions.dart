@@ -51,7 +51,7 @@ class TransactionsPage extends StatelessWidget {
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor:
-                            (context.watch<Reseaux>().reseau == "Togocom")
+                            (context.watch<Reseaux>().reseau == "Yas")
                                 ? ColorConstants.colorCustomButtonTg
                                 : ColorConstants.colorCustomButtonMv,
                         shape: RoundedRectangleBorder(
@@ -64,10 +64,9 @@ class TransactionsPage extends StatelessWidget {
                           Icon(
                             Icons.install_mobile,
                             size: 40,
-                            color:
-                                (context.watch<Reseaux>().reseau == "Togocom")
-                                    ? Colors.black
-                                    : Colors.white,
+                            color: (context.watch<Reseaux>().reseau == "Yas")
+                                ? Colors.black
+                                : Colors.white,
                           ),
                           const SizedBox(
                             height: 15,
@@ -77,10 +76,9 @@ class TransactionsPage extends StatelessWidget {
                             style: TextStyle(
                               fontSize: 17,
                               fontWeight: FontWeight.w700,
-                              color:
-                                  (context.watch<Reseaux>().reseau == "Togocom")
-                                      ? Colors.black
-                                      : Colors.white,
+                              color: (context.watch<Reseaux>().reseau == "Yas")
+                                  ? Colors.black
+                                  : Colors.white,
                             ),
                           ),
                         ],
@@ -102,7 +100,7 @@ class TransactionsPage extends StatelessWidget {
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor:
-                            (context.watch<Reseaux>().reseau == "Togocom")
+                            (context.watch<Reseaux>().reseau == "Yas")
                                 ? ColorConstants.colorCustomButtonTg
                                 : ColorConstants.colorCustomButtonMv,
                         shape: RoundedRectangleBorder(
@@ -115,10 +113,9 @@ class TransactionsPage extends StatelessWidget {
                           Icon(
                             Icons.send_to_mobile,
                             size: 40,
-                            color:
-                                (context.watch<Reseaux>().reseau == "Togocom")
-                                    ? Colors.black
-                                    : Colors.white,
+                            color: (context.watch<Reseaux>().reseau == "Yas")
+                                ? Colors.black
+                                : Colors.white,
                           ),
                           const SizedBox(
                             height: 15,
@@ -128,10 +125,9 @@ class TransactionsPage extends StatelessWidget {
                             style: TextStyle(
                               fontSize: 17,
                               fontWeight: FontWeight.w700,
-                              color:
-                                  (context.watch<Reseaux>().reseau == "Togocom")
-                                      ? Colors.black
-                                      : Colors.white,
+                              color: (context.watch<Reseaux>().reseau == "Yas")
+                                  ? Colors.black
+                                  : Colors.white,
                             ),
                           ),
                         ],
@@ -154,10 +150,9 @@ class TransactionsPage extends StatelessWidget {
                                 const PageAchatcredit()));
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor:
-                        (context.watch<Reseaux>().reseau == "Togocom")
-                            ? ColorConstants.colorCustomButtonTg
-                            : ColorConstants.colorCustomButtonMv,
+                    backgroundColor: (context.watch<Reseaux>().reseau == "Yas")
+                        ? ColorConstants.colorCustomButtonTg
+                        : ColorConstants.colorCustomButtonMv,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15)),
                   ),
@@ -167,7 +162,7 @@ class TransactionsPage extends StatelessWidget {
                       Icon(
                         Icons.ad_units,
                         size: 40,
-                        color: (context.watch<Reseaux>().reseau == "Togocom")
+                        color: (context.watch<Reseaux>().reseau == "Yas")
                             ? Colors.black
                             : Colors.white,
                       ),
@@ -180,7 +175,7 @@ class TransactionsPage extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 17,
                           fontWeight: FontWeight.w700,
-                          color: (context.watch<Reseaux>().reseau == "Togocom")
+                          color: (context.watch<Reseaux>().reseau == "Yas")
                               ? Colors.black
                               : Colors.white,
                         ),
@@ -197,7 +192,7 @@ class TransactionsPage extends StatelessWidget {
               child: ElevatedButton(
                   onPressed: () {
                     (Provider.of<Reseaux>(context, listen: false).reseau ==
-                            "Togocom")
+                            "Yas")
                         ? Platform.isAndroid
                             ? FlutterPhoneDirectCaller.callNumber("*145*8*4#")
                             : makePhoneCall("*145*8*4#")
@@ -206,10 +201,9 @@ class TransactionsPage extends StatelessWidget {
                             : makePhoneCall("*155*1*4#");
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor:
-                        (context.watch<Reseaux>().reseau == "Togocom")
-                            ? ColorConstants.colorCustomButtonTg
-                            : ColorConstants.colorCustomButtonMv,
+                    backgroundColor: (context.watch<Reseaux>().reseau == "Yas")
+                        ? ColorConstants.colorCustomButtonTg
+                        : ColorConstants.colorCustomButtonMv,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15)),
                   ),
@@ -219,7 +213,7 @@ class TransactionsPage extends StatelessWidget {
                       Icon(
                         Icons.cancel,
                         size: 40,
-                        color: (context.watch<Reseaux>().reseau == "Togocom")
+                        color: (context.watch<Reseaux>().reseau == "Yas")
                             ? Colors.black
                             : Colors.white,
                       ),
@@ -232,7 +226,7 @@ class TransactionsPage extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 17,
                           fontWeight: FontWeight.w700,
-                          color: (context.watch<Reseaux>().reseau == "Togocom")
+                          color: (context.watch<Reseaux>().reseau == "Yas")
                               ? Colors.black
                               : Colors.white,
                         ),

@@ -57,7 +57,7 @@ class CustomListViewForfaitInternet extends StatelessWidget {
             side: BorderSide(
                 style: BorderStyle.solid,
                 width: 1.5,
-                color: (context.watch<Reseaux>().reseau == "Togocom")
+                color: (context.watch<Reseaux>().reseau == "Yas")
                     ? ColorConstants.colorCustomButton2
                     : ColorConstants.colorCustomButtonMv),
           ),

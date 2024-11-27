@@ -19,7 +19,6 @@ void main() async {
       ChangeNotifierProvider(create: (context) => HistoriqueDatabase()),
       ChangeNotifierProvider(create: (context) => Reseaux()),
       ChangeNotifierProvider(create: (context) => ThemeProvider()),
-
     ],
     child: const MainApp(),
   ));
@@ -42,7 +41,7 @@ class _MainAppState extends State<MainApp> {
   }
 
   void setPrefs() {
-    if (_prefs?.getString('reseau') == "Togocom") {
+    if (_prefs?.getString('reseau') == "Yas") {
       context.read<Reseaux>().switchToTogocom();
     } else if (_prefs?.getString('reseau') == "Moov") {
       context.read<Reseaux>().switchToMoov();

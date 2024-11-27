@@ -36,7 +36,7 @@ class LabeledCheckbox extends StatelessWidget {
           children: <Widget>[
             Text(label),
             Checkbox(
-              activeColor: (context.watch<Reseaux>().reseau == "Togocom")
+              activeColor: (context.watch<Reseaux>().reseau == "Yas")
                   ? ColorConstants.colorCustomButtonTg
                   : ColorConstants.colorCustomButtonMv,
               value: value,
@@ -138,7 +138,7 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                               });
                             },
                             activeColor:
-                                (context.watch<Reseaux>().reseau == "Togocom")
+                                (context.watch<Reseaux>().reseau == "Yas")
                                     ? ColorConstants.colorCustomButton2
                                     : ColorConstants.colorCustomButtonMv,
                           ))),
@@ -162,7 +162,7 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                               });
                             },
                             activeColor:
-                                (context.watch<Reseaux>().reseau == "Togocom")
+                                (context.watch<Reseaux>().reseau == "Yas")
                                     ? ColorConstants.colorCustomButton2
                                     : ColorConstants.colorCustomButtonMv,
                           ))),
@@ -173,7 +173,7 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                   child: const SizedBox(
                     height: 60,
                   )),
-              (context.watch<Reseaux>().reseau == "Togocom")
+              (context.watch<Reseaux>().reseau == "Yas")
                   ? Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -252,7 +252,7 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                                           color: (context
                                                       .watch<Reseaux>()
                                                       .reseau ==
-                                                  "Togocom")
+                                                  "Yas")
                                               ? ColorConstants
                                                   .colorCustomButtonTg
                                               : ColorConstants
@@ -348,7 +348,7 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                                     backgroundColor: (context
                                                 .watch<Reseaux>()
                                                 .reseau ==
-                                            "Togocom")
+                                            "Yas")
                                         ? ColorConstants.colorCustomButton2
                                         : ColorConstants.colorCustomButtonMv,
                                     shape: RoundedRectangleBorder(
@@ -360,7 +360,7 @@ class _PageAchatcreditState extends State<PageAchatcredit> {
                                     fontSize: 20,
                                     fontWeight: FontWeight.w700,
                                     color: (context.watch<Reseaux>().reseau ==
-                                            "Togocom")
+                                            "Yas")
                                         ? Colors.black
                                         : Colors.white,
                                   ),
@@ -440,7 +440,7 @@ Widget creditColumn(
             side: BorderSide(
                 style: BorderStyle.solid,
                 width: 1.5,
-                color: (context.watch<Reseaux>().reseau == "Togocom")
+                color: (context.watch<Reseaux>().reseau == "Yas")
                     ? ColorConstants.colorCustomButton2
                     : ColorConstants.colorCustomButtonMv),
           ),

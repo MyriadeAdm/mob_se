@@ -42,7 +42,7 @@ class LabeledCheckbox extends StatelessWidget {
           children: <Widget>[
             Text(label),
             Checkbox(
-              activeColor: (context.watch<Reseaux>().reseau == "Togocom")
+              activeColor: (context.watch<Reseaux>().reseau == "Yas")
                   ? ColorConstants.colorCustomButtonTg
                   : ColorConstants.colorCustomButtonMv,
               value: value,
@@ -257,9 +257,10 @@ Future<void> callButtomSheet(
                                             (Provider.of<Reseaux>(context,
                                                             listen: false)
                                                         .reseau ==
-                                                    "Togocom")
+                                                    "Yas")
                                                 ? autrePersonne = true
                                                 : autrePersonne = false;
+                                            boolSearch = false;
                                             currentOption = value.toString();
                                             codeVisible = !codeVisible;
                                             _codeControllerFocusNode.unfocus();
@@ -271,7 +272,7 @@ Future<void> callButtomSheet(
                                         activeColor: (context
                                                     .watch<Reseaux>()
                                                     .reseau ==
-                                                "Togocom")
+                                                "Yas")
                                             ? ColorConstants.colorCustomButton2
                                             : ColorConstants
                                                 .colorCustomButtonMv,
@@ -280,8 +281,8 @@ Future<void> callButtomSheet(
                                   child: ListTile(
                                       horizontalTitleGap: 0,
                                       title: (context.watch<Reseaux>().reseau ==
-                                              "Togocom")
-                                          ? const Text('T-money')
+                                              "Yas")
+                                          ? const Text('Mixx')
                                           : const Text('Flooz'),
                                       leading: Radio(
                                         value: options[1],
@@ -298,7 +299,7 @@ Future<void> callButtomSheet(
                                         activeColor: (context
                                                     .watch<Reseaux>()
                                                     .reseau ==
-                                                "Togocom")
+                                                "Yas")
                                             ? ColorConstants.colorCustomButton2
                                             : ColorConstants
                                                 .colorCustomButtonMv,
@@ -355,8 +356,7 @@ Future<void> callButtomSheet(
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
                                   backgroundColor:
-                                      (context.watch<Reseaux>().reseau ==
-                                              "Togocom")
+                                      (context.watch<Reseaux>().reseau == "Yas")
                                           ? ColorConstants.colorCustomButton2
                                           : ColorConstants.colorCustomButtonMv,
                                   shape: RoundedRectangleBorder(
@@ -389,7 +389,7 @@ Future<void> callButtomSheet(
                                     if (Provider.of<Reseaux>(context,
                                                 listen: false)
                                             .reseau ==
-                                        "Togocom") {
+                                        "Yas") {
                                       Platform.isAndroid
                                           ? FlutterPhoneDirectCaller.callNumber(
                                               "*909*7*$num$ff")
@@ -455,7 +455,7 @@ Future<void> callButtomSheet(
                                     num = num.substring(num.length - 8);
 
                                     if (context.watch<Reseaux>().reseau ==
-                                        "Togocom") {
+                                        "Yas") {
                                       Platform.isAndroid
                                           ? FlutterPhoneDirectCaller.callNumber(
                                               "*909*7*$num$codemoneyAutruit${_codeController.text}#")
@@ -492,10 +492,10 @@ Future<void> callButtomSheet(
                                 style: TextStyle(
                                   fontSize: 18,
                                   fontWeight: FontWeight.w700,
-                                  color: (context.watch<Reseaux>().reseau ==
-                                          "Togocom")
-                                      ? Colors.black
-                                      : Colors.white,
+                                  color:
+                                      (context.watch<Reseaux>().reseau == "Yas")
+                                          ? Colors.black
+                                          : Colors.white,
                                 ),
                               ),
                             ),
@@ -589,16 +589,16 @@ String typeForfait(String typeForfait) {
 String typeForfaitMobileMoney(String typeForfait) {
   switch (typeForfait) {
     case "forfaitAppel":
-      return "Forfait Appel : T-Money";
+      return "Forfait Appel : Mixx";
 
     case "forfaitInternet":
-      return "Forfait Internet : T-Money";
+      return "Forfait Internet : Mixx";
 
     case "forfaitMixte":
-      return "Forfait Mixte  : T-Money";
+      return "Forfait Mixte  : Mixx";
 
     case "forfaitNuit":
-      return "Forfait Nuit : T-Money";
+      return "Forfait Nuit : Mixx";
 
     default:
       return "error";

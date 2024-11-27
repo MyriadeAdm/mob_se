@@ -21,7 +21,16 @@ class SettingsPage extends StatelessWidget {
               borderRadius: BorderRadius.circular(12),
             ),
             margin: const EdgeInsets.only(top: 10, left: 25, right: 25),
-            padding: const EdgeInsets.all(25),
+            padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 40),
+            // child: SwitchListTile(
+            //     title: const Text("Dark Mode"),
+            //     value: Provider.of<ThemeProvider>(context, listen: false)
+            //         .isDarkMode,
+            //     onChanged: (value) => {
+            //           Provider.of<ThemeProvider>(context, listen: false)
+            //               .toggleTheme(),
+            //         })
+
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -32,15 +41,13 @@ class SettingsPage extends StatelessWidget {
                       fontSize: 18,
                       color: Theme.of(context).colorScheme.inversePrimary),
                 ),
-
-                const SizedBox(width: 10),
-
                 CupertinoSwitch(
                   value: Provider.of<ThemeProvider>(context, listen: false)
                       .isDarkMode,
                   onChanged: (value) =>
                       Provider.of<ThemeProvider>(context, listen: false)
                           .toggleTheme(),
+                  activeColor: Colors.black,
                 )
               ],
             ),

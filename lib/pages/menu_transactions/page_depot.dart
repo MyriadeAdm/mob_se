@@ -45,7 +45,7 @@ class LabeledCheckbox extends StatelessWidget {
         children: <Widget>[
           Text(label),
           Checkbox(
-            activeColor: (context.watch<Reseaux>().reseau == "Togocom")
+            activeColor: (context.watch<Reseaux>().reseau == "Yas")
                 ? ColorConstants.colorCustomButtonTg
                 : ColorConstants.colorCustomButtonMv,
             value: value,
@@ -179,7 +179,7 @@ class PageDepot extends StatelessWidget {
                                             color: (context
                                                         .watch<Reseaux>()
                                                         .reseau ==
-                                                    "Togocom")
+                                                    "Yas")
                                                 ? ColorConstants
                                                     .colorCustomButton2
                                                 : ColorConstants
@@ -298,9 +298,9 @@ class PageDepot extends StatelessWidget {
                                                               context,
                                                               listen: false)
                                                           .reseau ==
-                                                      "Togocom")
+                                                      "Yas")
                                                   ? const Text(
-                                                      'Veuillez renseigner un numéro Togocom')
+                                                      'Veuillez renseigner un numéro Yas')
                                                   : const Text(
                                                       'Veuillez renseigner un numéro Moov')));
                                       //print(_numeroController.text);
@@ -310,8 +310,7 @@ class PageDepot extends StatelessWidget {
                               },
                               style: ElevatedButton.styleFrom(
                                   backgroundColor:
-                                      (context.watch<Reseaux>().reseau ==
-                                              "Togocom")
+                                      (context.watch<Reseaux>().reseau == "Yas")
                                           ? ColorConstants.colorCustomButton2
                                           : ColorConstants.colorCustomButtonMv,
                                   shape: RoundedRectangleBorder(
@@ -322,10 +321,10 @@ class PageDepot extends StatelessWidget {
                                 style: TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.w700,
-                                  color: (context.watch<Reseaux>().reseau ==
-                                          "Togocom")
-                                      ? Colors.black
-                                      : Colors.white,
+                                  color:
+                                      (context.watch<Reseaux>().reseau == "Yas")
+                                          ? Colors.black
+                                          : Colors.white,
                                 ),
                               ),
                             )),
@@ -368,7 +367,7 @@ class PageDepot extends StatelessWidget {
 //donc la verification se fait avec les frais ajouter
 (int tranfert, int retrait) quelFraisTransactionEtRetrait(
     BuildContext context, int montant) {
-  if (Provider.of<Reseaux>(context, listen: false).reseau == "Togocom") {
+  if (Provider.of<Reseaux>(context, listen: false).reseau == "Yas") {
     var newMontant = montantTransfererPlusFrais(context, montant);
     if (newMontant >= 0 && newMontant <= 545) {
       return (5, 45);
@@ -424,7 +423,7 @@ class PageDepot extends StatelessWidget {
 }
 
 int quelFraisTransaction(BuildContext context, int montant) {
-  if (Provider.of<Reseaux>(context, listen: false).reseau == "Togocom") {
+  if (Provider.of<Reseaux>(context, listen: false).reseau == "Yas") {
     if (montant > 0 && montant <= 500) {
       return 5;
     } else if (montant > 500 && montant <= 1000) {
@@ -477,7 +476,7 @@ int quelFraisTransaction(BuildContext context, int montant) {
 
 // Montant  a transferer plus les frais de retraits
 int montantTransfererPlusFrais(BuildContext context, int montantTransferer) {
-  if (Provider.of<Reseaux>(context, listen: false).reseau == "Togocom") {
+  if (Provider.of<Reseaux>(context, listen: false).reseau == "Yas") {
     if (montantTransferer > 0 && montantTransferer <= 500) {
       return montantTransferer + 45;
     } else if (montantTransferer > 500 && montantTransferer <= 1000) {

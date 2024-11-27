@@ -287,7 +287,7 @@ class ConfigReseau extends StatelessWidget {
                                                                     ),
                                                                     child:
                                                                         const Text(
-                                                                      "Togocom",
+                                                                      "Yas",
                                                                       style: TextStyle(
                                                                           color:
                                                                               Colors.black),

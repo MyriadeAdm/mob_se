@@ -43,24 +43,22 @@ class HomePage extends StatelessWidget {
                     Expanded(
                         child: CustomButton(
                             label: 'Solde credit',
-                            code: (cname == 'Togocom') ? "*909*0#" : "*101#")),
+                            code: (cname == 'Yas') ? "*909*0#" : "*101#")),
                     const SizedBox(width: 20),
                     Expanded(
                         child: CustomButton(
                             label: 'Solde $mb',
-                            code: (cname == 'Togocom')
-                                ? "*145*7*1#"
-                                : "*155*6*1#")),
+                            code:
+                                (cname == 'Yas') ? "*145*7*1#" : "*155*6*1#")),
                   ],
                 ),
               ),
               const MyTitleRow(title: "Forfait Internet"),
-              (Provider.of<Reseaux>(context, listen: false).reseau ==
-                  "Togocom")
+              (Provider.of<Reseaux>(context, listen: false).reseau == "Yas")
                   ? const ForfaitInternetTogocom()
                   : const ForfaitInternetMoov(),
               const MyTitleRow(title: "Forfait Appel"),
-              (context.watch<Reseaux>().reseau == 'Togocom')
+              (context.watch<Reseaux>().reseau == 'Yas')
                   ? const ForfaitAppelTogocom()
                   : const ForfaitAppelMoov(),
               const MyHistorieTitleLine(),

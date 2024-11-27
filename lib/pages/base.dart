@@ -27,7 +27,7 @@ class _BaseState extends State<Base> {
   ];
 
   Color colorItem() {
-    if (context.watch<Reseaux>().reseau == "Togocom") {
+    if (context.watch<Reseaux>().reseau == "Yas") {
       return ColorConstants.colorCustomButtonTg;
     } else {
       return ColorConstants.colorCustomButtonMv;
@@ -35,7 +35,7 @@ class _BaseState extends State<Base> {
   }
 
   Color colorTextItem() {
-    if (context.watch<Reseaux>().reseau == "Togocom") {
+    if (context.watch<Reseaux>().reseau == "Yas") {
       return Colors.black;
     } else {
       return Colors.white;
