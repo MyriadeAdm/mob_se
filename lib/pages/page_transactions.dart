@@ -29,9 +29,9 @@ class TransactionsPage extends StatelessWidget {
               fontWeight: FontWeight.w700,
             ),
           ),
-          const Divider(
+          Divider(
             height: 60,
-            color: Colors.black,
+            color: Theme.of(context).colorScheme.inversePrimary,
             thickness: 1,
           ),
           Row(

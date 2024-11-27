@@ -27,11 +27,11 @@ class ForfaitPage extends StatelessWidget {
               fontWeight: FontWeight.w700,
             ),
           ),
-              const Divider(
+               Divider(
                 height: 60,
                 //indent: 50,
                 //endIndent: 50,
-                color: Colors.black,
+                color: Theme.of(context).colorScheme.inversePrimary,
                 thickness: 1,
               ),
       

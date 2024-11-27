@@ -52,7 +52,7 @@ class _BaseState extends State<Base> {
       ),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Theme.of(context).colorScheme.surface,
           boxShadow: [
             BoxShadow(
               blurRadius: 20,
@@ -72,7 +72,7 @@ class _BaseState extends State<Base> {
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
               duration: const Duration(milliseconds: 400),
               tabBackgroundColor: colorItem(),
-              color: Colors.black,
+              color: Theme.of(context).colorScheme.inversePrimary,
               tabs: const [
                 GButton(
                   icon: LineIcons.home,

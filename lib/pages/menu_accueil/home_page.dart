@@ -91,21 +91,21 @@ class ForfaitAppelMoov extends StatelessWidget {
           final item = Constantes.forfaitsAppelMoov[index];
 
           return CustomListViewForfaitAppel(
-            icon: const Icon(
+            icon: Icon(
               Icons.call,
               size: 20,
-              color: Colors.black,
+              color: Theme.of(context).colorScheme.inversePrimary,
             ),
             credit: item.credit,
-            validite: item.validite,
+            validity: item.validite,
             msg: item.msg,
             prix: item.prix,
             codeMMCredit: item.codeMMCredit,
             codeAutruiCredit: item.codeAutruiCredit,
             codeMoneyMM: item.codeMoneyMM,
-            codeMoneyAutruit: item.codeMoneyAutruit,
+            codeMoneyAutrui: item.codeMoneyAutruit,
             mega: item.mega,
-            typeforfait: item.typeforfait,
+            typeForfait: item.typeforfait,
           );
         },
       ),
@@ -129,21 +129,21 @@ class ForfaitAppelTogocom extends StatelessWidget {
           final item = Constantes.forfaitsAppelTogocom[index];
 
           return CustomListViewForfaitAppel(
-            icon: const Icon(
+            icon: Icon(
               Icons.call,
               size: 20,
-              color: Colors.black,
+              color: Theme.of(context).colorScheme.inversePrimary,
             ),
             credit: item.credit,
-            validite: item.validite,
+            validity: item.validite,
             msg: item.msg,
             prix: item.prix,
             codeMMCredit: item.codeMMCredit,
             codeAutruiCredit: item.codeAutruiCredit,
             codeMoneyMM: item.codeMoneyMM,
-            codeMoneyAutruit: item.codeMoneyAutruit,
+            codeMoneyAutrui: item.codeMoneyAutruit,
             mega: item.mega,
-            typeforfait: item.typeforfait,
+            typeForfait: item.typeforfait,
           );
         },
       ),
@@ -166,10 +166,10 @@ class ForfaitInternetTogocom extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             final item = Constantes.forfaitsInternetTogocom[index];
             return CustomListViewForfaitInternet(
-              icon: const Icon(
+              icon: Icon(
                 Icons.public,
                 size: 20,
-                color: Colors.black,
+                color: Theme.of(context).colorScheme.inversePrimary,
               ),
               mega: item.mega,
               validite: item.validite,
@@ -200,10 +200,10 @@ class ForfaitInternetMoov extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             final item = Constantes.forfaitsInternetMoov[index];
             return CustomListViewForfaitInternet(
-              icon: const Icon(
+              icon: Icon(
                 Icons.public,
                 size: 20,
-                color: Colors.black,
+                color: Theme.of(context).colorScheme.inversePrimary,
               ),
               mega: item.mega,
               validite: item.validite,

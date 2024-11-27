@@ -5,12 +5,12 @@ class PageParametre extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.only(left:20, right:20),
+    return Padding(
+      padding: const EdgeInsets.only(left:20, right:20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          const Text(
             "Paramètres",
             style: TextStyle(
               fontSize: 25,
@@ -21,7 +21,7 @@ class PageParametre extends StatelessWidget {
             height: 60,
             //indent: 80,
             //endIndent: 80,
-            color: Colors.black,
+            color: Theme.of(context).colorScheme.inversePrimary,
             thickness: 1,
           ),
         ]

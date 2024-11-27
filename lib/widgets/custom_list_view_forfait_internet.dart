@@ -50,12 +50,16 @@ class CustomListViewForfaitInternet extends StatelessWidget {
               typeforfait);
         },
         style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.white,
+          backgroundColor: Theme.of(context).colorScheme.surface,
           padding: const EdgeInsets.only(left: 18, right: 18),
           shape: RoundedRectangleBorder(
             borderRadius: const BorderRadius.all(Radius.circular(15)),
             side: BorderSide(
-                style: BorderStyle.solid, width: 1.5, color: (context.watch<Reseaux>().reseau=="Togocom") ? ColorConstants.colorCustomButton2 : ColorConstants.colorCustomButtonMv),
+                style: BorderStyle.solid,
+                width: 1.5,
+                color: (context.watch<Reseaux>().reseau == "Togocom")
+                    ? ColorConstants.colorCustomButton2
+                    : ColorConstants.colorCustomButtonMv),
           ),
         ),
         child: Column(
@@ -68,8 +72,8 @@ class CustomListViewForfaitInternet extends StatelessWidget {
                 const SizedBox(width: 5),
                 Text(
                   mega,
-                  style: const TextStyle(
-                    color: Colors.black,
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.inversePrimary,
                     fontSize: 14,
                     fontWeight: FontWeight.bold,
                   ),
@@ -78,15 +82,15 @@ class CustomListViewForfaitInternet extends StatelessWidget {
             ),
             Text(
               validite,
-              style: const TextStyle(
-                color: Colors.black,
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.inversePrimary,
                 fontSize: 12,
               ),
             ),
             Text(
               prix,
-              style: const TextStyle(
-                color: Colors.black,
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.inversePrimary,
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
               ),
