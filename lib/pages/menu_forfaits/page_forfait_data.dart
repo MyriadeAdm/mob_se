@@ -13,14 +13,6 @@ import 'package:mob_se/lib/make_call.dart';
 class ForfaitDataPage extends StatelessWidget {
   const ForfaitDataPage({super.key});
 
-  IconButton returnBack(BuildContext context) {
-    return IconButton(
-        onPressed: () {
-          Navigator.pop(context);
-        },
-        icon: const Icon(Icons.arrow_back));
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,11 +63,11 @@ class ForfaitDataPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Divider(
+           Divider(
               height: 30,
               indent: 50,
               endIndent: 50,
-              color: Colors.black,
+              color: Theme.of(context).colorScheme.inversePrimary,
               thickness: 1,
             ),
             const SizedBox(
