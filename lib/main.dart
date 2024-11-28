@@ -37,16 +37,23 @@ class _MainAppState extends State<MainApp> {
 
   void _initPrefs() async {
     _prefs = await SharedPreferences.getInstance();
-    setPrefs();
+    getPrefsNetwork();
+    getPrefsDarkMode();
   }
 
-  void setPrefs() {
+  void getPrefsNetwork() {
     if (_prefs?.getString('reseau') == "Yas") {
       context.read<Reseaux>().switchToTogocom();
     } else if (_prefs?.getString('reseau') == "Moov") {
       context.read<Reseaux>().switchToMoov();
     } else {
       const ConfigReseau();
+    }
+  }
+
+  void getPrefsDarkMode() {
+    if (_prefs?.getBool('darkMode') == true) {
+      Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
     }
   }
 
