@@ -12,7 +12,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.surface,
+      backgroundColor: Colors.white,
       body: content(),
     );
   }
@@ -20,7 +20,9 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget content() {
     return Center(
       child: Container(
-        child: Lottie.asset("assets/json/Mobse.json",),
+        child: Lottie.asset(
+          "assets/json/Mobse.json",
+        ),
       ),
     );
   }
