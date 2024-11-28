@@ -14,14 +14,6 @@ final _montantController = TextEditingController();
 final _codeController = TextEditingController();
 
 class PageRetrait extends StatelessWidget {
-  IconButton returnBack(BuildContext context) {
-    return IconButton(
-        onPressed: () {
-          Navigator.pop(context);
-        },
-        icon: const Icon(Icons.arrow_back));
-  }
-
   const PageRetrait({super.key});
 
   @override
@@ -42,11 +34,11 @@ class PageRetrait extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Divider(
+                Divider(
                   height: 30,
                   indent: 50,
                   endIndent: 50,
-                  color: Colors.black,
+                  color: Theme.of(context).colorScheme.inversePrimary,
                   thickness: 1,
                 ),
                 const SizedBox(
