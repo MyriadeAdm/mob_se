@@ -18,8 +18,9 @@ class TransactionsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Padding(
+    return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.surface,
+      body: Padding(
         padding: const EdgeInsets.only(left: 20, right: 20),
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -315,7 +316,6 @@ class TransactionsPage extends StatelessWidget {
                     )),
               ),
             ),
-            
           ],
         ),
       ),

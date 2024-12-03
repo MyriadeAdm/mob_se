@@ -8,7 +8,13 @@ class PageTransfertCredit extends StatelessWidget {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
       appBar: AppBar(
-        title: const Text("Transfert de crédit"),
+        title: const Text(
+          "Transfert de crédit",
+          style: TextStyle(
+            fontSize: 23,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
       ),
       body: Container(),
     );
