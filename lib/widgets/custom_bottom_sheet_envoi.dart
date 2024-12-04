@@ -12,6 +12,7 @@ import '../models/historique_database.dart';
 
 final _codeController = TextEditingController();
 final FocusNode _codeControllerFocusNode = FocusNode();
+String display = '';
 
 Future<void> callButtomSheetEnvoie(
     BuildContext context,
@@ -30,6 +31,11 @@ Future<void> callButtomSheetEnvoie(
       borderRadius: BorderRadius.vertical(top: Radius.circular(30.0)),
     ),
     builder: (context) {
+      if (contactname == '') {
+        display = "Envoie vers le ";
+      } else {
+        display = "Envoie à $contactname";
+      }
       return Padding(
         padding:
             EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
@@ -43,7 +49,7 @@ Future<void> callButtomSheetEnvoie(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  "Envoie à $contactname",
+                  display,
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
                   ),

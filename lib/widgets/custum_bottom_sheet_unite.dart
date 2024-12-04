@@ -37,7 +37,11 @@ Future<void> callButtomSheetUnite(BuildContext context, var numero,
     ),
     builder: (context) {
       if (numero != '') {
-        intitule = 'Achat de crédit à $contactname';
+        if (contactname != '') {
+          intitule = 'Achat de crédit à $contactname';
+        } else {
+          intitule = 'Achat de crédit au';
+        }
         numVisible = true;
         numOui =
             "${numero[0]}${numero[1]} ${numero[2]}${numero[3]} ${numero[4]}${numero[5]} ${numero[6]}${numero[7]}";
