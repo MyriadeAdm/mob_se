@@ -3,23 +3,22 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
-import 'package:provider/provider.dart';
-import '../constants/color_constants.dart';
-import 'package:mob_se/lib/make_call.dart';
+import 'package:mob_se/constants/reseaux.dart';
 
-import '../constants/reseaux.dart';
+import 'package:mob_se/lib/make_call.dart';
+import 'package:provider/provider.dart';
+
+import '../constants/color_constants.dart';
 import '../models/historique_database.dart';
 
 final _codeController = TextEditingController();
 final FocusNode _codeControllerFocusNode = FocusNode();
 
-Future<void> callButtomSheetEnvoie(
-    BuildContext context,
-    String numero,
-    int montantEnvoye,
-    int fraisTransaction,
-    int fraisRetrait,
-    bool fraisVisible) async {
+Future<void> callBottomSheetCredit(
+  BuildContext context,
+  String numero,
+  int montantEnvoye,
+) async {
   await showModalBottomSheet<dynamic>(
     showDragHandle: true,
     useRootNavigator: true,
@@ -28,13 +27,12 @@ Future<void> callButtomSheetEnvoie(
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(top: Radius.circular(30.0)),
     ),
-    builder: (context) {
+    builder: (BuildContext context) {
       return Padding(
         padding:
             EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
         child: SizedBox(
           height: MediaQuery.of(context).size.height / 2,
-          //height: 350,
           child: Padding(
             padding: const EdgeInsets.only(bottom: 30, left: 30, right: 30),
             child: Column(
@@ -61,7 +59,6 @@ Future<void> callButtomSheetEnvoie(
                     border: Border.all(
                         color: Theme.of(context).colorScheme.inversePrimary,
                         width: 0.5),
-                    //color: const Color.fromRGBO(241, 240, 240, 1),
                   ),
                   child: Padding(
                     padding: const EdgeInsets.only(
@@ -74,46 +71,10 @@ Future<void> callButtomSheetEnvoie(
                           Text("$montantEnvoye F CFA"),
                         ],
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const Text("Frais de transaction :"),
-                          Text("$fraisTransaction F CFA"),
-                        ],
-                      ),
-                      Visibility(
-                        visible: fraisVisible,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            const Text("Frais de retrait :"),
-                            Text("$fraisRetrait F CFA"),
-                          ],
-                        ),
-                      ),
                       const SizedBox(height: 10),
                       Divider(
                         thickness: 0.5,
                         color: Theme.of(context).colorScheme.inversePrimary,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const Text(
-                            "Montant à débiter :",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 15,
-                            ),
-                          ),
-                          Text(
-                            "${montantEnvoye + fraisTransaction + fraisRetrait} F CFA",
-                            style: const TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 15,
-                            ),
-                          ),
-                        ],
                       ),
                     ]),
                   ),
@@ -130,7 +91,7 @@ Future<void> callButtomSheetEnvoie(
                   controller: _codeController,
                   focusNode: _codeControllerFocusNode,
                   decoration: InputDecoration(
-                    hintText: 'Code secret',
+                    hintText: 'Code',
                     filled: true,
                     fillColor: Theme.of(context).colorScheme.secondary,
                     border: OutlineInputBorder(
@@ -142,7 +103,6 @@ Future<void> callButtomSheetEnvoie(
                 const SizedBox(height: 10),
                 ElevatedButton(
                   onPressed: () {
-                    //print ('le code est *${_codeController.text}*');
                     if (_codeController.text == '') {
                       showDialog(
                           context: context,
@@ -159,17 +119,15 @@ Future<void> callButtomSheetEnvoie(
                           });
                       _codeControllerFocusNode.requestFocus();
                     } else {
-                      fraisVisible
-                          ? Platform.isAndroid
-                              ? FlutterPhoneDirectCaller.callNumber(
-                                  "*145*1*$montantEnvoye*$numero*1*${_codeController.text}#")
-                              : makePhoneCall(
-                                  "*145*1*$montantEnvoye*$numero*1*${_codeController.text}#")
-                          : Platform.isAndroid
-                              ? FlutterPhoneDirectCaller.callNumber(
-                                  "*145*1*$montantEnvoye*$numero*2*${_codeController.text}#")
-                              : makePhoneCall(
-                                  "*145*1*$montantEnvoye*$numero*2*${_codeController.text}#");
+                      if (Provider.of<Reseaux>(context).reseau == "Yas") {
+                      Platform.isAndroid
+                          ? FlutterPhoneDirectCaller.callNumber(
+                              "*909*5*2$montantEnvoye*$numero*${_codeController.text}#")
+                          : makePhoneCall(
+                              "*909*5*2$montantEnvoye*$numero*${_codeController.text}#");}
+                              else {
+                                
+                              }
                     }
 
                     context.read<HistoriqueDatabase>().addHistorique(
@@ -208,9 +166,5 @@ Future<void> callButtomSheetEnvoie(
         ),
       );
     },
-  ).whenComplete(reset);
-}
-
-void reset() {
-  _codeController.clear();
+  );
 }
