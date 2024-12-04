@@ -4856,6 +4856,10 @@
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/path_provider_foundation/path_provider_foundation-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/path_provider_foundation/path_provider_foundation-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -4890,6 +4894,10 @@
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/shared_preferences_foundation";
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				IBSC_MODULE = shared_preferences_foundation;
 				INFOPLIST_FILE = "Target Support Files/shared_preferences_foundation/ResourceBundle-shared_preferences_foundation_privacy-shared_preferences_foundation-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -4928,6 +4936,10 @@
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/flutter_native_contact_picker/flutter_native_contact_picker-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/flutter_native_contact_picker/flutter_native_contact_picker-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -4985,6 +4997,10 @@
 					"\"/Users/ka/fvm/versions/3.22.3/bin/cache/artifacts/engine/ios-release/Flutter.xcframework/ios-arm64_x86_64-simulator\"",
 					"$(inherited)",
 				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				INFOPLIST_FILE = "Target Support Files/Pods-Runner/Pods-Runner-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -5041,6 +5057,10 @@
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/permission_handler_apple/permission_handler_apple-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/permission_handler_apple/permission_handler_apple-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -5098,6 +5118,10 @@
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/contacts_service/contacts_service-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/contacts_service/contacts_service-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -5155,6 +5179,10 @@
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/path_provider_foundation/path_provider_foundation-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/path_provider_foundation/path_provider_foundation-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -5206,6 +5234,10 @@
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/flutter_exit_app/flutter_exit_app-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/flutter_exit_app/flutter_exit_app-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -5263,6 +5295,10 @@
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/isar_flutter_libs/isar_flutter_libs-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/isar_flutter_libs/isar_flutter_libs-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -5318,6 +5354,10 @@
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/flutter_native_contact_picker/flutter_native_contact_picker-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/flutter_native_contact_picker/flutter_native_contact_picker-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -5441,6 +5481,10 @@
 					"\"/Users/ka/fvm/versions/3.22.3/bin/cache/artifacts/engine/ios-release/Flutter.xcframework/ios-arm64_x86_64-simulator\"",
 					"$(inherited)",
 				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				INFOPLIST_FILE = "Target Support Files/Pods-RunnerTests/Pods-RunnerTests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -5497,6 +5541,10 @@
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/shared_preferences_foundation/shared_preferences_foundation-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/shared_preferences_foundation/shared_preferences_foundation-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -5548,6 +5596,10 @@
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/flutter_exit_app/flutter_exit_app-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/flutter_exit_app/flutter_exit_app-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -5604,6 +5656,10 @@
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/flutter_phone_direct_caller/flutter_phone_direct_caller-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/flutter_phone_direct_caller/flutter_phone_direct_caller-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -5660,6 +5716,10 @@
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/url_launcher_ios/url_launcher_ios-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/url_launcher_ios/url_launcher_ios-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -5712,6 +5772,10 @@
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/shared_preferences_foundation/shared_preferences_foundation-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/shared_preferences_foundation/shared_preferences_foundation-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -5746,6 +5810,10 @@
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Toast";
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				IBSC_MODULE = Toast;
 				INFOPLIST_FILE = "Target Support Files/Toast/ResourceBundle-Toast-Toast-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -5784,6 +5852,10 @@
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/vibration/vibration-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/vibration/vibration-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -5839,6 +5911,10 @@
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/vibration/vibration-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/vibration/vibration-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -5877,6 +5953,10 @@
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/shared_preferences_foundation";
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				IBSC_MODULE = shared_preferences_foundation;
 				INFOPLIST_FILE = "Target Support Files/shared_preferences_foundation/ResourceBundle-shared_preferences_foundation_privacy-shared_preferences_foundation-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -5898,6 +5978,10 @@
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/permission_handler_apple";
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				IBSC_MODULE = permission_handler_apple;
 				INFOPLIST_FILE = "Target Support Files/permission_handler_apple/ResourceBundle-permission_handler_apple_privacy-permission_handler_apple-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -5981,6 +6065,10 @@
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/permission_handler_apple";
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				IBSC_MODULE = permission_handler_apple;
 				INFOPLIST_FILE = "Target Support Files/permission_handler_apple/ResourceBundle-permission_handler_apple_privacy-permission_handler_apple-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -6002,6 +6090,10 @@
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/shared_preferences_foundation";
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				IBSC_MODULE = shared_preferences_foundation;
 				INFOPLIST_FILE = "Target Support Files/shared_preferences_foundation/ResourceBundle-shared_preferences_foundation_privacy-shared_preferences_foundation-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -6024,6 +6116,10 @@
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/url_launcher_ios";
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				IBSC_MODULE = url_launcher_ios;
 				INFOPLIST_FILE = "Target Support Files/url_launcher_ios/ResourceBundle-url_launcher_ios_privacy-url_launcher_ios-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -6062,6 +6158,10 @@
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/fluttertoast/fluttertoast-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/fluttertoast/fluttertoast-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -6179,6 +6279,10 @@
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/fluttertoast/fluttertoast-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/fluttertoast/fluttertoast-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -6235,6 +6339,10 @@
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/contacts_service/contacts_service-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/contacts_service/contacts_service-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -6290,6 +6398,10 @@
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/vibration/vibration-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/vibration/vibration-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -6346,6 +6458,10 @@
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/url_launcher_ios/url_launcher_ios-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/url_launcher_ios/url_launcher_ios-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -6398,6 +6514,10 @@
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/flutter_phone_direct_caller/flutter_phone_direct_caller-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/flutter_phone_direct_caller/flutter_phone_direct_caller-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -6455,6 +6575,10 @@
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/isar_flutter_libs/isar_flutter_libs-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/isar_flutter_libs/isar_flutter_libs-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -6492,6 +6616,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -6530,6 +6658,10 @@
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/url_launcher_ios/url_launcher_ios-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/url_launcher_ios/url_launcher_ios-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -6582,6 +6714,10 @@
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/shared_preferences_foundation/shared_preferences_foundation-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/shared_preferences_foundation/shared_preferences_foundation-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -6615,6 +6751,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -6653,6 +6793,10 @@
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/flutter_phone_direct_caller/flutter_phone_direct_caller-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/flutter_phone_direct_caller/flutter_phone_direct_caller-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -6709,6 +6853,10 @@
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/permission_handler_apple/permission_handler_apple-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/permission_handler_apple/permission_handler_apple-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -6748,6 +6896,10 @@
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Toast";
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				IBSC_MODULE = Toast;
 				INFOPLIST_FILE = "Target Support Files/Toast/ResourceBundle-Toast-Toast-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -6769,6 +6921,10 @@
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Toast";
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				IBSC_MODULE = Toast;
 				INFOPLIST_FILE = "Target Support Files/Toast/ResourceBundle-Toast-Toast-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -6808,6 +6964,10 @@
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/device_info_plus/device_info_plus-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/device_info_plus/device_info_plus-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -6847,6 +7007,10 @@
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/fluttertoast";
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				IBSC_MODULE = fluttertoast;
 				INFOPLIST_FILE = "Target Support Files/fluttertoast/ResourceBundle-fluttertoast_privacy-fluttertoast-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -6886,6 +7050,10 @@
 				"FRAMEWORK_SEARCH_PATHS[sdk=iphonesimulator*]" = (
 					"\"/Users/ka/fvm/versions/3.22.3/bin/cache/artifacts/engine/ios/Flutter.xcframework/ios-arm64_x86_64-simulator\"",
 					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
 				);
 				INFOPLIST_FILE = "Target Support Files/Pods-RunnerTests/Pods-RunnerTests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -6944,6 +7112,10 @@
 					"\"/Users/ka/fvm/versions/3.22.3/bin/cache/artifacts/engine/ios-release/Flutter.xcframework/ios-arm64_x86_64-simulator\"",
 					"$(inherited)",
 				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				INFOPLIST_FILE = "Target Support Files/Pods-RunnerTests/Pods-RunnerTests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -6982,6 +7154,10 @@
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/device_info_plus";
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				IBSC_MODULE = device_info_plus;
 				INFOPLIST_FILE = "Target Support Files/device_info_plus/ResourceBundle-device_info_plus_privacy-device_info_plus-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -7003,6 +7179,10 @@
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/path_provider_foundation";
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				IBSC_MODULE = path_provider_foundation;
 				INFOPLIST_FILE = "Target Support Files/path_provider_foundation/ResourceBundle-path_provider_foundation_privacy-path_provider_foundation-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -7024,6 +7204,10 @@
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/device_info_plus";
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				IBSC_MODULE = device_info_plus;
 				INFOPLIST_FILE = "Target Support Files/device_info_plus/ResourceBundle-device_info_plus_privacy-device_info_plus-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -7063,6 +7247,10 @@
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/device_info_plus/device_info_plus-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/device_info_plus/device_info_plus-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -7121,6 +7309,10 @@
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/path_provider_foundation/path_provider_foundation-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/path_provider_foundation/path_provider_foundation-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -7155,6 +7347,10 @@
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/url_launcher_ios";
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				IBSC_MODULE = url_launcher_ios;
 				INFOPLIST_FILE = "Target Support Files/url_launcher_ios/ResourceBundle-url_launcher_ios_privacy-url_launcher_ios-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -7194,6 +7390,10 @@
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/isar_flutter_libs/isar_flutter_libs-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/isar_flutter_libs/isar_flutter_libs-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -7251,6 +7451,10 @@
 					"\"/Users/ka/fvm/versions/3.22.3/bin/cache/artifacts/engine/ios/Flutter.xcframework/ios-arm64_x86_64-simulator\"",
 					"$(inherited)",
 				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				INFOPLIST_FILE = "Target Support Files/Pods-Runner/Pods-Runner-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -7307,6 +7511,10 @@
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/contacts_service/contacts_service-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/contacts_service/contacts_service-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -7364,6 +7572,10 @@
 					"\"/Users/ka/fvm/versions/3.22.3/bin/cache/artifacts/engine/ios-release/Flutter.xcframework/ios-arm64_x86_64-simulator\"",
 					"$(inherited)",
 				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				INFOPLIST_FILE = "Target Support Files/Pods-Runner/Pods-Runner-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -7409,6 +7621,10 @@
 				ENABLE_MODULE_VERIFIER = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_PREFIX_HEADER = "Target Support Files/Toast/Toast-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/Toast/Toast-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -7442,6 +7658,10 @@
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/fluttertoast";
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				IBSC_MODULE = fluttertoast;
 				INFOPLIST_FILE = "Target Support Files/fluttertoast/ResourceBundle-fluttertoast_privacy-fluttertoast-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -7463,6 +7683,10 @@
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/path_provider_foundation";
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				IBSC_MODULE = path_provider_foundation;
 				INFOPLIST_FILE = "Target Support Files/path_provider_foundation/ResourceBundle-path_provider_foundation_privacy-path_provider_foundation-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -7501,6 +7725,10 @@
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/flutter_exit_app/flutter_exit_app-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/flutter_exit_app/flutter_exit_app-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -7539,6 +7767,10 @@
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/device_info_plus";
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				IBSC_MODULE = device_info_plus;
 				INFOPLIST_FILE = "Target Support Files/device_info_plus/ResourceBundle-device_info_plus_privacy-device_info_plus-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -7576,6 +7808,10 @@
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/flutter_native_contact_picker/flutter_native_contact_picker-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/flutter_native_contact_picker/flutter_native_contact_picker-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -7631,6 +7867,10 @@
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/fluttertoast/fluttertoast-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/fluttertoast/fluttertoast-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -7687,6 +7927,10 @@
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/permission_handler_apple/permission_handler_apple-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/permission_handler_apple/permission_handler_apple-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -7726,6 +7970,10 @@
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/permission_handler_apple";
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				IBSC_MODULE = permission_handler_apple;
 				INFOPLIST_FILE = "Target Support Files/permission_handler_apple/ResourceBundle-permission_handler_apple_privacy-permission_handler_apple-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -7754,6 +8002,10 @@
 				ENABLE_MODULE_VERIFIER = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_PREFIX_HEADER = "Target Support Files/Toast/Toast-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/Toast/Toast-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -7794,6 +8046,10 @@
 				ENABLE_MODULE_VERIFIER = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_PREFIX_HEADER = "Target Support Files/Toast/Toast-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/Toast/Toast-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -7827,6 +8083,10 @@
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/path_provider_foundation";
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				IBSC_MODULE = path_provider_foundation;
 				INFOPLIST_FILE = "Target Support Files/path_provider_foundation/ResourceBundle-path_provider_foundation_privacy-path_provider_foundation-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -7866,6 +8126,10 @@
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/device_info_plus/device_info_plus-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/device_info_plus/device_info_plus-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -7905,6 +8169,10 @@
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/url_launcher_ios";
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				IBSC_MODULE = url_launcher_ios;
 				INFOPLIST_FILE = "Target Support Files/url_launcher_ios/ResourceBundle-url_launcher_ios_privacy-url_launcher_ios-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -7927,6 +8195,10 @@
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/fluttertoast";
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				IBSC_MODULE = fluttertoast;
 				INFOPLIST_FILE = "Target Support Files/fluttertoast/ResourceBundle-fluttertoast_privacy-fluttertoast-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -7947,6 +8219,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PERMISSION_CONTACTS=1",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

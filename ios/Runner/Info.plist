@@ -53,6 +53,6 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>NSContactsUsageDescription</key>
-    <string>we need access to the contact list</string>
+    <string>Nous avons de votre permission pour accéder à votre liste de contacts</string>
 </dict>
 </plist>

@@ -385,39 +385,13 @@ class ConfigReseau extends StatelessWidget {
 
 Future<PermissionStatus> _getContactPermission() async {
   PermissionStatus permission = await Permission.contacts.status;
-  if (permission != PermissionStatus.granted &&
-      permission != PermissionStatus.permanentlyDenied) {
+  if (permission == PermissionStatus.granted) {
+    return permission;
+  } else if (permission == PermissionStatus.permanentlyDenied) {
+    openAppSettings();
+    return permission;
+  } else {
     PermissionStatus permissionStatus = await Permission.contacts.request();
     return permissionStatus;
-  } else {
-    return permission;
   }
 }
-
-// Future<bool> _requestPermission() async {
-//   var result = await _permissionHandler.requestPermissions(
-//       [PermissionGroup.phone, PermissionGroup.contacts, PermissionGroup.sms]);
-//   if (result == PermissionStatus.granted) {
-//     return true;
-//   }
-//   return false;
-// }
-
-// Future<bool> requestPermission({required Function onPermissionDenied}) async {
-//   var granted = await _requestPermission();
-//   if (!granted) {
-//     onPermissionDenied();
-//   }
-//   return granted;
-// }
-
-// Future<bool> hasPhonePermission() async {
-//   return hasPermission(PermissionGroup.phone);
-// }
-
-// Future<bool> hasPermission(PermissionGroup permission) async {
-//   var permissionStatus =
-//       await _permissionHandler.checkPermissionStatus(permission);
-//   return permissionStatus == PermissionStatus.granted;
-// }
-  
