@@ -22,14 +22,6 @@ class SettingsPage extends StatelessWidget {
             ),
             margin: const EdgeInsets.only(top: 10, left: 25, right: 25),
             padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 40),
-            // child: SwitchListTile(
-            //     title: const Text("Dark Mode"),
-            //     value: Provider.of<ThemeProvider>(context, listen: false)
-            //         .isDarkMode,
-            //     onChanged: (value) => {
-            //           Provider.of<ThemeProvider>(context, listen: false)
-            //               .toggleTheme(),
-            //         })
 
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
