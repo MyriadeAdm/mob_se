@@ -120,20 +120,25 @@ Future<void> callBottomSheetCredit(
                       _codeControllerFocusNode.requestFocus();
                     } else {
                       if (Provider.of<Reseaux>(context).reseau == "Yas") {
-                      Platform.isAndroid
-                          ? FlutterPhoneDirectCaller.callNumber(
-                              "*909*5*2$montantEnvoye*$numero*${_codeController.text}#")
-                          : makePhoneCall(
-                              "*909*5*2$montantEnvoye*$numero*${_codeController.text}#");}
-                              else {
-                                
-                              }
+                        Platform.isAndroid
+                            ? FlutterPhoneDirectCaller.callNumber(
+                                "*909*5*2$montantEnvoye*$numero*${_codeController.text}#")
+                            : makePhoneCall(
+                                "*909*5*2$montantEnvoye*$numero*${_codeController.text}#");
+                        context.read<HistoriqueDatabase>().addHistorique(
+                            "Transfert de credit Yas",
+                            "Vous avez envoyé $montantEnvoye F CFA au $numero.");
+                      } else {
+                        Platform.isAndroid
+                            ? FlutterPhoneDirectCaller.callNumber(
+                                "*102*$montantEnvoye*$numero*${_codeController.text}#")
+                            : makePhoneCall(
+                                "*102*$montantEnvoye*$numero*${_codeController.text}#");
+                        context.read<HistoriqueDatabase>().addHistorique(
+                            "Transfert de credit Moov ",
+                            "Vous avez envoyé $montantEnvoye F CFA au $numero.");
+                      }
                     }
-
-                    context.read<HistoriqueDatabase>().addHistorique(
-                        "Envoie d'argent",
-                        "Vous avez envoyé $montantEnvoye F CFA au $numero.");
-
                     _codeController.clear();
                     Navigator.pop(context);
                   },
