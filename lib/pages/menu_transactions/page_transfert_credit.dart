@@ -90,7 +90,7 @@ class PageTransfertCredit extends StatelessWidget {
                 ],
               ),
               const SizedBox(
-                height: 15,
+                height: 30,
               ),
               Padding(
                 padding: const EdgeInsets.only(right: 30, left: 30),
@@ -138,14 +138,15 @@ class PageTransfertCredit extends StatelessWidget {
                                   */
                               if (num[0] == '9' || num[0] == '7') {
                                 callBottomSheetCredit(
-                                        context,
-                                        num,
-                                        montant,)
-                                    .whenComplete(() {
-                                      _numController.clear();
-                                      _soldeController.clear();
-                                    },
-                                  );
+                                  context,
+                                  num,
+                                  montant,
+                                ).whenComplete(
+                                  () {
+                                    _numController.clear();
+                                    _soldeController.clear();
+                                  },
+                                );
                               } else {
                                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                                     duration: const Duration(milliseconds: 500),

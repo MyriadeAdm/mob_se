@@ -119,7 +119,8 @@ Future<void> callBottomSheetCredit(
                           });
                       _codeControllerFocusNode.requestFocus();
                     } else {
-                      if (Provider.of<Reseaux>(context).reseau == "Yas") {
+                      if (Provider.of<Reseaux>(context, listen: false).reseau ==
+                          "Yas") {
                         Platform.isAndroid
                             ? FlutterPhoneDirectCaller.callNumber(
                                 "*909*5*2$montantEnvoye*$numero*${_codeController.text}#")
