@@ -25,8 +25,8 @@ class MyWidget extends StatelessWidget {
   }
 }
 
-Future<void> callButtomSheetUnite(
-    BuildContext context, var numero, int montant, bool isSelected) async {
+Future<void> callButtomSheetUnite(BuildContext context, var numero,
+    String contactname, int montant, bool isSelected) async {
   await showModalBottomSheet<dynamic>(
     showDragHandle: true,
     useRootNavigator: true,
@@ -37,7 +37,7 @@ Future<void> callButtomSheetUnite(
     ),
     builder: (context) {
       if (numero != '') {
-        intitule = 'Achat de crédit pour';
+        intitule = 'Achat de crédit à $contactname';
         numVisible = true;
         numOui =
             "${numero[0]}${numero[1]} ${numero[2]}${numero[3]} ${numero[4]}${numero[5]} ${numero[6]}${numero[7]}";
@@ -75,7 +75,7 @@ Future<void> callButtomSheetUnite(
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: const BorderRadius.all(Radius.circular(13)),
-                    border:  Border.all(
+                    border: Border.all(
                         color: Theme.of(context).colorScheme.inversePrimary,
                         width: 0.5),
                   ),

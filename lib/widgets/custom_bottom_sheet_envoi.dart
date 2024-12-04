@@ -16,6 +16,7 @@ final FocusNode _codeControllerFocusNode = FocusNode();
 Future<void> callButtomSheetEnvoie(
     BuildContext context,
     String numero,
+    String contactname,
     int montantEnvoye,
     int fraisTransaction,
     int fraisRetrait,
@@ -41,9 +42,9 @@ Future<void> callButtomSheetEnvoie(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const Text(
-                  "Envoie vers le",
-                  style: TextStyle(
+                Text(
+                  "Envoie à $contactname",
+                  style: const TextStyle(
                     fontWeight: FontWeight.bold,
                   ),
                 ),

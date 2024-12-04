@@ -14,6 +14,7 @@ final _numeroController = TextEditingController();
 final FocusNode _numeroControllerFocusNode = FocusNode();
 final _montantController = TextEditingController();
 final FocusNode _montantFocusNode = FocusNode();
+String nom = '';
 bool _isSelected = false;
 bool fraisVisible = false;
 int frt = 0;
@@ -272,6 +273,7 @@ class PageDepot extends StatelessWidget {
                                       callButtomSheetEnvoie(
                                               context,
                                               num,
+                                              nom,
                                               montant,
                                               fraisTransfert,
                                               fraisRetrait,
@@ -341,6 +343,7 @@ class PageDepot extends StatelessWidget {
                       onContactSelected: (Contact? contact) {
                         _numeroController.text =
                             contact?.phones?[0].value as String;
+                        nom = contact?.displayName as String;
                         // Do something with the selected contact
                         if (kDebugMode) {
                           print(

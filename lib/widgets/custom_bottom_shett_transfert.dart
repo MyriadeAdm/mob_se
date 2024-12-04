@@ -17,6 +17,7 @@ final FocusNode _codeControllerFocusNode = FocusNode();
 Future<void> callBottomSheetCredit(
   BuildContext context,
   String numero,
+  String contactname,
   int montantEnvoye,
 ) async {
   await showModalBottomSheet<dynamic>(
@@ -39,9 +40,9 @@ Future<void> callBottomSheetCredit(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const Text(
-                  "Envoie vers le",
-                  style: TextStyle(
+                Text(
+                  "Envoie à $contactname",
+                  style: const TextStyle(
                     fontWeight: FontWeight.bold,
                   ),
                 ),
