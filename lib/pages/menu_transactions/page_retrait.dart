@@ -19,17 +19,18 @@ class PageRetrait extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text(
-            "Retrait d'argent",
-            style: TextStyle(
-              fontSize: 23,
-              fontWeight: FontWeight.w700,
-            ),
+      appBar: AppBar(
+        title: const Text(
+          "Retrait d'argent",
+          style: TextStyle(
+            fontSize: 23,
+            fontWeight: FontWeight.w700,
           ),
         ),
-        backgroundColor: Theme.of(context).colorScheme.surface,
-        body: Center(
+      ),
+      backgroundColor: Theme.of(context).colorScheme.surface,
+      body: SingleChildScrollView(
+        child: Center(
           child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -163,13 +164,10 @@ class PageRetrait extends StatelessWidget {
                               ],
                               keyboardType: TextInputType.number,
                               obscureText: true,
-                              //onChanged: (){},
                               obscuringCharacter: "*",
                               controller: _codeController,
-                              //focusNode: _codeControllerFocusNode,
                               decoration: InputDecoration(
                                 filled: true,
-                                //hintText: '',
                                 fillColor:
                                     Theme.of(context).colorScheme.secondary,
                                 border: OutlineInputBorder(
@@ -233,7 +231,6 @@ class PageRetrait extends StatelessWidget {
                       _codeAgentController.clear();
                       _montantController.clear();
                       _codeController.clear();
-                      Navigator.pop(context);
                     },
                     style: ElevatedButton.styleFrom(
                         backgroundColor:
@@ -260,6 +257,8 @@ class PageRetrait extends StatelessWidget {
                   ),
                 ),
               ]),
-        ));
+        ),
+      ),
+    );
   }
 }

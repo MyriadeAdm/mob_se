@@ -14,6 +14,7 @@ final _numeroController = TextEditingController();
 final FocusNode _numeroControllerFocusNode = FocusNode();
 final _montantController = TextEditingController();
 final FocusNode _montantFocusNode = FocusNode();
+String nom = '';
 bool _isSelected = false;
 bool fraisVisible = false;
 int frt = 0;
@@ -60,19 +61,12 @@ class LabeledCheckbox extends StatelessWidget {
 }
 
 class PageDepot extends StatelessWidget {
-  IconButton returnBack(BuildContext context) {
-    return IconButton(
-        onPressed: () {
-          Navigator.pop(context);
-        },
-        icon: const Icon(Icons.arrow_back));
-  }
-
   const PageDepot({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.surface,
       appBar: AppBar(
         title: const Text(
           "Envoie d'argent",
@@ -90,7 +84,6 @@ class PageDepot extends StatelessWidget {
             return Stack(
               children: [
                 Column(
-                  //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Divider(
@@ -156,9 +149,6 @@ class PageDepot extends StatelessWidget {
                                                   context, montant);
                                           frt = fraisRetrait;
                                           ftrn = fraisTransfert;
-                                          //print(frt);
-                                          //print(fraisRetrait);
-                                          //print(montant);
                                           mnt = montant;
                                         });
                                       }
@@ -275,6 +265,7 @@ class PageDepot extends StatelessWidget {
                                       callButtomSheetEnvoie(
                                               context,
                                               num,
+                                              nom,
                                               montant,
                                               fraisTransfert,
                                               fraisRetrait,
@@ -344,6 +335,7 @@ class PageDepot extends StatelessWidget {
                       onContactSelected: (Contact? contact) {
                         _numeroController.text =
                             contact?.phones?[0].value as String;
+                        nom = contact?.displayName as String;
                         // Do something with the selected contact
                         if (kDebugMode) {
                           print(

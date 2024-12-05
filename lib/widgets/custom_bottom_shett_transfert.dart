@@ -3,30 +3,24 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
-import 'package:provider/provider.dart';
-import '../constants/color_constants.dart';
-import '../constants/reseaux.dart';
+import 'package:mob_se/constants/reseaux.dart';
+
 import 'package:mob_se/lib/make_call.dart';
+import 'package:provider/provider.dart';
+
+import '../constants/color_constants.dart';
 import '../models/historique_database.dart';
 
 final _codeController = TextEditingController();
 final FocusNode _codeControllerFocusNode = FocusNode();
-String intitule = '';
-String numOui = '';
-bool numVisible = true;
-int choixMontant = 0;
+String display = '';
 
-class MyWidget extends StatelessWidget {
-  const MyWidget({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
-  }
-}
-
-Future<void> callButtomSheetUnite(BuildContext context, var numero,
-    String contactname, int montant, bool isSelected) async {
+Future<void> callBottomSheetCredit(
+  BuildContext context,
+  String numero,
+  String contactname,
+  int montantEnvoye,
+) async {
   await showModalBottomSheet<dynamic>(
     showDragHandle: true,
     useRootNavigator: true,
@@ -35,28 +29,17 @@ Future<void> callButtomSheetUnite(BuildContext context, var numero,
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(top: Radius.circular(30.0)),
     ),
-    builder: (context) {
-      if (numero != '') {
-        if (contactname != '') {
-          intitule = 'Achat de crédit à $contactname';
-        } else {
-          intitule = 'Achat de crédit au';
-        }
-        numVisible = true;
-        numOui =
-            "${numero[0]}${numero[1]} ${numero[2]}${numero[3]} ${numero[4]}${numero[5]} ${numero[6]}${numero[7]}";
+    builder: (BuildContext context) {
+      if (contactname == '') {
+        display = "Envoie vers le ";
       } else {
-        intitule = 'Achat de credit à';
-        numOui = 'Moi-même';
-        numVisible = false;
+        display = "Envoie à $contactname";
       }
-
       return Padding(
         padding:
             EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
         child: SizedBox(
-          //height: MediaQuery.of(context).size.height / 2,
-          height: 400,
+          height: MediaQuery.of(context).size.height / 2,
           child: Padding(
             padding: const EdgeInsets.only(bottom: 30, left: 30, right: 30),
             child: Column(
@@ -64,18 +47,19 @@ Future<void> callButtomSheetUnite(BuildContext context, var numero,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  intitule,
+                  display,
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 Text(
-                  numOui,
+                  ("${numero[0]}${numero[1]} ${numero[2]}${numero[3]} ${numero[4]}${numero[5]} ${numero[6]}${numero[7]}"),
                   style: const TextStyle(
                     fontSize: 40,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
+                const SizedBox(height: 5),
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: const BorderRadius.all(Radius.circular(13)),
@@ -90,18 +74,19 @@ Future<void> callButtomSheetUnite(BuildContext context, var numero,
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Text("Choix de:"),
-                          Text(
-                            "$montant F CFA",
-                            style: const TextStyle(
-                              fontWeight: FontWeight.w700,
-                            ),
-                          ),
+                          const Text("Montant à envoyer :"),
+                          Text("$montantEnvoye F CFA"),
                         ],
+                      ),
+                      const SizedBox(height: 10),
+                      Divider(
+                        thickness: 0.5,
+                        color: Theme.of(context).colorScheme.inversePrimary,
                       ),
                     ]),
                   ),
                 ),
+                const SizedBox(height: 10),
                 TextField(
                   textAlign: TextAlign.center,
                   keyboardType: TextInputType.number,
@@ -113,7 +98,7 @@ Future<void> callButtomSheetUnite(BuildContext context, var numero,
                   controller: _codeController,
                   focusNode: _codeControllerFocusNode,
                   decoration: InputDecoration(
-                    hintText: 'Code secret',
+                    hintText: 'Code',
                     filled: true,
                     fillColor: Theme.of(context).colorScheme.secondary,
                     border: OutlineInputBorder(
@@ -122,10 +107,9 @@ Future<void> callButtomSheetUnite(BuildContext context, var numero,
                     ),
                   ),
                 ),
+                const SizedBox(height: 10),
                 ElevatedButton(
                   onPressed: () {
-                    //print ('le code est *${_codeController.text}*');
-
                     if (_codeController.text == '') {
                       showDialog(
                           context: context,
@@ -142,84 +126,29 @@ Future<void> callButtomSheetUnite(BuildContext context, var numero,
                           });
                       _codeControllerFocusNode.requestFocus();
                     } else {
-                      switch (montant) {
-                        case 200:
-                          choixMontant = 1;
-                          break;
-                        case 500:
-                          choixMontant = 2;
-                          break;
-                        case 1000:
-                          choixMontant = 3;
-                          break;
-                        case 2000:
-                          choixMontant = 4;
-                          break;
-                        case 4500:
-                          choixMontant = 5;
-                          break;
-                        case 9000:
-                          choixMontant = 6;
-                          break;
-                        case 22500:
-                          choixMontant = 7;
-                          break;
-                        case 45000:
-                          choixMontant = 8;
-                          break;
-                        default:
-                      }
-
                       if (Provider.of<Reseaux>(context, listen: false).reseau ==
                           "Yas") {
-                        if (isSelected) {
-                          Platform.isAndroid
-                              ? FlutterPhoneDirectCaller.callNumber(
-                                  "*145*3*1*2*$numero*$choixMontant*${_codeController.text}#")
-                              : makePhoneCall(
-                                  "*145*3*1*2*$numero*$choixMontant*${_codeController.text}#");
-
-                          context.read<HistoriqueDatabase>().addHistorique(
-                              "Achat crédit Mixx",
-                              "$montant F CFA rechargé à $numero");
-                        } else {
-                          Platform.isAndroid
-                              ? FlutterPhoneDirectCaller.callNumber(
-                                  "*145*3*1*1*$choixMontant*${_codeController.text}#")
-                              : makePhoneCall(
-                                  "*145*3*1*1*$choixMontant*${_codeController.text}#");
-
-                          context.read<HistoriqueDatabase>().addHistorique(
-                              "Achat crédit Mixx",
-                              "$montant F CFA rechargé à Moi-Même");
-                        }
+                        Platform.isAndroid
+                            ? FlutterPhoneDirectCaller.callNumber(
+                                "*909*5*2$montantEnvoye*$numero*${_codeController.text}#")
+                            : makePhoneCall(
+                                "*909*5*2$montantEnvoye*$numero*${_codeController.text}#");
+                        context.read<HistoriqueDatabase>().addHistorique(
+                            "Transfert de credit Yas",
+                            "Vous avez envoyé $montantEnvoye F CFA au $numero.");
                       } else {
-                        if (isSelected) {
-                          Platform.isAndroid
-                              ? FlutterPhoneDirectCaller.callNumber(
-                                  "*155*3*1*2*$numero*$montant*${_codeController.text}#")
-                              : makePhoneCall(
-                                  "*155*3*1*2*$numero*$montant*${_codeController.text}#"); // syntaxe moov achat credit autruit
-
-                          context.read<HistoriqueDatabase>().addHistorique(
-                              "Achat crédit Flooz",
-                              "$montant F CFA rechargé à $numero");
-                        } else {
-                          Platform.isAndroid
-                              ? FlutterPhoneDirectCaller.callNumber(
-                                  "*155*3*1*1*$montant*${_codeController.text}#")
-                              : makePhoneCall(
-                                  "*155*3*1*1*$montant*${_codeController.text}#"); // syntaxe moov achat credit moi meme
-
-                          context.read<HistoriqueDatabase>().addHistorique(
-                              "Achat crédit Flooz",
-                              "$montant F CFA rechargé à Moi-Même");
-                        }
+                        Platform.isAndroid
+                            ? FlutterPhoneDirectCaller.callNumber(
+                                "*102*$montantEnvoye*$numero*${_codeController.text}#")
+                            : makePhoneCall(
+                                "*102*$montantEnvoye*$numero*${_codeController.text}#");
+                        context.read<HistoriqueDatabase>().addHistorique(
+                            "Transfert de credit Moov ",
+                            "Vous avez envoyé $montantEnvoye F CFA au $numero.");
                       }
                     }
-
                     _codeController.clear();
-                    // Navigator.pop(context);
+                    Navigator.pop(context);
                   },
                   style: ElevatedButton.styleFrom(
                       backgroundColor:
@@ -250,9 +179,5 @@ Future<void> callButtomSheetUnite(BuildContext context, var numero,
         ),
       );
     },
-  ).whenComplete(reset);
-}
-
-void reset() {
-  _codeController.clear();
+  );
 }

@@ -12,19 +12,12 @@ import '../models/historique_database.dart';
 
 final _codeController = TextEditingController();
 final FocusNode _codeControllerFocusNode = FocusNode();
-
-class MyWidget extends StatelessWidget {
-  const MyWidget({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
-  }
-}
+String display = '';
 
 Future<void> callButtomSheetEnvoie(
     BuildContext context,
     String numero,
+    String contactname,
     int montantEnvoye,
     int fraisTransaction,
     int fraisRetrait,
@@ -38,6 +31,11 @@ Future<void> callButtomSheetEnvoie(
       borderRadius: BorderRadius.vertical(top: Radius.circular(30.0)),
     ),
     builder: (context) {
+      if (contactname == '') {
+        display = "Envoie vers le ";
+      } else {
+        display = "Envoie à $contactname";
+      }
       return Padding(
         padding:
             EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
@@ -50,9 +48,9 @@ Future<void> callButtomSheetEnvoie(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const Text(
-                  "Envoie vers le",
-                  style: TextStyle(
+                Text(
+                  display,
+                  style: const TextStyle(
                     fontWeight: FontWeight.bold,
                   ),
                 ),

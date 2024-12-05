@@ -59,6 +59,7 @@ final FocusNode _numeroControllerFocusNode = FocusNode();
 int montant = 0;
 final _montantController = TextEditingController();
 String currentOption = options[0];
+String nom = '';
 bool codeVisible = false;
 bool numVisible = false;
 bool boolSearch = false;
@@ -166,47 +167,50 @@ class _PageAchatCreditState extends State<PageAchatCredit> {
                 ),
               ),
               (Provider.of<Reseaux>(context).reseau == 'Yas')
-                  ? Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        const Text('* Séléctionner le montant à envoyer',
-                            style: TextStyle(
-                              fontSize: 15,
-                            )),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        Row(
-                          children: [
-                            creditColumn(context, 200, '200'),
-                            const SizedBox(width: 10),
-                            creditColumn(context, 500, '500'),
-                            const SizedBox(width: 10),
-                            creditColumn(context, 1000, '1.000'),
-                          ],
-                        ),
-                        const SizedBox(height: 10),
-                        Row(
-                          children: [
-                            creditColumn(context, 2000, '2.000'),
-                            const SizedBox(width: 10),
-                            creditColumn(context, 4500, '4.500'),
-                            const SizedBox(width: 10),
-                            creditColumn(context, 9000, '9.000'),
-                          ],
-                        ),
-                        const SizedBox(height: 10),
-                        Row(
-                          children: [
-                            creditColumn(context, 22500, '22.500'),
-                            const SizedBox(width: 10),
-                            creditColumn(context, 45000, '45.000'),
-                          ],
-                        ),
-                      ],
+                  ? Padding(
+                      padding: const EdgeInsets.only(left: 8, right: 8),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          const Text('* Séléctionner le montant à envoyer',
+                              style: TextStyle(
+                                fontSize: 15,
+                              )),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            children: [
+                              creditColumn(context, 200, '200'),
+                              const SizedBox(width: 10),
+                              creditColumn(context, 500, '500'),
+                              const SizedBox(width: 10),
+                              creditColumn(context, 1000, '1.000'),
+                            ],
+                          ),
+                          const SizedBox(height: 10),
+                          Row(
+                            children: [
+                              creditColumn(context, 2000, '2.000'),
+                              const SizedBox(width: 10),
+                              creditColumn(context, 4500, '4.500'),
+                              const SizedBox(width: 10),
+                              creditColumn(context, 9000, '9.000'),
+                            ],
+                          ),
+                          const SizedBox(height: 10),
+                          Row(
+                            children: [
+                              creditColumn(context, 22500, '22.500'),
+                              const SizedBox(width: 10),
+                              creditColumn(context, 45000, '45.000'),
+                            ],
+                          ),
+                        ],
+                      ),
                     )
                   : Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -290,6 +294,7 @@ class _PageAchatCreditState extends State<PageAchatCredit> {
                                       callButtomSheetUnite(
                                           context,
                                           num,
+                                          nom,
                                           int.parse(_montantController.text),
                                           false);
                                     } else {
@@ -315,6 +320,7 @@ class _PageAchatCreditState extends State<PageAchatCredit> {
                                           callButtomSheetUnite(
                                               context,
                                               num,
+                                              nom,
                                               int.parse(
                                                   _montantController.text),
                                               true);
@@ -378,6 +384,7 @@ class _PageAchatCreditState extends State<PageAchatCredit> {
                 controller: _numeroController,
                 onContactSelected: (Contact? contact) {
                   _numeroController.text = contact?.phones?[0].value as String;
+                  nom = contact?.displayName as String;
                   // Do something with the selected contact
                   if (kDebugMode) {
                     print(
@@ -404,7 +411,7 @@ Widget creditColumn(
           montant = montantArg;
           if (currentOption == options[0]) {
             String num = _numeroController.text = '';
-            callButtomSheetUnite(context, num, montant, false);
+            callButtomSheetUnite(context, num, nom, montant, false);
           } else {
             if (currentOption == options[1] && _numeroController.text == '') {
               ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
@@ -416,7 +423,7 @@ Widget creditColumn(
               num = num.substring(num.length - 8);
 
               if (num[0] == '9' || num[0] == '7') {
-                callButtomSheetUnite(context, num, montant, true);
+                callButtomSheetUnite(context, num, nom, montant, true);
               } else {
                 ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                     duration: Duration(milliseconds: 500),
